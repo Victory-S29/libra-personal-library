@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel:wght@400..900&family=Kings&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel:wght@400..900&family=Kings&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.light, .pink, .dark {
+  background-color: var(--background-color);
+}
+
+:root {
+  --background-color: #ffffff;
+  --section-bc-color:#f8f8f8;
+  --footer-color: #f4f4f4;
+  --secondary-color: #c7cfc8;
+  --accent-color: #050e2a;
+  --separators-color: #194f2321;
+  --shadow-color: #00000099;
+  --title-color: #000000;
+  --text-color: #000000;
+  --active-text-color: #0d2c13;
+  --secondary-text-color: #677e6c;
+  --subtext-color: #222222;
+  --error-color: #bd0d0d;
+  --button-color: #194f23;
+  --button-focus-color: #194f2324;
+  --button-text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.separator {
+  width: calc(100vw - 120px);
+  height: 1px;
+  border: 1px solid var(--separators-color);
+  margin: 0 auto;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--accent-color);
+}
+.icon:hover {
+  cursor: pointer;
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .icon {
+    width: 25px;
+    height: 25px;
+    color: var(--accent-color);
+  }
+  .icon:hover {
+    cursor: pointer;
+  }
+}
+@media (min-width: 1920px) {
+  .icon {
+    width: 30px;
+    height: 30px;
+    color: var(--accent-color);
+  }
+  .icon:hover {
+    cursor: pointer;
+  }
+}
+
+.main-nav {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  background-color: var(--background-color);
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 60px;
+}
+@media (max-width: 768px) {
+  .main-nav {
+    padding: 10px 30px;
+  }
+}
+@media (min-width: 1920px) {
+  .main-nav {
+    height: 80px;
+    padding: 20px 60px;
+  }
+}
+.main-nav div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.main-nav div img {
+  height: 35px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main-nav div img:hover {
+  cursor: pointer;
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .main-nav div img {
+    height: 35px;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .main-nav div img:hover {
+    cursor: pointer;
+  }
+}
+@media (min-width: 1920px) {
+  .main-nav div img {
+    height: 55px;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .main-nav div img:hover {
+    cursor: pointer;
+  }
+}
+.main-nav div h1 {
+  color: var(--title-color);
+  font-family: "Merriweather", serif;
+  font-weight: 200;
+  font-size: 30px;
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .main-nav div h1 {
+    font-size: 35px;
+  }
+}
+@media (min-width: 1920px) {
+  .main-nav div h1 {
+    font-size: 40px;
+  }
+}/*# sourceMappingURL=main.css.map */
