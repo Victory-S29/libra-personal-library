@@ -1,9 +1,12 @@
-import React from 'react';
-import { NavBar } from '../';
+import React, { Fragment } from 'react';
+import { Book, NavBar } from '../';
 
 const MainPage = () => {
     return (
-        <NavBar />
+        <Fragment>
+            <NavBar />
+            <Book />
+        </Fragment>
     );
 };
 
