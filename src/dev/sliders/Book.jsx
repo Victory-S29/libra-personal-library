@@ -1,13 +1,22 @@
 import React from 'react';
-import { getBasicBooksSelector } from '../../store/reducers/books.reducer';
-import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { faComment } from '@fortawesome/free-regular-svg-icons';
+import { faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
+import StarRating from './StarRating';
 
-const Book = () => {
-    const baseBooks = useSelector(getBasicBooksSelector);
-
+const Book = ({ title, author, rating, image }) => {
     return (
-        <div>
-            <img className="project-image" src={baseBooks[0].image} alt="project screenshot"   />;
+        <div className='single-book-section'>
+            <h4 className='single-book-title'>{title}</h4>
+            <p className='single-book-text'>{author}</p>
+            <img className='single-book-img' src={image} alt={`Cover of ${title}`} />
+            <StarRating rating={rating} />
+            <div className='actions-bar'>
+                <FontAwesomeIcon icon={faBookmark} className='icon' />
+                <FontAwesomeIcon icon={faComment} className='icon' />
+                <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
+            </div>
         </div>
     );
 };

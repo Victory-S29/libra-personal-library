@@ -10,4 +10,4 @@ const BooksReducer = (state = initialStateBooks, action) => {
 
 export default BooksReducer;
 
-export const getBasicBooksSelector = (state) => state.booksReducer.books;
+export const getBasicBooksSelector = (state) => state.booksReducer.basicBooks;
