@@ -7,3 +7,16 @@
 .light, .pink, .dark{
     background-color: var(--background-color);
 }
+
+h2 {
+    @include text-base(var(--title-color), $text-font, $font-size: $size-40);
+    line-height: 200%;
+    text-align: center;
+
+    @media (max-width: $md) {
+        font-size: $size-30;
+    }
+    @media (min-width: $xxxl) {
+        font-size: $size-50;
+    }
+}

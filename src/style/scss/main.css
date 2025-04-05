@@ -1,17 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.light, .pink, .dark {
-  background-color: var(--background-color);
-}
-
 :root {
   --background-color: #ffffff;
   --section-bc-color:#f8f8f8;
@@ -29,6 +17,35 @@
   --button-color: #19194f;
   --button-focus-color: #26194f24;
   --button-text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.light, .pink, .dark {
+  background-color: var(--background-color);
+}
+
+h2 {
+  color: var(--title-color);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 200%;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1920px) {
+  h2 {
+    font-size: 50px;
+  }
 }
 
 body {
@@ -750,6 +767,85 @@ body {
     border: none;
     border-radius: 0;
     cursor: pointer;
+    font-size: 25px;
+  }
+}
+
+.community-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px auto;
+  width: 85%;
+}
+@media (max-width: 768px) {
+  .community-grid {
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5px auto;
+  }
+}
+.community-grid .community-grid--element {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--section-bc-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  padding: 40px 10px;
+}
+.community-grid .community-grid--element:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease 0s;
+}
+@media (max-width: 768px) {
+  .community-grid .community-grid--element:hover {
+    transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .community-grid .community-grid--element {
+    gap: 10px;
+    padding: 20px 10px;
+  }
+}
+@media (min-width: 1920px) {
+  .community-grid .community-grid--element {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.community-grid .community-grid--element img {
+  cursor: auto !important;
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (min-width: 1920px) {
+  .community-grid .community-grid--element img {
+    height: 80px;
+  }
+}
+.community-grid .community-grid--element p {
+  color: var(--text-color);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 200%;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .community-grid .community-grid--element p {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1920px) {
+  .community-grid .community-grid--element p {
     font-size: 25px;
   }
 }/*# sourceMappingURL=main.css.map */

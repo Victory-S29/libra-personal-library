@@ -1,8 +1,7 @@
 @import "./_basic-variables";
-@import "./base";
-@import "./_basic-variables";
-@import "./_themes.scss";
 @import "./mixins";
+@import "./_themes.scss";
+@import "./base";
 
 body {
     background-color: var(--background-color);
@@ -28,3 +27,4 @@ body {
 @import "./components/navbar";
 @import "./components/sliders";
 @import "./components/catalogue";
+@import "./components/community";
