@@ -25,7 +25,6 @@ const SliderComponent = ({ title, data }) => {
                                 image={book.image}
                                 key={book.id}
                             />
-                 
                         </SplideSlide>)
                 })}
             </Splide>

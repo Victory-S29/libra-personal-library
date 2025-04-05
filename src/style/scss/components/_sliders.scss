@@ -1,8 +1,31 @@
 .slider-section {
+    position: relative;
+    overflow: hidden;
     border-bottom: 1px solid var(--accent-color);
     margin: 5px auto;
     margin-bottom: $basic-margin-y;
     width: 80%;
+}
+
+.slider-section::before,
+.slider-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 90%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.slider-section::before {
+    left: 0;
+    background: linear-gradient(to right, var(--background-color), rgba(255, 255, 255, 0));
+}
+
+.slider-section::after {
+    right: 0;
+    background: linear-gradient(to left, var(--background-color), rgba(255, 255, 255, 0));
 }
 
 .splide__slide {
@@ -45,4 +68,3 @@
         font-size: $size-35;
     }
 }
-
