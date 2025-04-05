@@ -1,14 +1,17 @@
 import React, { Fragment } from 'react';
 import { Catalogue, NavBar, SliderComponent } from '../';
-import { getBasicBooksSelector } from '../../store/reducers/books.reducer';
+import { getPopularBooksSelector, getStartingBooksSelector } from '../../store/reducers/books.reducer';
 import { useSelector } from 'react-redux';
 
 const MainPage = () => {
-    const baseBooks = useSelector(getBasicBooksSelector);
+    const startingBooks = useSelector(getStartingBooksSelector);
+    const popularBooks = useSelector(getPopularBooksSelector);
+     
     return (
         <Fragment>
             <NavBar />
-            <SliderComponent {...baseBooks}   />
+            <SliderComponent {...startingBooks}   />
+            <SliderComponent {...popularBooks}   />
             <Catalogue />
         </Fragment>
     );

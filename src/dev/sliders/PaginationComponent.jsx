@@ -1,11 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
- 
-    getCurrentPageSelector,
- 
-    getNumberOfBooksPerPageSelector,
-    getNumberOfBooksSelector,
+    getCurrentPageSelector, getNumberOfBooksPerPageSelector, getNumberOfBooksSelector,
 } from "../../store/reducers/catalogue.reducer";
 import { displayNewPageAction } from "../../store/actions/catalogue.action";
 import { Pagination } from "rsuite";
@@ -42,9 +38,9 @@ const PaginationComponent = () => {
                 last={paginationData.last}
                 total={numberOfBooks}
                 limit={numberOfBooksPerPage}
-                activePage={currentPage} 
+                activePage={currentPage}
                 maxButtons={paginationData.maxButtons}
-                onSelect={handlePageChange} 
+                onSelect={handlePageChange}
             />
         </div>
     );

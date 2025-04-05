@@ -17,8 +17,8 @@
   --section-bc-color:#f8f8f8;
   --footer-color: #f4f4f4;
   --secondary-color: #c7cfc8;
-  --accent-color: #050e2a;
-  --separators-color: #194f2321;
+  --accent-color: #05031b;
+  --separators-color: #191c4f21;
   --shadow-color: #00000099;
   --title-color: #000000;
   --text-color: #000000;
@@ -26,8 +26,8 @@
   --secondary-text-color: #677e6c;
   --subtext-color: #222222;
   --error-color: #bd0d0d;
-  --button-color: #194f23;
-  --button-focus-color: #194f2324;
+  --button-color: #19194f;
+  --button-focus-color: #26194f24;
   --button-text-color: #ffffff;
 }
 
@@ -76,7 +76,7 @@ body {
   top: 0;
   height: 60px;
   background-color: var(--background-color);
-  z-index: 1;
+  z-index: 100;
   display: flex;
   flex-direction: row;
   gap: 0px;
@@ -151,10 +151,33 @@ body {
 }
 
 .slider-section {
+  position: relative;
+  overflow: hidden;
   border-bottom: 1px solid var(--accent-color);
   margin: 5px auto;
   margin-bottom: 20px;
   width: 80%;
+}
+
+.slider-section::before,
+.slider-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 15px;
+  height: 90%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.slider-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background-color), rgba(255, 255, 255, 0));
+}
+
+.slider-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background-color), rgba(255, 255, 255, 0));
 }
 
 .splide__slide {

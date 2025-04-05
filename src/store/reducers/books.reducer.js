@@ -1,13 +1,19 @@
-import initialStateBooks from "../base/BasicData";
+import initialStateBooks from "../base/BasicBooks";
 
-const BooksReducer = (state = initialStateBooks, action) => {
+const initialState = {
+    startingBooks: initialStateBooks.startingBooks,
+    popularBooks: initialStateBooks.popularBooks,
+};
+
+const BooksReducer = (state = initialState, action) => {
     switch (action.type) {
         default: {
-            return initialStateBooks;
+            return state;
         }
     }
 }
 
 export default BooksReducer;
 
-export const getBasicBooksSelector = (state) => state.booksReducer.basicBooks;
+export const getStartingBooksSelector = (state) => state.booksReducer.startingBooks;
+export const getPopularBooksSelector = (state) => state.booksReducer.popularBooks;
