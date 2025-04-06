@@ -1,11 +1,10 @@
 import React from 'react';
 import { Book } from '../';
-import { getCurrentDataSelector, getSortedDataSelector } from '../../store/reducers/catalogue.reducer';
+import { getCurrentDataSelector } from '../../store/reducers/catalogue.reducer';
 import { useSelector } from 'react-redux';
 
 const CatalogueBookSection = () => {
     const currentData = useSelector(getCurrentDataSelector);
-    const sortedData = useSelector(getSortedDataSelector);
 
     return (
         <section className='catalogue-book__section' >
