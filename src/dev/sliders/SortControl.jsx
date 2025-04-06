@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCircleLeft } from '@fortawesome/free-regular-svg-icons';
 import { getAllDataSelector, getFiltersSelector, getIsFilteredSelector, getNumberOfBooksPerPageSelector } from '../../store/reducers/catalogue.reducer';
-import { displayFilteredCatalogueAction, displayNewPageAction, resetPaginationAction, rewriteCatalogueAction } from '../../store/actions/catalogue.action';
+import { displayFilteredCatalogueAction, resetPaginationAction, rewriteCatalogueAction } from '../../store/actions/catalogue.action';
 import { displayMainCatalogueAction } from '../../store/actions/catalogue.action';
 
 const SortControl = () => {

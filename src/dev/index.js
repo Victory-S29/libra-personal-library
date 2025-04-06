@@ -10,3 +10,4 @@ export { default as PaginationComponent } from "./sliders/PaginationComponent.js
 export { default as SortControl } from "./sliders/SortControl.jsx";
 export { default as CatalogueBookSection } from "./sliders/CatalogueBookSection.jsx";
 export { default as Features } from "./components/Features.jsx";
+export { default as LoginPopup } from "./components/LoginPopup.jsx";
