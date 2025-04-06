@@ -1,4 +1,4 @@
-import { DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE } from "../actions/catalogue.action";
+import { DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 import initialStateSort from "../base/SortData";
 
@@ -12,12 +12,9 @@ const initialState = {
             ...initialStateBooks.startingBooks.data,
             ...initialStateBooks.popularBooks.data
         ],
-        currentData: [
-            ...initialStateBooks.startingBooks.data,
-            ...initialStateBooks.popularBooks.data
-        ],
+        sortedData: [],
+        currentData: [],
     },
-    numberOfBooks: 10,
     numberOfBooksPerPage: numberOfBooksPerPageNumb,
     filters: initialStateSort,
     showFiltered: false
@@ -26,7 +23,7 @@ const initialState = {
 const CatalogueReducer = (state = initialState, action) => {
     switch (action.type) {
         case DISPLAY_PAGE_OF_BOOKS_TYPE: {
-            const { numberOfBooksPerPage, numberOfBooks, currentPage } = action.payload;
+            const { numberOfBooksPerPage, currentPage, isFiltered } = action.payload;
             const startIndex = (currentPage - 1) * numberOfBooksPerPage;
             const endIndex = startIndex + numberOfBooksPerPage;
 
@@ -35,30 +32,59 @@ const CatalogueReducer = (state = initialState, action) => {
                 catalogueSliderData: {
                     ...state.catalogueSliderData,
                     currentPage,
-                    currentData: state.catalogueSliderData.allData.slice(startIndex, endIndex),
+                    currentData: isFiltered ? state.catalogueSliderData.sortedData.slice(startIndex, endIndex)
+                        : state.catalogueSliderData.allData.slice(startIndex, endIndex),
                 },
-                numberOfBooks: numberOfBooks
             };
         }
-        case DISPLAY_NEW_CATALOGUE_TYPE: {
-            const { currentData, showFiltered } = action.payload;
+        case REWRITE_CATALOGUE_TYPE: {
+            const { sortedData, showFiltered } = action.payload;
 
             return {
                 ...state,
+                currentPage: 1,
                 catalogueSliderData: {
                     ...state.catalogueSliderData,
-                    currentData,
+                    sortedData,
+
                 },
                 showFiltered
             };
         }
-        case DISPLAY_MAIN_CATALOGUE_TYPE: {
+        case DISPLAY_NEW_CATALOGUE_TYPE: {
+            const { numberOfBooksPerPage } = action.payload;
+            const startIndex = 0;
+            const endIndex = startIndex + numberOfBooksPerPage;
+
             return {
                 ...state,
+                currentPage: 1,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    currentData: state.catalogueSliderData.sortedData.slice(startIndex, endIndex)
+                },
+            };
+        }
+        case DISPLAY_MAIN_CATALOGUE_TYPE: {
+            const startIndex = 0;
+            return {
+                ...state,
+                currentPage: 1,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    currentData: state.catalogueSliderData.allData.slice(startIndex, numberOfBooksPerPageNumb)
+                },
+                showFiltered: false
+            };
+        }
+        case RESET_PAGINATION_TYPE: {
+            const { currentPage } = action.payload;
+            return {
+                ...state,
+                currentPage: currentPage,
                 catalogueSliderData: {
                     ...state.catalogueSliderData,
                 },
-                showFiltered: false
             };
         }
         default: {
@@ -77,9 +103,10 @@ export default CatalogueReducer;
 
 export const getCurrentDataSelector = (state) => state.catalogueReducer.catalogueSliderData.currentData;
 export const getCurrentPageSelector = (state) => state.catalogueReducer.catalogueSliderData.currentPage;
-export const getAllDataSelector = (state) => state.catalogueReducer.catalogueSliderData.allData;
 
-export const getNumberOfBooksSelector = (state) => state.catalogueReducer.numberOfBooks;
+export const getAllDataSelector = (state) => state.catalogueReducer.catalogueSliderData.allData;
+export const getSortedDataSelector = (state) => state.catalogueReducer.catalogueSliderData.sortedData;
+
 export const getNumberOfBooksPerPageSelector = (state) => state.catalogueReducer.numberOfBooksPerPage;
 export const getStartingDataSelector = (state) => state.catalogueReducer.catalogueSliderData.startingData;
 

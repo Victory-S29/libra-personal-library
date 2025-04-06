@@ -4,8 +4,9 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCircleLeft } from '@fortawesome/free-regular-svg-icons';
-import { getAllDataSelector, getFiltersSelector, getIsFilteredSelector } from '../../store/reducers/catalogue.reducer';
-import { displayFilteredCatalogueAction } from '../../store/actions/catalogue.action';
+import { getAllDataSelector, getFiltersSelector, getIsFilteredSelector, getNumberOfBooksPerPageSelector } from '../../store/reducers/catalogue.reducer';
+import { displayFilteredCatalogueAction, displayNewPageAction, resetPaginationAction, rewriteCatalogueAction } from '../../store/actions/catalogue.action';
+import { displayMainCatalogueAction } from '../../store/actions/catalogue.action';
 
 const SortControl = () => {
     // Select filters from the Redux store
@@ -32,7 +33,7 @@ const SortControl = () => {
     }, {});
 
     const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters || {}); // State for the currently selected filters
-
+    const numberOfBooksPerPage = useSelector(getNumberOfBooksPerPageSelector);
 
     // Toggle the dropdown menu visibility
     const toggleDropdown = () => {
@@ -113,11 +114,12 @@ const SortControl = () => {
 
         if (selectedFilters.Genres && selectedFilters.Genres.length > 0) {
             filteredBooks = filteredBooks.filter(book =>
-                selectedFilters.Genres.every(selectedTag =>
-                    book.tags.map(tag => tag.toLowerCase()).includes(selectedTag.toLowerCase())
+                selectedFilters.Genres.some(
+                    selectedGenre => book.category.toLowerCase() === selectedGenre.toLowerCase()
                 )
             );
         }
+
         if (selectedFilters.Status && selectedFilters.Status.length > 0) {
             if (selectedFilters.Status !== "Turn off sorting by status") {
                 filteredBooks = filteredBooks.filter(book =>
@@ -126,12 +128,15 @@ const SortControl = () => {
             }
         }
         filteredBooks = sortBooks(filteredBooks, selectedFilters.Additional)
-        dispatch(displayFilteredCatalogueAction(filteredBooks, true));
+        dispatch(rewriteCatalogueAction(filteredBooks, true));
+        dispatch(displayFilteredCatalogueAction(numberOfBooksPerPage));
     };
 
     const backToMainCatalogue = () => {
-        dispatch(displayFilteredCatalogueAction());
+        dispatch(resetPaginationAction(0));
+        dispatch(displayMainCatalogueAction());
     };
+
     const clearForm = () => {
         setInputData('');
         setSelectedFilters({})

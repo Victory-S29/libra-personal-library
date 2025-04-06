@@ -8,6 +8,14 @@ const Babel = "https://raw.githubusercontent.com/Victory-S29/libra-personal-libr
 const TheMidnightLibrary = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheMidnightLibrary.jpg";
 const TheNameoftheWind = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheNameoftheWind.jpg";
 const Dune = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/Dune.jpg";
+const TheMartian = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheMartian.jpg";
+const Circe = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/Circe.jpg";
+const Educated = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/Educated.jpg";
+const AtomicHabits = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/AtomicHabits.jpg";
+const TheAlchemist = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheAlchemist.jpg";
+const BookThief = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/BookThief.jpg";
+const NormalPeople = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/NormalPeople.jpg";
+const Mistborn = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/Mistborn.jpg";
 
 const initialStateBooks = {
   startingBooks: {
@@ -109,6 +117,91 @@ const initialStateBooks = {
           text: "A timeless classic that blends politics, religion, and ecology in an epic sci-fi narrative. A must-read for any sci-fi fan."
         },
         addedAt: "2025-03-10T13:50:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: TheMartian,
+        title: "The Martian",
+        author: "Andy Weir",
+        category: "Science Fiction",
+        tags: ["Sci-Fi", "Survival", "Humor"],
+        status: "finished",
+        progress: 0,
+        totalPages: 385,
+        notes: [],
+        review: {
+          rating: 3,
+          text: "Hilarious, suspenseful, and scientifically smart. A space survival story like no other."
+        },
+        addedAt: "2025-03-22T13:00:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: Circe,
+        title: "Circe",
+        author: "Madeline Miller",
+        category: "Fantasy",
+        tags: ["Mythology", "Fantasy", "Feminism"],
+        status: "reading",
+        progress: 150,
+        totalPages: 400,
+        notes: [],
+        review: {
+          rating: 4.5,
+          text: "A beautifully written retelling of a myth through the lens of empowerment."
+        },
+        addedAt: "2025-03-23T10:45:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: Educated,
+        title: "Educated",
+        author: "Tara Westover",
+        category: "Memoir",
+        tags: ["Autobiography", "Inspiration", "Real Life"],
+        status: "to-read",
+        progress: 0,
+        totalPages: 334,
+        notes: [],
+        review: {
+          rating: 0,
+          text: ""
+        },
+        addedAt: "2025-03-24T09:30:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: AtomicHabits,
+        title: "Atomic Habits",
+        author: "James Clear",
+        category: "Self-help",
+        tags: ["Productivity", "Habits", "Motivation"],
+        status: "reading",
+        progress: 80,
+        totalPages: 320,
+        notes: [],
+        review: {
+          rating: 4.3,
+          text: ""
+        },
+        addedAt: "2025-03-22T08:00:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: TheAlchemist,
+        title: "The Alchemist",
+        author: "Paulo Coelho",
+        category: "Fiction",
+        tags: ["Adventure", "Philosophical", "Life Lessons"],
+        status: "finished",
+        progress: 208,
+        totalPages: 208,
+        notes: [],
+        review: {
+          rating: 3.9,
+          text: "A poetic journey of following your dreams and finding meaning."
+        },
+        addedAt: "2025-03-19T19:40:00Z"
       }
     ]
   },
@@ -204,6 +297,57 @@ const initialStateBooks = {
           text: "A deep and moving reflection on the choices we make and how they shape our lives. A must-read for those who enjoy introspective fiction."
         },
         addedAt: "2025-03-14T08:45:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: BookThief,
+        title: "The Book Thief",
+        author: "Markus Zusak",
+        category: "Historical Fiction",
+        tags: ["War", "Coming-of-Age", "Literature"],
+        status: "to-read",
+        progress: 0,
+        totalPages: 552,
+        notes: [],
+        review: {
+          rating: 4,
+          text: ""
+        },
+        addedAt: "2025-03-20T17:30:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: NormalPeople,
+        title: "Normal People",
+        author: "Sally Rooney",
+        category: "Fiction",
+        tags: ["Contemporary", "Romance", "Emotional"],
+        status: "reading",
+        progress: 75,
+        totalPages: 273,
+        notes: [],
+        review: {
+          rating: 2.5,
+          text: ""
+        },
+        addedAt: "2025-03-21T15:25:00Z"
+      },
+      {
+        id: crypto.randomUUID(),
+        image: Mistborn,
+        title: "Mistborn: The Final Empire",
+        author: "Brandon Sanderson",
+        category: "Fantasy",
+        tags: ["Epic Fantasy", "Magic", "Heist"],
+        status: "reading",
+        progress: 320,
+        totalPages: 541,
+        notes: [],
+        review: {
+          rating: 4.7,
+          text: "Unique magic system, deep characters, and a thrilling plot make this a fantasy must-read."
+        },
+        addedAt: "2025-03-18T14:30:00Z"
       }
     ]
   }
