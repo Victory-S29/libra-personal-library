@@ -1,17 +1,20 @@
 const initialStateSort = {
     Genres: {
         data: [
-            "Adventure",
-            "Science fiction",
-            "Adventure novel",
-            "Alternate history",
+            "Dystopian",
+            "Science Fiction",
             "Fantasy",
-            "Crime",
-            "Gothic novel",
-            "Horror fiction",
-            "Portal fantasy",
-            "Literary nonsense",
-            "Thriller"
+            "Memoir",
+            "Self-help",
+            "Fiction",
+            "Fairy Tale",
+            "Family Saga",
+            "Action",
+            "Drama",
+            "Folklore",
+            "Gothic",
+            "Horror",
+            "Humor",
         ],
         type: "checkbox"
     },

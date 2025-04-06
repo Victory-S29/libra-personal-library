@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    getCurrentPageSelector, getNumberOfBooksPerPageSelector, getNumberOfBooksSelector,
+    getAllDataSelector,
+    getCurrentPageSelector, getIsFilteredSelector, getNumberOfBooksPerPageSelector,
+    getSortedDataSelector,
 } from "../../store/reducers/catalogue.reducer";
 import { displayNewPageAction } from "../../store/actions/catalogue.action";
 import { Pagination } from "rsuite";
 
 const PaginationComponent = () => {
     const dispatch = useDispatch();
+    const isFiltered = useSelector(getIsFilteredSelector);
+    const allData = useSelector(getAllDataSelector);
+    const sortedData = useSelector(getSortedDataSelector);
+    const data = isFiltered ? sortedData : allData;
 
-    const numberOfBooks = useSelector(getNumberOfBooksSelector);
+    const numberOfBooks = data.length;
     const numberOfBooksPerPage = useSelector(getNumberOfBooksPerPageSelector);
     const currentPage = useSelector(getCurrentPageSelector);
 
@@ -22,9 +28,13 @@ const PaginationComponent = () => {
         layout: ["pager"],
     };
 
+    useEffect(() => {
+        dispatch(displayNewPageAction(numberOfBooksPerPage, currentPage, isFiltered));
+    }, [dispatch, numberOfBooksPerPage, currentPage, isFiltered, data]);
+
     const handlePageChange = (pageNumber) => {
         if (currentPage !== pageNumber) {
-            dispatch(displayNewPageAction(numberOfBooksPerPage, numberOfBooks, pageNumber));
+            dispatch(displayNewPageAction(numberOfBooksPerPage, pageNumber, isFiltered));
         }
     };
 
@@ -42,6 +52,7 @@ const PaginationComponent = () => {
                 maxButtons={paginationData.maxButtons}
                 onSelect={handlePageChange}
             />
+            {console.log(currentPage)}
         </div>
     );
 };
