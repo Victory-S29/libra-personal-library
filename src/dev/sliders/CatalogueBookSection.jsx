@@ -14,6 +14,7 @@ const CatalogueBookSection = () => {
                     rating={book.review.rating}
                     image={book.image}
                     publisher={book.publisher}
+                    bookId={book.id}
                     key={book.id}
                 />
             ))

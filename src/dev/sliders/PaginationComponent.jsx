@@ -52,7 +52,6 @@ const PaginationComponent = () => {
                 maxButtons={paginationData.maxButtons}
                 onSelect={handlePageChange}
             />
-            {console.log(currentPage)}
         </div>
     );
 };
