@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { LoginPopup, MainPage, NavBar, Footer } from "./dev/";
+import { LoginPopup, MainPage, NavBar, Footer, BookPage } from "./dev/";
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -21,6 +21,7 @@ function App() {
       <NavBar SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup} />
       <Routes>
         <Route index element={<MainPage />} />
+        <Route path="/book/:bookId" element={<BookPage />} />
         {/* <Route path="/Profile" element={<Profile />} />
         <Route path='*' element={<Error />} /> */}
       </Routes>

@@ -16,13 +16,18 @@ const TheAlchemist = "https://raw.githubusercontent.com/Victory-S29/libra-person
 const BookThief = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/BookThief.jpg";
 const NormalPeople = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/NormalPeople.jpg";
 const Mistborn = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/Mistborn.jpg";
+const NoCover = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/NoCover.jpg";
+
+const generateUniqueId = (title, author) => {
+  return `${title.replace(/\s+/g, '-').toLowerCase()}-${author.replace(/\s+/g, '-').toLowerCase()}`;
+}
 
 const initialStateBooks = {
   startingBooks: {
     title: "Start with..",
     data: [
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Hunger Games: Sunrise on the Reaping", "Suzanne Collins"),
         image: TheHungerGames,
         title: "The Hunger Games: Sunrise on the Reaping",
         author: "Suzanne Collins",
@@ -31,6 +36,7 @@ const initialStateBooks = {
         status: "finished",
         progress: 0,
         totalPages: 416,
+        description: "Sunrise on the Reaping, the fifth book in the series, willrevisit the world of Panem twenty-four years before the events of The Hunger Games, starting on the morning of the reaping of the Fiftieth Hunger Games, also known as the Second Quarter Quell.",
         notes: [
           { id: "n1", text: "The psychological toll of the Games is emphasized, great character depth.", page: 250 },
           { id: "n2", text: "The climax is intense; power dynamics shift drastically.", page: 300 }
@@ -42,7 +48,7 @@ const initialStateBooks = {
         addedAt: "2025-03-19T12:00:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Project Hail Mary", "Andy Weir"),
         image: ProjectHailMary,
         title: "Project Hail Mary",
         author: "Andy Weir",
@@ -51,6 +57,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 476,
         totalPages: 476,
+        description: "A lone astronaut. An impossible mission. An ally he never imagined.",
         notes: [
           { id: "n1", text: "Amazing blend of science and humor. Loved the problem-solving aspect.", page: 200 }
         ],
@@ -61,7 +68,7 @@ const initialStateBooks = {
         addedAt: "2025-03-15T18:20:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Starless Sea", "Erin Morgenstern"),
         image: TheStarlessSea,
         title: "The Starless Sea",
         author: "Erin Morgenstern",
@@ -70,6 +77,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 230,
         totalPages: 500,
+        description: "When Zachary Rawlins stumbles across a mysterious book containing details from his own life among its pages, it leads him on a quest unlike any other.",
         notes: [
           { id: "n1", text: "Beautiful, dreamlike prose with intricate storytelling.", page: 120 },
           { id: "n2", text: "The underground library concept is mesmerizing.", page: 200 }
@@ -81,7 +89,7 @@ const initialStateBooks = {
         addedAt: "2025-03-16T11:30:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Name of the Wind", "Patrick Rothfuss"),
         image: TheNameoftheWind,
         title: "The Name of the Wind",
         author: "Patrick Rothfuss",
@@ -100,7 +108,7 @@ const initialStateBooks = {
         addedAt: "2025-03-12T16:25:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Dune", "Frank Herbert"),
         image: Dune,
         title: "Dune",
         author: "Frank Herbert",
@@ -119,7 +127,7 @@ const initialStateBooks = {
         addedAt: "2025-03-10T13:50:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Martian", "Andy Weir"),
         image: TheMartian,
         title: "The Martian",
         author: "Andy Weir",
@@ -136,7 +144,7 @@ const initialStateBooks = {
         addedAt: "2025-03-22T13:00:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Circe", "Madeline Miller"),
         image: Circe,
         title: "Circe",
         author: "Madeline Miller",
@@ -153,7 +161,7 @@ const initialStateBooks = {
         addedAt: "2025-03-23T10:45:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Educated", "Tara Westover"),
         image: Educated,
         title: "Educated",
         author: "Tara Westover",
@@ -170,7 +178,7 @@ const initialStateBooks = {
         addedAt: "2025-03-24T09:30:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Atomic Habits", "James Clear"),
         image: AtomicHabits,
         title: "Atomic Habits",
         author: "James Clear",
@@ -187,7 +195,7 @@ const initialStateBooks = {
         addedAt: "2025-03-22T08:00:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Alchemist", "Paulo Coelho"),
         image: TheAlchemist,
         title: "The Alchemist",
         author: "Paulo Coelho",
@@ -209,7 +217,7 @@ const initialStateBooks = {
     title: "Most popular..",
     data: [
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Sisterhood of Dune: Book One of the Schools of Dune", "Brian Herbert & Kevin J. Anderson"),
         image: SisterhoodOfDune,
         title: "Sisterhood of Dune: Book One of the Schools of Dune",
         author: "Brian Herbert & Kevin J. Anderson",
@@ -226,7 +234,7 @@ const initialStateBooks = {
         addedAt: "2025-03-20T15:30:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Atlas Paradox", "Olivie Blake"),
         image: TheAtlasParadox,
         title: "The Atlas Paradox",
         author: "Olivie Blake",
@@ -246,7 +254,7 @@ const initialStateBooks = {
         addedAt: "2025-03-18T09:45:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The House in the Cerulean Sea", "TJ Klune"),
         image: TheHouseinCeruleanSea,
         title: "The House in the Cerulean Sea",
         author: "TJ Klune",
@@ -263,7 +271,7 @@ const initialStateBooks = {
         addedAt: "2025-03-17T14:10:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Babel: An Arcane History", "R.F. Kuang"),
         image: Babel,
         title: "Babel: An Arcane History",
         author: "R.F. Kuang",
@@ -280,7 +288,7 @@ const initialStateBooks = {
         addedAt: "2025-03-21T10:00:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Midnight Library", "Matt Haig"),
         image: TheMidnightLibrary,
         title: "The Midnight Library",
         author: "Matt Haig",
@@ -299,7 +307,7 @@ const initialStateBooks = {
         addedAt: "2025-03-14T08:45:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("The Book Thief", "Markus Zusak"),
         image: BookThief,
         title: "The Book Thief",
         author: "Markus Zusak",
@@ -316,7 +324,7 @@ const initialStateBooks = {
         addedAt: "2025-03-20T17:30:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Normal People", "Sally Rooney"),
         image: NormalPeople,
         title: "Normal People",
         author: "Sally Rooney",
@@ -333,7 +341,7 @@ const initialStateBooks = {
         addedAt: "2025-03-21T15:25:00Z"
       },
       {
-        id: crypto.randomUUID(),
+        id: generateUniqueId("Mistborn: The Final Empire", "Brandon Sanderson"),
         image: Mistborn,
         title: "Mistborn: The Final Empire",
         author: "Brandon Sanderson",
@@ -348,6 +356,28 @@ const initialStateBooks = {
           text: "Unique magic system, deep characters, and a thrilling plot make this a fantasy must-read."
         },
         addedAt: "2025-03-18T14:30:00Z"
+      }
+    ]
+  },
+  noCover: {
+    title: "You don't have anything similar right now...",
+    data: [
+      {
+        id: generateUniqueId("NoCover", ""),
+        image: NoCover,
+        title: "**********",
+        author: "*********",
+        category: "***********",
+        tags: ["********", "********", "********"],
+        status: "no status",
+        progress: 0,
+        totalPages: 0,
+        notes: [],
+        review: {
+          rating: 0,
+          text: ""
+        },
+        addedAt: "2025-03-20T15:30:00Z"
       }
     ]
   }

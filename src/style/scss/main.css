@@ -48,6 +48,10 @@ h2 {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: var(--background-color);
 }

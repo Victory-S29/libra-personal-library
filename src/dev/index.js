@@ -12,3 +12,4 @@ export { default as CatalogueBookSection } from "./sliders/CatalogueBookSection.
 export { default as Features } from "./components/Features.jsx";
 export { default as LoginPopup } from "./components/LoginPopup.jsx";
 export { default as Footer } from "./components/Footer.jsx";
+export { default as BookPage } from "./pages/BookPage.jsx";
