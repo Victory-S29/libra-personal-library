@@ -38,7 +38,7 @@ const initialStateBooks = {
         totalPages: 416,
         description: "Sunrise on the Reaping, the fifth book in the series, willrevisit the world of Panem twenty-four years before the events of The Hunger Games, starting on the morning of the reaping of the Fiftieth Hunger Games, also known as the Second Quarter Quell.",
         notes: [
-          { id: "n1", text: "The psychological toll of the Games is emphasized, great character depth.", page: 250 },
+          { id: "n1", text: "The psychological toll of the Games is emphasized, great character depth.The psychological toll of the Games is emphasized, great character depth.", page: 250 },
           { id: "n2", text: "The climax is intense; power dynamics shift drastically.", page: 300 }
         ],
         review: {
@@ -365,13 +365,9 @@ const initialStateBooks = {
       {
         id: generateUniqueId("NoCover", ""),
         image: NoCover,
-        title: "**********",
-        author: "*********",
-        category: "***********",
-        tags: ["********", "********", "********"],
-        status: "no status",
-        progress: 0,
-        totalPages: 0,
+        title: "",
+        author: "",
+        category: "",
         notes: [],
         review: {
           rating: 0,

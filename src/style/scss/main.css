@@ -2,21 +2,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 :root {
   --background-color: #ffffff;
+  --secondary-background-color: #829ae4;
   --section-bc-color:#f8f8f8;
   --footer-color: #f4f4f4;
-  --secondary-color: #c7cfc8;
+  --secondary-color: #c7c9cf;
   --accent-color: #05031b;
   --separators-color: #191c4f21;
   --shadow-color: #00000099;
   --title-color: #000000;
   --text-color: #000000;
-  --active-text-color: #100777;
+  --active-text-color: #080065;
+  --span-text-color: #0b007f;
   --secondary-text-color: #677e6c;
   --subtext-color: #222222;
   --error-color: #bd0d0d;
   --button-color: #19194f;
   --button-focus-color: #26194f24;
   --button-text-color: #ffffff;
+  --scrollbar-track:#8da5ec;
+  --scrollbar-bc:#4e619b;
+  --scrollbar-bc--active:#172242;
 }
 
 * {
@@ -1287,6 +1292,218 @@ footer li a:hover {
 }
 @media (min-width: 1920px) {
   .auth-buttons .register {
+    font-size: 25px;
+    padding: 15px 20px;
+  }
+}
+
+.single-book--section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: space-between;
+  justify-content: center;
+  padding: 10px;
+}
+.single-book--section .slider-section {
+  width: 90%;
+}
+.single-book--section .description-paragraf {
+  max-height: 50vh;
+  overflow-y: scroll;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+.single-book--section button {
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--active-text-color);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .single-book--section button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .single-book--section button {
+    width: 100px;
+  }
+}
+@media (min-width: 1920px) {
+  .single-book--section button {
+    font-size: 25px;
+    padding: 15px 20px;
+  }
+}
+.single-book--section h1 {
+  color: var(--title-color);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+.single-book--section h3 {
+  color: var(--text-color);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.single-book--section p {
+  color: var(--text-color);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+}
+.single-book--section p span {
+  color: var(--active-text-color);
+}
+.single-book--section ::-webkit-scrollbar {
+  width: 3px;
+}
+.single-book--section ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 2rem;
+}
+.single-book--section ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-bc);
+  border-radius: 2rem;
+}
+.single-book--section ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-bc--active);
+}
+
+.main-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+.main-info img {
+  margin: 0 auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 60vh;
+}
+.main-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.main-info div .reading-progress span {
+  font-weight: 700;
+  color: var(--span-text-color);
+}
+
+.users-progress .book-rating {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+@media (min-width: 1920px) {
+  .users-progress .book-rating {
+    margin-top: 5px;
+  }
+}
+.users-progress .actions-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: start;
+  margin-top: 5px;
+  width: 100%;
+}
+@media (min-width: 1920px) {
+  .users-progress .actions-bar {
+    margin-top: 10px;
+  }
+}
+
+.additional-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+.additional-info section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.additional-info p {
+  width: 100%;
+}
+
+.notes-section {
+  width: 60%;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: var(--section-bc-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+}
+.notes-section section {
+  max-height: 60vh;
+  overflow-y: scroll;
+  margin: 10px;
+}
+.notes-section .note {
+  margin-bottom: 30px;
+  padding-right: 10px;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  align-items: center;
+}
+.notes-section .note-text {
+  max-height: 20vh;
+  overflow-y: scroll;
+  width: 90%;
+}
+.notes-section button {
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--active-text-color);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .notes-section button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .notes-section button {
+    width: 100px;
+  }
+}
+@media (min-width: 1920px) {
+  .notes-section button {
     font-size: 25px;
     padding: 15px 20px;
   }
