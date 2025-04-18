@@ -24,6 +24,7 @@ const SliderComponent = ({ title, data }) => {
                                 rating={book.review.rating}
                                 image={book.image}
                                 key={book.id}
+                                bookId ={book.id}
                             />
                         </SplideSlide>)
                 })}

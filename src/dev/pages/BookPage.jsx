@@ -43,12 +43,14 @@ const BookPage = () => {
             ...filteredBooksByTags,
             ...filteredBooksbyAuthor
         ];
-    
+
         const uniqueBooks = Array.from(new Set(allFilteredBooks.map(book => JSON.stringify(book))))
             .map(item => JSON.parse(item));
-    
-        return uniqueBooks.length > 4
-            ? { title: "You may also like...", data: uniqueBooks.slice(0, 10) }
+
+        const booksWithoutCurrent = uniqueBooks.filter(book => book.id !== bookId);
+
+        return booksWithoutCurrent.length > 4
+            ? { title: "You may also like...", data: booksWithoutCurrent.slice(0, 10) }
             : { ...noBooks };
     };
 
@@ -58,46 +60,57 @@ const BookPage = () => {
         <Fragment>
             {currentBook ? (
                 <>
-                    <div className="review-area">
-                        <div>
-                            <p>{currentBook.review.text ? currentBook.review.text : messages.uk.noReview}</p>
-                            <img src={currentBook.image} alt = {currentBook.title}/>
-                        </div>
-                        <SliderComponent {...similarBooks} />
-                    </div>
-                    <div className="book-info">
-                        <h1>{currentBook.title}</h1>
-                        <p>{currentBook.author}</p>
-                        <p>{currentBook.tags.join(', ')}</p>
-                        <div className='users-progress'>
-                            <p className='reading-progress'><span>{currentBook.progress}</span>/{currentBook.totalPages}</p>
-                            <StarRating rating={currentBook.review.rating} />
-                            <div className='actions-bar'>
-                                <FontAwesomeIcon icon={faBookmark} className='icon' />
-                                <FontAwesomeIcon icon={faComment} className='icon' />
-                                <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
-                            </div>
-                            <h2 className='notes-message'>{messages.uk.notes}</h2>
-                            {currentBook.notes.length > 0 ? (
-                                currentBook.notes.map((note, id) => (
-                                    <div className="note" key={id}>
-                                        <p className='note-page'>{note.page}</p>
-                                        <p className='note-text'>{note.text}</p>
+                    <section className='single-book--section'>
+                        <section className="main-info">
+                            <img src={currentBook.image} alt={currentBook.title} />
+                            <div>
+                                <h1>{currentBook.title}</h1>
+                                <h3>{currentBook.author}</h3>
+                                <p><span>{currentBook.tags.join(', ')}</span></p>
+                                <p className='description-paragraf'>{currentBook.description}</p>
+                                <div className='users-progress'>
+                                    <p className='reading-progress'><span>{currentBook.progress}</span>/{currentBook.totalPages}</p>
+                                    <StarRating rating={currentBook.review.rating} />
+                                    <div className='actions-bar'>
+                                        <FontAwesomeIcon icon={faBookmark} className='icon' />
+                                        <FontAwesomeIcon icon={faComment} className='icon' />
+                                        <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
                                     </div>
-                                ))
-                            ) : (
-                                <div className='new-note--form'>
-                                    <p>{messages.uk.addFirstNote}</p>
-                                    <button>New Note</button>
                                 </div>
-                            )}
+                            </div>
+                        </section>
+                        <div className="additional-info">
+                            <section className='book-review'>
+                                <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : messages.uk.noReview}</p>
+                                <button>Change Review</button>
+                            </section>
+                            <SliderComponent {...similarBooks} />
                         </div>
-                    </div>
+                        <section className='notes-section'>
+                            <h2 className='notes-message'>{messages.uk.notes}</h2>
+                            <section>
+                                {currentBook.notes.length > 0 ? (
+                                    currentBook.notes.map((note, id) => (
+                                        <div className="note" key={id}>
+                                            <p className='note-page'>{note.page}</p>
+                                            <p className='note-text'>{note.text}</p>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className='new-note--form'>
+                                        <p>{messages.uk.addFirstNote}</p>
+                                    </div>
+                                )}
+                            </section>
+                            <button>New Note</button>
+                        </section>
+                    </section>
                     <SliderComponent {...popularBooks} />
                 </>
             ) : (
                 <p>...</p>
-            )}
+            )
+            }
         </Fragment>
     );
 };
