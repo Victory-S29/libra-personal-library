@@ -1143,7 +1143,13 @@ footer li a {
   text-decoration: none;
 }
 footer li a:hover {
-  color: var(--active-text-color);
+  color: var(--text-color);
+}
+footer li a:visited {
+  color: var(--text-color);
+}
+footer li a:active {
+  color: var(--text-color);
 }
 @media (min-width: 1400px) and (max-width: 1920px) {
   footer li a {
