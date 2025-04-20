@@ -98,6 +98,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 400,
         totalPages: 662,
+        description: "The Name of the Wind by Patrick Rothfuss is an enthralling fantasy novel that follows the life of Kvothe, a gifted young magician and musician. With beautifully crafted prose and a captivating story, it will transport you to a world of magic and mystery.",
         notes: [
           { id: "n1", text: "Kvothe's storytelling is gripping, and the world-building is incredible.", page: 250 }
         ],
@@ -117,6 +118,7 @@ const initialStateBooks = {
         status: "no status",
         progress: 688,
         totalPages: 688,
+        description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness.",
         notes: [
           { id: "n1", text: "Dense but rewarding. The political and ecological themes are still relevant.", page: 400 }
         ],
@@ -136,6 +138,7 @@ const initialStateBooks = {
         status: "finished",
         progress: 0,
         totalPages: 385,
+        description: "The Martian by Andy Weir is a gripping sci-fi novel about an astronaut, Mark Watney, who is mistakenly presumed dead and left behind on Mars. With limited supplies, he must use his ingenuity to survive and find a way to signal Earth.",
         notes: [],
         review: {
           rating: 3,
@@ -153,6 +156,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 150,
         totalPages: 400,
+        description: "Circe is a beautifully written mythological retelling centered on the life of the enchantress Circe, daughter of the sun god Helios. Banished to a remote island for defying the gods, she hones her powers of witchcraft and crosses paths with famous figures from Greek mythology, including Odysseus. The novel explores themes of transformation, power, identity, and what it means to find one's place in the world, especially as a woman in a world ruled by gods and men.",
         notes: [],
         review: {
           rating: 4.5,
@@ -170,6 +174,7 @@ const initialStateBooks = {
         status: "to-read",
         progress: 0,
         totalPages: 334,
+        description: "Educated by Tara Westover is a powerful memoir about a woman who grows up in a strict and isolated survivalist family in rural Idaho. Denied formal education and medical care, Tara teaches herself enough to gain admission to college, eventually earning a PhD from Cambridge University. The book is a moving account of her journey toward knowledge, self-discovery, and independence, as she struggles to reconcile loyalty to her family with her desire for a different life. It explores themes of education, identity, resilience, and the complexities of family ties.",
         notes: [],
         review: {
           rating: 0,
@@ -187,6 +192,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 80,
         totalPages: 320,
+        description: "Atomic Habits by James Clear is a practical and insightful guide to building good habits and breaking bad ones through small, consistent changes. The core idea is that tiny improvements made consistently over time lead to remarkable results. Clear breaks down the science of habit formation into four simple steps: cue, craving, response, and reward, and offers actionable strategies for making habits obvious, attractive, easy, and satisfying. The book emphasizes identity-based habits and how focusing on who you want to become is more effective than just setting goals. It's all about mastering the art of continuous improvement.",
         notes: [],
         review: {
           rating: 4.3,
@@ -204,6 +210,7 @@ const initialStateBooks = {
         status: "finished",
         progress: 208,
         totalPages: 208,
+        description: "The Alchemist by Paulo Coelho is a philosophical novel that follows Santiago, a young Andalusian shepherd, on a journey to find a hidden treasure he dreams about. Along the way, he meets various characters—a king, a crystal merchant, an Englishman, and an alchemist—who help him discover deeper truths about life, destiny, and following one's \"Personal Legend.\" The story is a spiritual exploration of self-discovery, purpose, and the idea that when you truly desire something, the universe conspires to help you achieve it.",
         notes: [],
         review: {
           rating: 3.9,
@@ -226,6 +233,7 @@ const initialStateBooks = {
         status: "to-read",
         progress: 0,
         totalPages: 512,
+        description: "Sisterhood of Dune by Brian Herbert and Kevin J. Anderson is the first book in the Schools of Dune series, set in the Dune universe created by Frank Herbert. Taking place about 80 years after the Butlerian Jihad—the war against thinking machines—the novel explores the early formation of powerful groups like the Bene Gesserit Sisterhood, the Mentats, and the Swordmasters of Ginaz. With the rise of anti-technology zealotry and political tension across the galaxy, these emerging schools must navigate dangerous intrigue and shifting alliances. The book delves into the origins of the institutions that will shape the universe centuries later in the original Dune saga.",
         notes: [],
         review: {
           rating: 2,
@@ -243,6 +251,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 120,
         totalPages: 400,
+        description: "The Atlas Paradox by Olivie Blake is the sequel to The Atlas Six, continuing the story of six powerful young magicians chosen to join the secretive and elite Alexandrian Society. In this installment, the characters face deeper philosophical and moral dilemmas as they grapple with dangerous knowledge, shifting alliances, and the true cost of power. With one of their own gone and the Society’s secrets unraveling, tensions rise and loyalties are tested. The novel explores themes of ambition, identity, sacrifice, and the blurred lines between right and wrong—all wrapped in a darkly academic, magical setting.",
         notes: [
           { id: "n1", text: "Intriguing philosophical discussions about knowledge and power.", page: 75 },
           { id: "n2", text: "Character dynamics are getting more intense and layered.", page: 110 }
@@ -263,6 +272,7 @@ const initialStateBooks = {
         status: "to-read",
         progress: 0,
         totalPages: 398,
+        description: "The House in the Cerulean Sea by TJ Klune is a heartwarming and whimsical fantasy novel about Linus Baker, a quiet, rule-following caseworker for the Department in Charge of Magical Youth. He's sent on a special assignment to a mysterious orphanage housing six magical children considered dangerous—including a gnome, a wyvern, and the Antichrist. As Linus gets to know the children and their kind, protective caretaker Arthur Parnassus, he begins to question the rules he’s always followed. The story is a charming and tender exploration of love, acceptance, found family, and the courage to stand up for what’s right.",
         notes: [],
         review: {
           rating: 0,
@@ -280,6 +290,7 @@ const initialStateBooks = {
         status: "No status",
         progress: 0,
         totalPages: 560,
+        description: "Babel: Or the Necessity of Violence – An Arcane History of the Oxford Translators' Revolution by R.F. Kuang is a dark academia fantasy novel set in an alternate 19th-century England. The story follows Robin Swift, a Chinese orphan raised in Britain to attend the prestigious Royal Institute of Translation at Oxford—also known as Babel. The institute uses magical silver-working powered by translation to fuel the British Empire’s dominance. As Robin becomes more entrenched in Babel’s world, he’s forced to confront the violent realities of colonialism, language, and resistance. The novel blends scholarship, magic, and revolution in a powerful critique of empire and the cost of knowledge.",
         notes: [],
         review: {
           rating: 4,
@@ -297,6 +308,7 @@ const initialStateBooks = {
         status: "finished",
         progress: 288,
         totalPages: 288,
+        description: "The Midnight Library by Matt Haig is a thought-provoking and emotional novel about Nora Seed, a woman who finds herself in a magical library between life and death. Each book on its shelves represents a different version of her life—one she could have lived if she had made different choices. As Nora explores these alternate realities, she confronts her regrets and wonders what truly makes a life worth living. The novel is a heartfelt exploration of mental health, purpose, and the beauty of second chances, reminding readers that even the smallest decisions can shape a meaningful life.",
         notes: [
           { id: "n1", text: "Thought-provoking meditation on regrets and alternate lives.", page: 100 }
         ],
@@ -316,6 +328,7 @@ const initialStateBooks = {
         status: "to-read",
         progress: 0,
         totalPages: 552,
+        description: "The Book Thief by Markus Zusak is a haunting and beautifully written novel set in Nazi Germany during World War II. The story is narrated by Death and follows Liesel Meminger, a young girl living with a foster family in a small town. Liesel finds solace in stealing books, and as she reads them to her foster family and neighbors, these books become a form of resistance and a way to cope with the horrors of war. Through Liesel's journey, the novel explores themes of love, loss, friendship, and the power of words in a time of darkness. It's a poignant and unforgettable story about the human spirit and the impact of storytelling.",
         notes: [],
         review: {
           rating: 4,
@@ -333,6 +346,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 75,
         totalPages: 273,
+        description: "Normal People by Sally Rooney is a compelling and intimate novel that follows the complex relationship between Connell and Marianne, two young people from a small Irish town. The story spans several years, exploring their deep emotional and intellectual connection as they navigate the ups and downs of their lives, from high school to university. The novel delves into themes of love, friendship, class, identity, and the challenges of personal growth. Through its sharp and realistic portrayal of relationships, Normal People captures the nuances of intimacy and the way people shape and are shaped by each other.",
         notes: [],
         review: {
           rating: 2.5,
@@ -350,6 +364,7 @@ const initialStateBooks = {
         status: "reading",
         progress: 320,
         totalPages: 541,
+        description: "Mistborn: The Final Empire by Brandon Sanderson is the first book in the Mistborn series, set in a world where ash falls from the sky and mist dominates the night. The story follows Vin, a street urchin with latent magical abilities, who is recruited by a group of rebels led by Kelsier to overthrow the oppressive Lord Ruler who has ruled the Final Empire for over a thousand years. The unique magic system in the novel revolves around \"Allomancy,\" where users ingest and \"burn\" metals to gain powerful abilities. Mistborn is a gripping tale of rebellion, power, and betrayal, with intricate world-building, complex characters, and a focus on hope and redemption.",
         notes: [],
         review: {
           rating: 4.7,
