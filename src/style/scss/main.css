@@ -1143,7 +1143,13 @@ footer li a {
   text-decoration: none;
 }
 footer li a:hover {
-  color: var(--active-text-color);
+  color: var(--text-color);
+}
+footer li a:visited {
+  color: var(--text-color);
+}
+footer li a:active {
+  color: var(--text-color);
 }
 @media (min-width: 1400px) and (max-width: 1920px) {
   footer li a {
@@ -1507,4 +1513,41 @@ footer li a:hover {
     font-size: 25px;
     padding: 15px 20px;
   }
+}
+
+.features-page {
+  width: 90%;
+  margin-left: 60px;
+  padding: 20px;
+  line-height: 2rem;
+}
+.features-page h1 {
+  color: var(--title-color);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+.features-page h4 {
+  color: var(--title-color);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.features-page p {
+  color: var(--text-color);
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+.features-page p::first-letter {
+  text-transform: uppercase;
+}
+.features-page section {
+  margin-bottom: 20px;
+}
+.features-page li {
+  list-style-type: circle;
+  margin-left: 20px;
 }/*# sourceMappingURL=main.css.map */

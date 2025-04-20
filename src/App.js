@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { LoginPopup, MainPage, NavBar, Footer, BookPage } from "./dev/";
+import { LoginPopup, MainPage, NavBar, Footer, BookPage, FeaturesPage } from "./dev/";
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -22,6 +22,7 @@ function App() {
       <Routes>
         <Route index element={<MainPage />} />
         <Route path="/book/:bookId" element={<BookPage />} />
+        <Route path="/features" element={<FeaturesPage />} />
         {/* <Route path="/Profile" element={<Profile />} />
         <Route path='*' element={<Error />} /> */}
       </Routes>

@@ -32,8 +32,15 @@ footer {
         @include text-base(var(--text-color), $font-weight: 300, $font-size: $size-15);
         text-decoration: none;
         &:hover {
-            color: var(--active-text-color);
+            color: var(--text-color);
         }
+        &:visited {
+            color: var(--text-color);
+        }
+        &:active {
+            color: var(--text-color);
+        }
+
         @media (min-width: $xxl) and (max-width: $xxxl) {
             font-size: $size-20;
         }

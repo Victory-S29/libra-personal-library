@@ -1,0 +1,27 @@
+.features-page {
+    width: 90%;
+    margin-left: 60px;
+    padding: 20px;
+    line-height: 2rem;
+    h1 {
+        @include text-base(var(--title-color), $title-font, $font-weight: 400, $font-size: $size-40);
+        margin-bottom: 5px;
+    }
+    h4 {
+        @include text-base(var(--title-color), $title-font, $font-weight: 400, $font-size: 1.5rem);
+        margin-bottom: 10px;
+    }
+    p {
+        @include text-base(var(--text-color), $text-font, $font-weight: 400, $font-size: $size-15);
+    }
+    p::first-letter {
+        text-transform: uppercase;
+    }
+    section {
+        margin-bottom: 20px;
+    }
+    li {
+        list-style-type: circle;
+        margin-left: 20px;
+    }
+}

@@ -13,3 +13,4 @@ export { default as Features } from "./components/Features.jsx";
 export { default as LoginPopup } from "./components/LoginPopup.jsx";
 export { default as Footer } from "./components/Footer.jsx";
 export { default as BookPage } from "./pages/BookPage.jsx";
+export { default as FeaturesPage } from "./pages/FeaturesPage.jsx";
