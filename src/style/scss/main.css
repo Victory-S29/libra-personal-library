@@ -1589,4 +1589,104 @@ footer li a:active {
 }
 .technologies-page .technologies-ui-section--additional-li {
   list-style-type: disc;
+}
+
+.developer-page {
+  width: 90%;
+  margin-left: 60px;
+  padding: 20px;
+  line-height: 2rem;
+}
+.developer-page h1 {
+  margin-bottom: 10px;
+}
+.developer-page h4 {
+  margin-bottom: 5px;
+}
+.developer-page section {
+  margin-bottom: 20px;
+}
+.developer-page li {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+.developer-page hr {
+  width: 50%;
+}
+.developer-page ul {
+  margin-left: 20px;
+}
+.developer-page img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.developer-page--main-info {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.developer-page--main-info img {
+  width: 100%;
+  max-height: 60vh;
+  margin: auto;
+}
+
+.developer-page--location {
+  margin-top: 10px;
+}
+.developer-page--location span {
+  border-left: 2px solid var(--accent-color);
+  margin-left: 10px;
+  padding-left: 10px;
+}
+.developer-page--location p {
+  margin-left: 20px;
+}
+
+.developer-page--languages span {
+  text-transform: uppercase;
+}
+
+.developer-page--education {
+  margin-top: 20px;
+}
+.developer-page--education p {
+  margin-left: 20px;
+}
+
+.developer-page--courses section {
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  justify-content: space-between;
+  margin-top: 20px auto 0 auto;
+}
+.developer-page--courses .course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.developer-page--courses .course-img {
+  max-height: 40vh;
+}
+
+.developer-page--skills {
+  margin-top: 20px;
+}
+
+.developer-page--refs {
+  margin-top: 20px;
+}
+.developer-page--refs p {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.developer-page--refs img {
+  margin-left: 20px;
+  max-height: 20vh;
 }/*# sourceMappingURL=main.css.map */

@@ -61,12 +61,8 @@ const initialStateDeveloperEn = {
             }
         ]
     },
-
-    cv: {
-        img: cv,
-        alt: "CV"
-    },
     qrCode: {
+        title:"You can find all certificates and resumes at this link", 
         img: qrCode,
         alt: "QR-Code for all certificates"
     },

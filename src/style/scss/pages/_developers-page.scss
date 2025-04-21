@@ -1,0 +1,95 @@
+.developer-page {
+    width: 90%;
+    margin-left: 60px;
+    padding: 20px;
+    line-height: 2rem;
+    h1 {
+        margin-bottom: 10px;
+    }
+    h4 {
+        margin-bottom: 5px;
+    }
+    section {
+        margin-bottom: 20px;
+    }
+    li {
+        list-style-type: circle;
+        margin-left: 20px;
+    }
+    hr {
+        width: 50%;
+    }
+    ul {
+        margin-left: 20px;
+    }
+    img {
+        object-fit: contain;
+    }
+}
+.developer-page--main-info {
+    @include flex-container(row, 10px, center, center);
+    img {
+        width: 100%;
+        max-height: 60vh;
+        margin: auto;
+    }
+}
+
+.developer-page--location {
+    margin-top: 10px;
+    span {
+        border-left: 2px solid var(--accent-color);
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+    p {
+        margin-left: 20px;
+    }
+}
+
+.developer-page--languages {
+    span {
+        text-transform: uppercase;
+    }
+}
+
+.developer-page--education {
+    margin-top: 20px;
+    p {
+        margin-left: 20px;
+    }
+}
+.developer-page--courses {
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        margin-top: 20px auto 0 auto;
+    }
+
+    .course-card {
+        @include flex-container(column, 0px, center, center);
+        text-align: center;
+    }
+
+    .course-img {
+        max-height: 40vh;
+    }
+}
+
+.developer-page--skills {
+    margin-top: 20px;
+   
+}
+
+.developer-page--refs {
+    margin-top: 20px;
+    p{
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+    img {
+        margin-left: 20px;
+        max-height: 20vh;
+    }
+}
