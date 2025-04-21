@@ -14,9 +14,9 @@ const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
             </div>
 
             <ul className="footer-nav">
-            <li className="nav-item"><Link className="nav-item" to={'/features'}> Features </Link></li>
+                <li className="nav-item"><Link className="nav-item" to={'/features'}> Features </Link></li>
                 <li className="nav-item"><Link className="nav-item" to={'/technologies'}> Technologies </Link></li>
-                <li className="nav-item"><a href="#" className="nav-link">About developers</a></li>
+                <li className="nav-item"><Link className="nav-item" to={'/about-developer'}> About developers </Link></li>
             </ul>
 
             <div className="auth-buttons">
