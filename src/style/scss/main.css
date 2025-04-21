@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel&family=Kings&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
 :root {
   --background-color: #ffffff;
   --secondary-background-color: #829ae4;
@@ -38,14 +37,14 @@
 
 h1 {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 40px;
 }
 
 h2 {
   color: var(--title-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 200%;
@@ -64,14 +63,21 @@ h2 {
 
 h4 {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
-  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
   font-size: 1.5rem;
+}
+
+h5 {
+  color: var(--title-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 p {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
 }
@@ -188,7 +194,7 @@ body {
 }
 .main-nav div h1 {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 30px;
 }
@@ -278,7 +284,7 @@ body {
 
 .slider-title {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 20px;
   text-transform: capitalize;
@@ -416,7 +422,7 @@ body {
 }
 .filter-menu .filter-menu__dropdown button {
   color: var(--button-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 20px;
   background-color: var(--section-bc-color);
@@ -441,7 +447,7 @@ body {
 }
 .filter-menu .filter-menu__section {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 20px;
   min-width: 40vw;
@@ -475,7 +481,7 @@ body {
 }
 .filter-menu .filter-menu__section .filter-menu__label {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
 }
@@ -520,7 +526,7 @@ body {
 
 .filter-menu__section-title {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 25px;
   border-bottom: 1px solid var(--accent-color);
@@ -673,7 +679,7 @@ body {
 }
 .single-book-section .single-book-text {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 15px;
   overflow: hidden;
@@ -699,7 +705,7 @@ body {
 }
 .single-book-section .single-book-title {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 20px;
   overflow: hidden;
@@ -736,7 +742,7 @@ body {
   border-radius: 0;
   cursor: pointer;
   color: var(--button-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
   background-color: var(--background-color);
@@ -777,7 +783,7 @@ body {
   cursor: pointer;
   background-color: var(--button-color);
   color: var(--button-text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
 }
@@ -869,7 +875,7 @@ body {
 }
 .community-grid .community-grid--element p {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 200%;
@@ -930,7 +936,7 @@ body {
   padding: 10px;
   width: 100%;
   color: var(--button-text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 15px;
 }
@@ -943,7 +949,7 @@ body {
 .login-popup-container .signup-login-link {
   text-align: center;
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 13px;
 }
@@ -962,7 +968,7 @@ body {
   margin-left: 5px;
   text-decoration: underline;
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 13px;
 }
@@ -980,7 +986,7 @@ body {
 .login-popup-title p {
   margin-bottom: 10px;
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 15px;
 }
@@ -996,7 +1002,7 @@ body {
 }
 .login-popup-title h3 {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 30px;
 }
@@ -1013,7 +1019,7 @@ body {
 .login-popup-title .login-title--subtext {
   margin-bottom: 20px;
   color: var(--subtext-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 10px;
 }
@@ -1043,7 +1049,7 @@ body {
   padding: 12px 10px;
   width: 100%;
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 15px;
 }
@@ -1073,7 +1079,7 @@ body {
   display: block;
   margin-bottom: 5px;
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
 }
@@ -1106,7 +1112,7 @@ body {
 .error-message {
   margin: 5px 10px;
   color: var(--error-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 10px;
 }
@@ -1164,7 +1170,7 @@ footer ul {
 }
 footer li a {
   color: var(--text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 15px;
   text-decoration: none;
@@ -1206,7 +1212,7 @@ footer li a:active {
 }
 .footer-logo h1 {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 45px;
 }
@@ -1242,7 +1248,7 @@ footer li a:active {
 }
 .footer-logo p {
   color: var(--text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 15px;
   padding-left: 30px;
@@ -1279,7 +1285,7 @@ footer li a:active {
   border-radius: 0;
   cursor: pointer;
   color: var(--active-text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
   background-color: var(--background-color);
@@ -1308,7 +1314,7 @@ footer li a:active {
   border-radius: 0;
   cursor: pointer;
   color: var(--button-text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
   background-color: var(--button-color);
@@ -1355,7 +1361,7 @@ footer li a:active {
   border-radius: 0;
   cursor: pointer;
   color: var(--active-text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
   background-color: var(--background-color);
@@ -1378,20 +1384,20 @@ footer li a:active {
 }
 .single-book--section h1 {
   color: var(--title-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 24px;
 }
 .single-book--section h3 {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 14px;
   margin-bottom: 10px;
 }
 .single-book--section p {
   color: var(--text-color);
-  font-family: "Merriweather", serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
   text-align: center;
@@ -1520,7 +1526,7 @@ footer li a:active {
   border-radius: 0;
   cursor: pointer;
   color: var(--active-text-color);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
   background-color: var(--background-color);
@@ -1560,4 +1566,27 @@ footer li a:active {
 .features-page li {
   list-style-type: circle;
   margin-left: 20px;
+}
+
+.technologies-page {
+  width: 90%;
+  margin-left: 60px;
+  padding: 20px;
+  line-height: 2rem;
+}
+.technologies-page h1 {
+  margin-bottom: 10px;
+}
+.technologies-page h4 {
+  margin-bottom: 10px;
+}
+.technologies-page section {
+  margin-bottom: 20px;
+}
+.technologies-page li {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+.technologies-page .technologies-ui-section--additional-li {
+  list-style-type: disc;
 }/*# sourceMappingURL=main.css.map */

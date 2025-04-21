@@ -50,13 +50,13 @@ const TechnologiesPage = () => {
             </section>
             <section className='technologies-ui-section'>
                 <h4>{tech.dataManagement.title}</h4>
-                <ul className='technologies-ui-section--main-ul'>
+                <ul>
                     {Object.entries(tech.ui.subSections).map(([key, item]) => (
-                        <li key={key}>
+                        <li className='technologies-ui-section--main-ul' key={key}>
                             <h5>{item.subtitle}</h5>
-                            <ul className='technologies-ui-section--additional-ul'>
+                            <ul>
                                 {item.points.map((point, index) => (
-                                    <li key={index}>{point}</li>
+                                    <li className='technologies-ui-section--additional-li' key={index}><p>{point}</p></li>
                                 ))}
                             </ul>
                         </li>
