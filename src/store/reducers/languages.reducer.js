@@ -1,7 +1,9 @@
-import initialStateFeatures from "../base/translation-texts/Features-en";
+import initialStateFeaturesEn from "../base/translation-texts/Features-en";
+import initialStateTechnology from "../base/translation-texts/Technologies-en";
 
 const initialState = {
-    featuresEn: initialStateFeatures
+    featuresEn: initialStateFeaturesEn,
+    techEn: initialStateTechnology
 }
 const LanguageReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -16,3 +18,4 @@ const LanguageReducer = (state = initialState, action) => {
 export default LanguageReducer;
 
 export const getFeaturesEnSelector = (state) => state.languageReducer.featuresEn;
+export const getTechnologiesEnSelector = (state) => state.languageReducer.techEn;

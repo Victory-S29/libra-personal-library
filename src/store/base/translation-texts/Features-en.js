@@ -1,4 +1,4 @@
-const initialStateFeatures = {
+const initialStateFeaturesEn = {
   intro: {
     title: "Libra",
     description: "Libra is a modern digital library platform designed to help you manage your reading life efficiently and intuitively. Whether you're building your personal collection or exploring new titles, Libra offers a range of smart, flexible tools to support your experience.",
@@ -62,4 +62,4 @@ const initialStateFeatures = {
   },
 };
 
-export default initialStateFeatures;
+export default initialStateFeaturesEn;

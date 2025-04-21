@@ -4,8 +4,14 @@
     box-sizing: border-box;
 }
 
-.light, .pink, .dark{
+.light,
+.pink,
+.dark {
     background-color: var(--background-color);
+}
+
+h1 {
+    @include text-base(var(--title-color), $title-font, $font-weight: 400, $font-size: $size-40);
 }
 
 h2 {
@@ -19,6 +25,18 @@ h2 {
     @media (min-width: $xxxl) {
         font-size: $size-50;
     }
+}
+
+h4 {
+    @include text-base(var(--title-color), $title-font, $font-weight: 400, $font-size: 1.5rem);
+}
+
+p {
+    @include text-base(var(--text-color), $text-font, $font-weight: 400, $font-size: $size-15);
+}
+
+p::first-letter {
+    text-transform: uppercase;
 }
 
 a {
