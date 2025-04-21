@@ -1,10 +1,10 @@
-.features-page {
+.technologies-page {
     width: 90%;
     margin-left: 60px;
     padding: 20px;
     line-height: 2rem;
     h1 {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
     h4 {
         margin-bottom: 10px;
@@ -15,5 +15,8 @@
     li {
         list-style-type: circle;
         margin-left: 20px;
+    }
+    .technologies-ui-section--additional-li {
+        list-style-type: disc;
     }
 }
