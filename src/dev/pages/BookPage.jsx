@@ -3,9 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faComment } from '@fortawesome/free-regular-svg-icons';
-import { faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { SliderComponent } from '../';
@@ -72,9 +70,10 @@ const BookPage = () => {
                                     <p className='reading-progress'><span>{currentBook.progress}</span>/{currentBook.totalPages}</p>
                                     <StarRating rating={currentBook.review.rating} />
                                     <div className='actions-bar'>
-                                        <FontAwesomeIcon icon={faBookmark} className='icon' />
-                                        <FontAwesomeIcon icon={faComment} className='icon' />
-                                        <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
+                                           <FontAwesomeIcon icon={faHeart} className='icon' />
+                                           <FontAwesomeIcon icon={faSquareCheck} className='icon' />
+                                           <FontAwesomeIcon icon={faClock} className='icon' />
+                                           <FontAwesomeIcon icon={faBookmark} className='icon' />
                                     </div>
                                 </div>
                             </div>
