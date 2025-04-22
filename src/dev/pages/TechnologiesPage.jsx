@@ -21,31 +21,31 @@ const TechnologiesPage = () => {
             <section className='technologies-framework-section'>
                 <h4>{tech.framework.title}</h4>
                 <ul>
-                    {tech.framework.points.map((item) => <li><p>{item}</p></li>)}
+                    {tech.framework.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-routing-section'>
                 <h4>{tech.routing.title}</h4>
                 <ul>
-                    {tech.routing.points.map((item) => <li><p>{item}</p></li>)}
+                    {tech.routing.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-stateManagement-section'>
                 <h4>{tech.stateManagement.title}</h4>
                 <ul>
-                    {tech.stateManagement.points.map((item) => <li><p>{item}</p></li>)}
+                    {tech.stateManagement.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-persistence-section'>
                 <h4>{tech.persistence.title}</h4>
                 <ul>
-                    {tech.persistence.points.map((item) => <li><p>{item}</p></li>)}
+                    {tech.persistence.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-dataManagement-section'>
                 <h4>{tech.dataManagement.title}</h4>
                 <ul>
-                    {tech.dataManagement.points.map((item) => <li><p>{item}</p></li>)}
+                    {tech.dataManagement.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-ui-section'>
