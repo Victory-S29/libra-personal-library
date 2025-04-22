@@ -725,6 +725,13 @@ body {
   }
 }
 
+.not-clickable {
+  cursor: auto;
+}
+.not-clickable:hover {
+  box-shadow: none;
+}
+
 .rs-pagination {
   display: flex;
   flex-direction: row;

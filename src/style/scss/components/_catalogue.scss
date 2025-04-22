@@ -289,6 +289,12 @@
     }
 }
 
+.not-clickable{
+    cursor:auto;
+    &:hover {
+        box-shadow: none;
+    }
+}
 .rs-pagination {
     @include flex-container(row, 5px, center, center);
     margin-bottom: $basic-margin-y;

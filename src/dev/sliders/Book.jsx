@@ -7,8 +7,10 @@ import StarRating from './StarRating';
 import { Link } from 'react-router-dom';
 
 const Book = ({ title, author, rating, image, bookId }) => {
-    return (
-        <Link className='single-book-section' to={`/book/${bookId}`}>
+    const isClickable = title && author && bookId;
+
+    const content = (
+        <>
             <h4 className='single-book-title'>{title}</h4>
             <p className='single-book-text'>{author}</p>
             <img className='single-book-img' src={image} alt={`Cover of ${title}`} />
@@ -18,7 +20,17 @@ const Book = ({ title, author, rating, image, bookId }) => {
                 <FontAwesomeIcon icon={faComment} className='icon' />
                 <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
             </div>
+        </>
+    );
+
+    return isClickable ? (
+        <Link className='single-book-section' to={`/book/${bookId}`}>
+            {content}
         </Link>
+    ) : (
+        <div className='single-book-section not-clickable'>
+            {content}
+        </div>
     );
 };
 
