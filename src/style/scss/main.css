@@ -154,57 +154,57 @@ body {
     padding: 20px 60px;
   }
 }
-.main-nav div {
+.main-nav a {
   display: flex;
   flex-direction: row;
   gap: 5px;
   align-items: center;
   justify-content: center;
 }
-.main-nav div img {
+.main-nav a img {
   height: 35px;
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.main-nav div img:hover {
+.main-nav a img:hover {
   cursor: pointer;
 }
 @media (min-width: 1400px) and (max-width: 1920px) {
-  .main-nav div img {
+  .main-nav a img {
     height: 35px;
     width: 100%;
     -o-object-fit: contain;
        object-fit: contain;
   }
-  .main-nav div img:hover {
+  .main-nav a img:hover {
     cursor: pointer;
   }
 }
 @media (min-width: 1920px) {
-  .main-nav div img {
+  .main-nav a img {
     height: 55px;
     width: 100%;
     -o-object-fit: contain;
        object-fit: contain;
   }
-  .main-nav div img:hover {
+  .main-nav a img:hover {
     cursor: pointer;
   }
 }
-.main-nav div h1 {
+.main-nav a h1 {
   color: var(--title-color);
   font-family: "Raleway", sans-serif;
   font-weight: 200;
   font-size: 30px;
 }
 @media (min-width: 1400px) and (max-width: 1920px) {
-  .main-nav div h1 {
+  .main-nav a h1 {
     font-size: 35px;
   }
 }
 @media (min-width: 1920px) {
-  .main-nav div h1 {
+  .main-nav a h1 {
     font-size: 40px;
   }
 }
@@ -1210,7 +1210,7 @@ footer li a:active {
   align-items: flex-start;
   justify-content: center;
 }
-.footer-logo div {
+.footer-logo a {
   display: flex;
   flex-direction: row;
   gap: 0px;

@@ -6,10 +6,10 @@ const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
     return (
         <footer>
             <div className="footer-logo">
-                <div>
+                <Link to={`/`}>
                     <img src={LibraLogo} alt="Libra" />
                     <h1>Libra</h1>
-                </div>
+                </Link>
                 <p className="logo-subtitle">Dive into a World of Stories Together</p>
             </div>
 
