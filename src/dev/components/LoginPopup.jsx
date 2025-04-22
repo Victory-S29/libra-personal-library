@@ -106,7 +106,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" placeholder="Enter your email"
                             value={loginData.email}
-                            onChange={handleChange} required />
+                            onChange={handleChange} required
+                            autoComplete="email"
+                        />
                     </div>
 
                     {currentLoginState === "Sign up"
@@ -114,7 +116,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                             <label htmlFor="username">User name</label>
                             <input type="text" id="username" placeholder="Enter your user name"
                                 value={loginData.username}
-                                onChange={handleChange} required />
+                                onChange={handleChange} required
+                                autoComplete="username"
+                            />
                         </div>
                         : <></>
                     }
@@ -122,7 +126,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                         <label htmlFor="password">Password</label>
                         <div className='password-group'>
                             <input type={passwordType} onPaste={(e) => { e.preventDefault(); }} id="password" placeholder="Enter your password" value={loginData.password}
-                                onChange={handleChange} required />
+                                onChange={handleChange} required
+                                autoComplete={currentLoginState === "Sign up" ? "new-password" : "current-password"}
+                            />
                             {passwordType === "password"
                                 ? <FontAwesomeIcon icon={faEye} className='icon'
                                     onClick={() => togglePasswordVisibility()} />
@@ -137,7 +143,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <div className='password-group'>
                                 <input type={confirmPasswordType} id="confirmPassword" placeholder="Confirm your password" value={loginData.confirmPassword}
-                                    onChange={handleChange} required onPaste={(e) => { e.preventDefault(); }} />
+                                    onChange={handleChange} required onPaste={(e) => { e.preventDefault(); }}
+                                    autoComplete="new-password"
+                                />
                                 {confirmPasswordType === "password"
                                     ? <FontAwesomeIcon icon={faEye} className='icon'
                                         onClick={() => toggleConfirmPasswordVisibility()} />
