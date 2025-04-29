@@ -224,7 +224,7 @@
         width: $single-book-width-xxxl;
     }
     .actions-bar {
-        @include flex-container(row, $basic-gap, center, center);
+        @include flex-container(row, 15px, center, center);
         margin-top: 5px;
         width: 100%;
         @media (min-width: $xxxl) {
@@ -289,6 +289,12 @@
     }
 }
 
+.not-clickable{
+    cursor:auto;
+    &:hover {
+        box-shadow: none;
+    }
+}
 .rs-pagination {
     @include flex-container(row, 5px, center, center);
     margin-bottom: $basic-margin-y;

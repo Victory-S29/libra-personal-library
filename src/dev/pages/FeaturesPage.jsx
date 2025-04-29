@@ -21,32 +21,32 @@ const FeaturesPage = () => {
             <section className='features-catalogue-section'>
                 <h4>{features.catalogue.overview}</h4>
                 <ul>
-                    {features.catalogue.mainDetails.map((item) => <li><p>{item}</p></li>)}
+                    {features.catalogue.mainDetails.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-sorting-section'>
                 <h4>{features.sorting.description}</h4>
                 <ul>
-                    {features.sorting.options.map((item) => <li><p>{item}</p></li>)}
+                    {features.sorting.options.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-user-section'>
                 <h4>{features.userFeatures.login}</h4>
                 <ul>
-                    {features.userFeatures.preferences.map((item) => <li><p>{item}</p></li>)}
+                    {features.userFeatures.preferences.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-notes-section'>
                 <h4>{features.notes.description}</h4>
                 <ul>
-                    {features.notes.features.map((item) => <li><p>{item}</p></li>)}
+                    {features.notes.features.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
                 <p>{features.notes.summary}</p>
             </section>
             <section className='features-control-section'>
                 <h4>{features.control.description}</h4>
                 <ul>
-                    {features.control.features.map((item) => <li><p>{item}</p></li>)}
+                    {features.control.features.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-footer-section'>

@@ -54,7 +54,7 @@ footer {
 .footer-logo {
     @include flex-container(column, 0px, flex-start, center);
 
-    div {
+    a {
         @include flex-container(row, 0px, center, space-between);
     }
 

@@ -3,12 +3,11 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faComment } from '@fortawesome/free-regular-svg-icons';
-import { faShareFromSquare } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { SliderComponent } from '../';
+import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const BookPage = () => {
     const { bookId } = useParams();
@@ -16,6 +15,7 @@ const BookPage = () => {
     const popularBooks = useSelector(getPopularBooksSelector);
     const noBooks = useSelector(getNoBooksSelector);
     const currentBook = allData.find(book => String(book.id) === String(bookId));
+    const bannersData = useSelector(getBannersEnSelector);
 
     const messages = {
         uk: {
@@ -72,9 +72,10 @@ const BookPage = () => {
                                     <p className='reading-progress'><span>{currentBook.progress}</span>/{currentBook.totalPages}</p>
                                     <StarRating rating={currentBook.review.rating} />
                                     <div className='actions-bar'>
-                                        <FontAwesomeIcon icon={faBookmark} className='icon' />
-                                        <FontAwesomeIcon icon={faComment} className='icon' />
-                                        <FontAwesomeIcon icon={faShareFromSquare} className='icon' />
+                                           <FontAwesomeIcon icon={faHeart} className='icon' />
+                                           <FontAwesomeIcon icon={faSquareCheck} className='icon' />
+                                           <FontAwesomeIcon icon={faClock} className='icon' />
+                                           <FontAwesomeIcon icon={faBookmark} className='icon' />
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +83,7 @@ const BookPage = () => {
                         <div className="additional-info">
                             <section className='book-review'>
                                 <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : messages.uk.noReview}</p>
-                                <button>Change Review</button>
+                                <button>{bannersData.buttons.bookPage.changeReview}</button>
                             </section>
                             <SliderComponent {...similarBooks} />
                         </div>
@@ -102,7 +103,7 @@ const BookPage = () => {
                                     </div>
                                 )}
                             </section>
-                            <button>New Note</button>
+                            <button>{bannersData.buttons.bookPage.newNote}</button>
                         </section>
                     </section>
                     <SliderComponent {...popularBooks} />

@@ -14,7 +14,7 @@
         height: $nav-max-height;
         padding: 20px $basic-padding;
     }
-    div {
+    a {
         @include flex-container(row, 5px, center);
         img {
             @include img-base();
