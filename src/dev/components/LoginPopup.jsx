@@ -2,8 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
+import { useSelector } from 'react-redux';
+import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurrentLoginState }) => {
+
+    const bannersData = useSelector(getBannersEnSelector);
 
     const popupRef = useRef(null);
 
@@ -97,14 +101,14 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
         <div className='login-popup'>
             <form className='login-popup-container' onSubmit={handleSubmit} ref={popupRef}>
                 <div className='login-popup-title'>
-                    <p>Welcome!</p>
+                    <p>{bannersData.notifications.welcome}</p>
                     <h3>{currentLoginState}</h3>
-                    <p className='login-title--subtext'>Dive into a World of stories together</p>
+                    <p className='login-title--subtext'>{bannersData.logo.description}</p>
                 </div>
                 <div className='login-popup-inputs'>
                     <div className="input-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" placeholder="Enter your email"
+                        <label htmlFor="email">{bannersData.buttons.email.label}</label>
+                        <input type="email" id="email" placeholder={bannersData.buttons.email.placeholder}
                             value={loginData.email}
                             onChange={handleChange} required
                             autoComplete="email"
@@ -113,8 +117,8 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
 
                     {currentLoginState === "Sign up"
                         ? <div className="input-group">
-                            <label htmlFor="username">User name</label>
-                            <input type="text" id="username" placeholder="Enter your user name"
+                            <label htmlFor="username">{bannersData.buttons.userName.label}</label>
+                            <input type="text" id="username" placeholder={bannersData.buttons.userName.placeholder}
                                 value={loginData.username}
                                 onChange={handleChange} required
                                 autoComplete="username"
@@ -123,9 +127,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                         : <></>
                     }
                     <div className="input-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">{bannersData.buttons.password.label}</label>
                         <div className='password-group'>
-                            <input type={passwordType} onPaste={(e) => { e.preventDefault(); }} id="password" placeholder="Enter your password" value={loginData.password}
+                            <input type={passwordType} onPaste={(e) => { e.preventDefault(); }} id="password" placeholder={bannersData.buttons.password.placeholder} value={loginData.password}
                                 onChange={handleChange} required
                                 autoComplete={currentLoginState === "Sign up" ? "new-password" : "current-password"}
                             />
@@ -140,9 +144,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                     </div>
                     {currentLoginState === "Sign up"
                         ? <div className="input-group">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            <label htmlFor="confirmPassword">{bannersData.buttons.confirmPassword.label}</label>
                             <div className='password-group'>
-                                <input type={confirmPasswordType} id="confirmPassword" placeholder="Confirm your password" value={loginData.confirmPassword}
+                                <input type={confirmPasswordType} id="confirmPassword" placeholder={bannersData.buttons.confirmPassword.placeholder} value={loginData.confirmPassword}
                                     onChange={handleChange} required onPaste={(e) => { e.preventDefault(); }}
                                     autoComplete="new-password"
                                 />
@@ -157,12 +161,12 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                         </div>
                         : <></>
                     }
-                    <button type='submit'>Register</button>
+                    <button type='submit'>{bannersData.buttons.register}</button>
                     {currentLoginState === "Sign up"
-                        ? <p className='signup-login-link'>Already have an Account?
-                            <span onClick={() => SetCurrentLoginState("Log in")}>Login here</span></p>
-                        : <p className='signup-login-link'>Create a new Account?
-                            <span onClick={() => SetCurrentLoginState("Sign up")}>Sign up here</span></p>
+                        ? <p className='signup-login-link'>{bannersData.notifications.login.haveAnAccount}
+                            <span onClick={() => SetCurrentLoginState("Log in")}>{bannersData.notifications.login.loginHere}</span></p>
+                        : <p className='signup-login-link'>{bannersData.notifications.login.newAcc}
+                            <span onClick={() => SetCurrentLoginState("Sign up")}>{bannersData.notifications.login.signUpHere}</span></p>
                     }
                 </div>
             </form>

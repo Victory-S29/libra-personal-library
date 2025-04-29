@@ -7,6 +7,7 @@ import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-r
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { SliderComponent } from '../';
+import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const BookPage = () => {
     const { bookId } = useParams();
@@ -14,6 +15,7 @@ const BookPage = () => {
     const popularBooks = useSelector(getPopularBooksSelector);
     const noBooks = useSelector(getNoBooksSelector);
     const currentBook = allData.find(book => String(book.id) === String(bookId));
+    const bannersData = useSelector(getBannersEnSelector);
 
     const messages = {
         uk: {
@@ -81,7 +83,7 @@ const BookPage = () => {
                         <div className="additional-info">
                             <section className='book-review'>
                                 <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : messages.uk.noReview}</p>
-                                <button>Change Review</button>
+                                <button>{bannersData.buttons.bookPage.changeReview}</button>
                             </section>
                             <SliderComponent {...similarBooks} />
                         </div>
@@ -101,7 +103,7 @@ const BookPage = () => {
                                     </div>
                                 )}
                             </section>
-                            <button>New Note</button>
+                            <button>{bannersData.buttons.bookPage.newNote}</button>
                         </section>
                     </section>
                     <SliderComponent {...popularBooks} />
