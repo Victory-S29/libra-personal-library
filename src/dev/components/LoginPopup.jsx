@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getIsLoginSelector, getUsersSelector } from '../../store/reducers/user.reducer';
+import { changeLoginAction } from "../../store/actions/user.action";
 
 const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurrentLoginState }) => {
 
@@ -24,6 +26,22 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
         confirmPassword: ""
     })
 
+    const dispatch = useDispatch();
+    const usersData = useSelector(getUsersSelector);
+    const isLogin = useSelector(getIsLoginSelector);
+    const [notification, setNotification] = useState(false);
+
+    const resetData = () => {
+        SetLoginData({
+            email: "",
+            username: "",
+            password: "",
+            confirmPassword: ""
+        });
+        setPasswordError("");
+        setConfirmPasswordError("");
+        setNotification(false);
+    }
     const togglePasswordVisibility = () => {
         setPasswordType(passwordType === "password" ? "text" : "password");
     };
@@ -41,13 +59,15 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
         const trimmedUsername = loginData.username.trim();
 
         if (currentLoginState === "Log in") {
-            const loginPayload = {
-                email: trimmedEmail,
-                password: loginData.password
+            const user = usersData.find(
+                (user) => user.email === trimmedEmail && user.password === loginData.password
+            );
+            if (user) {
+                dispatch(changeLoginAction(true));
+                SetShowLogin(false);
+            } else {
+                setNotification(true);
             };
-            console.log("Login Data:", loginPayload);
-            SetShowLogin(false);
-
         }
 
         if (currentLoginState === "Sign up") {
@@ -113,6 +133,7 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                             onChange={handleChange} required
                             autoComplete="email"
                         />
+                        {notification && <p className='error-message'>{bannersData.notifications.login.userNotExist}</p>}
                     </div>
 
                     {currentLoginState === "Sign up"
@@ -164,9 +185,15 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                     <button type='submit'>{bannersData.buttons.register}</button>
                     {currentLoginState === "Sign up"
                         ? <p className='signup-login-link'>{bannersData.notifications.login.haveAnAccount}
-                            <span onClick={() => SetCurrentLoginState("Log in")}>{bannersData.notifications.login.loginHere}</span></p>
+                            <span onClick={() => {
+                                SetCurrentLoginState("Log in");
+                                resetData();
+                            }}>{bannersData.notifications.login.loginHere}</span></p>
                         : <p className='signup-login-link'>{bannersData.notifications.login.newAcc}
-                            <span onClick={() => SetCurrentLoginState("Sign up")}>{bannersData.notifications.login.signUpHere}</span></p>
+                            <span onClick={() => {
+                                SetCurrentLoginState("Sign up");
+                                resetData();
+                            }}>{bannersData.notifications.login.signUpHere}</span></p>
                     }
                 </div>
             </form>

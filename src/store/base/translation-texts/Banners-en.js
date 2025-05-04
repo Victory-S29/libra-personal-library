@@ -65,6 +65,7 @@ const initialStateBannersEn = {
     notifications: {
         welcome: "Welcome!",
         login: {
+            userNotExist: "This user does not exist",
             longPassword: "Password must be at least 8 characters long.",
             matchPassword: "Passwords do not match.",
             haveAnAccount: "Already have an Account?",
