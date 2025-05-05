@@ -4,50 +4,75 @@ import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
-import { getIsLoginSelector, getUsersSelector } from '../../store/reducers/user.reducer';
-import { changeLoginAction } from "../../store/actions/user.action";
+import { getUsersSelector } from '../../store/reducers/user.reducer';
+import { addNewUserAction, changeLoginAction } from "../../store/actions/user.action";
 
 const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurrentLoginState }) => {
+    const popupRef = useRef(null);
+    const dispatch = useDispatch();
 
     const bannersData = useSelector(getBannersEnSelector);
-
-    const popupRef = useRef(null);
+    const usersData = useSelector(getUsersSelector);
+    const passwordBanners = {
+        en: {
+            longPassword: "Password must be at least 8 characters long.",
+            matchPassword: "Passwords do not match.",
+            emailError: "An account for this email address already exists."
+        }
+    }
 
     const [passwordType, setPasswordType] = useState("password");
     const [confirmPasswordType, setConfirmPasswordType] = useState("password");
 
+    const [notification, setNotification] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
+    const [emailError, setEmailError] = useState("");
 
-    const [loginData, SetLoginData] = useState({
+    const [loginData, setLoginData] = useState({
         email: "",
         username: "",
         password: "",
         confirmPassword: ""
     })
 
-    const dispatch = useDispatch();
-    const usersData = useSelector(getUsersSelector);
-    const isLogin = useSelector(getIsLoginSelector);
-    const [notification, setNotification] = useState(false);
-
-    const resetData = () => {
-        SetLoginData({
-            email: "",
-            username: "",
-            password: "",
-            confirmPassword: ""
-        });
-        setPasswordError("");
-        setConfirmPasswordError("");
-        setNotification(false);
-    }
     const togglePasswordVisibility = () => {
         setPasswordType(passwordType === "password" ? "text" : "password");
     };
 
     const toggleConfirmPasswordVisibility = () => {
         setConfirmPasswordType(confirmPasswordType === "password" ? "text" : "password");
+    };
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setLoginData((prevData) => ({
+            ...prevData,
+            [id]: value
+        }));
+    };
+
+    const validateSignup = () => {
+        let isValid = true;
+        setPasswordError("");
+        setConfirmPasswordError("");
+        setEmailError("");
+
+        const existingUser = usersData.find(user => user.email === loginData.email.trim());
+        if (existingUser) {
+            setEmailError(passwordBanners.en.emailError);
+            isValid = false;
+        }
+        if (loginData.password.length < 8) {
+            setPasswordError(passwordBanners.en.longPassword);
+            isValid = false;
+        }
+        if (loginData.password !== loginData.confirmPassword) {
+            setConfirmPasswordError(passwordBanners.en.matchPassword);
+            isValid = false;
+        }
+
+        return isValid;
     };
 
     const handleSubmit = (e) => {
@@ -70,39 +95,31 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
             };
         }
 
-        if (currentLoginState === "Sign up") {
-            let isValid = true;
-            if (loginData.password.length < 8) {
-                setPasswordError("Password must be at least 8 characters long.");
-                isValid = false;
-            }
-            if (loginData.password !== loginData.confirmPassword) {
-                setConfirmPasswordError("Passwords do not match.");
-                isValid = false;
-            }
-
-            if (isValid) {
-                const signupPayload = {
-                    email: trimmedEmail,
-                    username: trimmedUsername,
-                    password: loginData.password,
-                    confirmPassword: loginData.confirmPassword
-                };
-                console.log("Signup Data:", signupPayload);
-                SetShowLogin(false);
-                toggleLoginPopup();
-            }
+        if (currentLoginState === "Sign up" && validateSignup()) {
+            const newUser = {
+                email: trimmedEmail,
+                username: trimmedUsername,
+                password: loginData.password,
+            };
+            dispatch(addNewUserAction(newUser));
+            dispatch(changeLoginAction(true));
+            SetShowLogin(false);
+            toggleLoginPopup();
         }
     };
 
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        SetLoginData((prevData) => ({
-            ...prevData,
-            [id]: value
-        }));
-    };
-
+    const resetData = () => {
+        setLoginData({
+            email: "",
+            username: "",
+            password: "",
+            confirmPassword: ""
+        });
+        setPasswordError("");
+        setConfirmPasswordError("");
+        setEmailError("");
+        setNotification(false);
+    }
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -134,19 +151,17 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                             autoComplete="email"
                         />
                         {notification && <p className='error-message'>{bannersData.notifications.login.userNotExist}</p>}
+                        {emailError && currentLoginState === "Sign up" && <p className='error-message'>{emailError}</p>}
                     </div>
 
-                    {currentLoginState === "Sign up"
-                        ? <div className="input-group">
-                            <label htmlFor="username">{bannersData.buttons.userName.label}</label>
-                            <input type="text" id="username" placeholder={bannersData.buttons.userName.placeholder}
-                                value={loginData.username}
-                                onChange={handleChange} required
-                                autoComplete="username"
-                            />
-                        </div>
-                        : <></>
-                    }
+                    {currentLoginState === "Sign up" && (<div className="input-group">
+                        <label htmlFor="username">{bannersData.buttons.userName.label}</label>
+                        <input type="text" id="username" placeholder={bannersData.buttons.userName.placeholder}
+                            value={loginData.username}
+                            onChange={handleChange} required
+                            autoComplete="username"
+                        />
+                    </div>)}
                     <div className="input-group">
                         <label htmlFor="password">{bannersData.buttons.password.label}</label>
                         <div className='password-group'>
@@ -161,10 +176,11 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                                     onClick={() => togglePasswordVisibility()} />
                             }
                         </div>
+                        {notification && <p className='error-message'>{bannersData.notifications.login.wrongPassword}</p>}
                         {passwordError && currentLoginState === "Sign up" && <p className='error-message'>{passwordError}</p>}
                     </div>
-                    {currentLoginState === "Sign up"
-                        ? <div className="input-group">
+                    {currentLoginState === "Sign up" &&
+                        (<div className="input-group">
                             <label htmlFor="confirmPassword">{bannersData.buttons.confirmPassword.label}</label>
                             <div className='password-group'>
                                 <input type={confirmPasswordType} id="confirmPassword" placeholder={bannersData.buttons.confirmPassword.placeholder} value={loginData.confirmPassword}
@@ -180,8 +196,7 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                             </div>
                             {confirmPasswordError && <p className='error-message'>{confirmPasswordError}</p>}
                         </div>
-                        : <></>
-                    }
+                        )}
                     <button type='submit'>{bannersData.buttons.register}</button>
                     {currentLoginState === "Sign up"
                         ? <p className='signup-login-link'>{bannersData.notifications.login.haveAnAccount}

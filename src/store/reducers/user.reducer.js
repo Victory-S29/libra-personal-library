@@ -1,4 +1,4 @@
-import { CHANGE_LOGIN_ACTION } from "../actions/user.action";
+import { ADD_NEW_USER_ACTION, CHANGE_LOGIN_ACTION } from "../actions/user.action";
 
 const initialState = {
     isLogin: false,
@@ -15,6 +15,13 @@ const UserReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLogin: action.payload.isLogin
+            }
+        }
+        case ADD_NEW_USER_ACTION: {
+            const { newUser } = action.payload;
+            return {
+                ...state,
+                users: [...state.users, newUser]
             }
         }
         default: {
