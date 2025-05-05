@@ -17,8 +17,8 @@ const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
                 <p className="logo-subtitle">{bannersData.logo.description}</p>
             </div>
             <ul className="footer-nav">
-                {footerNav.map((item) => {
-                    return (<li className="nav-item"><Link className="nav-item" to={`${item.link}`}> {item.name} </Link></li>)
+                {footerNav.map((item, id) => {
+                    return (<li className="nav-item"><Link className="nav-item" to={`${item.link}`} key={id}> {item.name} </Link></li>)
                 })}
             </ul>
             <div className="auth-buttons">

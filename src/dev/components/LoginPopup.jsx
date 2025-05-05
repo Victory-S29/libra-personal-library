@@ -90,6 +90,7 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
             if (user) {
                 dispatch(changeLoginAction(true));
                 SetShowLogin(false);
+                toggleLoginPopup();
             } else {
                 setNotification(true);
             };
