@@ -1696,4 +1696,112 @@ footer li a:active {
 .developer-page--refs img {
   margin-left: 20px;
   max-height: 20vh;
+}
+
+.settings-page {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin-top: 20px;
+}
+.settings-page .main-section {
+  display: flex;
+  flex-direction: flex;
+  gap: 10px;
+  align-items: space-between;
+  justify-content: start;
+  margin-bottom: 15px;
+}
+.settings-page .main-section #username {
+  width: 50%;
+}
+.settings-page .main-section--title {
+  width: 40%;
+  text-align: center;
+  margin: auto;
+}
+.settings-page .main-section--title h2 {
+  color: var(--title-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+}
+.settings-page .main-section--title p {
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+.settings-page .main-section--form {
+  width: 60%;
+}
+.settings-page .main-section--form button {
+  display: inline;
+  width: 50px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--active-text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
+  margin: 10px 10px 10px 0;
+}
+
+.main-settings--section {
+  border-right: 1px solid var(--separators-color);
+  padding: 10px;
+}
+.main-settings--section button {
+  display: block;
+  margin: 30px auto;
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--active-text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
+}
+
+.additional-settings .signoutLink {
+  display: block;
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--active-text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
+  margin: 10px 10px 10px 0;
+  text-align: center;
+}
+.additional-settings .main-section--form .lang-button {
+  width: 50px;
+}
+.additional-settings .main-section--form button {
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+}
+.additional-settings .main-section--form #delete {
+  border-color: var(--error-color);
+}
+
+.exit-section {
+  border-top: 1px solid var(--separators-color);
+  margin-top: 20%;
 }/*# sourceMappingURL=main.css.map */

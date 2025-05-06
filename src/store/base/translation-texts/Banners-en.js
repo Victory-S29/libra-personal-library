@@ -60,6 +60,10 @@ const initialStateBannersEn = {
         },
         search: {
             label: "Search"
+        },
+        username: {
+            label: "Username",
+            placeholder: "Enter your username"
         }
     },
     notifications: {
@@ -74,6 +78,34 @@ const initialStateBannersEn = {
             signUpHere: "Sign up here",
             newAcc: "Create a new Account?"
         }
+    },
+    settingsPage: {
+        profile: {
+            title: "Profile",
+            description: "Set your account details"
+        },
+        password: {
+            title: "Password",
+            description: "Set your password details"
+        },
+        language: {
+            title: "Language",
+            description: "Set your language",
+            languages: {
+                en: "En",
+                de: "De"
+            }
+        },
+        delete: {
+            title: "Delete",
+            description: "Delete account"
+        },
+        signOut: {
+            title: "Sign out",
+            description: "Log out from your account"
+        },
+        change: "Change",
+        saveChanges: "Save changes"
     }
 };
 

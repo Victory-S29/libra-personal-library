@@ -1,0 +1,73 @@
+.settings-page {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-top: 20px;
+    .main-section {
+        @include flex-container(flex, $size-10, space-between, start);
+        margin-bottom: 15px;
+        #username {
+            width: 50%;
+        }
+    }
+    .main-section--title {
+        width: 40%;
+        text-align: center;
+        margin: auto;
+        h2 {
+            @include text-base(var(--title-color), $font-weight: 400, $font-size: 17px);
+        }
+        p {
+            @include text-base(var(--text-color), $font-weight: 400, $font-size: 13px);
+        }
+    }
+
+    .main-section--form {
+        width: 60%;
+        button {
+            display: inline;
+            @include btn-base($width: 50px);
+            @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+            background-color: var(--background-color);
+            margin: 10px 10px 10px 0;
+        }
+    }
+}
+
+.main-settings--section {
+    border-right: 1px solid var(--separators-color);
+    padding: 10px;
+
+    button {
+        display: block;
+        margin: 30px auto;
+        @include btn-base();
+        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        background-color: var(--background-color);
+    }
+}
+.additional-settings {
+    .signoutLink {
+        display: block;
+        @include btn-base($width: 150px);
+        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        background-color: var(--background-color);
+        margin: 10px 10px 10px 0;
+        text-align: center;
+    }
+    .main-section--form {
+        .lang-button{
+            width: 50px;
+        }
+        button {
+            @include btn-base($width: 150px);
+        }
+        #delete{
+            border-color: var(--error-color);
+        }
+    }
+}
+
+.exit-section{
+    border-top: 1px solid var(--separators-color);
+    margin-top: 20%;
+}
