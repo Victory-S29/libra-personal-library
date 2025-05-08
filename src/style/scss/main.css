@@ -15,6 +15,7 @@
   --secondary-text-color: #677e6c;
   --subtext-color: #222222;
   --error-color: #bd0d0d;
+  --confirm-color: #0dbd10;
   --button-color: #19194f;
   --button-focus-color: #26194f24;
   --button-text-color: #ffffff;
@@ -1341,6 +1342,71 @@ footer li a:active {
     font-size: 25px;
     padding: 15px 20px;
   }
+}
+
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--shadow-color);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.confirm-popup {
+  background-color: var(--background-color);
+  border: 2px solid var(--secondary-color);
+  padding: 20px 40px;
+  width: 35%;
+  padding: 20px;
+}
+.confirm-popup div {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.confirm-popup h3 {
+  color: var(--title-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+}
+.confirm-popup .confirm-btn {
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  border-color: var(--confirm-color);
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
+}
+.confirm-popup .cansel-btn {
+  width: 150px;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  border-color: var(--error-color);
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--background-color);
 }
 
 .single-book--section {

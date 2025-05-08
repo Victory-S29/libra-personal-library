@@ -1,12 +1,15 @@
-import { ADD_NEW_USER_ACTION, CHANGE_LOGIN_ACTION } from "../actions/user.action";
+import { ADD_CURRENT_USER_ACTION, ADD_NEW_USER_ACTION, CHANGE_LOGIN_ACTION, CHANGE_USER_ACTION } from "../actions/user.action";
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
     isLogin: false,
     users: [{
+        id: uuidv4(),
         email: "viktoriia.sanina.2917@gmail.com",
         username: "Viktoriia",
         password: "12345678"
-    }]
+    }],
+    currentUser: {}
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -24,6 +27,26 @@ const UserReducer = (state = initialState, action) => {
                 users: [...state.users, newUser]
             }
         }
+        case ADD_CURRENT_USER_ACTION: {
+            const { id } = action.payload;
+            const foundUser = state.users.find(user => user.id === id);
+            return {
+                ...state,
+                currentUser: foundUser || {}
+            };
+        }
+        case CHANGE_USER_ACTION: {
+            const { changedUser } = action.payload;
+            const updatedUsers = state.users.map(user =>
+                user.id === changedUser.id ? changedUser : user
+            );
+
+            return {
+                ...state,
+                users: updatedUsers,
+                currentUser: changedUser
+            };
+        }
         default: {
             return {
                 ...state,
@@ -36,3 +59,4 @@ export default UserReducer;
 
 export const getIsLoginSelector = (state) => state.userReducer.isLogin;
 export const getUsersSelector = (state) => state.userReducer.users;
+export const getCurrentUserSelector = (state) => state.userReducer.currentUser;

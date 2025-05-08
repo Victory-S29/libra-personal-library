@@ -5,7 +5,8 @@ import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { getUsersSelector } from '../../store/reducers/user.reducer';
-import { addNewUserAction, changeLoginAction } from "../../store/actions/user.action";
+import { addCurrentUserAction, addNewUserAction, changeLoginAction } from "../../store/actions/user.action";
+import { v4 as uuidv4 } from 'uuid';
 
 const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurrentLoginState }) => {
     const popupRef = useRef(null);
@@ -89,6 +90,7 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
             );
             if (user) {
                 dispatch(changeLoginAction(true));
+                dispatch(addCurrentUserAction(user.id));
                 SetShowLogin(false);
                 toggleLoginPopup();
             } else {
@@ -98,12 +100,14 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
 
         if (currentLoginState === "Sign up" && validateSignup()) {
             const newUser = {
+                id: uuidv4(),
                 email: trimmedEmail,
                 username: trimmedUsername,
                 password: loginData.password,
             };
             dispatch(addNewUserAction(newUser));
             dispatch(changeLoginAction(true));
+            dispatch(addCurrentUserAction(newUser.id));
             SetShowLogin(false);
             toggleLoginPopup();
         }

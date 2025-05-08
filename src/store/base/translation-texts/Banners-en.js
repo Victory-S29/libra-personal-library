@@ -68,6 +68,10 @@ const initialStateBannersEn = {
     },
     notifications: {
         welcome: "Welcome!",
+        basic: {
+            confirm: "Confirm",
+            cancel: "Cancel"
+        },
         login: {
             userNotExist: "This user does not exist",
             wrongPassword: "Your password may be wrong",
@@ -76,7 +80,11 @@ const initialStateBannersEn = {
             haveAnAccount: "Already have an Account?",
             loginHere: "Login here",
             signUpHere: "Sign up here",
+            emailError: "An account for this email address already exists.",
             newAcc: "Create a new Account?"
+        },
+        user: {
+            ChangeDataTitle: "Are you sure you want to save changes to your account?"
         }
     },
     settingsPage: {

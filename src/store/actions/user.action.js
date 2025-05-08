@@ -1,5 +1,7 @@
 export const CHANGE_LOGIN_ACTION = "CHANGE_LOGIN_ACTION";
 export const ADD_NEW_USER_ACTION = "ADD_NEW_USER_ACTION";
+export const ADD_CURRENT_USER_ACTION = "ADD_CURRENT_USER_ACTION";
+export const CHANGE_USER_ACTION = "CHANGE_USER_ACTION";
 
 export const changeLoginAction = (isLogin) => {
     return {
@@ -19,3 +21,20 @@ export const addNewUserAction = (newUser) => {
     };
 };
 
+export const addCurrentUserAction = (id) => {
+    return {
+        type: ADD_CURRENT_USER_ACTION,
+        payload: {
+            id
+        }
+    };
+};
+
+export const changeUserAction = (changedUser) => {
+    return {
+        type: CHANGE_USER_ACTION,
+        payload: {
+            changedUser
+        }
+    };
+};
