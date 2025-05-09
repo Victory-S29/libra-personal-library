@@ -16,3 +16,4 @@ export { default as BookPage } from "./pages/BookPage.jsx";
 export { default as FeaturesPage } from "./pages/FeaturesPage.jsx";
 export { default as TechnologiesPage } from "./pages/TechnologiesPage.jsx";
 export { default as DevelopersPage } from "./pages/DeveloperPage.jsx";
+export { default as ConfirmPopup } from "./components/ConfirmPopup.jsx";
