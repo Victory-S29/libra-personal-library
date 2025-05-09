@@ -73,7 +73,7 @@ const initialStateBannersEn = {
             cancel: "Cancel"
         },
         login: {
-            userNotExist: "This user does not exist",
+            userNotExist: "Your email may be wrong",
             wrongPassword: "Your password may be wrong",
             longPassword: "Password must be at least 8 characters long.",
             matchPassword: "Passwords do not match.",

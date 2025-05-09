@@ -1,4 +1,4 @@
-import { ADD_CURRENT_USER_ACTION, ADD_NEW_USER_ACTION, CHANGE_LOGIN_ACTION, CHANGE_USER_ACTION } from "../actions/user.action";
+import { ADD_CURRENT_USER_ACTION, ADD_NEW_USER_ACTION, CHANGE_LOGIN_ACTION, CHANGE_USER_ACTION, DELETE_USER_ACTION } from "../actions/user.action";
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
@@ -45,6 +45,15 @@ const UserReducer = (state = initialState, action) => {
                 ...state,
                 users: updatedUsers,
                 currentUser: changedUser
+            };
+        }
+        case DELETE_USER_ACTION: {
+            const { id } = action.payload
+            return {
+                ...state,
+                users: state.users.filter(user => user.id !== id),
+                currentUser: null,
+                isLogin: false
             };
         }
         default: {

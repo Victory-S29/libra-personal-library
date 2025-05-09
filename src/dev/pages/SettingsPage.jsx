@@ -1,36 +1,46 @@
-import React, { useState } from 'react';
-import { changeLoginAction, changeUserAction } from '../../store/actions/user.action';
+import React, { useEffect, useState } from 'react';
+import { changeLoginAction, changeUserAction, deleteUserAction } from '../../store/actions/user.action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
-import { getCurrentUserSelector, getUsersSelector } from '../../store/reducers/user.reducer';
+import { getCurrentUserSelector, getIsLoginSelector, getUsersSelector } from '../../store/reducers/user.reducer';
 import ConfirmPopup from '../components/ConfirmPopup';
 
 const SettingsPage = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const currentUser = useSelector(getCurrentUserSelector);
     const usersData = useSelector(getUsersSelector);
-    const [passwordError, setPasswordError] = useState("");
-    const [passwordType, setPasswordType] = useState("password");
+    const isLogin = useSelector(getIsLoginSelector);
     const bannersDataEN = useSelector(getBannersEnSelector);
     const bannersData = bannersDataEN
+
+    useEffect(() => {
+        if (!isLogin) {
+            navigate('/');
+        }
+    }, [isLogin, navigate]);
+
+    const [passwordError, setPasswordError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordType, setPasswordType] = useState("password");
     const [loginData, setLoginData] = useState({
-        id: currentUser.id,
-        email: currentUser.email,
-        username: currentUser.username,
-        password: currentUser.password,
+        id: currentUser?.id || "",
+        email: currentUser?.email || "",
+        username: currentUser?.username || "",
+        password: currentUser?.password || "",
     })
     const [initialData, setInitialData] = useState({
-        id: currentUser.id,
-        email: currentUser.email,
-        username: currentUser.username,
-        password: currentUser.password,
+        id: currentUser?.id || "",
+        email: currentUser?.email || "",
+        username: currentUser?.username || "",
+        password: currentUser?.password || "",
     });
-    const [emailError, setEmailError] = useState("");
-    const [showConfirmPopup, setShowConfirmPopup] = useState(false);
+    const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
+    const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
 
     const togglePasswordVisibility = () => {
         setPasswordType(passwordType === "password" ? "text" : "password");
@@ -50,7 +60,6 @@ const SettingsPage = () => {
         const sameUser = sameEmailUser && sameEmailUser.id !== currentUser.id
         setPasswordError("");
         setEmailError("");
-    
         if (sameUser) {
             setEmailError(bannersData.notifications.login.emailError);
             isValid = false;
@@ -65,13 +74,14 @@ const SettingsPage = () => {
     const handleConfirmChanges = () => {
         dispatch(changeUserAction(loginData));
         setInitialData(loginData);
-        setShowConfirmPopup(false);
+        setShowConfirmPopupChange(false);
     };
 
     const handleCancelChanges = () => {
         setLoginData(initialData);
-        setShowConfirmPopup(false);
+        setShowConfirmPopupChange(false);
     };
+
     const isDataChanged = () => {
         return (
             loginData.username !== initialData.username ||
@@ -82,15 +92,33 @@ const SettingsPage = () => {
     const handleSubmit = () => {
         if (validateSignup()) {
             if (isDataChanged()) {
-                setShowConfirmPopup(true);
+                setShowConfirmPopupChange(true);
             }
-            // dispatch(changeUserAction(loginData));
         }
     }
 
-    const onClick = () => {
+    const handleSignOut = () => {
         dispatch(changeLoginAction(false));
     }
+
+    const handleDeleteSubmit = () => {
+        setShowConfirmPopupDelete(true);
+    }
+
+    const handleConfirmDelete = () => {
+        setInitialData({
+            id: "",
+            email: "",
+            username: "",
+            password: "",
+        })
+        dispatch(deleteUserAction(loginData.id))
+        setShowConfirmPopupDelete(false);
+    };
+
+    const handleCancelDelete = () => {
+        setShowConfirmPopupDelete(false);
+    };
     return (
         <div className='settings-page'>
             <section className='main-settings--section'>
@@ -189,7 +217,7 @@ const SettingsPage = () => {
                         </div>
                         <div className='main-section--form'>
                             <Link to="/" className='signoutLink'
-                                onClick={() => onClick()}>{bannersData.settingsPage.signOut.title}</Link>
+                                onClick={() => handleSignOut()}>{bannersData.settingsPage.signOut.title}</Link>
                         </div>
                     </div>
                     <div className='main-section'>
@@ -198,21 +226,28 @@ const SettingsPage = () => {
                             <p>{bannersData.settingsPage.delete.description}</p>
                         </div>
                         <div className='main-section--form'>
-                            <button id="delete">{bannersData.settingsPage.delete.title}</button>
+                            <button id="delete" onClick={() => handleDeleteSubmit()}>{bannersData.settingsPage.delete.title}</button>
                         </div>
                     </div>
                 </div>
             </section>
-            {showConfirmPopup && (
+            {showConfirmPopupChange && (
                 <ConfirmPopup
                     title={bannersData.notifications.user.ChangeDataTitle}
                     onConfirm={handleConfirmChanges}
                     onCancel={handleCancelChanges}
                 />
             )}
-            {console.log(usersData)}
+            {showConfirmPopupDelete && (
+                <ConfirmPopup
+                    title={bannersData.notifications.user.ChangeDataTitle}
+                    onConfirm={handleConfirmDelete}
+                    onCancel={handleCancelDelete}
+                />
+            )}
         </div>
     );
-};
+
+}
 
 export default SettingsPage;
