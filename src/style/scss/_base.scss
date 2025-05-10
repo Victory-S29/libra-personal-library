@@ -15,7 +15,7 @@ h1 {
 }
 
 h2 {
-    @include text-base(var(--title-color), $text-font,  $font-weight: 400, $font-size: $size-40);
+    @include text-base(var(--title-color), $text-font, $font-weight: 400, $font-size: $size-40);
     line-height: 200%;
     text-align: center;
 
@@ -45,4 +45,44 @@ p::first-letter {
 
 a {
     text-decoration: none;
+}
+
+.book-rating {
+    @include flex-container(row, 3px, center, center);
+    width: 100%;
+    @media (min-width: $xxxl) {
+        margin-top: 5px;
+    }
+}
+input {
+    background-color: var(--input-bc-color);
+    border: 1px solid var(--button-color);
+    border-radius: 4px;
+    padding: 12px 10px;
+    width: 100%;
+    @include text-base(var(--text-color), $text-font, 200, $size-15);
+    @media (min-width: $xxl) and (max-width: $xxxl) {
+        font-size: $size-20;
+    }
+    @media (min-width: $xxxl) {
+        font-size: $size-25;
+    }
+    &::placeholder {
+        color: var(--button-color);
+        opacity: 1;
+    }
+
+    &:focus {
+        background-color: var(--button-focus-color);
+        outline: none;
+    }
+}
+
+.change-btn {
+    display: block;
+    @include btn-base();
+    @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+    background-color: var(--background-color);
+    text-align: center;
+    margin: 10px auto;
 }

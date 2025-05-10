@@ -15,6 +15,7 @@ const initialStateSort = {
             "Gothic",
             "Horror",
             "Humor",
+            "Other"
         ],
         type: "checkbox"
     },

@@ -70,7 +70,8 @@ const initialStateBannersEn = {
         welcome: "Welcome!",
         basic: {
             confirm: "Confirm",
-            cancel: "Cancel"
+            cancel: "Cancel",
+            change: "Change"
         },
         login: {
             userNotExist: "Your email may be wrong",

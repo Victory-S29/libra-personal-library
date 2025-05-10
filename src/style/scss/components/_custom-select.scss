@@ -1,0 +1,67 @@
+.custom-select {
+    position: relative;
+    width: 30%;
+    margin: 10px 0;
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 2rem;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 2rem;
+        &:hover {
+            background: var(--separators-color);
+        }
+    }
+    .selected-option {
+        background-color: var(--input-bc-color);
+        border: 1px solid var(--button-color);
+        border-radius: 4px;
+        padding: 12px 10px;
+        width: 100%;
+        @include text-base(var(--text-color), $text-font, 200, $size-15);
+        &::after {
+            content: "\25BD";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            pointer-events: none;
+            color: var(--active-text-color);
+        }
+    }
+
+    .options-list {
+        position: absolute;
+        width: 100%;
+        max-height: 200px;
+        background-color: var(--background-color);
+        border: 1px solid var(--button-color);
+        border-radius: 4px;
+        margin: 0;
+        padding: 12px 10px;
+        list-style: none;
+        overflow-y: auto;
+        z-index: 1000;
+
+        @include text-base(var(--text-color), $text-font, 200, $size-15);
+        li {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: var(--secondary-color);
+                color: var(--active-text-color);
+            }
+
+            &.active {
+                background-color: var(--secondary-color);
+                color: var(--active-text-color);
+            }
+        }
+    }
+}

@@ -231,13 +231,6 @@
             margin-top: 10px;
         }
     }
-    .book-rating {
-        @include flex-container(row, 3px, center, center);
-        width: 100%;
-        @media (min-width: $xxxl) {
-            margin-top: 5px;
-        }
-    }
     .icon {
         @include icon-base(19px, 19px, var(--accent-color));
         @media (min-width: $xxl) and (max-width: $xxxl) {

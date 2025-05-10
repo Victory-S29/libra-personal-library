@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
 import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
@@ -15,7 +15,8 @@ const BookPage = () => {
     const popularBooks = useSelector(getPopularBooksSelector);
     const noBooks = useSelector(getNoBooksSelector);
     const currentBook = allData.find(book => String(book.id) === String(bookId));
-    const bannersData = useSelector(getBannersEnSelector);
+    const bannersDataEN = useSelector(getBannersEnSelector);
+    const bannersData = bannersDataEN;
 
     const messages = {
         uk: {
@@ -66,16 +67,18 @@ const BookPage = () => {
                             <div>
                                 <h1>{currentBook.title}</h1>
                                 <h3>{currentBook.author}</h3>
+                                <p>{currentBook.category}</p>
                                 <p><span>{currentBook.tags.join(', ')}</span></p>
                                 <p className='description-paragraf'>{currentBook.description}</p>
                                 <div className='users-progress'>
                                     <p className='reading-progress'><span>{currentBook.progress}</span>/{currentBook.totalPages}</p>
                                     <StarRating rating={currentBook.review.rating} />
+                                    <Link className='change-btn' to={`/change-bookinfo/${bookId}`}>{bannersData.notifications.basic.change}</Link>
                                     <div className='actions-bar'>
-                                           <FontAwesomeIcon icon={faHeart} className='icon' />
-                                           <FontAwesomeIcon icon={faSquareCheck} className='icon' />
-                                           <FontAwesomeIcon icon={faClock} className='icon' />
-                                           <FontAwesomeIcon icon={faBookmark} className='icon' />
+                                        <FontAwesomeIcon icon={faHeart} className='icon' />
+                                        <FontAwesomeIcon icon={faSquareCheck} className='icon' />
+                                        <FontAwesomeIcon icon={faClock} className='icon' />
+                                        <FontAwesomeIcon icon={faBookmark} className='icon' />
                                     </div>
                                 </div>
                             </div>

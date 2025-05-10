@@ -28,7 +28,13 @@
             padding: 15px 20px;
         }
     }
-
+    .change-btn {
+        @include btn-base();
+        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        background-color: var(--background-color);
+        text-align: center;
+        margin: 10px 0;
+    }
     h1 {
         @include text-base(var(--title-color), $title-font, 400, 24px);
     }
@@ -73,7 +79,7 @@
     }
     div {
         @include flex-container(column, 10px, center, center);
-        .reading-progress span{
+        .reading-progress span {
             font-weight: 700;
             color: var(--span-text-color);
         }
@@ -82,7 +88,7 @@
 
 .users-progress {
     .book-rating {
-        @include flex-container(row, 3px, center, start);
+        @include flex-container(row, 3px, center, center);
         width: 100%;
         @media (min-width: $xxxl) {
             margin-top: 5px;
@@ -125,7 +131,7 @@
     }
     .note {
         margin-bottom: 30px;
-        padding-right: 10px; 
+        padding-right: 10px;
         display: grid;
         grid-template-columns: 10% 90%;
         align-items: center;
