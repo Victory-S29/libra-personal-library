@@ -12,15 +12,9 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
     const popupRef = useRef(null);
     const dispatch = useDispatch();
 
-    const bannersData = useSelector(getBannersEnSelector);
+    const bannersDataEN = useSelector(getBannersEnSelector);
+    const bannersData = bannersDataEN;
     const usersData = useSelector(getUsersSelector);
-    const passwordBanners = {
-        en: {
-            longPassword: "Password must be at least 8 characters long.",
-            matchPassword: "Passwords do not match.",
-            emailError: "An account for this email address already exists."
-        }
-    }
 
     const [passwordType, setPasswordType] = useState("password");
     const [confirmPasswordType, setConfirmPasswordType] = useState("password");
@@ -61,15 +55,15 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
 
         const existingUser = usersData.find(user => user.email === loginData.email.trim());
         if (existingUser) {
-            setEmailError(passwordBanners.en.emailError);
+            setEmailError(bannersData.user.messages.emailError);
             isValid = false;
         }
         if (loginData.password.length < 8) {
-            setPasswordError(passwordBanners.en.longPassword);
+            setPasswordError(bannersData.user.messages.shortPassword);
             isValid = false;
         }
         if (loginData.password !== loginData.confirmPassword) {
-            setConfirmPasswordError(passwordBanners.en.matchPassword);
+            setConfirmPasswordError(bannersData.user.messages.matchPassword);
             isValid = false;
         }
 
@@ -149,28 +143,28 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                 </div>
                 <div className='login-popup-inputs'>
                     <div className="input-group">
-                        <label htmlFor="email">{bannersData.buttons.email.label}</label>
-                        <input type="email" id="email" placeholder={bannersData.buttons.email.placeholder}
+                        <label htmlFor="email">{bannersData.user.labels.email}</label>
+                        <input type="email" id="email" placeholder={bannersData.user.placeholders.email}
                             value={loginData.email}
                             onChange={handleChange} required
                             autoComplete="email"
                         />
-                        {notification && <p className='error-message'>{bannersData.notifications.login.userNotExist}</p>}
+                        {notification && <p className='error-message'>{bannersData.user.messages.userNotExist}</p>}
                         {emailError && currentLoginState === "Sign up" && <p className='error-message'>{emailError}</p>}
                     </div>
 
                     {currentLoginState === "Sign up" && (<div className="input-group">
-                        <label htmlFor="username">{bannersData.buttons.userName.label}</label>
-                        <input type="text" id="username" placeholder={bannersData.buttons.userName.placeholder}
+                        <label htmlFor="username">{bannersData.user.labels.userName}</label>
+                        <input type="text" id="username" placeholder={bannersData.user.placeholders.userName}
                             value={loginData.username}
                             onChange={handleChange} required
                             autoComplete="username"
                         />
                     </div>)}
                     <div className="input-group">
-                        <label htmlFor="password">{bannersData.buttons.password.label}</label>
+                        <label htmlFor="password">{bannersData.user.labels.password}</label>
                         <div className='password-group'>
-                            <input type={passwordType} onPaste={(e) => { e.preventDefault(); }} id="password" placeholder={bannersData.buttons.password.placeholder} value={loginData.password}
+                            <input type={passwordType} onPaste={(e) => { e.preventDefault(); }} id="password" placeholder={bannersData.user.placeholders.password} value={loginData.password}
                                 onChange={handleChange} required
                                 autoComplete={currentLoginState === "Sign up" ? "new-password" : "current-password"}
                             />
@@ -181,14 +175,14 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                                     onClick={() => togglePasswordVisibility()} />
                             }
                         </div>
-                        {notification && <p className='error-message'>{bannersData.notifications.login.wrongPassword}</p>}
+                        {notification && <p className='error-message'>{bannersData.user.messages.wrongPassword}</p>}
                         {passwordError && currentLoginState === "Sign up" && <p className='error-message'>{passwordError}</p>}
                     </div>
                     {currentLoginState === "Sign up" &&
                         (<div className="input-group">
-                            <label htmlFor="confirmPassword">{bannersData.buttons.confirmPassword.label}</label>
+                            <label htmlFor="confirmPassword">{bannersData.user.labels.confirmPassword}</label>
                             <div className='password-group'>
-                                <input type={confirmPasswordType} id="confirmPassword" placeholder={bannersData.buttons.confirmPassword.placeholder} value={loginData.confirmPassword}
+                                <input type={confirmPasswordType} id="confirmPassword" placeholder={bannersData.user.placeholders.confirmPassword} value={loginData.confirmPassword}
                                     onChange={handleChange} required onPaste={(e) => { e.preventDefault(); }}
                                     autoComplete="new-password"
                                 />
@@ -202,18 +196,21 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
                             {confirmPasswordError && <p className='error-message'>{confirmPasswordError}</p>}
                         </div>
                         )}
-                    <button type='submit'>{bannersData.buttons.register}</button>
+                    {currentLoginState === "Sign up" ? <button type='submit'>{bannersData.user.labels.register}</button>
+                        : <button type='submit'>{bannersData.user.labels.logIn}</button>
+                    }
+
                     {currentLoginState === "Sign up"
-                        ? <p className='signup-login-link'>{bannersData.notifications.login.haveAnAccount}
+                        ? <p className='signup-login-link'>{bannersData.user.messages.haveAnAccount}
                             <span onClick={() => {
                                 SetCurrentLoginState("Log in");
                                 resetData();
-                            }}>{bannersData.notifications.login.loginHere}</span></p>
-                        : <p className='signup-login-link'>{bannersData.notifications.login.newAcc}
+                            }}>{bannersData.user.messages.loginHere}</span></p>
+                        : <p className='signup-login-link'>{bannersData.user.messages.newAcc}
                             <span onClick={() => {
                                 SetCurrentLoginState("Sign up");
                                 resetData();
-                            }}>{bannersData.notifications.login.signUpHere}</span></p>
+                            }}>{bannersData.user.messages.signUpHere}</span></p>
                     }
                 </div>
             </form>

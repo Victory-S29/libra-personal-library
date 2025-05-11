@@ -1504,6 +1504,30 @@ footer li a:active {
   grid-template-columns: 40% 60%;
   margin-top: 20px;
 }
+.main-info-change--section input::-moz-placeholder, .main-info-change--section textarea::-moz-placeholder {
+  font-size: 15px;
+}
+.main-info-change--section input::placeholder,
+.main-info-change--section textarea::placeholder {
+  font-size: 15px;
+}
+.main-info-change--section p {
+  margin-bottom: 5px;
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .main-info-change--section p {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1920px) {
+  .main-info-change--section p {
+    font-size: 25px;
+  }
+}
 .main-info-change--section .image--section {
   display: flex;
   flex-direction: column;
@@ -1540,7 +1564,14 @@ footer li a:active {
 }
 .main-info-change--section .data--section .users-progress {
   display: flex;
-  flex-direction: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: space-between;
+  justify-content: start;
+}
+.main-info-change--section .data--section .users-progress .users-progress-inputs {
+  display: flex;
+  flex-direction: row;
   gap: 10px;
   align-items: space-between;
   justify-content: start;

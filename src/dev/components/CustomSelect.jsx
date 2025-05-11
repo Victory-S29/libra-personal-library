@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-const CustomSelect = ({ options, selected }) => {
+const CustomSelect = ({ options, selected, onChange }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleSelect = () => {
+    const handleSelect = (option) => {
+        onChange(option);
         setIsOpen(false);
     };
     return (
@@ -16,7 +17,7 @@ const CustomSelect = ({ options, selected }) => {
                     {options.map((option, index) => (
                         <li
                             key={index}
-                            onClick={() => handleSelect()}
+                            onClick={() => handleSelect(option)}
                             className={selected === option ? "active" : ""}
                         >
                             {option}

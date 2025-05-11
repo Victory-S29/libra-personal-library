@@ -2,6 +2,22 @@
     display: grid;
     grid-template-columns: 40% 60%;
     margin-top: 20px;
+    input,
+    textarea {
+        &::placeholder {
+            font-size: 15px;
+        }
+    }
+    p {
+        margin-bottom: 5px;
+        @include text-base(var(--text-color), $text-font, 400, $size-15);
+        @media (min-width: $xxl) and (max-width: $xxxl) {
+            font-size: $size-20;
+        }
+        @media (min-width: $xxxl) {
+            font-size: $size-25;
+        }
+    }
     .image--section {
         @include flex-container();
         img {
@@ -29,7 +45,10 @@
             @include flex-container(flex, $size-10, space-between, start);
         }
         .users-progress {
-            @include flex-container(flex, $size-10, space-between, start);
+            @include flex-container(column, $size-10, space-between, start);
+            .users-progress-inputs {
+                @include flex-container(row, $size-10, space-between, start);
+            }
             .divider {
                 font-size: 2rem;
                 font-weight: bold;

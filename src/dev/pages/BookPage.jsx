@@ -18,14 +18,6 @@ const BookPage = () => {
     const bannersDataEN = useSelector(getBannersEnSelector);
     const bannersData = bannersDataEN;
 
-    const messages = {
-        uk: {
-            noReview: "Every book is waiting for your review",
-            notes: "My Notes",
-            addFirstNote: "You can always add one Note here"
-        }
-    };
-
     const similarBooksSorting = () => {
         if (!currentBook) return { ...noBooks };
 
@@ -85,13 +77,13 @@ const BookPage = () => {
                         </section>
                         <div className="additional-info">
                             <section className='book-review'>
-                                <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : messages.uk.noReview}</p>
-                                <button>{bannersData.buttons.bookPage.changeReview}</button>
+                                <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : bannersData.bookEdit.messages.noReview}</p>
+                                <button>{bannersData.bookEdit.labels.changeReview}</button>
                             </section>
                             <SliderComponent {...similarBooks} />
                         </div>
                         <section className='notes-section'>
-                            <h2 className='notes-message'>{messages.uk.notes}</h2>
+                            <h2 className='notes-message'>{bannersData.bookEdit.messages.myNotes}</h2>
                             <section>
                                 {currentBook.notes.length > 0 ? (
                                     currentBook.notes.map((note, id) => (
@@ -102,11 +94,11 @@ const BookPage = () => {
                                     ))
                                 ) : (
                                     <div className='new-note--form'>
-                                        <p>{messages.uk.addFirstNote}</p>
+                                        <p>{bannersData.bookEdit.messages.addFirstNote}</p>
                                     </div>
                                 )}
                             </section>
-                            <button>{bannersData.buttons.bookPage.newNote}</button>
+                            <button>{bannersData.bookEdit.labels.newNote}</button>
                         </section>
                     </section>
                     <SliderComponent {...popularBooks} />
