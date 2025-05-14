@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const TheHungerGames = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheHungerGames.jpg";
 const SisterhoodOfDune = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/SisterhoodOfDune.jpg";
 const TheAtlasParadox = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheAtlasParadox.jpg";
@@ -27,7 +29,7 @@ const initialStateBooks = {
     title: "Start with..",
     data: [
       {
-        id: generateUniqueId("The Hunger Games: Sunrise on the Reaping", "Suzanne Collins"),
+        id: uuidv4(),
         image: TheHungerGames,
         title: "The Hunger Games: Sunrise on the Reaping",
         author: "Suzanne Collins",
@@ -48,7 +50,7 @@ const initialStateBooks = {
         addedAt: "2025-03-19T12:00:00Z"
       },
       {
-        id: generateUniqueId("Project Hail Mary", "Andy Weir"),
+        id: uuidv4(),
         image: ProjectHailMary,
         title: "Project Hail Mary",
         author: "Andy Weir",
@@ -68,7 +70,7 @@ const initialStateBooks = {
         addedAt: "2025-03-15T18:20:00Z"
       },
       {
-        id: generateUniqueId("The Starless Sea", "Erin Morgenstern"),
+        id: uuidv4(),
         image: TheStarlessSea,
         title: "The Starless Sea",
         author: "Erin Morgenstern",
@@ -89,7 +91,7 @@ const initialStateBooks = {
         addedAt: "2025-03-16T11:30:00Z"
       },
       {
-        id: generateUniqueId("The Name of the Wind", "Patrick Rothfuss"),
+        id: uuidv4(),
         image: TheNameoftheWind,
         title: "The Name of the Wind",
         author: "Patrick Rothfuss",
@@ -109,7 +111,7 @@ const initialStateBooks = {
         addedAt: "2025-03-12T16:25:00Z"
       },
       {
-        id: generateUniqueId("Dune", "Frank Herbert"),
+        id: uuidv4(),
         image: Dune,
         title: "Dune",
         author: "Frank Herbert",
@@ -129,7 +131,7 @@ const initialStateBooks = {
         addedAt: "2025-03-10T13:50:00Z"
       },
       {
-        id: generateUniqueId("The Martian", "Andy Weir"),
+        id: uuidv4(),
         image: TheMartian,
         title: "The Martian",
         author: "Andy Weir",
@@ -147,7 +149,7 @@ const initialStateBooks = {
         addedAt: "2025-03-22T13:00:00Z"
       },
       {
-        id: generateUniqueId("Circe", "Madeline Miller"),
+        id: uuidv4(),
         image: Circe,
         title: "Circe",
         author: "Madeline Miller",
@@ -165,7 +167,7 @@ const initialStateBooks = {
         addedAt: "2025-03-23T10:45:00Z"
       },
       {
-        id: generateUniqueId("Educated", "Tara Westover"),
+        id: uuidv4(),
         image: Educated,
         title: "Educated",
         author: "Tara Westover",
@@ -183,7 +185,7 @@ const initialStateBooks = {
         addedAt: "2025-03-24T09:30:00Z"
       },
       {
-        id: generateUniqueId("Atomic Habits", "James Clear"),
+        id: uuidv4(),
         image: AtomicHabits,
         title: "Atomic Habits",
         author: "James Clear",
@@ -201,7 +203,7 @@ const initialStateBooks = {
         addedAt: "2025-03-22T08:00:00Z"
       },
       {
-        id: generateUniqueId("The Alchemist", "Paulo Coelho"),
+        id: uuidv4(),
         image: TheAlchemist,
         title: "The Alchemist",
         author: "Paulo Coelho",
@@ -224,7 +226,7 @@ const initialStateBooks = {
     title: "Most popular..",
     data: [
       {
-        id: generateUniqueId("Sisterhood of Dune: Book One of the Schools of Dune", "Brian Herbert & Kevin J. Anderson"),
+        id: uuidv4(),
         image: SisterhoodOfDune,
         title: "Sisterhood of Dune: Book One of the Schools of Dune",
         author: "Brian Herbert & Kevin J. Anderson",
@@ -242,7 +244,7 @@ const initialStateBooks = {
         addedAt: "2025-03-20T15:30:00Z"
       },
       {
-        id: generateUniqueId("The Atlas Paradox", "Olivie Blake"),
+        id: uuidv4(),
         image: TheAtlasParadox,
         title: "The Atlas Paradox",
         author: "Olivie Blake",
@@ -263,7 +265,7 @@ const initialStateBooks = {
         addedAt: "2025-03-18T09:45:00Z"
       },
       {
-        id: generateUniqueId("The House in the Cerulean Sea", "TJ Klune"),
+        id: uuidv4(),
         image: TheHouseinCeruleanSea,
         title: "The House in the Cerulean Sea",
         author: "TJ Klune",
@@ -281,7 +283,7 @@ const initialStateBooks = {
         addedAt: "2025-03-17T14:10:00Z"
       },
       {
-        id: generateUniqueId("Babel: An Arcane History", "R.F. Kuang"),
+        id: uuidv4(),
         image: Babel,
         title: "Babel: An Arcane History",
         author: "R.F. Kuang",
@@ -299,7 +301,7 @@ const initialStateBooks = {
         addedAt: "2025-03-21T10:00:00Z"
       },
       {
-        id: generateUniqueId("The Midnight Library", "Matt Haig"),
+        id: uuidv4(),
         image: TheMidnightLibrary,
         title: "The Midnight Library",
         author: "Matt Haig",
@@ -319,7 +321,7 @@ const initialStateBooks = {
         addedAt: "2025-03-14T08:45:00Z"
       },
       {
-        id: generateUniqueId("The Book Thief", "Markus Zusak"),
+        id: uuidv4(),
         image: BookThief,
         title: "The Book Thief",
         author: "Markus Zusak",
@@ -337,7 +339,7 @@ const initialStateBooks = {
         addedAt: "2025-03-20T17:30:00Z"
       },
       {
-        id: generateUniqueId("Normal People", "Sally Rooney"),
+        id: uuidv4(),
         image: NormalPeople,
         title: "Normal People",
         author: "Sally Rooney",
@@ -355,7 +357,7 @@ const initialStateBooks = {
         addedAt: "2025-03-21T15:25:00Z"
       },
       {
-        id: generateUniqueId("Mistborn: The Final Empire", "Brandon Sanderson"),
+        id: uuidv4(),
         image: Mistborn,
         title: "Mistborn: The Final Empire",
         author: "Brandon Sanderson",

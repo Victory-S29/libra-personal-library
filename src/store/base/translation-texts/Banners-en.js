@@ -104,7 +104,8 @@ const initialStateBannersEn = {
             newNote: "New Note",
             totalPages: "Total Pages",
             searchByName: "Search book by name",
-            search: "Search"
+            search: "Search",
+            rating: "Rating"
         },
         placeholders: {
             title: "Add a title",
@@ -116,6 +117,7 @@ const initialStateBannersEn = {
         },
         messages: {
             bookExists: "A book with this title and author already exists.",
+            progressError: "Progress cannot exceed total pages.",
             noReview: "Every book is waiting for your review",
             myNotes: "My Notes",
             addFirstNote: "You can always add one Note here"
