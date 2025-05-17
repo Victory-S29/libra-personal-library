@@ -198,14 +198,14 @@ const SettingsPage = () => {
                             className="lang-button"
                         // className={selectedLanguage === "en" ? "lang-button active" : "lang-button"}
                         >
-                           {bannersData.user.settingsPage.language.languages.en}
+                            {bannersData.user.settingsPage.language.languages.en}
                         </button>
                         <button
                             type="button"
                             className="lang-button"
                         // className={selectedLanguage === "de" ? "lang-button active" : "lang-button"}
                         >
-                               {bannersData.user.settingsPage.language.languages.de}
+                            {bannersData.user.settingsPage.language.languages.de}
                         </button>
                     </div>
                 </section>

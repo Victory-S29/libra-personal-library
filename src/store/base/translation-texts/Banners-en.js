@@ -105,7 +105,8 @@ const initialStateBannersEn = {
             totalPages: "Total Pages",
             searchByName: "Search book by name",
             search: "Search",
-            rating: "Rating"
+            rating: "Rating",
+            status: "Status"
         },
         placeholders: {
             title: "Add a title",

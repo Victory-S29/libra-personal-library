@@ -8,8 +8,17 @@
             font-size: 15px;
         }
     }
+    .error-message {
+        margin: 0px 0px 20px 10px;
+        @include text-base(var(--error-color), $text-font, 400, $size-10);
+        @media (min-width: $xxl) and (max-width: $xxxl) {
+            font-size: $size-15;
+        }
+        @media (min-width: $xxxl) {
+            font-size: $size-20;
+        }
+    }
     p {
-        margin-bottom: 5px;
         @include text-base(var(--text-color), $text-font, 400, $size-15);
         @media (min-width: $xxl) and (max-width: $xxxl) {
             font-size: $size-20;
@@ -42,12 +51,13 @@
             }
         }
         .name--section {
-            @include flex-container(flex, $size-10, space-between, start);
+            @include flex-container(row, $size-10, space-between, start);
         }
         .users-progress {
-            @include flex-container(column, $size-10, space-between, start);
+            @include flex-container(column, 5px, space-between, start);
+            margin: 0px;
             .users-progress-inputs {
-                @include flex-container(row, $size-10, space-between, start);
+                @include flex-container(row, 5px, space-between, start);
             }
             .divider {
                 font-size: 2rem;
@@ -57,6 +67,9 @@
         }
         input#tags {
             width: 90%;
+        }
+        input#rating{
+            width: 10%;
         }
         textarea {
             width: 70%;

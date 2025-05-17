@@ -1,3 +1,4 @@
+import { CHANGE_BOOK_INFO } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 
 const initialState = {
@@ -8,6 +9,25 @@ const initialState = {
 
 const BooksReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CHANGE_BOOK_INFO: {
+            const updatedStartingBooks = state.startingBooks.data.map(book =>
+                book.id === action.payload.changedBook.id
+                    ? { ...book, ...action.payload.changedBook }
+                    : book
+            );
+
+            const updatedPopularBooks = state.popularBooks.data.map(book =>
+                book.id === action.payload.changedBook.id
+                    ? { ...book, ...action.payload.changedBook }
+                    : book
+            );
+
+            return {
+                ...state,
+                startingBooks: { ...state.startingBooks, data: updatedStartingBooks },
+                popularBooks: { ...state.popularBooks, data: updatedPopularBooks },
+            }
+        }
         default: {
             return state;
         }

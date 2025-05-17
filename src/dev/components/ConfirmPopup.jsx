@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { useSelector } from 'react-redux';
 
 const ConfirmPopup = ({ title, onConfirm, onCancel }) => {
     const bannersDataEN = useSelector(getBannersEnSelector);
     const bannersData = bannersDataEN
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.paddingRight = `${scrollBarWidth}px`;
-    document.body.style.overflow = 'hidden';
+
+    useEffect(() => {
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.paddingRight = '';
+            document.body.style.overflow = '';
+        };
+    }, []);
     return (
         <div className='confirm-container'>
             <section className='confirm-popup'>
