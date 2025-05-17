@@ -72,10 +72,12 @@
     width: 100%;
     display: grid;
     grid-template-columns: 30% 70%;
+    align-items: center;
     img {
         margin: 0 auto;
         object-fit: contain;
         max-height: 60vh;
+        max-width: 100%
     }
     div {
         @include flex-container(column, 10px, center, center);

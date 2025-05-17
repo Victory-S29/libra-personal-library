@@ -1,7 +1,9 @@
 .main-info-change--section {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 37% 60%;
+    gap: 3%;
     margin-top: 20px;
+    padding: 10px;
     input,
     textarea {
         &::placeholder {

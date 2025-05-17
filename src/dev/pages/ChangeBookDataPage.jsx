@@ -105,13 +105,39 @@ const ChangeBookDataPage = () => {
         setBookInfo(initialData);
         setShowConfirmPopupChange(false);
     };
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
 
+        if (file) {
+            // Create a new FileReader to read the file contents
+            const reader = new FileReader();
+
+            // When the reader finishes reading the file (as base64)
+            reader.onloadend = () => {
+                // Update the bookInfo state with the new image (base64 string)
+                setBookInfo(prev => ({
+                    ...prev,           
+                    image: reader.result
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
     return (
         <form>
             <section className="main-info-change--section">
                 <div className='image--section'>
                     <img src={bookInfo.image} alt={bookInfo.title} />
-                    <button className='change-btn'>{bannersData.bookEdit.labels.changeImage}</button>
+                    <label htmlFor="imageUpload" className='change-btn'>
+                        {bannersData.bookEdit.labels.changeImage}
+                    </label>
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        accept="image/*"
+                        style={{ display: 'none' }}
+                        onChange={handleImageChange}
+                    />
                 </div>
                 <section className='data--section'>
                     <div className='name--section'>
