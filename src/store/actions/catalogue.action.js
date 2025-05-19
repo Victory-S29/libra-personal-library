@@ -4,6 +4,7 @@ export const DISPLAY_MAIN_CATALOGUE_TYPE = "DISPLAY_MAIN_CATALOGUE_TYPE";
 export const REWRITE_CATALOGUE_TYPE = "REWRITE_NEW_CATALOGUE_TYPE";
 export const RESET_PAGINATION_TYPE = "RESET_PAGINATION_TYPE";
 export const CHANGE_BOOK_INFO = "CHANGE_BOOK_INFO";
+export const CHANGE_BOOK_REVIEW = "CHANGE_BOOK_REVIEW";
 
 export const displayNewPageAction = (numberOfBooksPerPage, currentPage, isFiltered) => {
     return {
@@ -55,6 +56,16 @@ export const changeBookInfoAction = (changedBook) => {
         type: CHANGE_BOOK_INFO,
         payload: {
             changedBook
+        }
+    };
+};
+
+export const changeBookReviewAction = (bookId, reviewText) => {
+    return {
+        type: CHANGE_BOOK_REVIEW,
+        payload: {
+            bookId,
+            reviewText
         }
     };
 };

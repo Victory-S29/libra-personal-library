@@ -106,7 +106,8 @@ const initialStateBannersEn = {
             searchByName: "Search book by name",
             search: "Search",
             rating: "Rating",
-            status: "Status"
+            status: "Status",
+            review: "Change review"
         },
         placeholders: {
             title: "Add a title",
@@ -114,7 +115,8 @@ const initialStateBannersEn = {
             tags: "Add tags separated by commas",
             description: "Add a description",
             progress: "e.g., 30",
-            totalPages: "e.g., 300"
+            totalPages: "e.g., 300",
+            review: "Add a review"
         },
         messages: {
             bookExists: "A book with this title and author already exists.",

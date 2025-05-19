@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
@@ -6,7 +6,7 @@ import StarRating from '../sliders/StarRating';
 import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
-import { SliderComponent } from '../';
+import { ChangeReviewPopup, SliderComponent } from '../';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const BookPage = () => {
@@ -48,6 +48,7 @@ const BookPage = () => {
     };
 
     const similarBooks = similarBooksSorting();
+    const [showChangeReviewPopup, setShowChangeReviewPopup] = useState(false);
 
     return (
         <Fragment>
@@ -78,7 +79,7 @@ const BookPage = () => {
                         <div className="additional-info">
                             <section className='book-review'>
                                 <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : bannersData.bookEdit.messages.noReview}</p>
-                                <button>{bannersData.bookEdit.labels.changeReview}</button>
+                                <button onClick={() => setShowChangeReviewPopup(true)}>{bannersData.bookEdit.labels.changeReview}</button>
                             </section>
                             <SliderComponent {...similarBooks} />
                         </div>
@@ -102,6 +103,11 @@ const BookPage = () => {
                         </section>
                     </section>
                     <SliderComponent {...popularBooks} />
+                    {showChangeReviewPopup && <ChangeReviewPopup
+                        setShowChangeReviewPopup={setShowChangeReviewPopup}
+                        review={currentBook.review.text}
+                        bookId={currentBook.id}
+                    />}
                 </>
             ) : (
                 <p>...</p>

@@ -1,4 +1,4 @@
-import { CHANGE_BOOK_INFO, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
+import { CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 import initialStateSort from "../base/SortData";
 
@@ -95,7 +95,6 @@ const CatalogueReducer = (state = initialState, action) => {
                     .map(tag => tag.trim())
                     .filter(tag => tag !== '')
             };
-            console.log("newBookData-------------", newBookData)
             const updatedBooks = state.catalogueSliderData.allData.map(book =>
                 book.id === newBookData.id ? newBookData : book
             );
@@ -107,6 +106,27 @@ const CatalogueReducer = (state = initialState, action) => {
                     allData: updatedBooks,
                 }
             };
+        }
+        case CHANGE_BOOK_REVIEW: {
+            const updatedBooksReview = state.catalogueSliderData.allData.map(book =>
+                book.id === action.payload.bookId
+                    ? {
+                        ...book,
+                        review: {
+                            ...book.review,
+                            text: action.payload.reviewText,
+                        }
+                    }
+                    : book
+            );
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedBooksReview,
+                }
+            }
         }
         default: {
             return {
