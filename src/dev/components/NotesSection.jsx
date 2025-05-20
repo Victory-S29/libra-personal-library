@@ -1,14 +1,32 @@
 import React, { Fragment, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import AddNewNoteForm from './AddNewNoteForm';
+import ConfirmPopup from './ConfirmPopup';
+import { deleteNoteAction } from '../../store/actions/catalogue.action';
 
 const NotesSection = ({ currentBook }) => {
+    const dispatch = useDispatch();
     const bannersDataEN = useSelector(getBannersEnSelector);
     const bannersData = bannersDataEN;
     const [showAddNoteForm, setShowAddNoteForm] = useState(false);
+    const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
+    const [noteIdToDelete, setNoteIdToDelete] = useState(null);
+
+    const deleteNote = (id) => {
+        setNoteIdToDelete(id);
+        setShowConfirmPopupDelete(true);
+    }
+
+    const handleConfirmDelete = () => {
+        dispatch(deleteNoteAction(currentBook.id, noteIdToDelete));
+        setShowConfirmPopupDelete(false);
+    }
+    const handleCancelDelete = () => {
+        setShowConfirmPopupDelete(false);
+    }
 
     return (
         <Fragment>
@@ -22,7 +40,7 @@ const NotesSection = ({ currentBook }) => {
                                 <p className='note-text'>{note.text}</p>
                                 <div className='icons-section'>
                                     <FontAwesomeIcon icon={faPenToSquare} className='icon' />
-                                    <FontAwesomeIcon icon={faTrashCan} className='icon' />
+                                    <FontAwesomeIcon icon={faTrashCan} className='icon' onClick={() => { deleteNote(id) }} />
                                 </div>
                             </div>
                         ))
@@ -35,6 +53,13 @@ const NotesSection = ({ currentBook }) => {
                 <button onClick={() => { setShowAddNoteForm(true) }}>{bannersData.bookEdit.labels.newNote}</button>
             </section>
             {showAddNoteForm && <AddNewNoteForm setShowAddNoteForm={setShowAddNoteForm} currentBook={currentBook} />}
+            {showConfirmPopupDelete && (
+                <ConfirmPopup
+                    title={bannersData.bookEdit.messages.deleteNote}
+                    onConfirm={handleConfirmDelete}
+                    onCancel={handleCancelDelete}
+                />
+            )}
         </Fragment>
     );
 };

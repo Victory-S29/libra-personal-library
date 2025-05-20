@@ -109,7 +109,6 @@ const initialStateBannersEn = {
             rating: "Rating",
             status: "Status",
             review: "Change review",
-            status: "Status",
             pageNumber: "Page Number",
             noteText: "Note"
         },
@@ -130,7 +129,8 @@ const initialStateBannersEn = {
             noReview: "Every book is waiting for your review",
             myNotes: "My Notes",
             addFirstNote: "You can always add one Note here",
-            deleteBook: "Permanently Delete Book"
+            deleteBook: "Permanently Delete Book",
+            deleteNote: "Permanently Delete Note"
         }
     },
 };

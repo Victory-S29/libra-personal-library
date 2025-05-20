@@ -7,6 +7,7 @@ export const CHANGE_BOOK_INFO = "CHANGE_BOOK_INFO";
 export const CHANGE_BOOK_REVIEW = "CHANGE_BOOK_REVIEW";
 export const DELETE_BOOK = "DELETE_BOOK";
 export const ADD_BOOK_NOTE = 'ADD_BOOK_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 export const displayNewPageAction = (numberOfBooksPerPage, currentPage, isFiltered) => {
     return {
@@ -80,4 +81,9 @@ export const deleteBookAction = (bookId) => ({
 export const addBookNoteAction = (bookId, note) => ({
     type: ADD_BOOK_NOTE,
     payload: { bookId, note },
+});
+
+export const deleteNoteAction = (bookId, noteId) => ({
+    type: DELETE_NOTE,
+    payload: { bookId, noteId }
 });
