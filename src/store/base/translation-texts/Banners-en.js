@@ -19,7 +19,8 @@ const initialStateBannersEn = {
             confirm: "Confirm",
             cancel: "Cancel",
             change: "Change",
-            saveChanges: "Save changes"
+            saveChanges: "Save changes",
+            delete: "Delete"
         },
     },
     featuresComponent: {
@@ -123,7 +124,8 @@ const initialStateBannersEn = {
             progressError: "Progress cannot exceed total pages.",
             noReview: "Every book is waiting for your review",
             myNotes: "My Notes",
-            addFirstNote: "You can always add one Note here"
+            addFirstNote: "You can always add one Note here",
+            deleteBook: "Permanently Delete Book"
         }
     },
 };

@@ -38,6 +38,13 @@
         text-align: center;
         margin: 10px 0;
     }
+    button#delete {
+        border-color: var(--error-color);
+        align-self: center;
+        margin-top: 40px;
+        width: 100px;
+        color: var(--text-color);
+    }
     h1 {
         @include text-base(var(--title-color), $title-font, 400, 24px);
     }

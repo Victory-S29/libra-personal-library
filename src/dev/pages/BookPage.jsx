@@ -1,16 +1,19 @@
-import React, { Fragment, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
 import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
-import { ChangeReviewPopup, SliderComponent } from '../';
+import { ChangeReviewPopup, ConfirmPopup, SliderComponent } from '../';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { deleteBookAction } from '../../store/actions/catalogue.action';
 
 const BookPage = () => {
     const { bookId } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const allData = useSelector(getAllDataSelector);
     const popularBooks = useSelector(getPopularBooksSelector);
     const noBooks = useSelector(getNoBooksSelector);
@@ -49,6 +52,26 @@ const BookPage = () => {
 
     const similarBooks = similarBooksSorting();
     const [showChangeReviewPopup, setShowChangeReviewPopup] = useState(false);
+    const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
+
+    useEffect(() => {
+        if (!currentBook) {
+            navigate('/');
+        }
+    }, [currentBook, navigate]);
+
+    const deleteBook = () => {
+        setShowConfirmPopupDelete(true);
+    }
+
+    const handleConfirmDelete = () => {
+        dispatch(deleteBookAction(bookId));
+        setShowConfirmPopupDelete(false);
+    };
+
+    const handleCancelDelete = () => {
+        setShowConfirmPopupDelete(false);
+    };
 
     return (
         <Fragment>
@@ -101,6 +124,7 @@ const BookPage = () => {
                             </section>
                             <button>{bannersData.bookEdit.labels.newNote}</button>
                         </section>
+                        <button id="delete" onClick={deleteBook}>{bannersData.notifications.basic.delete}</button>
                     </section>
                     <SliderComponent {...popularBooks} />
                     {showChangeReviewPopup && <ChangeReviewPopup
@@ -108,6 +132,13 @@ const BookPage = () => {
                         review={currentBook.review.text}
                         bookId={currentBook.id}
                     />}
+                    {showConfirmPopupDelete && (
+                        <ConfirmPopup
+                            title={bannersData.bookEdit.messages.deleteBook}
+                            onConfirm={handleConfirmDelete}
+                            onCancel={handleCancelDelete}
+                        />
+                    )}
                 </>
             ) : (
                 <p>...</p>

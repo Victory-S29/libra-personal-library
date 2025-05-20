@@ -1763,6 +1763,13 @@ footer li a:active {
   text-align: center;
   margin: 10px 0;
 }
+.single-book--section button#delete {
+  border-color: var(--error-color);
+  align-self: center;
+  margin-top: 40px;
+  width: 100px;
+  color: var(--text-color);
+}
 .single-book--section h1 {
   color: var(--title-color);
   font-family: "Raleway", sans-serif;
@@ -2175,6 +2182,7 @@ footer li a:active {
 }
 .additional-settings .main-section--form #delete {
   border-color: var(--error-color);
+  color: var(--text-color);
 }
 
 .exit-section {
