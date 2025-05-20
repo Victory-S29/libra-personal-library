@@ -108,7 +108,10 @@ const initialStateBannersEn = {
             search: "Search",
             rating: "Rating",
             status: "Status",
-            review: "Change review"
+            review: "Change review",
+            status: "Status",
+            pageNumber: "Page Number",
+            noteText: "Note"
         },
         placeholders: {
             title: "Add a title",
@@ -117,7 +120,9 @@ const initialStateBannersEn = {
             description: "Add a description",
             progress: "e.g., 30",
             totalPages: "e.g., 300",
-            review: "Add a review"
+            review: "Add a review",
+            pageNumber: "e.g., 123",
+            noteText: "Write your note here..."
         },
         messages: {
             bookExists: "A book with this title and author already exists.",

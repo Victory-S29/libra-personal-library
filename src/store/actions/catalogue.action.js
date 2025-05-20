@@ -6,6 +6,7 @@ export const RESET_PAGINATION_TYPE = "RESET_PAGINATION_TYPE";
 export const CHANGE_BOOK_INFO = "CHANGE_BOOK_INFO";
 export const CHANGE_BOOK_REVIEW = "CHANGE_BOOK_REVIEW";
 export const DELETE_BOOK = "DELETE_BOOK";
+export const ADD_BOOK_NOTE = 'ADD_BOOK_NOTE';
 
 export const displayNewPageAction = (numberOfBooksPerPage, currentPage, isFiltered) => {
     return {
@@ -74,4 +75,9 @@ export const changeBookReviewAction = (bookId, reviewText) => {
 export const deleteBookAction = (bookId) => ({
     type: DELETE_BOOK,
     payload: { bookId }
+});
+
+export const addBookNoteAction = (bookId, note) => ({
+    type: ADD_BOOK_NOTE,
+    payload: { bookId, note },
 });

@@ -1,4 +1,4 @@
-import { CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, DELETE_BOOK, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
+import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, DELETE_BOOK, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 import initialStateSort from "../base/SortData";
 
@@ -136,6 +136,35 @@ const CatalogueReducer = (state = initialState, action) => {
                     ...state.catalogueSliderData,
                     allData: updatedAllData,
                     currentData: updatedAllData.slice(0, numberOfBooksPerPageNumb),
+                }
+            };
+        }
+        case ADD_BOOK_NOTE: {
+            const { bookId, note } = action.payload;
+
+            const updateNotes = (books) =>
+                books.map((book) =>
+                    book.id === bookId
+                        ? {
+                            ...book,
+                            notes: Array.isArray(book.notes)
+                                ? [...book.notes, note]
+                                : [note]
+                        }
+                        : book
+                );
+
+            const updatedAllData = updateNotes(state.catalogueSliderData.allData);
+            const updatedSortedData = updateNotes(state.catalogueSliderData.sortedData);
+            const updatedCurrentData = updateNotes(state.catalogueSliderData.currentData);
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedAllData,
+                    sortedData: updatedSortedData,
+                    currentData: updatedCurrentData,
                 }
             };
         }
