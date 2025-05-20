@@ -6,7 +6,7 @@ import StarRating from '../sliders/StarRating';
 import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
-import { ChangeReviewPopup, ConfirmPopup, SliderComponent } from '../';
+import { ChangeReviewPopup, ConfirmPopup, NotesSection, SliderComponent } from '../';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { deleteBookAction } from '../../store/actions/catalogue.action';
 
@@ -106,24 +106,7 @@ const BookPage = () => {
                             </section>
                             <SliderComponent {...similarBooks} />
                         </div>
-                        <section className='notes-section'>
-                            <h2 className='notes-message'>{bannersData.bookEdit.messages.myNotes}</h2>
-                            <section>
-                                {currentBook.notes.length > 0 ? (
-                                    currentBook.notes.map((note, id) => (
-                                        <div className="note" key={id}>
-                                            <p className='note-page'>{note.page}</p>
-                                            <p className='note-text'>{note.text}</p>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <div className='new-note--form'>
-                                        <p>{bannersData.bookEdit.messages.addFirstNote}</p>
-                                    </div>
-                                )}
-                            </section>
-                            <button>{bannersData.bookEdit.labels.newNote}</button>
-                        </section>
+                        <NotesSection currentBook={currentBook} />
                         <button id="delete" onClick={deleteBook}>{bannersData.notifications.basic.delete}</button>
                     </section>
                     <SliderComponent {...popularBooks} />

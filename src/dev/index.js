@@ -14,6 +14,8 @@ export { default as LoginPopup } from "./components/LoginPopup.jsx";
 export { default as ChangeReviewPopup } from "./components/ChangeReviewPopup.jsx";
 export { default as Footer } from "./components/Footer.jsx";
 export { default as CustomSelect } from "./components/CustomSelect.jsx";
+export { default as NotesSection } from "./components/NotesSection.jsx";
+
 export { default as ChangeBookDataPage } from "./pages/ChangeBookDataPage.jsx";
 export { default as BookPage } from "./pages/BookPage.jsx";
 export { default as FeaturesPage } from "./pages/FeaturesPage.jsx";
