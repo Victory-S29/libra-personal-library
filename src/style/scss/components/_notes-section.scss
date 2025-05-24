@@ -1,0 +1,116 @@
+.notes-section {
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: var(--section-bc-color);
+    @include flex-container(column, 0px, center, center);
+    section {
+        max-height: 60vh;
+        overflow-y: scroll;
+        margin: 10px;
+        min-width: 80%;
+    }
+    .note {
+        margin-bottom: 30px;
+        padding-right: 10px;
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+        align-items: center;
+        justify-content: center;
+        .icon {
+            @include icon-base(22px, 22px, var(--accent-color));
+        }
+        .icons-section {
+            @include flex-container($direction: row, $justify-content: space-between);
+        }
+    }
+    .note-text {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-height: 20vh;
+        overflow-y: scroll;
+        min-width: 90%;
+    }
+    button {
+        @include btn-base();
+        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        background-color: var(--background-color);
+        @media (min-width: $xxl) and (max-width: $xxxl) {
+            font-size: $size-20;
+        }
+        @media (max-width: $md) {
+            width: 100px;
+        }
+        @media (min-width: $xxxl) {
+            font-size: $size-25;
+            padding: 15px 20px;
+        }
+    }
+    .new-note--form{
+        margin-bottom: 20px;
+    }
+}
+
+.add-note-container {
+    @include flex-container();
+    background-color: var(--shadow-color);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+.note-popup {
+    @include flex-container(column, 0px, start, center);
+    background-color: var(--background-color);
+    border: 2px solid var(--secondary-color);
+    padding: 20px;
+    width: 30vw;
+    h2 {
+        font-size: 30px;
+    }
+    label {
+        @include text-base(var(--text-color), $text-font, 400, $size-15);
+        margin-bottom: 10px;
+    }
+    .error-message {
+        @include text-base(var(--error-color), $text-font, 400, $size-10);
+        margin: 0px 0px 10px 10px;
+        width: auto;
+    }
+    textarea {
+        width: 100%;
+        min-width: 25vw;
+        min-height: 150px;
+        padding: 10px;
+        background-color: var(--input-bc-color);
+        border: 1px solid var(--button-color);
+        @include text-base(var(--text-color), $text-font, 300, $size-15);
+        resize: none;
+        &:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(100, 150, 255, 0.2);
+            background-color: var(--button-focus-color);
+        }
+        &::placeholder {
+            color: var(--button-color);
+            opacity: 1;
+            font-size: 15px;
+        }
+    }
+    .btn-section {
+        @include flex-container(row);
+    }
+    .cancel-btn {
+        border-color: var(--error-color) !important;
+        color: var(--text-color) !important;
+        margin-right: 20px;
+    }
+    button {
+        margin: 0%;
+    }
+}

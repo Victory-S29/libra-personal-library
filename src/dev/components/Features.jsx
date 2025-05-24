@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const Features = () => {
-    const bannersData = useSelector(getBannersEnSelector);
+    const bannersDataEn = useSelector(getBannersEnSelector);
+    const bannersData = bannersDataEn;
     const communityAdvantagesTitle = bannersData.featuresComponent.title;
     const communityAdvantages = bannersData.featuresComponent.communityAdvantages;
 

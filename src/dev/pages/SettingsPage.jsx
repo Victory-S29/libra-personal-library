@@ -61,11 +61,11 @@ const SettingsPage = () => {
         setPasswordError("");
         setEmailError("");
         if (sameUser) {
-            setEmailError(bannersData.notifications.login.emailError);
+            setEmailError(bannersData.user.messages.emailError);
             isValid = false;
         }
         if (loginData.password.length < 8) {
-            setPasswordError(bannersData.notifications.login.longPassword);
+            setPasswordError(bannersData.user.messages.shortPassword);
             isValid = false;
         }
         return isValid;
@@ -125,15 +125,15 @@ const SettingsPage = () => {
                 <form>
                     <section className='main-section'>
                         <div className='main-section--title'>
-                            <h2>{bannersData.settingsPage.profile.title}</h2>
-                            <p>{bannersData.settingsPage.profile.description}</p>
+                            <h2>{bannersData.user.settingsPage.labels.profile}</h2>
+                            <p>{bannersData.user.settingsPage.messages.profile}</p>
                         </div>
                         <div className='main-section--form'>
                             <div className="input-group">
-                                <label htmlFor="username">{bannersData.buttons.username.label}</label>
+                                <label htmlFor="username">{bannersData.user.labels.userName}</label>
                                 <input type="username"
                                     id="username"
-                                    placeholder={bannersData.buttons.username.placeholder}
+                                    placeholder={bannersData.user.placeholders.userName}
                                     autoComplete="username"
                                     onChange={handleChange}
                                     value={loginData.username}
@@ -141,10 +141,10 @@ const SettingsPage = () => {
                                 />
                             </div>
                             <div className="input-group">
-                                <label htmlFor="email">{bannersData.buttons.email.label}</label>
+                                <label htmlFor="email">{bannersData.user.labels.email}</label>
                                 <input type="email"
                                     id="email"
-                                    placeholder={bannersData.buttons.email.placeholder}
+                                    placeholder={bannersData.user.placeholders.email}
                                     onChange={handleChange}
                                     autoComplete="email"
                                     value={loginData.email}
@@ -156,16 +156,16 @@ const SettingsPage = () => {
                     </section>
                     <section className='main-section'>
                         <div className='main-section--title'>
-                            <h2>{bannersData.settingsPage.password.title}</h2>
-                            <p>{bannersData.settingsPage.password.description}</p>
+                            <h2>{bannersData.user.labels.password}</h2>
+                            <p>{bannersData.user.placeholders.password}</p>
                         </div>
                         <div className='main-section--form'>
                             <div className="input-group">
-                                <label htmlFor="password">{bannersData.buttons.password.label}</label>
+                                <label htmlFor="password">{bannersData.user.labels.password}</label>
                                 <div className='password-group'>
                                     <input type={passwordType}
                                         id="password"
-                                        placeholder={bannersData.buttons.password.placeholder}
+                                        placeholder={bannersData.user.placeholders.password}
                                         onPaste={(e) => { e.preventDefault(); }}
                                         onChange={handleChange}
                                         autoComplete="new-password"
@@ -184,13 +184,13 @@ const SettingsPage = () => {
                         </div>
                     </section>
                 </form>
-                <button onClick={() => handleSubmit()}>{bannersData.settingsPage.saveChanges}</button>
+                <button onClick={() => handleSubmit()}>{bannersData.notifications.basic.saveChanges}</button>
             </section>
             <section className='additional-settings'>
                 <section className='main-section'>
                     <div className='main-section--title'>
-                        <h2>{bannersData.settingsPage.language.title}</h2>
-                        <p>{bannersData.settingsPage.language.description}</p>
+                        <h2>{bannersData.user.settingsPage.language.title}</h2>
+                        <p>{bannersData.user.settingsPage.language.description}</p>
                     </div>
                     <div className='main-section--form'>
                         <button
@@ -198,49 +198,49 @@ const SettingsPage = () => {
                             className="lang-button"
                         // className={selectedLanguage === "en" ? "lang-button active" : "lang-button"}
                         >
-                            {bannersData.settingsPage.language.languages.en}
+                            {bannersData.user.settingsPage.language.languages.en}
                         </button>
                         <button
                             type="button"
                             className="lang-button"
                         // className={selectedLanguage === "de" ? "lang-button active" : "lang-button"}
                         >
-                            {bannersData.settingsPage.language.languages.de}
+                            {bannersData.user.settingsPage.language.languages.de}
                         </button>
                     </div>
                 </section>
                 <div className='exit-section'>
                     <div className='main-section'>
                         <div className='main-section--title'>
-                            <h2>{bannersData.settingsPage.signOut.title}</h2>
-                            <p>{bannersData.settingsPage.signOut.description}</p>
+                            <h2>{bannersData.user.settingsPage.labels.signOut}</h2>
+                            <p>{bannersData.user.settingsPage.messages.signOut}</p>
                         </div>
                         <div className='main-section--form'>
                             <Link to="/" className='signoutLink'
-                                onClick={() => handleSignOut()}>{bannersData.settingsPage.signOut.title}</Link>
+                                onClick={() => handleSignOut()}>{bannersData.user.settingsPage.labels.signOut}</Link>
                         </div>
                     </div>
                     <div className='main-section'>
                         <div className='main-section--title'>
-                            <h2>{bannersData.settingsPage.delete.title}</h2>
-                            <p>{bannersData.settingsPage.delete.description}</p>
+                            <h2>{bannersData.user.settingsPage.labels.delete}</h2>
+                            <p>{bannersData.user.settingsPage.messages.delete}</p>
                         </div>
                         <div className='main-section--form'>
-                            <button id="delete" onClick={() => handleDeleteSubmit()}>{bannersData.settingsPage.delete.title}</button>
+                            <button id="delete" onClick={() => handleDeleteSubmit()}>{bannersData.user.settingsPage.labels.delete}</button>
                         </div>
                     </div>
                 </div>
             </section>
             {showConfirmPopupChange && (
                 <ConfirmPopup
-                    title={bannersData.notifications.user.ChangeDataTitle}
+                    title={bannersData.user.settingsPage.messages.changeDataTitle}
                     onConfirm={handleConfirmChanges}
                     onCancel={handleCancelChanges}
                 />
             )}
             {showConfirmPopupDelete && (
                 <ConfirmPopup
-                    title={bannersData.notifications.user.ChangeDataTitle}
+                    title={bannersData.user.settingsPage.messages.changeDataTitle}
                     onConfirm={handleConfirmDelete}
                     onCancel={handleCancelDelete}
                 />

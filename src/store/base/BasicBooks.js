@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const TheHungerGames = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheHungerGames.jpg";
 const SisterhoodOfDune = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/SisterhoodOfDune.jpg";
 const TheAtlasParadox = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/TheAtlasParadox.jpg";
@@ -27,7 +29,7 @@ const initialStateBooks = {
     title: "Start with..",
     data: [
       {
-        id: generateUniqueId("The Hunger Games: Sunrise on the Reaping", "Suzanne Collins"),
+        id: uuidv4(),
         image: TheHungerGames,
         title: "The Hunger Games: Sunrise on the Reaping",
         author: "Suzanne Collins",
@@ -38,8 +40,8 @@ const initialStateBooks = {
         totalPages: 416,
         description: "Sunrise on the Reaping, the fifth book in the series, willrevisit the world of Panem twenty-four years before the events of The Hunger Games, starting on the morning of the reaping of the Fiftieth Hunger Games, also known as the Second Quarter Quell.",
         notes: [
-          { id: "n1", text: "The psychological toll of the Games is emphasized, great character depth.The psychological toll of the Games is emphasized, great character depth.", page: 250 },
-          { id: "n2", text: "The climax is intense; power dynamics shift drastically.", page: 300 }
+          { id: uuidv4(), text: "The psychological toll of the Games is emphasized, great character depth.The psychological toll of the Games is emphasized, great character depth.", page: 250 },
+          { id: uuidv4(), text: "The climax is intense; power dynamics shift drastically.", page: 300 }
         ],
         review: {
           rating: 4.5,
@@ -48,7 +50,7 @@ const initialStateBooks = {
         addedAt: "2025-03-19T12:00:00Z"
       },
       {
-        id: generateUniqueId("Project Hail Mary", "Andy Weir"),
+        id: uuidv4(),
         image: ProjectHailMary,
         title: "Project Hail Mary",
         author: "Andy Weir",
@@ -59,7 +61,7 @@ const initialStateBooks = {
         totalPages: 476,
         description: "A lone astronaut. An impossible mission. An ally he never imagined.",
         notes: [
-          { id: "n1", text: "Amazing blend of science and humor. Loved the problem-solving aspect.", page: 200 }
+          { id: uuidv4(), text: "Amazing blend of science and humor. Loved the problem-solving aspect.", page: 200 }
         ],
         review: {
           rating: 3.5,
@@ -68,7 +70,7 @@ const initialStateBooks = {
         addedAt: "2025-03-15T18:20:00Z"
       },
       {
-        id: generateUniqueId("The Starless Sea", "Erin Morgenstern"),
+        id: uuidv4(),
         image: TheStarlessSea,
         title: "The Starless Sea",
         author: "Erin Morgenstern",
@@ -79,8 +81,8 @@ const initialStateBooks = {
         totalPages: 500,
         description: "When Zachary Rawlins stumbles across a mysterious book containing details from his own life among its pages, it leads him on a quest unlike any other.",
         notes: [
-          { id: "n1", text: "Beautiful, dreamlike prose with intricate storytelling.", page: 120 },
-          { id: "n2", text: "The underground library concept is mesmerizing.", page: 200 }
+          { id: uuidv4(), text: "Beautiful, dreamlike prose with intricate storytelling.", page: 120 },
+          { id: uuidv4(), text: "The underground library concept is mesmerizing.", page: 200 }
         ],
         review: {
           rating: 4.0,
@@ -89,7 +91,7 @@ const initialStateBooks = {
         addedAt: "2025-03-16T11:30:00Z"
       },
       {
-        id: generateUniqueId("The Name of the Wind", "Patrick Rothfuss"),
+        id: uuidv4(),
         image: TheNameoftheWind,
         title: "The Name of the Wind",
         author: "Patrick Rothfuss",
@@ -100,7 +102,7 @@ const initialStateBooks = {
         totalPages: 662,
         description: "The Name of the Wind by Patrick Rothfuss is an enthralling fantasy novel that follows the life of Kvothe, a gifted young magician and musician. With beautifully crafted prose and a captivating story, it will transport you to a world of magic and mystery.",
         notes: [
-          { id: "n1", text: "Kvothe's storytelling is gripping, and the world-building is incredible.", page: 250 }
+          { id: uuidv4(), text: "Kvothe's storytelling is gripping, and the world-building is incredible.", page: 250 }
         ],
         review: {
           rating: 2,
@@ -109,7 +111,7 @@ const initialStateBooks = {
         addedAt: "2025-03-12T16:25:00Z"
       },
       {
-        id: generateUniqueId("Dune", "Frank Herbert"),
+        id: uuidv4(),
         image: Dune,
         title: "Dune",
         author: "Frank Herbert",
@@ -120,7 +122,7 @@ const initialStateBooks = {
         totalPages: 688,
         description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness.",
         notes: [
-          { id: "n1", text: "Dense but rewarding. The political and ecological themes are still relevant.", page: 400 }
+          { id: uuidv4(), text: "Dense but rewarding. The political and ecological themes are still relevant.", page: 400 }
         ],
         review: {
           rating: 5,
@@ -129,7 +131,7 @@ const initialStateBooks = {
         addedAt: "2025-03-10T13:50:00Z"
       },
       {
-        id: generateUniqueId("The Martian", "Andy Weir"),
+        id: uuidv4(),
         image: TheMartian,
         title: "The Martian",
         author: "Andy Weir",
@@ -147,7 +149,7 @@ const initialStateBooks = {
         addedAt: "2025-03-22T13:00:00Z"
       },
       {
-        id: generateUniqueId("Circe", "Madeline Miller"),
+        id: uuidv4(),
         image: Circe,
         title: "Circe",
         author: "Madeline Miller",
@@ -165,7 +167,7 @@ const initialStateBooks = {
         addedAt: "2025-03-23T10:45:00Z"
       },
       {
-        id: generateUniqueId("Educated", "Tara Westover"),
+        id: uuidv4(),
         image: Educated,
         title: "Educated",
         author: "Tara Westover",
@@ -183,7 +185,7 @@ const initialStateBooks = {
         addedAt: "2025-03-24T09:30:00Z"
       },
       {
-        id: generateUniqueId("Atomic Habits", "James Clear"),
+        id: uuidv4(),
         image: AtomicHabits,
         title: "Atomic Habits",
         author: "James Clear",
@@ -201,7 +203,7 @@ const initialStateBooks = {
         addedAt: "2025-03-22T08:00:00Z"
       },
       {
-        id: generateUniqueId("The Alchemist", "Paulo Coelho"),
+        id: uuidv4(),
         image: TheAlchemist,
         title: "The Alchemist",
         author: "Paulo Coelho",
@@ -224,7 +226,7 @@ const initialStateBooks = {
     title: "Most popular..",
     data: [
       {
-        id: generateUniqueId("Sisterhood of Dune: Book One of the Schools of Dune", "Brian Herbert & Kevin J. Anderson"),
+        id: uuidv4(),
         image: SisterhoodOfDune,
         title: "Sisterhood of Dune: Book One of the Schools of Dune",
         author: "Brian Herbert & Kevin J. Anderson",
@@ -242,7 +244,7 @@ const initialStateBooks = {
         addedAt: "2025-03-20T15:30:00Z"
       },
       {
-        id: generateUniqueId("The Atlas Paradox", "Olivie Blake"),
+        id: uuidv4(),
         image: TheAtlasParadox,
         title: "The Atlas Paradox",
         author: "Olivie Blake",
@@ -253,8 +255,8 @@ const initialStateBooks = {
         totalPages: 400,
         description: "The Atlas Paradox by Olivie Blake is the sequel to The Atlas Six, continuing the story of six powerful young magicians chosen to join the secretive and elite Alexandrian Society. In this installment, the characters face deeper philosophical and moral dilemmas as they grapple with dangerous knowledge, shifting alliances, and the true cost of power. With one of their own gone and the Society’s secrets unraveling, tensions rise and loyalties are tested. The novel explores themes of ambition, identity, sacrifice, and the blurred lines between right and wrong—all wrapped in a darkly academic, magical setting.",
         notes: [
-          { id: "n1", text: "Intriguing philosophical discussions about knowledge and power.", page: 75 },
-          { id: "n2", text: "Character dynamics are getting more intense and layered.", page: 110 }
+          { id: uuidv4(), text: "Intriguing philosophical discussions about knowledge and power.", page: 75 },
+          { id: uuidv4(), text: "Character dynamics are getting more intense and layered.", page: 110 }
         ],
         review: {
           rating: 0,
@@ -263,7 +265,7 @@ const initialStateBooks = {
         addedAt: "2025-03-18T09:45:00Z"
       },
       {
-        id: generateUniqueId("The House in the Cerulean Sea", "TJ Klune"),
+        id: uuidv4(),
         image: TheHouseinCeruleanSea,
         title: "The House in the Cerulean Sea",
         author: "TJ Klune",
@@ -281,7 +283,7 @@ const initialStateBooks = {
         addedAt: "2025-03-17T14:10:00Z"
       },
       {
-        id: generateUniqueId("Babel: An Arcane History", "R.F. Kuang"),
+        id: uuidv4(),
         image: Babel,
         title: "Babel: An Arcane History",
         author: "R.F. Kuang",
@@ -299,7 +301,7 @@ const initialStateBooks = {
         addedAt: "2025-03-21T10:00:00Z"
       },
       {
-        id: generateUniqueId("The Midnight Library", "Matt Haig"),
+        id: uuidv4(),
         image: TheMidnightLibrary,
         title: "The Midnight Library",
         author: "Matt Haig",
@@ -310,7 +312,7 @@ const initialStateBooks = {
         totalPages: 288,
         description: "The Midnight Library by Matt Haig is a thought-provoking and emotional novel about Nora Seed, a woman who finds herself in a magical library between life and death. Each book on its shelves represents a different version of her life—one she could have lived if she had made different choices. As Nora explores these alternate realities, she confronts her regrets and wonders what truly makes a life worth living. The novel is a heartfelt exploration of mental health, purpose, and the beauty of second chances, reminding readers that even the smallest decisions can shape a meaningful life.",
         notes: [
-          { id: "n1", text: "Thought-provoking meditation on regrets and alternate lives.", page: 100 }
+          { id: uuidv4(), text: "Thought-provoking meditation on regrets and alternate lives.", page: 100 }
         ],
         review: {
           rating: 1.4,
@@ -319,7 +321,7 @@ const initialStateBooks = {
         addedAt: "2025-03-14T08:45:00Z"
       },
       {
-        id: generateUniqueId("The Book Thief", "Markus Zusak"),
+        id: uuidv4(),
         image: BookThief,
         title: "The Book Thief",
         author: "Markus Zusak",
@@ -337,7 +339,7 @@ const initialStateBooks = {
         addedAt: "2025-03-20T17:30:00Z"
       },
       {
-        id: generateUniqueId("Normal People", "Sally Rooney"),
+        id: uuidv4(),
         image: NormalPeople,
         title: "Normal People",
         author: "Sally Rooney",
@@ -355,7 +357,7 @@ const initialStateBooks = {
         addedAt: "2025-03-21T15:25:00Z"
       },
       {
-        id: generateUniqueId("Mistborn: The Final Empire", "Brandon Sanderson"),
+        id: uuidv4(),
         image: Mistborn,
         title: "Mistborn: The Final Empire",
         author: "Brandon Sanderson",

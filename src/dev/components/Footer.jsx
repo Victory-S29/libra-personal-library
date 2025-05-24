@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
-    const bannersData = useSelector(getBannersEnSelector);
+    const bannersDataEn = useSelector(getBannersEnSelector);
+    const bannersData = bannersDataEn;
     const LibraLogo = bannersData.logo.LibraLogo;
     const footerNav = bannersData.footer.footerNav;
     return (
@@ -25,11 +26,11 @@ const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
                 <button className="register" onClick={() => {
                     SetCurrentLoginState("Sign up");
                     SetShowLogin(true); toggleLoginPopup();
-                }}>{bannersData.buttons.signUp}</button>
+                }}>{bannersData.user.labels.signUp}</button>
                 <button className="login" onClick={() => {
                     SetCurrentLoginState("Log in");
                     SetShowLogin(true); toggleLoginPopup();
-                }}>{bannersData.buttons.logIn}</button>
+                }}>{bannersData.user.labels.logIn}</button>
             </div>
         </footer>
     );

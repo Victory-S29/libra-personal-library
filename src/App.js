@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { LoginPopup, MainPage, NavBar, Footer, BookPage, FeaturesPage, TechnologiesPage, DeveloperPage, DevelopersPage } from "./dev/";
+import { LoginPopup, MainPage, NavBar, Footer, BookPage, FeaturesPage, TechnologiesPage, DevelopersPage, ChangeBookDataPage } from "./dev/";
 import { Route, Routes } from 'react-router-dom';
 import SettingsPage from './dev/pages/SettingsPage';
 
@@ -27,6 +27,7 @@ function App() {
         <Route path="/technologies" element={<TechnologiesPage />} />
         <Route path="/about-developer" element={<DevelopersPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/change-bookinfo/:bookId" element={<ChangeBookDataPage />} />
         {/* <Route path="/Profile" element={<Profile />} />
         <Route path='*' element={<Error />} /> */}
       </Routes>

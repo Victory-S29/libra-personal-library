@@ -7,7 +7,10 @@
     }
 
     .description-paragraf {
-        max-height: 50vh;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-height: 35vh;
         overflow-y: scroll;
         padding-right: 5px;
         margin-bottom: 10px;
@@ -28,7 +31,20 @@
             padding: 15px 20px;
         }
     }
-
+    .change-btn {
+        @include btn-base();
+        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        background-color: var(--background-color);
+        text-align: center;
+        margin: 10px 0;
+    }
+    button#delete {
+        border-color: var(--error-color);
+        align-self: center;
+        margin-top: 40px;
+        width: 100px;
+        color: var(--text-color);
+    }
     h1 {
         @include text-base(var(--title-color), $title-font, 400, 24px);
     }
@@ -66,14 +82,16 @@
     width: 100%;
     display: grid;
     grid-template-columns: 30% 70%;
+    align-items: center;
     img {
         margin: 0 auto;
         object-fit: contain;
         max-height: 60vh;
+        max-width: 100%;
     }
     div {
         @include flex-container(column, 10px, center, center);
-        .reading-progress span{
+        .reading-progress span {
             font-weight: 700;
             color: var(--span-text-color);
         }
@@ -82,7 +100,7 @@
 
 .users-progress {
     .book-rating {
-        @include flex-container(row, 3px, center, start);
+        @include flex-container(row, 3px, center, center);
         width: 100%;
         @media (min-width: $xxxl) {
             margin-top: 5px;
@@ -109,45 +127,5 @@
 
     p {
         width: 100%;
-    }
-}
-
-.notes-section {
-    width: 60%;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: var(--section-bc-color);
-    @include flex-container(column, 0px, center, center);
-    section {
-        max-height: 60vh;
-        overflow-y: scroll;
-        margin: 10px;
-    }
-    .note {
-        margin-bottom: 30px;
-        padding-right: 10px; 
-        display: grid;
-        grid-template-columns: 10% 90%;
-        align-items: center;
-    }
-    .note-text {
-        max-height: 20vh;
-        overflow-y: scroll;
-        width: 90%;
-    }
-    button {
-        @include btn-base();
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
-        background-color: var(--background-color);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (max-width: $md) {
-            width: 100px;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
-            padding: 15px 20px;
-        }
     }
 }

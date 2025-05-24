@@ -1,4 +1,4 @@
-import { DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
+import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, CHANGE_NOTE, DELETE_BOOK, DELETE_NOTE, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 import initialStateSort from "../base/SortData";
 
@@ -87,6 +87,150 @@ const CatalogueReducer = (state = initialState, action) => {
                 },
             };
         }
+        case CHANGE_BOOK_INFO: {
+            const { changedBook } = action.payload;
+            const newBookData = {
+                ...changedBook,
+                tags: changedBook.tags.split(',')
+                    .map(tag => tag.trim())
+                    .filter(tag => tag !== '')
+            };
+            const updatedBooks = state.catalogueSliderData.allData.map(book =>
+                book.id === newBookData.id ? newBookData : book
+            );
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedBooks,
+                }
+            };
+        }
+        case CHANGE_BOOK_REVIEW: {
+            const updatedBooksReview = state.catalogueSliderData.allData.map(book =>
+                book.id === action.payload.bookId
+                    ? {
+                        ...book,
+                        review: {
+                            ...book.review,
+                            text: action.payload.reviewText,
+                        }
+                    }
+                    : book
+            );
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedBooksReview,
+                }
+            }
+        }
+        case DELETE_BOOK: {
+            const updatedAllData = state.catalogueSliderData.allData.filter(book => book.id !== action.payload.bookId);
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedAllData,
+                    currentData: updatedAllData.slice(0, numberOfBooksPerPageNumb),
+                }
+            };
+        }
+        case ADD_BOOK_NOTE: {
+            const { bookId, note } = action.payload;
+
+            const updateNotes = (books) =>
+                books.map((book) =>
+                    book.id === bookId
+                        ? {
+                            ...book,
+                            notes: Array.isArray(book.notes)
+                                ? [...book.notes, note]
+                                : [note]
+                        }
+                        : book
+                );
+
+            const updatedAllData = updateNotes(state.catalogueSliderData.allData);
+            const updatedSortedData = updateNotes(state.catalogueSliderData.sortedData);
+            const updatedCurrentData = updateNotes(state.catalogueSliderData.currentData);
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedAllData,
+                    sortedData: updatedSortedData,
+                    currentData: updatedCurrentData,
+                }
+            };
+        }
+        case DELETE_NOTE: {
+            const { bookId, noteId } = action.payload;
+
+            const updateBooks = (books) =>
+                books.map((book) =>
+                    book.id === bookId
+                        ? {
+                            ...book,
+                            notes: Array.isArray(book.notes)
+                                ? book.notes.filter((_, index) => index !== noteId)
+                                : [],
+                        }
+                        : book
+                );
+
+            const updatedAllData = updateBooks(state.catalogueSliderData.allData);
+            const updatedSortedData = updateBooks(state.catalogueSliderData.sortedData);
+            const updatedCurrentData = updateBooks(state.catalogueSliderData.currentData);
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedAllData,
+                    sortedData: updatedSortedData,
+                    currentData: updatedCurrentData,
+                }
+            };
+        }
+        case CHANGE_NOTE: {
+            const { newNote } = action.payload;
+            const noteId = newNote.noteId;
+
+            const changedNote = {
+                id: newNote.noteId,
+                page: newNote.notePage,
+                text: newNote.noteText
+            }
+            const updateBooks = (books) =>
+                books.map((book) =>
+                    book.id === newNote.bookId ? {
+                        ...book,
+                        notes: Array.isArray(book.notes)
+                            ? book.notes.map(note => note.id === noteId ? changedNote : note)
+                            : [],
+                    } : book
+                );
+
+            const updatedAllData = updateBooks(state.catalogueSliderData.allData);
+            const updatedSortedData = updateBooks(state.catalogueSliderData.sortedData);
+            const updatedCurrentData = updateBooks(state.catalogueSliderData.currentData);
+
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updatedAllData,
+                    sortedData: updatedSortedData,
+                    currentData: updatedCurrentData,
+                }
+            };
+        }
+
         default: {
             return {
                 ...state,

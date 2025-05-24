@@ -10,8 +10,8 @@ import { displayMainCatalogueAction } from '../../store/actions/catalogue.action
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 
 const SortControl = () => {
-    const bannersData = useSelector(getBannersEnSelector);
-
+    const bannersDataEn = useSelector(getBannersEnSelector);
+    const bannersData = bannersDataEn;
     // Select filters from the Redux store
     const dropdownRef = useRef(null); // Reference for the dropdown menu
 
@@ -157,7 +157,7 @@ const SortControl = () => {
                     {dropdownOpen ? (
                         <div className="filter-menu__dropdown">
                             <div className="filter-menu__section">
-                                <h4 className="filter-menu__section-title">{bannersData.buttons.searchByName.label}</h4>
+                                <h4 className="filter-menu__section-title">{bannersData.bookEdit.labels.searchByName}</h4>
                                 <div className='catalogue-search--input'>
                                     <FontAwesomeIcon icon={faSearch} className="icon icon-focus" />
                                     <input
@@ -201,7 +201,7 @@ const SortControl = () => {
                                 setDropdownOpen(false);
                                 clearForm()
                             }
-                            }>{bannersData.buttons.search.label}</button>
+                            }>{bannersData.bookEdit.labels.search}</button>
                         </div>
                     ) : null}
                 </div>

@@ -13,6 +13,16 @@ const initialStateBannersEn = {
         description: "Dive into a World of Stories Together",
         LibraLogo
     },
+    notifications: {
+        welcome: "Welcome!",
+        basic: {
+            confirm: "Confirm",
+            cancel: "Cancel",
+            change: "Change",
+            saveChanges: "Save changes",
+            delete: "Delete"
+        },
+    },
     featuresComponent: {
         title: "Everything You Need as a Reader",
         communityAdvantages: [
@@ -31,90 +41,100 @@ const initialStateBannersEn = {
             { name: "About developers", link: "/about-developer" },
         ]
     },
-    buttons: {
-        signUp: "Sign up",
-        logIn: "Log in",
-        register: "Register",
-        bookPage: {
-            changeReview: "Change Review",
-            newNote: "New Note"
+    user: {
+        labels: {
+            signUp: "Sign up",
+            logIn: "Log in",
+            register: "Register",
+            email: "Email",
+            userName: "User name",
+            password: "Password",
+            confirmPassword: "Confirm Password"
         },
-        searchByName: {
-            label: "Search book by name"
+        placeholders: {
+            email: "Enter your email",
+            userName: "Enter your user name",
+            password: "Enter your password",
+            confirmPassword: "Confirm your password",
         },
-        email: {
-            label: "Email",
-            placeholder: "Enter your email"
-        },
-        userName: {
-            label: "User name",
-            placeholder: "Enter your user name"
-        },
-        password: {
-            label: "Password",
-            placeholder: "Enter your password"
-        },
-        confirmPassword: {
-            label: "Confirm Password",
-            placeholder: "Confirm your password"
-        },
-        search: {
-            label: "Search"
-        },
-        username: {
-            label: "Username",
-            placeholder: "Enter your username"
-        }
-    },
-    notifications: {
-        welcome: "Welcome!",
-        basic: {
-            confirm: "Confirm",
-            cancel: "Cancel"
-        },
-        login: {
+        messages: {
+            shortPassword: "Password must be at least 8 characters long.",
+            matchPassword: "Passwords do not match.",
+            emailError: "An account for this email address already exists.",
             userNotExist: "Your email may be wrong",
             wrongPassword: "Your password may be wrong",
-            longPassword: "Password must be at least 8 characters long.",
-            matchPassword: "Passwords do not match.",
             haveAnAccount: "Already have an Account?",
             loginHere: "Login here",
             signUpHere: "Sign up here",
-            emailError: "An account for this email address already exists.",
-            newAcc: "Create a new Account?"
+            newAcc: "Create a new Account?",
         },
-        user: {
-            ChangeDataTitle: "Are you sure you want to save changes to your account?"
+        settingsPage: {
+            labels: {
+                profile: "Profile",
+                password: "Password",
+                delete: "Delete",
+                signOut: "Sign out",
+            },
+            messages: {
+                profile: "Set your account details",
+                password: "Set your password details",
+                delete: "Delete account",
+                signOut: "Log out from your account",
+                changeDataTitle: "Are you sure you want to save changes to your account?"
+            },
+            language: {
+                title: "Language",
+                description: "Set your language",
+                languages: {
+                    en: "En",
+                    de: "De"
+                }
+            },
         }
     },
-    settingsPage: {
-        profile: {
-            title: "Profile",
-            description: "Set your account details"
+    bookEdit: {
+        labels: {
+            changeImage: "Change Image",
+            title: "Change Title",
+            author: "Change Author",
+            genre: "Genre",
+            tags: "Tags (comma separated)",
+            changeReview: "Change Review",
+            description: "Add a description",
+            progress: "Progress",
+            newNote: "New Note",
+            totalPages: "Total Pages",
+            searchByName: "Search book by name",
+            search: "Search",
+            rating: "Rating",
+            status: "Status",
+            review: "Change review",
+            pageNumber: "Page Number",
+            noteText: "Note",
+            changeNote: "Change note"
         },
-        password: {
-            title: "Password",
-            description: "Set your password details"
+        placeholders: {
+            title: "Add a title",
+            author: "Add an author",
+            tags: "Add tags separated by commas",
+            description: "Add a description",
+            progress: "e.g., 30",
+            totalPages: "e.g., 300",
+            review: "Add a review",
+            pageNumber: "e.g., 123",
+            noteText: "Write your note here..."
         },
-        language: {
-            title: "Language",
-            description: "Set your language",
-            languages: {
-                en: "En",
-                de: "De"
-            }
-        },
-        delete: {
-            title: "Delete",
-            description: "Delete account"
-        },
-        signOut: {
-            title: "Sign out",
-            description: "Log out from your account"
-        },
-        change: "Change",
-        saveChanges: "Save changes"
-    }
+        messages: {
+            bookExists: "A book with this title and author already exists.",
+            progressError: "Progress cannot exceed total pages.",
+            noReview: "Every book is waiting for your review",
+            myNotes: "My Notes",
+            addFirstNote: "You can always add one Note here",
+            deleteBook: "Permanently Delete Book",
+            deleteNote: "Permanently Delete Note",
+            changeImage: "Don't forget to confirm the image change by clicking the 'Change' button."
+        }
+    },
 };
 
 export default initialStateBannersEn;
