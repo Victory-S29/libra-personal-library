@@ -110,7 +110,8 @@ const initialStateBannersEn = {
             status: "Status",
             review: "Change review",
             pageNumber: "Page Number",
-            noteText: "Note"
+            noteText: "Note",
+            changeNote: "Change note"
         },
         placeholders: {
             title: "Add a title",
@@ -130,7 +131,8 @@ const initialStateBannersEn = {
             myNotes: "My Notes",
             addFirstNote: "You can always add one Note here",
             deleteBook: "Permanently Delete Book",
-            deleteNote: "Permanently Delete Note"
+            deleteNote: "Permanently Delete Note",
+            changeImage: "Don't forget to confirm the image change by clicking the 'Change' button."
         }
     },
 };

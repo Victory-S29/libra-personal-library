@@ -1581,6 +1581,7 @@ footer li a:active {
   max-height: 60vh;
   overflow-y: scroll;
   margin: 10px;
+  min-width: 80%;
 }
 .notes-section .note {
   margin-bottom: 30px;
@@ -1606,9 +1607,12 @@ footer li a:active {
   justify-content: space-between;
 }
 .notes-section .note-text {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   max-height: 20vh;
   overflow-y: scroll;
-  width: 90%;
+  min-width: 90%;
 }
 .notes-section button {
   width: 150px;
@@ -1638,6 +1642,9 @@ footer li a:active {
     font-size: 25px;
     padding: 15px 20px;
   }
+}
+.notes-section .new-note--form {
+  margin-bottom: 20px;
 }
 
 .add-note-container {

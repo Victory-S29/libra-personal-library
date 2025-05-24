@@ -1,4 +1,4 @@
-import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, DELETE_BOOK, DELETE_NOTE } from "../actions/catalogue.action";
+import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, CHANGE_NOTE, DELETE_BOOK, DELETE_NOTE } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 
 const initialState = {
@@ -102,6 +102,37 @@ const BooksReducer = (state = initialState, action) => {
                                 : [],
                         }
                         : book
+                );
+
+            return {
+                ...state,
+                startingBooks: {
+                    ...state.startingBooks,
+                    data: updateBooks(state.startingBooks.data),
+                },
+                popularBooks: {
+                    ...state.popularBooks,
+                    data: updateBooks(state.popularBooks.data),
+                },
+            };
+        }
+        case CHANGE_NOTE: {
+            const { newNote } = action.payload;
+            const noteId = newNote.noteId;
+
+            const changedNote = {
+                id: newNote.noteId,
+                page: newNote.notePage,
+                text: newNote.noteText
+            }
+            const updateBooks = (books) =>
+                books.map((book) =>
+                    book.id === newNote.bookId ? {
+                        ...book,
+                        notes: Array.isArray(book.notes)
+                            ? book.notes.map(note => note.id === noteId ? changedNote : note)
+                            : [],
+                    } : book
                 );
 
             return {

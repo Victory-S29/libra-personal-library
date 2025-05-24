@@ -36,6 +36,7 @@ const ChangeBookDataPage = () => {
     const [initialData, setInitialData] = useState(currentBook);
     const [idErrorMessage, setIdErrorMessage] = useState("");
     const [progressError, setProgressError] = useState("");
+    const [changeImageWarning, setChangeImageWarning] = useState("");
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
 
     const handleChange = (e) => {
@@ -87,7 +88,6 @@ const ChangeBookDataPage = () => {
     };
 
     const onSubmit = (e) => {
-        console.log("bookInfo-tags", bookInfo.tags)
         e.preventDefault();
         const isValid = validCheck();
         if (isValid) {
@@ -116,11 +116,12 @@ const ChangeBookDataPage = () => {
             reader.onloadend = () => {
                 // Update the bookInfo state with the new image (base64 string)
                 setBookInfo(prev => ({
-                    ...prev,           
+                    ...prev,
                     image: reader.result
                 }));
             };
             reader.readAsDataURL(file);
+            setChangeImageWarning(bannersData.bookEdit.messages.changeImage)
         }
     };
     return (
@@ -138,6 +139,7 @@ const ChangeBookDataPage = () => {
                         style={{ display: 'none' }}
                         onChange={handleImageChange}
                     />
+                    {changeImageWarning && <p className='error-message'>{changeImageWarning}</p>}
                 </div>
                 <section className='data--section'>
                     <div className='name--section'>

@@ -6,6 +6,7 @@ import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import AddNewNoteForm from './AddNewNoteForm';
 import ConfirmPopup from './ConfirmPopup';
 import { deleteNoteAction } from '../../store/actions/catalogue.action';
+import ChangeNotePopup from './ChangeNotePopup';
 
 const NotesSection = ({ currentBook }) => {
     const dispatch = useDispatch();
@@ -14,12 +15,22 @@ const NotesSection = ({ currentBook }) => {
     const [showAddNoteForm, setShowAddNoteForm] = useState(false);
     const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
     const [noteIdToDelete, setNoteIdToDelete] = useState(null);
+    const [noteToChange, setNoteToChange] = useState(null);
+    const [showPopupChange, setShowPopupChange] = useState(false);
 
     const deleteNote = (id) => {
         setNoteIdToDelete(id);
         setShowConfirmPopupDelete(true);
     }
-
+    const changeNote = (note) => {
+        setShowPopupChange(true);
+        setNoteToChange({
+            bookId: currentBook.id,
+            noteId: note.id,
+            noteText: note.text,
+            notePage: note.page
+        })
+    }
     const handleConfirmDelete = () => {
         dispatch(deleteNoteAction(currentBook.id, noteIdToDelete));
         setShowConfirmPopupDelete(false);
@@ -39,7 +50,7 @@ const NotesSection = ({ currentBook }) => {
                                 <p className='note-page'>{note.page}</p>
                                 <p className='note-text'>{note.text}</p>
                                 <div className='icons-section'>
-                                    <FontAwesomeIcon icon={faPenToSquare} className='icon' />
+                                    <FontAwesomeIcon icon={faPenToSquare} className='icon' onClick={() => { changeNote(note) }} />
                                     <FontAwesomeIcon icon={faTrashCan} className='icon' onClick={() => { deleteNote(id) }} />
                                 </div>
                             </div>
@@ -59,6 +70,9 @@ const NotesSection = ({ currentBook }) => {
                     onConfirm={handleConfirmDelete}
                     onCancel={handleCancelDelete}
                 />
+            )}
+            {showPopupChange && (
+                <ChangeNotePopup noteToChange={noteToChange} currentBookTotalPages={currentBook.totalPages} setShowPopupChange={setShowPopupChange} />
             )}
         </Fragment>
     );

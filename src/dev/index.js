@@ -16,6 +16,7 @@ export { default as Footer } from "./components/Footer.jsx";
 export { default as CustomSelect } from "./components/CustomSelect.jsx";
 export { default as NotesSection } from "./components/NotesSection.jsx";
 export { default as AddNewNoteForm } from "./components/AddNewNoteForm.jsx";
+export { default as ChangeNotePopup } from "./components/ChangeNotePopup.jsx";
 
 export { default as ChangeBookDataPage } from "./pages/ChangeBookDataPage.jsx";
 export { default as BookPage } from "./pages/BookPage.jsx";
