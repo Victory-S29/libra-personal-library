@@ -1647,7 +1647,8 @@ footer li a:active {
   margin-bottom: 20px;
 }
 
-.add-note-container {
+.add-note-container,
+.change-note-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1661,12 +1662,20 @@ footer li a:active {
   width: 100%;
   z-index: 100;
 }
+.add-note-container .input-group,
+.change-note-container .input-group {
+  width: 100%;
+}
+.add-note-container input,
+.change-note-container input {
+  width: 40%;
+}
 
 .note-popup {
   display: flex;
   flex-direction: column;
   gap: 0px;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   background-color: var(--background-color);
   border: 2px solid var(--secondary-color);
@@ -1675,6 +1684,7 @@ footer li a:active {
 }
 .note-popup h2 {
   font-size: 30px;
+  margin-bottom: 10px;
 }
 .note-popup label {
   color: var(--text-color);
@@ -1692,12 +1702,13 @@ footer li a:active {
   width: auto;
 }
 .note-popup textarea {
-  width: 100%;
   min-width: 25vw;
+  width: 100%;
   min-height: 150px;
   padding: 10px;
   background-color: var(--input-bc-color);
   border: 1px solid var(--button-color);
+  border-radius: 4px;
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
   font-weight: 300;
@@ -1726,6 +1737,16 @@ footer li a:active {
   gap: 10px;
   align-items: center;
   justify-content: center;
+  width: 100%;
+}
+.note-popup .btn-section button {
+  width: 100%;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  margin: 0;
 }
 .note-popup .cancel-btn {
   border-color: var(--error-color) !important;
@@ -1849,6 +1870,7 @@ footer li a:active {
   padding: 10px;
   background-color: var(--input-bc-color);
   border: 1px solid var(--button-color);
+  border-radius: 4px;
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
   font-weight: 300;
@@ -1938,7 +1960,6 @@ footer li a:active {
   border-color: var(--error-color);
   align-self: center;
   margin-top: 40px;
-  width: 100px;
   color: var(--text-color);
 }
 .single-book--section h1 {

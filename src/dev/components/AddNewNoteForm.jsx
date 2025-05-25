@@ -57,11 +57,9 @@ const AddNewNoteForm = ({ setShowAddNoteForm, currentBook }) => {
 
     return (
         <div className='add-note-container'>
-            {console.log("currentBook-=-=-=-", currentBook)}
             <section className='note-popup'>
                 <h2>{bannersData.bookEdit.labels.newNote}</h2>
                 <div className="input-group">
-                    <label htmlFor="page">{bannersData.bookEdit.labels.pageNumber}</label>
                     <input
                         type="number"
                         id="page"
@@ -75,7 +73,6 @@ const AddNewNoteForm = ({ setShowAddNoteForm, currentBook }) => {
                 </div>
                 {pageError && <p className='error-message'>{pageError}</p>}
                 <div className="input-group">
-                    <label htmlFor="text">{bannersData.bookEdit.labels.noteText}</label>
                     <textarea
                         id="text"
                         placeholder={bannersData.bookEdit.placeholders.noteText}

@@ -107,7 +107,7 @@ const BookPage = () => {
                             <SliderComponent {...similarBooks} />
                         </div>
                         <NotesSection currentBook={currentBook} />
-                        <button id="delete" onClick={deleteBook}>{bannersData.notifications.basic.delete}</button>
+                        <button id="delete" onClick={deleteBook}>{bannersData.bookEdit.labels.deleteBook}</button>
                     </section>
                     <SliderComponent {...popularBooks} />
                     {showChangeReviewPopup && <ChangeReviewPopup

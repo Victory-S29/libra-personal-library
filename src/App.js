@@ -28,8 +28,7 @@ function App() {
         <Route path="/about-developer" element={<DevelopersPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/change-bookinfo/:bookId" element={<ChangeBookDataPage />} />
-        {/* <Route path="/Profile" element={<Profile />} />
-        <Route path='*' element={<Error />} /> */}
+        {/* <Route path='*' element={<Error />} />  */}
       </Routes>
       <Footer SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup}
         currentLoginState={currentLoginState} SetCurrentLoginState={SetCurrentLoginState} />

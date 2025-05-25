@@ -111,7 +111,8 @@ const initialStateBannersEn = {
             review: "Change review",
             pageNumber: "Page Number",
             noteText: "Note",
-            changeNote: "Change note"
+            changeNote: "Change note",
+            deleteBook: "Delete Book"
         },
         placeholders: {
             title: "Add a title",

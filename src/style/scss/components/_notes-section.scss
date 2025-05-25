@@ -47,12 +47,13 @@
             padding: 15px 20px;
         }
     }
-    .new-note--form{
+    .new-note--form {
         margin-bottom: 20px;
     }
 }
 
-.add-note-container {
+.add-note-container,
+.change-note-container {
     @include flex-container();
     background-color: var(--shadow-color);
     height: 100%;
@@ -61,16 +62,23 @@
     left: 0px;
     width: 100%;
     z-index: 100;
+    .input-group {
+        width: 100%;
+    }
+    input {
+        width: 40%;
+    }
 }
 
 .note-popup {
-    @include flex-container(column, 0px, start, center);
+    @include flex-container(column, 0px, center, center);
     background-color: var(--background-color);
     border: 2px solid var(--secondary-color);
     padding: 20px;
     width: 30vw;
     h2 {
         font-size: 30px;
+        margin-bottom: 10px;
     }
     label {
         @include text-base(var(--text-color), $text-font, 400, $size-15);
@@ -82,12 +90,13 @@
         width: auto;
     }
     textarea {
-        width: 100%;
         min-width: 25vw;
+        width: 100%;
         min-height: 150px;
         padding: 10px;
         background-color: var(--input-bc-color);
         border: 1px solid var(--button-color);
+        border-radius: 4px;
         @include text-base(var(--text-color), $text-font, 300, $size-15);
         resize: none;
         &:focus {
@@ -103,7 +112,12 @@
         }
     }
     .btn-section {
-        @include flex-container(row);
+        @include flex-container($direction: row);
+        width: 100%;
+        button {
+            @include btn-base($width: 100%);
+            margin: 0;
+        }
     }
     .cancel-btn {
         border-color: var(--error-color) !important;

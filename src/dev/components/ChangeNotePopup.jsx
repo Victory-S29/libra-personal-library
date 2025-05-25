@@ -50,12 +50,10 @@ const ChangeNotePopup = ({ noteToChange, currentBookTotalPages, setShowPopupChan
     };
 
     return (
-        <div className='add-note-container'>
-            {console.log("noteToChange", noteToChange)}
+        <div className='change-note-container'>
             <section className='note-popup'>
                 <h2>{bannersData.bookEdit.labels.changeNote}</h2>
                 <div className="input-group">
-                    <label htmlFor="notePage">{bannersData.bookEdit.labels.pageNumber}</label>
                     <input
                         type="number"
                         id="notePage"
@@ -69,7 +67,6 @@ const ChangeNotePopup = ({ noteToChange, currentBookTotalPages, setShowPopupChan
                 </div>
                 {pageError && <p className='error-message'>{pageError}</p>}
                 <div className="input-group">
-                    <label htmlFor="noteText">{bannersData.bookEdit.labels.noteText}</label>
                     <textarea
                         id="noteText"
                         placeholder={bannersData.bookEdit.placeholders.noteText}
