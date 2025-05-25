@@ -19,8 +19,8 @@
         width: 60%;
         padding: 5px;
         border-bottom: 2px solid var(--accent-color);
-        .icon{
-            width:15px;
+        .icon {
+            width: 15px;
         }
         input {
             background-color: var(--section-bc-color);
@@ -282,10 +282,15 @@
     }
 }
 
-.not-clickable{
-    cursor:auto;
+.not-clickable {
+    cursor: auto;
     &:hover {
         box-shadow: none;
+    }
+    .icon {
+        &:hover {
+            cursor: auto;
+        }
     }
 }
 .rs-pagination {

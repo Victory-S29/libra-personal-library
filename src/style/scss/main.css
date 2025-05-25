@@ -785,6 +785,9 @@ body {
 .not-clickable:hover {
   box-shadow: none;
 }
+.not-clickable .icon:hover {
+  cursor: auto;
+}
 
 .rs-pagination {
   display: flex;
