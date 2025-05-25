@@ -3,7 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
-import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
+import {
+    faBookmark as faBookmarkRegular,
+    faHeart as faHeartRegular,
+    faSquareCheck as faSquareCheckRegular,
+    faClock as faClockRegular
+} from '@fortawesome/free-regular-svg-icons';
+import {
+    faBookmark as faBookmarkSolid,
+    faHeart as faHeartSolid,
+    faSquareCheck as faSquareCheckSolid,
+    faClock as faClockSolid
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { ChangeReviewPopup, ConfirmPopup, NotesSection, SliderComponent } from '../';
@@ -91,10 +102,22 @@ const BookPage = () => {
                                     <StarRating rating={currentBook.review.rating} />
                                     <Link className='change-btn' to={`/change-bookinfo/${bookId}`}>{bannersData.notifications.basic.change}</Link>
                                     <div className='actions-bar'>
-                                        <FontAwesomeIcon icon={faHeart} className='icon' />
-                                        <FontAwesomeIcon icon={faSquareCheck} className='icon' />
-                                        <FontAwesomeIcon icon={faClock} className='icon' />
-                                        <FontAwesomeIcon icon={faBookmark} className='icon' />
+                                        <FontAwesomeIcon
+                                            icon={currentBook.lists.liked ? faHeartSolid : faHeartRegular}
+                                            className={`icon ${currentBook.lists.liked ? 'icon-filled' : ''}`}
+                                        />
+                                        <FontAwesomeIcon
+                                            icon={currentBook.lists.finished ? faSquareCheckSolid : faSquareCheckRegular}
+                                            className={`icon ${currentBook.lists.finished ? 'icon-filled' : ''}`}
+                                        />
+                                        <FontAwesomeIcon
+                                            icon={currentBook.lists.inProgress ? faClockSolid : faClockRegular}
+                                            className={`icon ${currentBook.lists.inProgress ? 'icon-filled' : ''}`}
+                                        />
+                                        <FontAwesomeIcon
+                                            icon={currentBook.lists.saved ? faBookmarkSolid : faBookmarkRegular}
+                                            className={`icon ${currentBook.lists.saved ? 'icon-filled' : ''}`}
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -23,6 +23,7 @@ const SliderComponent = ({ title, data }) => {
                                 author={book.author}
                                 rating={book.review.rating}
                                 image={book.image}
+                                lists={book.lists}
                                 key={book.id}
                                 bookId ={book.id}
                             />

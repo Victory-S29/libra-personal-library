@@ -23,6 +23,9 @@ body {
         @include icon-base(30px, 30px, var(--accent-color));
     }
 }
+.icon-filled {
+    color: var(--filled-icon-color);
+}
 
 @import "./components/navbar";
 @import "./components/sliders";

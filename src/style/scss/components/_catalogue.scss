@@ -232,7 +232,8 @@
         }
     }
     .icon {
-        @include icon-base(19px, 19px, var(--accent-color));
+        width: 19px;
+        height: 19px;
         @media (min-width: $xxl) and (max-width: $xxxl) {
             @include icon-base(23px, 23px, var(--accent-color));
         }

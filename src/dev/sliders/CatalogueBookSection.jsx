@@ -15,6 +15,7 @@ const CatalogueBookSection = () => {
                     image={book.image}
                     publisher={book.publisher}
                     bookId={book.id}
+                    lists={book.lists}
                     key={book.id}
                 />
             ))
