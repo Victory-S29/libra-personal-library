@@ -19,7 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { ChangeReviewPopup, ConfirmPopup, NotesSection, SliderComponent } from '../';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
-import { deleteBookAction } from '../../store/actions/catalogue.action';
+import { deleteBookAction, toggleBookListAction } from '../../store/actions/catalogue.action';
 
 const BookPage = () => {
     const { bookId } = useParams();
@@ -65,6 +65,12 @@ const BookPage = () => {
     const [showChangeReviewPopup, setShowChangeReviewPopup] = useState(false);
     const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
 
+    const icons = [
+        { key: 'liked', solid: faHeartSolid, reg: faHeartRegular },
+        { key: 'finished', solid: faSquareCheckSolid, reg: faSquareCheckRegular },
+        { key: 'inProgress', solid: faClockSolid, reg: faClockRegular },
+        { key: 'saved', solid: faBookmarkSolid, reg: faBookmarkRegular }
+    ];
     useEffect(() => {
         if (!currentBook) {
             navigate('/');
@@ -102,22 +108,14 @@ const BookPage = () => {
                                     <StarRating rating={currentBook.review.rating} />
                                     <Link className='change-btn' to={`/change-bookinfo/${bookId}`}>{bannersData.notifications.basic.change}</Link>
                                     <div className='actions-bar'>
-                                        <FontAwesomeIcon
-                                            icon={currentBook.lists.liked ? faHeartSolid : faHeartRegular}
-                                            className={`icon ${currentBook.lists.liked ? 'icon-filled' : ''}`}
-                                        />
-                                        <FontAwesomeIcon
-                                            icon={currentBook.lists.finished ? faSquareCheckSolid : faSquareCheckRegular}
-                                            className={`icon ${currentBook.lists.finished ? 'icon-filled' : ''}`}
-                                        />
-                                        <FontAwesomeIcon
-                                            icon={currentBook.lists.inProgress ? faClockSolid : faClockRegular}
-                                            className={`icon ${currentBook.lists.inProgress ? 'icon-filled' : ''}`}
-                                        />
-                                        <FontAwesomeIcon
-                                            icon={currentBook.lists.saved ? faBookmarkSolid : faBookmarkRegular}
-                                            className={`icon ${currentBook.lists.saved ? 'icon-filled' : ''}`}
-                                        />
+                                        {icons.map(({ key, solid, reg }) => (
+                                            <FontAwesomeIcon
+                                                key={key}
+                                                icon={currentBook.lists[key] ? solid : reg}
+                                                className={`icon ${currentBook.lists[key] ? 'icon-filled' : ''}`}
+                                                onClick={() => dispatch(toggleBookListAction(bookId, key))}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>

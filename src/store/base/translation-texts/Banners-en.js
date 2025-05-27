@@ -136,6 +136,21 @@ const initialStateBannersEn = {
             changeImage: "Don't forget to confirm the image change by clicking the 'Change' button."
         }
     },
+    catalogueInfo: {
+        labels: {
+            createNewBook: "Create New Book",
+            finishedBooks: "Finished",
+            inProgressBooks: "In Progress",
+            likedBooks: "Liked",
+            savedBooks: "Saved",
+        },
+        placeholders: {
+
+        },
+        messages: {
+
+        },
+    }
 };
 
 export default initialStateBannersEn;

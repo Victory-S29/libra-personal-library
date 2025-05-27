@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { Catalogue, Features, SliderComponent } from '../';
+import { BreadcrumbComponent, Catalogue, Features, SliderComponent } from '../';
 import { getPopularBooksSelector, getStartingBooksSelector } from '../../store/reducers/books.reducer';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -15,6 +15,7 @@ const MainPage = () => {
 
     return (
         <Fragment>
+            <BreadcrumbComponent />
             <SliderComponent {...startingBooks} />
             <SliderComponent {...popularBooks} />
             <Catalogue />

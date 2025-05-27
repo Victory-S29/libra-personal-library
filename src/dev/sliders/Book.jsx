@@ -14,44 +14,51 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import StarRating from './StarRating';
 import { Link } from 'react-router-dom';
+import { toggleBookListAction } from '../../store/actions/catalogue.action';
+import { useDispatch } from 'react-redux';
 
-const Book = ({ title, author, rating, image, bookId, lists }) => {
-    const isClickable = title && author && bookId;
+const Book = ({ book }) => {
+    const dispatch = useDispatch();
+    const isClickable = book.title && book.author && book.id;
 
+    const icons = [
+        { key: 'liked', solid: faHeartSolid, reg: faHeartRegular },
+        { key: 'finished', solid: faSquareCheckSolid, reg: faSquareCheckRegular },
+        { key: 'inProgress', solid: faClockSolid, reg: faClockRegular },
+        { key: 'saved', solid: faBookmarkSolid, reg: faBookmarkRegular }
+    ];
     const content = (
         <>
-            <h4 className='single-book-title'>{title}</h4>
-            <p className='single-book-text'>{author}</p>
-            <img className='single-book-img' src={image} alt={`Cover of ${title}`} />
-            <StarRating rating={rating} />
-            <div className='actions-bar'>
-                <FontAwesomeIcon
-                    icon={lists.liked ? faHeartSolid : faHeartRegular}
-                    className={`icon ${lists.liked ? 'icon-filled' : ''}`}
-                />
-                <FontAwesomeIcon
-                    icon={lists.finished ? faSquareCheckSolid : faSquareCheckRegular}
-                    className={`icon ${lists.finished ? 'icon-filled' : ''}`}
-                />
-                <FontAwesomeIcon
-                    icon={lists.inProgress ? faClockSolid : faClockRegular}
-                    className={`icon ${lists.inProgress ? 'icon-filled' : ''}`}
-                />
-                <FontAwesomeIcon
-                    icon={lists.saved ? faBookmarkSolid : faBookmarkRegular}
-                    className={`icon ${lists.saved ? 'icon-filled' : ''}`}
-                />
-            </div>
+            <h4 className='single-book-title'>{book.title}</h4>
+            <p className='single-book-text'>{book.author}</p>
+            <img className='single-book-img' src={book.image} alt={`Cover of ${book.title}`} />
+            <StarRating rating={book.rating} />
         </>
     );
-
+    const actionsBar = (
+        <div className="actions-bar">
+            {icons.map(({ key, solid, reg }) => (
+                <FontAwesomeIcon
+                    key={key}
+                    icon={book.lists[key] ? solid : reg}
+                    className={`icon ${book.lists[key] ? 'icon-filled' : ''}`}
+                    onClick={() => dispatch(toggleBookListAction(book.id, key))}
+                />
+            ))}
+        </div>
+    );
     return isClickable ? (
-        <Link className='single-book-section' to={`/book/${bookId}`}>
-            {content}
-        </Link>
+        <div className='single-book-section'>
+            <Link className='single-book-link-section' to={`/book/${book.id}`}>
+                {content}
+            </Link>
+            {actionsBar}
+        </div>
+
     ) : (
         <div className='single-book-section not-clickable'>
             {content}
+            {actionsBar}
         </div>
     );
 };

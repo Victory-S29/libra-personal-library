@@ -1,4 +1,4 @@
-import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, CHANGE_NOTE, DELETE_BOOK, DELETE_NOTE } from "../actions/catalogue.action";
+import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, CHANGE_NOTE, DELETE_BOOK, DELETE_NOTE, TOGGLE_BOOK_LIST } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 
 const initialState = {
@@ -144,6 +144,34 @@ const BooksReducer = (state = initialState, action) => {
                 popularBooks: {
                     ...state.popularBooks,
                     data: updateBooks(state.popularBooks.data),
+                },
+            };
+        }
+        case TOGGLE_BOOK_LIST: {
+            const { bookId, listKey } = action.payload;
+
+            const toggleListInBooks = (books) =>
+                books.map(book =>
+                    book.id === bookId
+                        ? {
+                            ...book,
+                            lists: {
+                                ...book.lists,
+                                [listKey]: !book.lists[listKey]
+                            }
+                        }
+                        : book
+                );
+
+            return {
+                ...state,
+                startingBooks: {
+                    ...state.startingBooks,
+                    data: toggleListInBooks(state.startingBooks.data),
+                },
+                popularBooks: {
+                    ...state.popularBooks,
+                    data: toggleListInBooks(state.popularBooks.data),
                 },
             };
         }

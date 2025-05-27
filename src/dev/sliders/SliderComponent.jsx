@@ -14,19 +14,12 @@ const SliderComponent = ({ title, data }) => {
                     perPage: 5,
                     arrows: false,
                     pagination: false,
-                    drag: 'free',
-                }}>
+                    drag: true,
+                }} >
                 {data.map((book) => {
                     return (
                         <SplideSlide key={book.id}>
-                            <Book title={book.title}
-                                author={book.author}
-                                rating={book.review.rating}
-                                image={book.image}
-                                lists={book.lists}
-                                key={book.id}
-                                bookId ={book.id}
-                            />
+                            <Book book={book} />
                         </SplideSlide>)
                 })}
             </Splide>

@@ -657,68 +657,13 @@ body {
   justify-content: center;
   border: 1px solid var(--secondary-color);
   cursor: pointer;
-  padding: 15px;
   width: 175px;
+  padding-bottom: 10px;
 }
-.single-book-section:hover {
-  box-shadow: 0 4px 10px var(--shadow-color);
-  transition: all 0.1s ease 0s;
-}
-@media (max-width: 768px) {
-  .single-book-section {
-    align-items: center;
-    height: 250px;
-    padding: 5px;
-    width: 100%;
-  }
-}
-@media (min-width: 1400px) and (max-width: 1920px) {
-  .single-book-section {
-    width: 195px;
-  }
-}
-@media (min-width: 1920px) {
-  .single-book-section {
-    width: 245px;
-  }
-}
-.single-book-section .actions-bar {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
-  width: 100%;
-}
-@media (min-width: 1920px) {
-  .single-book-section .actions-bar {
-    margin-top: 10px;
-  }
-}
-.single-book-section .icon {
-  width: 19px;
-  height: 19px;
-}
-@media (min-width: 1400px) and (max-width: 1920px) {
-  .single-book-section .icon {
-    width: 23px;
-    height: 23px;
-    color: var(--accent-color);
-  }
-  .single-book-section .icon:hover {
-    cursor: pointer;
-  }
-}
-@media (min-width: 1920px) {
-  .single-book-section .icon {
-    width: 27px;
-    height: 27px;
-    color: var(--accent-color);
-  }
-  .single-book-section .icon:hover {
-    cursor: pointer;
-  }
+.single-book-section .single-book-link-section {
+  width: 175px;
+  padding: 15px;
+  padding-bottom: 5px;
 }
 .single-book-section .single-book-img {
   margin: 5px auto;
@@ -779,9 +724,78 @@ body {
     font-size: 30px;
   }
 }
+.single-book-section:hover {
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: all 0.1s ease 0s;
+}
+@media (max-width: 768px) {
+  .single-book-section {
+    align-items: center;
+    height: 250px;
+    padding: 5px;
+    width: 100%;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .single-book-section {
+    width: 195px;
+  }
+}
+@media (min-width: 1920px) {
+  .single-book-section {
+    width: 245px;
+  }
+}
+.single-book-section .actions-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  width: 100%;
+}
+@media (min-width: 1920px) {
+  .single-book-section .actions-bar {
+    margin-top: 10px;
+  }
+}
+.single-book-section .book-rating {
+  margin-top: 5px;
+}
+.single-book-section .icon {
+  width: 19px;
+  height: 19px;
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .single-book-section .icon {
+    width: 23px;
+    height: 23px;
+    color: var(--accent-color);
+  }
+  .single-book-section .icon:hover {
+    cursor: pointer;
+  }
+}
+@media (min-width: 1920px) {
+  .single-book-section .icon {
+    width: 27px;
+    height: 27px;
+    color: var(--accent-color);
+  }
+  .single-book-section .icon:hover {
+    cursor: pointer;
+  }
+}
 
 .not-clickable {
   cursor: auto;
+}
+.not-clickable .book-rating {
+  margin-top: 5px;
+}
+.not-clickable .actions-bar {
+  margin-top: 5px;
 }
 .not-clickable:hover {
   box-shadow: none;
@@ -1759,6 +1773,38 @@ footer li a:active {
 }
 .note-popup button {
   margin: 0%;
+}
+
+.breadcrumb-component--section {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+  width: 80%;
+  margin: 10px auto 20px auto;
+}
+.breadcrumb-component--section .icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+.breadcrumb-component--section .active {
+  border-bottom: 2px solid var(--secondary-color);
+}
+.breadcrumb-component--section #createNewBook {
+  color: var(--active-text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.breadcrumb-component--link {
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 10px 15px;
 }
 
 .main-info-change--section {
