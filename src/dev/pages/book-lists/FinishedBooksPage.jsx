@@ -32,14 +32,16 @@ const FinishedBooksPage = () => {
                 />
             </div>
             <section className='books-list--section'>
-                {finishedBooks ?
-                    finishedBooks.map((book, index) => {
-                        return <Book book={book} key={index} />
-                    })
-                    : <p></p>
-                }
+                {finishedBooks.map((book, index) => (
+                    <Book book={book} key={index} />
+                ))}
             </section>
 
+            {finishedBooks.length === 0 && (
+                <p className='no-books-found--message'>
+                    {bannersData.catalogueInfo.messages.noBooksFound}
+                </p>
+            )}
         </div>
     );
 };

@@ -148,7 +148,7 @@ const initialStateBannersEn = {
             sortBooksInput: "Sort by title or author"
         },
         messages: {
-
+            noBooksFound: "You haven't added any books yet."
         },
     }
 };
