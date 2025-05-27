@@ -665,6 +665,11 @@ body {
   padding: 15px;
   padding-bottom: 5px;
 }
+@media (min-width: 1920px) {
+  .single-book-section .single-book-link-section {
+    width: 245px;
+  }
+}
 .single-book-section .single-book-img {
   margin: 5px auto;
   -o-object-fit: contain;
@@ -2372,4 +2377,24 @@ footer li a:active {
 .exit-section {
   border-top: 1px solid var(--separators-color);
   margin-top: 20%;
+}
+
+.books-list--section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, 175px);
+  justify-content: center;
+  width: 80%;
+  margin: 10px auto 20px auto;
+}
+@media (min-width: 1920px) {
+  .books-list--section {
+    grid-template-columns: repeat(auto-fit, 245px);
+  }
+}
+
+.books-list--sort-input {
+  width: 40%;
+  margin: 20px auto;
+  margin-top: 30px;
 }/*# sourceMappingURL=main.css.map */

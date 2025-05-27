@@ -145,7 +145,7 @@ const initialStateBannersEn = {
             savedBooks: "Saved",
         },
         placeholders: {
-
+            sortBooksInput: "Sort by title or author"
         },
         messages: {
 

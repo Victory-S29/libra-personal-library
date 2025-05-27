@@ -211,6 +211,9 @@
         width: $single-book-width-md;
         padding: 15px;
         padding-bottom: 5px;
+        @media (min-width: 1920px) {
+            width: 245px;
+        }
     }
     .single-book-img {
         margin: 5px $basic-margin-x;
