@@ -21,6 +21,7 @@
         border-radius: 4px;
         padding: 12px 10px;
         width: 100%;
+        margin-bottom: 20px;
         @include text-base(var(--text-color), $text-font, 200, $size-15);
         &::after {
             content: "\25BD";
