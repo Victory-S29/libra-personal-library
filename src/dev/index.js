@@ -17,10 +17,17 @@ export { default as CustomSelect } from "./components/CustomSelect.jsx";
 export { default as NotesSection } from "./components/NotesSection.jsx";
 export { default as AddNewNoteForm } from "./components/AddNewNoteForm.jsx";
 export { default as ChangeNotePopup } from "./components/ChangeNotePopup.jsx";
+export { default as BreadcrumbComponent } from "./components/BreadcrumbComponent.jsx";
+export { default as ConfirmPopup } from "./components/ConfirmPopup.jsx";
 
 export { default as ChangeBookDataPage } from "./pages/ChangeBookDataPage.jsx";
 export { default as BookPage } from "./pages/BookPage.jsx";
 export { default as FeaturesPage } from "./pages/FeaturesPage.jsx";
 export { default as TechnologiesPage } from "./pages/TechnologiesPage.jsx";
 export { default as DevelopersPage } from "./pages/DeveloperPage.jsx";
-export { default as ConfirmPopup } from "./components/ConfirmPopup.jsx";
+export { default as CreateNewBook } from "./pages/CreateNewBook.jsx"
+
+export { default as FinishedBooksPage } from "./pages/book-lists/FinishedBooksPage.jsx";
+export { default as InProgressBooksPage } from "./pages/book-lists/InProgressBooksPage.jsx";
+export { default as SavedBooksPage } from "./pages/book-lists/SavedBooksPage.jsx";
+export { default as LikedBooksPage } from "./pages/book-lists/LikedBooksPage.jsx";

@@ -3,12 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
-import { faBookmark, faHeart, faSquareCheck, faClock } from '@fortawesome/free-regular-svg-icons';
+import {
+    faBookmark as faBookmarkRegular,
+    faHeart as faHeartRegular,
+    faSquareCheck as faSquareCheckRegular,
+    faClock as faClockRegular
+} from '@fortawesome/free-regular-svg-icons';
+import {
+    faBookmark as faBookmarkSolid,
+    faHeart as faHeartSolid,
+    faSquareCheck as faSquareCheckSolid,
+    faClock as faClockSolid
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { ChangeReviewPopup, ConfirmPopup, NotesSection, SliderComponent } from '../';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
-import { deleteBookAction } from '../../store/actions/catalogue.action';
+import { deleteBookAction, toggleBookListAction } from '../../store/actions/catalogue.action';
 
 const BookPage = () => {
     const { bookId } = useParams();
@@ -54,6 +65,12 @@ const BookPage = () => {
     const [showChangeReviewPopup, setShowChangeReviewPopup] = useState(false);
     const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
 
+    const icons = [
+        { key: 'liked', solid: faHeartSolid, reg: faHeartRegular },
+        { key: 'finished', solid: faSquareCheckSolid, reg: faSquareCheckRegular },
+        { key: 'inProgress', solid: faClockSolid, reg: faClockRegular },
+        { key: 'saved', solid: faBookmarkSolid, reg: faBookmarkRegular }
+    ];
     useEffect(() => {
         if (!currentBook) {
             navigate('/');
@@ -91,10 +108,14 @@ const BookPage = () => {
                                     <StarRating rating={currentBook.review.rating} />
                                     <Link className='change-btn' to={`/change-bookinfo/${bookId}`}>{bannersData.notifications.basic.change}</Link>
                                     <div className='actions-bar'>
-                                        <FontAwesomeIcon icon={faHeart} className='icon' />
-                                        <FontAwesomeIcon icon={faSquareCheck} className='icon' />
-                                        <FontAwesomeIcon icon={faClock} className='icon' />
-                                        <FontAwesomeIcon icon={faBookmark} className='icon' />
+                                        {icons.map(({ key, solid, reg }) => (
+                                            <FontAwesomeIcon
+                                                key={key}
+                                                icon={currentBook.lists[key] ? solid : reg}
+                                                className={`icon ${currentBook.lists[key] ? 'icon-filled' : ''}`}
+                                                onClick={() => dispatch(toggleBookListAction(bookId, key))}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>

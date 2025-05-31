@@ -20,18 +20,19 @@ const initialStateBannersEn = {
             cancel: "Cancel",
             change: "Change",
             saveChanges: "Save changes",
-            delete: "Delete"
+            delete: "Delete",
+            add:"Add"
         },
     },
     featuresComponent: {
         title: "Everything You Need as a Reader",
         communityAdvantages: [
-            { imageSrc: explore, label: 'Explore world' },
+            { imageSrc: explore, label: 'Explore the world' },
             { imageSrc: start, label: 'Start your reading journey' },
             { imageSrc: save, label: 'Save your favourites' },
             { imageSrc: progress, label: 'Track progress' },
-            { imageSrc: recommendation, label: 'Rate and Recommend' },
-            { imageSrc: inspiration, label: 'Get inspired' }
+            { imageSrc: recommendation, label: 'Rate and recommend' },
+            { imageSrc: inspiration, label: 'Find inspiration' }
         ]
     },
     footer: {
@@ -61,12 +62,12 @@ const initialStateBannersEn = {
             shortPassword: "Password must be at least 8 characters long.",
             matchPassword: "Passwords do not match.",
             emailError: "An account for this email address already exists.",
-            userNotExist: "Your email may be wrong",
-            wrongPassword: "Your password may be wrong",
-            haveAnAccount: "Already have an Account?",
+            userNotExist: "This email address may be incorrect.",
+            wrongPassword: "Incorrect password.",
+            haveAnAccount: "Already have an account?",
             loginHere: "Login here",
             signUpHere: "Sign up here",
-            newAcc: "Create a new Account?",
+            newAcc: "Create a new account?",
         },
         settingsPage: {
             labels: {
@@ -95,24 +96,24 @@ const initialStateBannersEn = {
     bookEdit: {
         labels: {
             changeImage: "Change Image",
-            title: "Change Title",
-            author: "Change Author",
+            title: "Title",
+            author: "Author",
             genre: "Genre",
-            tags: "Tags (comma separated)",
-            changeReview: "Change Review",
-            description: "Add a description",
+            tags: "Tags (comma-separated)",
+            changeReview: "Review",
+            description: "Description",
             progress: "Progress",
-            newNote: "New Note",
-            totalPages: "Total Pages",
+            newNote: "New note",
+            totalPages: "Total pages",
             searchByName: "Search book by name",
             search: "Search",
             rating: "Rating",
             status: "Status",
-            review: "Change review",
-            pageNumber: "Page Number",
+            review: "Edit review",
+            pageNumber: "Page number",
             noteText: "Note",
-            changeNote: "Change note",
-            deleteBook: "Delete Book"
+            changeNote: "Edit note",
+            deleteBook: "Delete book"
         },
         placeholders: {
             title: "Add a title",
@@ -128,14 +129,56 @@ const initialStateBannersEn = {
         messages: {
             bookExists: "A book with this title and author already exists.",
             progressError: "Progress cannot exceed total pages.",
-            noReview: "Every book is waiting for your review",
+            noReview: "Every book is waiting for your review.",
             myNotes: "My Notes",
-            addFirstNote: "You can always add one Note here",
-            deleteBook: "Permanently Delete Book",
-            deleteNote: "Permanently Delete Note",
-            changeImage: "Don't forget to confirm the image change by clicking the 'Change' button."
+            addFirstNote: "You can always add one note here.",
+            deleteBook: "Permanently delete book",
+            deleteNote: "Permanently delete note",
+            changeImage: "Don't forget to confirm the image change by clicking the 'Change' button.",
+            emptyFields: "Title and Author are required."
         }
     },
+    bookAdd: {
+        labels: {
+            changeImage: "Upload Image",
+            title: "Title",
+            author: "Author",
+            genre: "Genre",
+            tags: "Tags (comma-separated)",
+            description: "Description",
+            progress: "Progress",
+            totalPages: "Total pages",
+            status: "Status",
+        },
+        placeholders: {
+            title: "Add a title",
+            author: "Add an author",
+            tags: "Add tags separated by commas",
+            description: "Add a description",
+            progress: "e.g., 30",
+            totalPages: "e.g., 300",
+        },
+        messages: {
+            bookExists: "A book with this title and author already exists.",
+            progressError: "Progress cannot exceed total pages.",
+            emptyFields: "Title and Author are required."
+        }
+    },
+    catalogueInfo: {
+        labels: {
+            createNewBook: "Create New Book",
+            finishedBooks: "Finished",
+            inProgressBooks: "In Progress",
+            likedBooks: "Liked",
+            savedBooks: "Saved",
+        },
+        placeholders: {
+            sortBooksInput: "Sort by title or author"
+        },
+        messages: {
+            noBooksFound: "You haven't added any books yet."
+        },
+    }
 };
 
 export default initialStateBannersEn;

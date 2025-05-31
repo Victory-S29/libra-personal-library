@@ -1,0 +1,20 @@
+.breadcrumb-component--section {
+    @include flex-container($direction: row, $justify-content: start);
+    width: 80%;
+    margin: 10px auto 20px auto;
+    .icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    .active {
+        border-bottom: 2px solid var(--secondary-color);
+    }
+    #createNewBook {
+        @include text-base(var(--active-text-color), $text-font, 400, 15px);
+    }
+}
+.breadcrumb-component--link {
+    @include text-base(var(--text-color), $text-font, 400, 15px);
+    padding: 10px 15px;
+}

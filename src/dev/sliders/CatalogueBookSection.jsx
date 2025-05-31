@@ -9,17 +9,10 @@ const CatalogueBookSection = () => {
     return (
         <section className='catalogue-book__section' >
             {currentData && currentData.map((book) => (
-                <Book title={book.title}
-                    author={book.author}
-                    rating={book.review.rating}
-                    image={book.image}
-                    publisher={book.publisher}
-                    bookId={book.id}
-                    key={book.id}
-                />
+                <Book key={book.id} book={book} />
             ))
             }
- 
+
         </section>
     );
 };

@@ -19,8 +19,8 @@
         width: 60%;
         padding: 5px;
         border-bottom: 2px solid var(--accent-color);
-        .icon{
-            width:15px;
+        .icon {
+            width: 15px;
         }
         input {
             background-color: var(--section-bc-color);
@@ -205,39 +205,14 @@
     @include flex-container(column, 2px, flex-start, center);
     border: 1px solid var(--secondary-color);
     cursor: pointer;
-    padding: 15px;
     width: $single-book-width-md;
-    &:hover {
-        box-shadow: $box-shadow;
-        transition: all 0.1s ease 0s;
-    }
-    @media (max-width: $md) {
-        align-items: center;
-        height: $single-book-height-sm;
-        padding: 5px;
-        width: $single-book-width-sm;
-    }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        width: $single-book-width-xxl;
-    }
-    @media (min-width: $xxxl) {
-        width: $single-book-width-xxxl;
-    }
-    .actions-bar {
-        @include flex-container(row, 15px, center, center);
-        margin-top: 5px;
-        width: 100%;
-        @media (min-width: $xxxl) {
-            margin-top: 10px;
-        }
-    }
-    .icon {
-        @include icon-base(19px, 19px, var(--accent-color));
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            @include icon-base(23px, 23px, var(--accent-color));
-        }
-        @media (min-width: $xxxl) {
-            @include icon-base(27px, 27px, var(--accent-color));
+    padding-bottom: 10px;
+    .single-book-link-section {
+        width: $single-book-width-md;
+        padding: 15px;
+        padding-bottom: 5px;
+        @media (min-width: 1920px) {
+            width: 245px;
         }
     }
     .single-book-img {
@@ -280,12 +255,60 @@
             font-size: $size-30;
         }
     }
+    &:hover {
+        box-shadow: $box-shadow;
+        transition: all 0.1s ease 0s;
+    }
+    @media (max-width: $md) {
+        align-items: center;
+        height: $single-book-height-sm;
+        padding: 5px;
+        width: $single-book-width-sm;
+    }
+    @media (min-width: $xxl) and (max-width: $xxxl) {
+        width: $single-book-width-xxl;
+    }
+    @media (min-width: $xxxl) {
+        width: $single-book-width-xxxl;
+    }
+    .actions-bar {
+        @include flex-container(row, 15px, center, center);
+        margin-top: 0px;
+        width: 100%;
+        @media (min-width: $xxxl) {
+            margin-top: 10px;
+        }
+    }
+    .book-rating {
+        margin-top: 5px;
+    }
+    .icon {
+        width: 19px;
+        height: 19px;
+        @media (min-width: $xxl) and (max-width: $xxxl) {
+            @include icon-base(23px, 23px, var(--accent-color));
+        }
+        @media (min-width: $xxxl) {
+            @include icon-base(27px, 27px, var(--accent-color));
+        }
+    }
 }
 
-.not-clickable{
-    cursor:auto;
+.not-clickable {
+    cursor: auto;
+    .book-rating {
+        margin-top: 5px;
+    }
+    .actions-bar {
+        margin-top: 5px;
+    }
     &:hover {
         box-shadow: none;
+    }
+    .icon {
+        &:hover {
+            cursor: auto;
+        }
     }
 }
 .rs-pagination {

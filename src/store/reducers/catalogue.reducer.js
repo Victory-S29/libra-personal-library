@@ -1,4 +1,4 @@
-import { ADD_BOOK_NOTE, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, CHANGE_NOTE, DELETE_BOOK, DELETE_NOTE, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE } from "../actions/catalogue.action";
+import { ADD_BOOK_NOTE, ADD_NEW_BOOK, CHANGE_BOOK_INFO, CHANGE_BOOK_REVIEW, CHANGE_NOTE, DELETE_BOOK, DELETE_NOTE, DISPLAY_MAIN_CATALOGUE_TYPE, DISPLAY_NEW_CATALOGUE_TYPE, DISPLAY_PAGE_OF_BOOKS_TYPE, RESET_PAGINATION_TYPE, REWRITE_CATALOGUE_TYPE, TOGGLE_BOOK_LIST } from "../actions/catalogue.action";
 import initialStateBooks from "../base/BasicBooks";
 import initialStateSort from "../base/SortData";
 
@@ -227,6 +227,45 @@ const CatalogueReducer = (state = initialState, action) => {
                     allData: updatedAllData,
                     sortedData: updatedSortedData,
                     currentData: updatedCurrentData,
+                }
+            };
+        }
+        case TOGGLE_BOOK_LIST: {
+            const { bookId, listKey } = action.payload;
+            const updated = state.catalogueSliderData.allData.map(book =>
+                book.id === bookId
+                    ? {
+                        ...book,
+                        lists: {
+                            ...book.lists,
+                            [listKey]: !book.lists[listKey]
+                        }
+                    }
+                    : book
+            );
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updated,
+                    currentData: updated.slice(0, state.numberOfBooksPerPage)
+                }
+            };
+        }
+        case ADD_NEW_BOOK: {
+            const { newBook } = action.payload;
+            const newBookData = {
+                ...newBook,
+                tags: newBook.tags.split(',')
+                    .map(tag => tag.trim())
+                    .filter(tag => tag !== '')
+            };
+            const updetadData = [...state.catalogueSliderData.allData, newBookData]
+            return {
+                ...state,
+                catalogueSliderData: {
+                    ...state.catalogueSliderData,
+                    allData: updetadData,
                 }
             };
         }

@@ -1,0 +1,48 @@
+import React, { useState } from 'react';
+import BreadcrumbComponent from '../../components/BreadcrumbComponent';
+import { useSelector } from 'react-redux';
+import { getBannersEnSelector } from '../../../store/reducers/languages.reducer';
+import { getAllDataSelector } from '../../../store/reducers/catalogue.reducer';
+import Book from '../../sliders/Book';
+
+const LikedBooksPage = () => {
+    const bannersDataEn = useSelector(getBannersEnSelector);
+    const bannersData = bannersDataEn;
+    const allData = useSelector(getAllDataSelector);
+    const [sortQuery, setSortQuery] = useState('');
+    const likedBooks = allData
+        .filter((book) => book.lists.liked === true)
+        .filter((book) =>
+            book.title.toLowerCase().includes(sortQuery.toLowerCase()) ||
+            book.author.toLowerCase().includes(sortQuery.toLowerCase())
+        )
+        .sort((a, b) => {
+            return a.title.localeCompare(b.title);
+        });
+    return (
+        <div>
+            <BreadcrumbComponent />
+            <div className="books-list--sort-input">
+                <input
+                    type="text"
+                    placeholder={bannersData.catalogueInfo.placeholders.sortBooksInput}
+                    value={sortQuery}
+                    onChange={(e) => setSortQuery(e.target.value)}
+                />
+            </div>
+            <section className='books-list--section'>
+                {likedBooks.map((book, index) => (
+                    <Book book={book} key={index} />
+                ))}
+            </section>
+
+            {likedBooks.length === 0 && (
+                <p className='no-books-found--message'>
+                    {bannersData.catalogueInfo.messages.noBooksFound}
+                </p>
+            )}
+        </div>
+    );
+};
+
+export default LikedBooksPage;
