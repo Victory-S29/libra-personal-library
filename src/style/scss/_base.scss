@@ -68,7 +68,7 @@ input {
         font-size: $size-25;
     }
     &::placeholder {
-        color: var(--button-color);
+        color: var(--secondary-text-color);
         opacity: 1;
     }
 

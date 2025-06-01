@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel&family=Kings&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
 :root {
   --background-color: #ffffff;
-  --secondary-background-color: #829ae4;
   --section-bc-color: #f8f8f8;
   --footer-color: #f4f4f4;
   --secondary-color: #c7c9cf;
@@ -13,7 +12,7 @@
   --text-color: #000000;
   --active-text-color: #080065;
   --span-text-color: #0b007f;
-  --secondary-text-color: #677e6c;
+  --secondary-text-color: #19194f;
   --subtext-color: #222222;
   --error-color: #bd0d0d;
   --confirm-color: #0dbd10;
@@ -24,6 +23,31 @@
   --scrollbar-bc: #4e619b;
   --scrollbar-bc--active: #172242;
   --filled-icon-color: #05031b;
+}
+
+.dark {
+  --background-color: #121214;
+  --section-bc-color: #1A1A1E;
+  --footer-color: #1A1A1E;
+  --secondary-color: #4e4e4e;
+  --accent-color: #7ea1e3;
+  --separators-color: #1e1e1e;
+  --shadow-color: #000000ec;
+  --title-color: #ececec;
+  --text-color: #ececec;
+  --active-text-color: #7ea1e3;
+  --span-text-color: #7ea1e3;
+  --secondary-text-color: #9ba9b5;
+  --subtext-color: #bbbbbb;
+  --error-color: #ec6969;
+  --confirm-color: #0dbd10;
+  --button-color: #2e2e74;
+  --button-focus-color: #3a2e7440;
+  --button-text-color: #ececec;
+  --scrollbar-track: #4747ad;
+  --scrollbar-bc: #222256;
+  --scrollbar-bc--active: #310f98;
+  --filled-icon-color: #7ea1e3;
 }
 
 * {
@@ -129,11 +153,11 @@ input {
   }
 }
 input::-moz-placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
 }
 input::placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
 }
 input:focus {
@@ -1577,12 +1601,12 @@ footer li a:active {
   background-color: var(--button-focus-color);
 }
 .review-popup textarea::-moz-placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
   font-size: 15px;
 }
 .review-popup textarea::placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
   font-size: 15px;
 }
@@ -1746,12 +1770,12 @@ footer li a:active {
   background-color: var(--button-focus-color);
 }
 .note-popup textarea::-moz-placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
   font-size: 15px;
 }
 .note-popup textarea::placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
   font-size: 15px;
 }
@@ -1940,11 +1964,11 @@ footer li a:active {
   background-color: var(--button-focus-color);
 }
 .main-info-change--section .data--section textarea::-moz-placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
 }
 .main-info-change--section .data--section textarea::placeholder {
-  color: var(--button-color);
+  color: var(--secondary-text-color);
   opacity: 1;
 }
 
@@ -2361,6 +2385,12 @@ footer li a:active {
 }
 .additional-settings .main-section--form .lang-button {
   width: 50px;
+}
+.additional-settings .main-section--form .theme-button {
+  width: 50px;
+}
+.additional-settings .main-section--form .active {
+  background-color: var(--button-focus-color);
 }
 .additional-settings .main-section--form button {
   width: 150px;

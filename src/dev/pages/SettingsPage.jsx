@@ -5,9 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
-import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
+import { faEyeSlash, faSun, faMoon } from '@fortawesome/free-regular-svg-icons'
 import { getCurrentUserSelector, getIsLoginSelector, getUsersSelector } from '../../store/reducers/user.reducer';
 import ConfirmPopup from '../components/ConfirmPopup';
+import { useTheme } from '../../context/ThemeContext';
 
 const SettingsPage = () => {
     const dispatch = useDispatch();
@@ -41,6 +42,11 @@ const SettingsPage = () => {
     });
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
     const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
+
+    const { theme, changeTheme } = useTheme();
+    const handleThemeChange = (selectedTheme) => {
+        changeTheme(selectedTheme);
+    };
 
     const togglePasswordVisibility = () => {
         setPasswordType(passwordType === "password" ? "text" : "password");
@@ -209,6 +215,29 @@ const SettingsPage = () => {
                         </button>
                     </div>
                 </section>
+                <section className='main-section'>
+                    <div className='main-section--title'>
+                        <h2>{bannersData.user.settingsPage.theme.title}</h2>
+                        <p>{bannersData.user.settingsPage.theme.description}</p>
+                    </div>
+                    <div className='main-section--form'>
+                        <button
+                            type="button"
+                            className={theme === "light" ? "theme-button active" : "theme-button"}
+                            onClick={() => handleThemeChange('light')}
+                        >
+                            <FontAwesomeIcon icon={faSun} className='icon' />
+                        </button>
+                        <button
+                            type="button"
+                            className={theme === "dark" ? "theme-button active" : "theme-button"}
+                            onClick={() => handleThemeChange('dark')}
+                        >
+                            <FontAwesomeIcon icon={faMoon} className='icon' />
+                        </button>
+                    </div>
+                </section>
+
                 <div className='exit-section'>
                     <div className='main-section'>
                         <div className='main-section--title'>

@@ -1,4 +1,5 @@
 import LibraLogo from '../../../style/images/LibraLogo.png'
+import LibraLogoLight from '../../../style/images/LibraLogoLight.png'
 
 const explore = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/style/images/featuresImgs/explore.png";
 const progress = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/style/images/featuresImgs/progress.png";
@@ -11,7 +12,8 @@ const initialStateBannersEn = {
     logo: {
         title: "Libra",
         description: "Dive into a World of Stories Together",
-        LibraLogo
+        LibraLogo,
+        LibraLogoLight
     },
     notifications: {
         welcome: "Welcome!",
@@ -90,6 +92,10 @@ const initialStateBannersEn = {
                     en: "En",
                     de: "De"
                 }
+            },
+            theme: {
+                title: "Theme",
+                description: "Set your theme",
             },
         }
     },

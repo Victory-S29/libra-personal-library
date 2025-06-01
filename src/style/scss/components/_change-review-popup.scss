@@ -35,12 +35,12 @@
             background-color: var(--button-focus-color);
         }
         &::placeholder {
-            color: var(--button-color);
+            color: var(--secondary-text-color);
             opacity: 1;
             font-size: 15px;
         }
     }
-    button{
+    button {
         margin: 0%;
     }
 }
