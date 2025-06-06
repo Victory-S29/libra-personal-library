@@ -307,54 +307,32 @@ body {
 
 .slider-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-bottom: 1px solid var(--accent-color);
   margin: 5px auto;
   margin-bottom: 20px;
-  width: 80%;
+  max-width: 80%;
 }
-
-.slider-section::before,
-.slider-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 15px;
-  height: 90%;
-  z-index: 3;
-  pointer-events: none;
+.slider-section .splide__arrow svg {
+  fill: var(--active-text-color);
 }
-
-.slider-section::before {
-  left: 0;
-  background: linear-gradient(to right, var(--background-color), rgba(255, 255, 255, 0));
+.slider-section .splide__arrow {
+  background-color: var(--background-color);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 2;
 }
-
-.slider-section::after {
-  right: 0;
-  background: linear-gradient(to left, var(--background-color), rgba(255, 255, 255, 0));
+.slider-section .splide__arrow:hover {
+  background-color: var(--button-focus-color);
 }
-
-.splide__slide {
-  margin: 20px 15px 20px 0 !important;
-  width: 175px !important;
+.slider-section .splide__arrow--prev {
+  left: -30px;
 }
-@media (max-width: 768px) {
-  .splide__slide {
-    width: 45% !important;
-  }
-}
-@media (min-width: 1400px) and (max-width: 1920px) {
-  .splide__slide {
-    margin: 20px 20px 20px 0;
-    width: 195px !important;
-  }
-}
-@media (min-width: 1920px) {
-  .splide__slide {
-    margin: 20px 20px 20px 0;
-    width: 245px !important;
-  }
+.slider-section .splide__arrow--next {
+  right: -30px;
 }
 
 .splide__slide img {
@@ -650,7 +628,7 @@ body {
 .catalogue-book__section {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, 175px);
+  grid-template-columns: repeat(auto-fit, 15vw);
   justify-content: center;
   margin: 0 auto;
   width: 100%;
@@ -681,11 +659,11 @@ body {
   justify-content: center;
   border: 1px solid var(--secondary-color);
   cursor: pointer;
-  width: 175px;
+  width: 15vw;
   padding-bottom: 10px;
 }
 .single-book-section .single-book-link-section {
-  width: 175px;
+  width: 15vw;
   padding: 15px;
   padding-bottom: 5px;
 }
@@ -2150,6 +2128,35 @@ footer li a:active {
 }
 .additional-info p {
   width: 100%;
+}
+.additional-info .splide__arrow svg {
+  fill: var(--active-text-color);
+}
+.additional-info .splide__arrow {
+  border: none;
+  background-color: var(--background-color);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+  height: 2em;
+  opacity: 0.7;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2em;
+}
+.additional-info .splide__arrow:hover {
+  background-color: var(--button-focus-color);
+}
+.additional-info .splide__arrow--prev {
+  left: -30px;
+}
+.additional-info .splide__arrow--next {
+  right: -30px;
 }
 
 .features-page {

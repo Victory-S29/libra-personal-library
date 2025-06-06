@@ -1,46 +1,33 @@
 .slider-section {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-bottom: 1px solid var(--accent-color);
     margin: 5px auto;
     margin-bottom: $basic-margin-y;
-    width: 80%;
-}
-
-.slider-section::before,
-.slider-section::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 15px;
-    height: 90%;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.slider-section::before {
-    left: 0;
-    background: linear-gradient(to right, var(--background-color), rgba(255, 255, 255, 0));
-}
-
-.slider-section::after {
-    right: 0;
-    background: linear-gradient(to left, var(--background-color), rgba(255, 255, 255, 0));
-}
-
-.splide__slide {
-    margin: $basic-margin-y 15px $basic-margin-y 0 !important;
-    width: $book-section-width-md !important;
-    @media (max-width: $md) {
-        width: $book-section-width-sm !important;
+    max-width: 80%;
+    .splide__arrow svg {
+        fill: var(--active-text-color);
     }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        margin: $basic-margin-y 20px $basic-margin-y 0;
-        width: $book-section-width-xxl !important;
-    }
-    @media (min-width: $xxxl) {
-        margin: $basic-margin-y 20px $basic-margin-y 0;
-        width: $book-section-width-xxxl !important;
+    .splide__arrow {
+        background-color: var(--background-color);
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+
+        &:hover {
+            background-color: var(--button-focus-color);
+        }
+
+        &--prev {
+            left: -30px;
+        }
+
+        &--next {
+            right: -30px;
+        }
     }
 }
 
