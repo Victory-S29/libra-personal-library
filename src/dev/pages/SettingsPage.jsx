@@ -26,6 +26,7 @@ const SettingsPage = () => {
     }, [isLogin, navigate]);
 
     const [passwordError, setPasswordError] = useState("");
+    const [usernameError, setUsernameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordType, setPasswordType] = useState("password");
     const [loginData, setLoginData] = useState({
@@ -63,17 +64,30 @@ const SettingsPage = () => {
     const validateSignup = () => {
         let isValid = true;
         const sameEmailUser = usersData.find(user => user.email === loginData.email.trim());
-        const sameUser = sameEmailUser && sameEmailUser.id !== currentUser.id
+        const sameUser = sameEmailUser && sameEmailUser.id !== currentUser.id;
+
         setPasswordError("");
         setEmailError("");
-        if (sameUser) {
+        setUsernameError("");
+
+        if (!loginData.username.trim()) {
+            setUsernameError(bannersData.user.messages.userNameRequired);
+            isValid = false;
+        }
+
+        if (!loginData.email.trim()) {
+            setEmailError(bannersData.user.messages.emailRequired);
+            isValid = false;
+        } else if (sameUser) {
             setEmailError(bannersData.user.messages.emailError);
             isValid = false;
         }
+
         if (loginData.password.length < 8) {
             setPasswordError(bannersData.user.messages.shortPassword);
             isValid = false;
         }
+
         return isValid;
     };
 
@@ -145,6 +159,7 @@ const SettingsPage = () => {
                                     value={loginData.username}
                                     required
                                 />
+                                {usernameError && <p className='error-message'>{usernameError}</p>}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="email">{bannersData.user.labels.email}</label>

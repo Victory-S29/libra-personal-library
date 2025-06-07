@@ -70,6 +70,8 @@ const initialStateBannersEn = {
             loginHere: "Login here",
             signUpHere: "Sign up here",
             newAcc: "Create a new account?",
+            userNameRequired: "User name is required.",
+            emailRequired: "Email is required."
         },
         settingsPage: {
             labels: {

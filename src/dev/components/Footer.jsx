@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
 import { useTheme } from '../../context/ThemeContext';
+import { getIsLoginSelector } from '../../store/reducers/user.reducer';
 
 const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
     const bannersDataEn = useSelector(getBannersEnSelector);
     const bannersData = bannersDataEn;
     const { theme } = useTheme();
     const footerNav = bannersData.footer.footerNav;
+    const isLogin = useSelector(getIsLoginSelector);
     return (
         <footer>
             <div className="footer-logo">
@@ -27,19 +29,21 @@ const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
             </div>
             <ul className="footer-nav">
                 {footerNav.map((item, id) => {
-                    return (<li className="nav-item"><Link className="nav-item" to={`${item.link}`} key={id}> {item.name} </Link></li>)
+                    return (<li className="nav-item" key={id}><Link className="nav-item" to={`${item.link}`} key={id}> {item.name} </Link></li>)
                 })}
             </ul>
-            <div className="auth-buttons">
-                <button className="register" onClick={() => {
-                    SetCurrentLoginState("Sign up");
-                    SetShowLogin(true); toggleLoginPopup();
-                }}>{bannersData.user.labels.signUp}</button>
-                <button className="login" onClick={() => {
-                    SetCurrentLoginState("Log in");
-                    SetShowLogin(true); toggleLoginPopup();
-                }}>{bannersData.user.labels.logIn}</button>
-            </div>
+            {!isLogin &&
+                <div className="auth-buttons">
+                    <button className="register" onClick={() => {
+                        SetCurrentLoginState("Sign up");
+                        SetShowLogin(true); toggleLoginPopup();
+                    }}>{bannersData.user.labels.signUp}</button>
+                    <button className="login" onClick={() => {
+                        SetCurrentLoginState("Log in");
+                        SetShowLogin(true); toggleLoginPopup();
+                    }}>{bannersData.user.labels.logIn}</button>
+                </div>
+            }
         </footer>
     );
 };
