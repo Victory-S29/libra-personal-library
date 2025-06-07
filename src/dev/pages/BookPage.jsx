@@ -18,7 +18,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getNoBooksSelector, getPopularBooksSelector } from '../../store/reducers/books.reducer';
 import { ChangeReviewPopup, ConfirmPopup, NotesSection, SliderComponent } from '../';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { deleteBookAction, toggleBookListAction } from '../../store/actions/catalogue.action';
 
 const BookPage = () => {
@@ -29,8 +29,7 @@ const BookPage = () => {
     const popularBooks = useSelector(getPopularBooksSelector);
     const noBooks = useSelector(getNoBooksSelector);
     const currentBook = allData.find(book => String(book.id) === String(bookId));
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
 
     const similarBooksSorting = () => {
         if (!currentBook) return { ...noBooks };

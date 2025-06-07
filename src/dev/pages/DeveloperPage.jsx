@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { getDeveloperEnSelector } from '../../store/reducers/languages.reducer';
+import { getDevSelector } from '../../store/reducers/languages.reducer';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { faHouse, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DeveloperPage = () => {
-    const dev = useSelector(getDeveloperEnSelector);
+    const dev = useSelector(getDevSelector);
     const { pathname } = useLocation();
 
     useEffect(() => {

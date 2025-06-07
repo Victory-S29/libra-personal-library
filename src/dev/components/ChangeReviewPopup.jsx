@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { changeBookReviewAction } from '../../store/actions/catalogue.action';
 
 const ChangeReviewPopup = ({ setShowChangeReviewPopup, review, bookId }) => {
     const dispatch = useDispatch();
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const [reviewData, setReviewData] = useState(review);
 
     useEffect(() => {

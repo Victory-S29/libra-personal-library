@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 
 const Features = () => {
-    const bannersDataEn = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEn;
+    const bannersData = useSelector(getBannersSelector);
     const communityAdvantagesTitle = bannersData.featuresComponent.title;
     const communityAdvantages = bannersData.featuresComponent.communityAdvantages;
 

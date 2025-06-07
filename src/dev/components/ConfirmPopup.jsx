@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { useSelector } from 'react-redux';
 
 const ConfirmPopup = ({ title, onConfirm, onCancel }) => {
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN
+    const bannersData = useSelector(getBannersSelector);
 
     useEffect(() => {
         const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { useParams } from 'react-router-dom';
 import { getAllDataSelector, getFiltersSelector } from '../../store/reducers/catalogue.reducer';
 import CustomSelect from '../components/CustomSelect';
@@ -13,8 +13,7 @@ const ChangeBookDataPage = () => {
     const allData = useSelector(getAllDataSelector);
     const currentBook = allData.find(book => String(book.id) === String(bookId));
 
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const filters = useSelector(getFiltersSelector);
     const genres = filters.Genres.data;
     const status = filters.Status.data.slice(0, -1);

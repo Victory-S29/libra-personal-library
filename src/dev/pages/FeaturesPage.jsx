@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { getFeaturesEnSelector } from '../../store/reducers/languages.reducer';
+import { getFeaturesSelector } from '../../store/reducers/languages.reducer';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 const FeaturesPage = () => {
-    const features = useSelector(getFeaturesEnSelector);
+    const features = useSelector(getFeaturesSelector);
 
     const { pathname } = useLocation();
 

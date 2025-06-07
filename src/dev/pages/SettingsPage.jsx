@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { changeLoginAction, changeUserAction, deleteUserAction } from '../../store/actions/user.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector, getCurrentLanguageSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faEyeSlash, faSun, faMoon } from '@fortawesome/free-regular-svg-icons'
 import { getCurrentUserSelector, getIsLoginSelector, getUsersSelector } from '../../store/reducers/user.reducer';
 import ConfirmPopup from '../components/ConfirmPopup';
 import { useTheme } from '../../context/ThemeContext';
+import { setLanguageAction } from '../../store/actions/languages.action';
 
 const SettingsPage = () => {
     const dispatch = useDispatch();
@@ -16,8 +17,8 @@ const SettingsPage = () => {
     const currentUser = useSelector(getCurrentUserSelector);
     const usersData = useSelector(getUsersSelector);
     const isLogin = useSelector(getIsLoginSelector);
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN
+    const currentLanguage = useSelector(getCurrentLanguageSelector);
+    const bannersData = useSelector(getBannersSelector);
 
     useEffect(() => {
         if (!isLogin) {
@@ -139,6 +140,10 @@ const SettingsPage = () => {
     const handleCancelDelete = () => {
         setShowConfirmPopupDelete(false);
     };
+
+    const handleLanguageChange = (lang) => {
+        dispatch(setLanguageAction(lang));
+    };
     return (
         <div className='settings-page'>
             <section className='main-settings--section'>
@@ -216,15 +221,15 @@ const SettingsPage = () => {
                     <div className='main-section--form'>
                         <button
                             type="button"
-                            className="lang-button"
-                        // className={selectedLanguage === "en" ? "lang-button active" : "lang-button"}
+                            className={currentLanguage === "en" ? "lang-button active" : "lang-button"}
+                            onClick={() => handleLanguageChange("en")}
                         >
                             {bannersData.user.settingsPage.language.languages.en}
                         </button>
                         <button
                             type="button"
-                            className="lang-button"
-                        // className={selectedLanguage === "de" ? "lang-button active" : "lang-button"}
+                            className={currentLanguage === "de" ? "lang-button active" : "lang-button"}
+                            onClick={() => handleLanguageChange("de")}
                         >
                             {bannersData.user.settingsPage.language.languages.de}
                         </button>

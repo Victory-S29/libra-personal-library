@@ -7,11 +7,10 @@ import { faCircleLeft } from '@fortawesome/free-regular-svg-icons';
 import { getAllDataSelector, getFiltersSelector, getIsFilteredSelector, getNumberOfBooksPerPageSelector } from '../../store/reducers/catalogue.reducer';
 import { displayFilteredCatalogueAction, resetPaginationAction, rewriteCatalogueAction } from '../../store/actions/catalogue.action';
 import { displayMainCatalogueAction } from '../../store/actions/catalogue.action';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 
 const SortControl = () => {
-    const bannersDataEn = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEn;
+    const bannersData = useSelector(getBannersSelector);
     // Select filters from the Redux store
     const dropdownRef = useRef(null); // Reference for the dropdown menu
 
@@ -162,7 +161,7 @@ const SortControl = () => {
                                     <FontAwesomeIcon icon={faSearch} className="icon icon-focus" />
                                     <input
                                         type="text"
-                                        placeholder={"Search book, author, edition..."}
+                                        placeholder={bannersData.catalogueInfo.placeholders.searchBooksInput}
                                         onChange={handleInputChange}
                                         value={inputData || ''}
                                     />

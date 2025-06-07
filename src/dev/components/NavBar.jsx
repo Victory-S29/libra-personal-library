@@ -4,12 +4,12 @@ import { faUser as faUserRegular } from '@fortawesome/free-regular-svg-icons';
 import { faUser as faUserSolid } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { getIsLoginSelector } from '../../store/reducers/user.reducer';
 import { useTheme } from '../../context/ThemeContext';
 
 const NavBar = ({ SetShowLogin, toggleLoginPopup }) => {
-    const bannersData = useSelector(getBannersEnSelector);
+    const bannersData = useSelector(getBannersSelector);
     const isLogin = useSelector(getIsLoginSelector);
     const { theme } = useTheme();
     const handleUserClick = () => {

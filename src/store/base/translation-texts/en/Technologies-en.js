@@ -1,4 +1,4 @@
-const initialStateTechnology = {
+const initialStateTechnologyEn = {
     intro: {
         title: "Technology Stack",
         description:
@@ -89,4 +89,4 @@ const initialStateTechnology = {
     },
 };
 
-export default initialStateTechnology;
+export default initialStateTechnologyEn;

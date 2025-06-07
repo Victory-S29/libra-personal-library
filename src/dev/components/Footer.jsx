@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { useTheme } from '../../context/ThemeContext';
 import { getIsLoginSelector } from '../../store/reducers/user.reducer';
 
 const Footer = ({ SetShowLogin, toggleLoginPopup, SetCurrentLoginState }) => {
-    const bannersDataEn = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEn;
+    const bannersData = useSelector(getBannersSelector);
     const { theme } = useTheme();
     const footerNav = bannersData.footer.footerNav;
     const isLogin = useSelector(getIsLoginSelector);

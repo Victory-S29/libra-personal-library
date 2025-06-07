@@ -1,5 +1,5 @@
-import LibraLogo from '../../../style/images/LibraLogo.png'
-import LibraLogoLight from '../../../style/images/LibraLogoLight.png'
+import LibraLogo from '../../../../style/images/LibraLogo.png'
+import LibraLogoLight from '../../../../style/images/LibraLogoLight.png'
 
 const explore = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/style/images/featuresImgs/explore.png";
 const progress = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/style/images/featuresImgs/progress.png";
@@ -181,7 +181,8 @@ const initialStateBannersEn = {
             savedBooks: "Saved",
         },
         placeholders: {
-            sortBooksInput: "Sort by title or author"
+            sortBooksInput: "Sort by title or author",
+            searchBooksInput: "Search book, author, edition..."
         },
         messages: {
             noBooksFound: "You haven't added any books yet."
