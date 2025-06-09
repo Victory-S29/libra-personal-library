@@ -558,6 +558,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 15px;
+  text-transform: capitalize;
 }
 @media (max-width: 768px) {
   .filter-menu .filter-menu__section .filter-menu__label {
@@ -1459,6 +1460,7 @@ footer li a:active {
   position: relative;
   width: 30%;
   margin: 10px 0;
+  text-transform: capitalize;
 }
 .custom-select ::-webkit-scrollbar {
   width: 2px;

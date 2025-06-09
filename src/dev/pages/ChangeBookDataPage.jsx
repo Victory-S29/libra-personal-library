@@ -22,7 +22,7 @@ const ChangeBookDataPage = () => {
         ...currentBook,
         title: currentBook.title || '',
         author: currentBook.author || '',
-        category: currentBook.category || '',
+        category: currentBook.category || { en: "", de: "" },
         tags: currentBook.tags.join(', '),
         progress: currentBook.progress || 0,
         totalPages: currentBook.totalPages || 0,
@@ -37,6 +37,25 @@ const ChangeBookDataPage = () => {
     const [progressError, setProgressError] = useState("");
     const [changeImageWarning, setChangeImageWarning] = useState("");
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            // Create a new FileReader to read the file contents
+            const reader = new FileReader();
+
+            // When the reader finishes reading the file (as base64)
+            reader.onloadend = () => {
+                // Update the bookInfo state with the new image (base64 string)
+                setBookInfo(prev => ({
+                    ...prev,
+                    image: reader.result
+                }));
+            };
+            reader.readAsDataURL(file);
+            setChangeImageWarning(bannersData.bookEdit.messages.changeImage)
+        }
+    };
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -104,25 +123,7 @@ const ChangeBookDataPage = () => {
         setBookInfo(initialData);
         setShowConfirmPopupChange(false);
     };
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
 
-        if (file) {
-            // Create a new FileReader to read the file contents
-            const reader = new FileReader();
-
-            // When the reader finishes reading the file (as base64)
-            reader.onloadend = () => {
-                // Update the bookInfo state with the new image (base64 string)
-                setBookInfo(prev => ({
-                    ...prev,
-                    image: reader.result
-                }));
-            };
-            reader.readAsDataURL(file);
-            setChangeImageWarning(bannersData.bookEdit.messages.changeImage)
-        }
-    };
     return (
         <form>
             <section className="main-info-change--section">

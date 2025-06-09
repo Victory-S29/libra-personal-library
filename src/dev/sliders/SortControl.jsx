@@ -7,7 +7,7 @@ import { faCircleLeft } from '@fortawesome/free-regular-svg-icons';
 import { getAllDataSelector, getFiltersSelector, getIsFilteredSelector, getNumberOfBooksPerPageSelector } from '../../store/reducers/catalogue.reducer';
 import { displayFilteredCatalogueAction, resetPaginationAction, rewriteCatalogueAction } from '../../store/actions/catalogue.action';
 import { displayMainCatalogueAction } from '../../store/actions/catalogue.action';
-import { getBannersSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector, getCurrentLanguageSelector } from '../../store/reducers/languages.reducer';
 
 const SortControl = () => {
     const bannersData = useSelector(getBannersSelector);
@@ -37,6 +37,7 @@ const SortControl = () => {
     const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters || {}); // State for the currently selected filters
     const numberOfBooksPerPage = useSelector(getNumberOfBooksPerPageSelector);
 
+    const language = useSelector(getCurrentLanguageSelector);
     // Toggle the dropdown menu visibility
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
@@ -116,18 +117,19 @@ const SortControl = () => {
 
         if (selectedFilters.Genres && selectedFilters.Genres.length > 0) {
             filteredBooks = filteredBooks.filter(book =>
-                selectedFilters.Genres.some(
-                    selectedGenre => book.category.toLowerCase() === selectedGenre.toLowerCase()
+                selectedFilters.Genres.some(selectedGenre =>
+                    (book.category[language] || '').toLowerCase() === selectedGenre.toLowerCase()
                 )
             );
         }
 
         if (selectedFilters.Status && selectedFilters.Status.length > 0) {
-            if (selectedFilters.Status !== "Turn off sorting by status") {
+            if (selectedFilters.Status !== "Turn off sorting by status" && selectedFilters.Status !== "Sortierung nach Status deaktivieren") {
                 filteredBooks = filteredBooks.filter(book =>
-                    book.status === selectedFilters.Status.toLowerCase()
+                    (book.status?.[language] || '').toLowerCase() === selectedFilters.Status.toLowerCase()
                 );
             }
+            console.log("electedFilters.Status", selectedFilters.Status)
         }
         filteredBooks = sortBooks(filteredBooks, selectedFilters.Additional)
         dispatch(rewriteCatalogueAction(filteredBooks, true));
@@ -171,27 +173,29 @@ const SortControl = () => {
                                 <div key={categoryName} className="filter-menu__section">
                                     <h4 className="filter-menu__section-title">{categoryName}</h4>
                                     <div className="filter-menu__options">
-                                        {Array.isArray(data) && data.map((item, id) => (
-                                            <div key={id} className="filter-menu__option">
-                                                <input
-                                                    type={type === 'radio' ? 'radio' : 'checkbox'}
-                                                    id={toSafeId(item)}
-                                                    name={toSafeId(item)}
-                                                    value={item}
-                                                    className="filter-menu__checkbox"
-                                                    onChange={() =>
-                                                        handleCheckboxChange(categoryName, item, type)
-                                                    }
-                                                    checked={type === 'radio'
-                                                        ? selectedFilters[categoryName] === item
-                                                        : selectedFilters[categoryName]?.includes(item) || false
-                                                    }
-                                                />
-                                                <label htmlFor={toSafeId(item)} className="filter-menu__label">
-                                                    {item}
-                                                </label>
-                                            </div>
-                                        ))}
+                                        {Array.isArray(data) && data.map((item, id) => {
+                                            const value = typeof item === 'object' ? item[language] : item;
+                                            return (
+                                                <div key={id} className="filter-menu__option">
+                                                    <input
+                                                        type={type === 'radio' ? 'radio' : 'checkbox'}
+                                                        id={toSafeId(value)}
+                                                        name={toSafeId(categoryName)}
+                                                        value={value}
+                                                        className="filter-menu__checkbox"
+                                                        onChange={() => handleCheckboxChange(categoryName, value, type)}
+                                                        checked={type === 'radio'
+                                                            ? selectedFilters[categoryName] === value
+                                                            : selectedFilters[categoryName]?.includes(value) || false
+                                                        }
+                                                    />
+                                                    <label htmlFor={toSafeId(value)} className="filter-menu__label">
+                                                        {value}
+                                                    </label>
+                                                </div>
+                                            );
+
+                                        })}
                                     </div>
                                 </div>
                             ))}

@@ -127,6 +127,7 @@
         }
         .filter-menu__label {
             @include text-base(var(--text-color), $text-font, $font-size: $size-15);
+            text-transform: capitalize;
             @media (max-width: $md) {
                 font-size: $size-15;
             }
@@ -207,7 +208,7 @@
     cursor: pointer;
     width: $single-book-width-md;
     padding-bottom: 10px;
- 
+
     .single-book-link-section {
         width: $single-book-width-md;
         padding: 15px;

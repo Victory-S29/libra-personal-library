@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getCurrentLanguageSelector } from '../../store/reducers/languages.reducer';
 
 const CustomSelect = ({ options, selected, onChange }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const language = useSelector(getCurrentLanguageSelector);
 
     const handleSelect = (option) => {
         onChange(option);
@@ -10,7 +13,7 @@ const CustomSelect = ({ options, selected, onChange }) => {
     return (
         <div className="custom-select">
             <div className="selected-option" onClick={() => setIsOpen(!isOpen)}>
-                {selected}
+                {selected?.[language] || "—"}
             </div>
             {isOpen && (
                 <ul className="options-list">
@@ -18,9 +21,9 @@ const CustomSelect = ({ options, selected, onChange }) => {
                         <li
                             key={index}
                             onClick={() => handleSelect(option)}
-                            className={selected === option ? "active" : ""}
+                            className={selected?.en === option.en ? "active" : ""}
                         >
-                            {option}
+                            {option[language]}
                         </li>
                     ))}
                 </ul>

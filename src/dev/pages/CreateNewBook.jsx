@@ -23,13 +23,14 @@ const CreateNewBook = () => {
     const [progressError, setProgressError] = useState("");
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
 
+
     const [formData, setFormData] = useState({
         image: NoCover,
         title: '',
         author: '',
-        category: 'Other',
+        category: { en: "Other", de: "Andere" },
         tags: '',
-        status: "No Status",
+        status: { en: "No Status", de: "Kein Status" },
         progress: 0,
         totalPages: 0,
         description: '',
@@ -74,7 +75,6 @@ const CreateNewBook = () => {
 
         if (formData.title.trim() === "" || formData.author.trim() === "") {
             setIdErrorMessage(bannersData.bookEdit.messages.emptyFields);
-            console.log(bannersData.bookEdit.messages.emptyFields)
             isValid = false;
         } else {
             setIdErrorMessage("");
@@ -117,6 +117,7 @@ const CreateNewBook = () => {
             },
             addedAt: new Date().toISOString()
         }
+        console.log("newBook", newBook)
         dispatch(addNewBookAction(newBook));
         setShowConfirmPopupChange(false);
         navigate('/');
