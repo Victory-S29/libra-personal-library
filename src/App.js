@@ -7,9 +7,11 @@ import {
 } from "./dev/";
 import { Route, Routes } from 'react-router-dom';
 import SettingsPage from './dev/pages/SettingsPage';
+import { useTheme } from './context/ThemeContext';
 
 
 function App() {
+  const { theme } = useTheme();
   const [currentLoginState, SetCurrentLoginState] = useState("Sign up");
   const [showLogin, SetShowLogin] = useState(false);
 
@@ -20,7 +22,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       {showLogin ? <LoginPopup SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup}
         currentLoginState={currentLoginState} SetCurrentLoginState={SetCurrentLoginState} /> : <></>}
       <NavBar SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup} />

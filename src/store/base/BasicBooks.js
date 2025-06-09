@@ -31,11 +31,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: TheHungerGames,
-        title: "The Hunger Games: Sunrise on the Reaping",
+        title: "Die Tribute von Panem: Sonnenaufgang der Ernte",
         author: "Suzanne Collins",
-        category: "Dystopian",
-        tags: ["Science fiction", "Dystopian"],
-        status: "finished",
+        category: { en: "Dystopian", de: "Dystopie" },
+        tags: ["Science-Fiction", "Dystopie"],
+        status: { en: "finished", de: "Beendet" },
         lists: {
           liked: true,
           saved: false,
@@ -44,25 +44,33 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 416,
-        description: "Sunrise on the Reaping, the fifth book in the series, willrevisit the world of Panem twenty-four years before the events of The Hunger Games, starting on the morning of the reaping of the Fiftieth Hunger Games, also known as the Second Quarter Quell.",
+        description: "Mit Sonnenaufgang der Ernte, dem fünften Buch der Reihe, kehren wir in die Welt von Panem zurück – 24 Jahre vor den Ereignissen von Die Tribute von Panem. Die Geschichte beginnt am Morgen der Ernte der fünfzigsten Hungerspiele, die auch als das zweite Viertelquell bekannt sind.",
         notes: [
-          { id: uuidv4(), text: "The psychological toll of the Games is emphasized, great character depth.The psychological toll of the Games is emphasized, great character depth.", page: 250 },
-          { id: uuidv4(), text: "The climax is intense; power dynamics shift drastically.", page: 300 }
+          {
+            id: uuidv4(),
+            text: "Die psychologischen Folgen der Spiele werden hervorgehoben und die Charaktere sind großartig.",
+            page: 250
+          },
+          {
+            id: uuidv4(),
+            text: "Der Höhepunkt ist intensiv und führt zu einer drastischen Verschiebung der Machtverhältnisse.",
+            page: 300
+          }
         ],
         review: {
           rating: 4.5,
-          text: "Suzanne Collins once again masterfully explores themes of power, control, and survival. This prequel expands the world of Panem with rich storytelling, compelling characters, and unexpected twists. The stakes feel higher than ever, making it an intense and emotional read. Fans of the series won’t be disappointed!"
+          text: "Suzanne Collins erforscht in diesem Prequel erneut meisterhaft Themen wie Macht, Kontrolle und Überleben. Dieses Prequel zur „Panem“-Trilogie erweitert die bekannte Welt mit fesselndem Erzählen, überzeugenden Charakteren und unerwarteten Wendungen."
         },
         addedAt: "2025-03-19T12:00:00Z"
       },
       {
         id: uuidv4(),
         image: ProjectHailMary,
-        title: "Project Hail Mary",
+        title: "Projekt Heilige Maria",
         author: "Andy Weir",
-        category: "Science Fiction",
-        tags: ["Sci-Fi", "Thriller", "Survival"],
-        status: "reading",
+        category: { en: "Science Fiction", de: "Science-Fiction" },
+        tags: ["Sci-Fi", "Thriller", "Überleben"],
+        status: { en: "reading", de: "Am Lesen" },
         lists: {
           liked: false,
           saved: false,
@@ -71,24 +79,28 @@ const initialStateBooks = {
         },
         progress: 476,
         totalPages: 476,
-        description: "A lone astronaut. An impossible mission. An ally he never imagined.",
+        description: "Ein einsamer Astronaut. Eine unmögliche Mission. Ein Verbündeter, mit dem er nie gerechnet hätte.",
         notes: [
-          { id: uuidv4(), text: "Amazing blend of science and humor. Loved the problem-solving aspect.", page: 200 }
+          {
+            id: uuidv4(),
+            text: "Eine erstaunliche Mischung aus Wissenschaft und Humor. Die Problemlösung war großartig.",
+            page: 200
+          }
         ],
         review: {
           rating: 3.5,
-          text: "A gripping, scientifically accurate space survival story with an unexpected emotional depth. Andy Weir delivers another fantastic adventure!"
+          text: "Ein fesselnder, wissenschaftlich fundierter Weltraum-Überlebensroman mit unerwarteter emotionaler Tiefe! Andy Weir liefert mit diesem Buch wieder ein großartiges Abenteuer!"
         },
         addedAt: "2025-03-15T18:20:00Z"
       },
       {
         id: uuidv4(),
         image: TheStarlessSea,
-        title: "The Starless Sea",
+        title: "Das Sternenlose Meer",
         author: "Erin Morgenstern",
-        category: "Fantasy",
-        tags: ["Magical Realism", "Mystery", "Adventure"],
-        status: "reading",
+        category: { en: "Fantasy", de: "Fantasie" },
+        tags: ["Magischer Realismus", "Geheimnis", "Abenteuer"],
+        status: { en: "reading", de: "Am Lesen" },
         lists: {
           liked: false,
           saved: false,
@@ -97,10 +109,18 @@ const initialStateBooks = {
         },
         progress: 230,
         totalPages: 500,
-        description: "When Zachary Rawlins stumbles across a mysterious book containing details from his own life among its pages, it leads him on a quest unlike any other.",
+        description: "Als Zachary Rawlins auf ein mysteriöses Buch stößt, das Details aus seinem eigenen Leben enthält, begibt er sich auf eine Reise, wie er sie noch nie zuvor erlebt hat.",
         notes: [
-          { id: uuidv4(), text: "Beautiful, dreamlike prose with intricate storytelling.", page: 120 },
-          { id: uuidv4(), text: "The underground library concept is mesmerizing.", page: 200 }
+          {
+            id: uuidv4(),
+            text: "Es ist wunderschöne, traumhafte Prosa mit einer komplexen Erzählweise.",
+            page: 120
+          },
+          {
+            id: uuidv4(),
+            text: "Das Konzept einer unterirdischen Bibliothek ist faszinierend.",
+            page: 200
+          }
         ],
         review: {
           rating: 4.0,
@@ -111,11 +131,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: TheNameoftheWind,
-        title: "The Name of the Wind",
+        title: "Der Name des Windes",
         author: "Patrick Rothfuss",
-        category: "Fantasy",
-        tags: ["Epic Fantasy", "Magic", "Adventure"],
-        status: "reading",
+        category: { en: "Fantasy", de: "Fantasie" },
+        tags: ["Epische Fantasie", "Magie", "Abenteuer"],
+        status: { en: "reading", de: "Am Lesen" },
         lists: {
           liked: false,
           saved: false,
@@ -124,9 +144,13 @@ const initialStateBooks = {
         },
         progress: 400,
         totalPages: 662,
-        description: "The Name of the Wind by Patrick Rothfuss is an enthralling fantasy novel that follows the life of Kvothe, a gifted young magician and musician. With beautifully crafted prose and a captivating story, it will transport you to a world of magic and mystery.",
+        description: "„Der Name des Windes“ von Patrick Rothfuss ist ein fesselnder Fantasyroman über das Leben des begabten jungen Magiers und Musikers Kvothe. Mit seiner wunderschönen Sprache und packenden Geschichte entführt er die Lesenden in eine Welt voller Magie und Geheimnisse.",
         notes: [
-          { id: uuidv4(), text: "Kvothe's storytelling is gripping, and the world-building is incredible.", page: 250 }
+          {
+            id: uuidv4(),
+            text: "Kvothes Erzählweise ist mitreißend, sein Worldbuilding ist beeindruckend.",
+            page: 250
+          }
         ],
         review: {
           rating: 2,
@@ -137,11 +161,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: Dune,
-        title: "Dune",
+        title: "Der Wüstenplanet",
         author: "Frank Herbert",
-        category: "Science Fiction",
-        tags: ["Classic Sci-Fi", "Political Intrigue", "Space Opera"],
-        status: "no status",
+        category: { en: "Science Fiction", de: "Science-Fiction" },
+        tags: ["Klassische Sci-Fi", "Politische Intrigen", "Weltraumoper"],
+        status: { en: "no status", de: "Kein Status" },
         lists: {
           liked: true,
           saved: false,
@@ -150,24 +174,28 @@ const initialStateBooks = {
         },
         progress: 688,
         totalPages: 688,
-        description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness.",
+        description: "In „Dune“ wird auf dem Wüstenplaneten Arrakis die Geschichte von Paul Atreides erzählt, dem Erben einer Adelsfamilie. Er regiert ein gefährliches Reich, in dem das „Spice“ das kostbarste Gut ist – eine Substanz, die das Leben verlängert und das Bewusstsein erweitert.",
         notes: [
-          { id: uuidv4(), text: "Dense but rewarding. The political and ecological themes are still relevant.", page: 400 }
+          {
+            id: uuidv4(),
+            text: "Komplex, aber lohnend. Die politischen und ökologischen Themen sind weiterhin aktuell.",
+            page: 400
+          }
         ],
         review: {
           rating: 5,
-          text: "A timeless classic that blends politics, religion, and ecology in an epic sci-fi narrative. A must-read for any sci-fi fan."
+          text: "Ein zeitloser Klassiker, der die Themen Politik, Religion und Ökologie in einer epischen Science-Fiction-Erzählung vereint. Pflichtlektüre für Science-Fiction-Fans!"
         },
         addedAt: "2025-03-10T13:50:00Z"
       },
       {
         id: uuidv4(),
         image: TheMartian,
-        title: "The Martian",
+        title: "Der Marsianer",
         author: "Andy Weir",
-        category: "Science Fiction",
-        tags: ["Sci-Fi", "Survival", "Humor"],
-        status: "finished",
+        category: { en: "Science Fiction", de: "Science-Fiction" },
+        tags: ["Sci-Fi", "Überleben", "Humor"],
+        status: { en: "finished", de: "Beendet" },
         lists: {
           liked: false,
           saved: false,
@@ -176,11 +204,11 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 385,
-        description: "The Martian by Andy Weir is a gripping sci-fi novel about an astronaut, Mark Watney, who is mistakenly presumed dead and left behind on Mars. With limited supplies, he must use his ingenuity to survive and find a way to signal Earth.",
+        description: "„Der Marsianer“ von Andy Weir ist ein fesselnder Science-Fiction-Roman über den Astronauten Mark Watney. Dieser wird versehentlich für tot gehalten und auf dem Mars zurückgelassen. Mit begrenzten Vorräten muss er all seinen Einfallsreichtum einsetzen, um zu überleben und Kontakt zur Erde aufzunehmen.",
         notes: [],
         review: {
           rating: 3,
-          text: "Hilarious, suspenseful, and scientifically smart. A space survival story like no other."
+          text: "Witzig, spannend und wissenschaftlich fundiert – diese Weltraumüberlebensgeschichte ist einzigartig."
         },
         addedAt: "2025-03-22T13:00:00Z"
       },
@@ -189,9 +217,9 @@ const initialStateBooks = {
         image: Circe,
         title: "Circe",
         author: "Madeline Miller",
-        category: "Fantasy",
-        tags: ["Mythology", "Fantasy", "Feminism"],
-        status: "reading",
+        category: { en: "Fantasy", de: "Fantasie" },
+        tags: ["Mythologie", "Fantasie", "Feminismus"],
+        status: { en: "reading", de: "Am Lesen" },
         lists: {
           liked: false,
           saved: false,
@@ -200,22 +228,22 @@ const initialStateBooks = {
         },
         progress: 150,
         totalPages: 400,
-        description: "Circe is a beautifully written mythological retelling centered on the life of the enchantress Circe, daughter of the sun god Helios. Banished to a remote island for defying the gods, she hones her powers of witchcraft and crosses paths with famous figures from Greek mythology, including Odysseus. The novel explores themes of transformation, power, identity, and what it means to find one's place in the world, especially as a woman in a world ruled by gods and men.",
+        description: "„Circe“ ist eine wunderschön geschriebene mythologische Nacherzählung über das Leben der Zauberin Circe, Tochter des Sonnengottes Helios. Nachdem sie die Götter herausgefordert hat, wird sie auf eine abgelegene Insel verbannt. Dort verfeinert sie ihre Hexenkünste und begegnet berühmten Gestalten aus der griechischen Mythologie, darunter Odysseus. Der Roman behandelt Themen wie Transformation, Macht, Identität und die Suche nach dem eigenen Platz in der Welt, insbesondere als Frau in einer Welt der Götter und Männer.",
         notes: [],
         review: {
           rating: 4.5,
-          text: "A beautifully written retelling of a myth through the lens of empowerment."
+          text: "Es ist eine wunderschön geschriebene Nacherzählung eines Mythos aus der Perspektive der weiblichen Selbstermächtigung."
         },
         addedAt: "2025-03-23T10:45:00Z"
       },
       {
         id: uuidv4(),
         image: Educated,
-        title: "Educated",
+        title: "Befreit: Wie Bildung mir die Welt erschloss",
         author: "Tara Westover",
-        category: "Memoir",
-        tags: ["Autobiography", "Inspiration", "Real Life"],
-        status: "to-read",
+        category: { en: "Memoir", de: "Memoiren" },
+        tags: ["Autobiografie", "Inspiration", "Wahre Geschichte"],
+        status: { en: "to-read", de: "Leseliste" },
         lists: {
           liked: false,
           saved: false,
@@ -224,7 +252,7 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 334,
-        description: "Educated by Tara Westover is a powerful memoir about a woman who grows up in a strict and isolated survivalist family in rural Idaho. Denied formal education and medical care, Tara teaches herself enough to gain admission to college, eventually earning a PhD from Cambridge University. The book is a moving account of her journey toward knowledge, self-discovery, and independence, as she struggles to reconcile loyalty to her family with her desire for a different life. It explores themes of education, identity, resilience, and the complexities of family ties.",
+        description: "„Befreit“ von Tara Westover ist eine kraftvolle Autobiografie über eine Frau, die in einer streng religiösen und abgeschotteten Überlebensgemeinschaft in Idaho aufwächst. Ohne Schulbildung oder medizinische Versorgung bringt sie sich das Lernen selbst bei, schafft es an die Universität und promoviert schließlich in Cambridge. Das Buch erzählt von ihrem Weg zur Selbstfindung, Bildung und Unabhängigkeit – und vom schwierigen Spagat zwischen familiärer Loyalität und dem Streben nach einem eigenen Leben.",
         notes: [],
         review: {
           rating: 0,
@@ -235,11 +263,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: AtomicHabits,
-        title: "Atomic Habits",
+        title: "Die 1% Methode",
         author: "James Clear",
-        category: "Self-help",
-        tags: ["Productivity", "Habits", "Motivation"],
-        status: "reading",
+        category: { en: "Self-help", de: "Selbsthilfe" },
+        tags: ["Produktivität", "Gewohnheiten", "Motivation"],
+        status: { en: "reading", de: "Am Lesen" },
         lists: {
           liked: true,
           saved: false,
@@ -248,7 +276,7 @@ const initialStateBooks = {
         },
         progress: 80,
         totalPages: 320,
-        description: "Atomic Habits by James Clear is a practical and insightful guide to building good habits and breaking bad ones through small, consistent changes. The core idea is that tiny improvements made consistently over time lead to remarkable results. Clear breaks down the science of habit formation into four simple steps: cue, craving, response, and reward, and offers actionable strategies for making habits obvious, attractive, easy, and satisfying. The book emphasizes identity-based habits and how focusing on who you want to become is more effective than just setting goals. It's all about mastering the art of continuous improvement.",
+        description: "„Die 1%-Methode“ von James Clear ist ein praxisnaher Ratgeber, der zeigt, wie man durch kleine, konsequente Veränderungen gute Gewohnheiten aufbaut und schlechte überwindet. Die Idee dahinter: Winzige Verbesserungen führen mit der Zeit zu bemerkenswerten Ergebnissen. Clear erläutert den Aufbau von Gewohnheiten in vier Schritten: Auslösereiz, Verlangen, Reaktion und Belohnung. Er gibt praktische Tipps, wie man Gewohnheiten sichtbar, attraktiv, einfach und befriedigend macht. Der Fokus liegt auf identitätsbasierten Gewohnheiten. Wer möchtest du sein, statt was möchtest du erreichen?",
         notes: [],
         review: {
           rating: 4.3,
@@ -259,11 +287,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: TheAlchemist,
-        title: "The Alchemist",
+        title: "Der Alchimist",
         author: "Paulo Coelho",
-        category: "Fiction",
-        tags: ["Adventure", "Philosophical", "Life Lessons"],
-        status: "finished",
+        category: { en: "Fiction", de: "Belletristik" },
+        tags: ["Abenteuer", "Philosophie", "Lebensweisheiten"],
+        status: { en: "finished", de: "Beendet" },
         lists: {
           liked: false,
           saved: false,
@@ -272,11 +300,11 @@ const initialStateBooks = {
         },
         progress: 208,
         totalPages: 208,
-        description: "The Alchemist by Paulo Coelho is a philosophical novel that follows Santiago, a young Andalusian shepherd, on a journey to find a hidden treasure he dreams about. Along the way, he meets various characters—a king, a crystal merchant, an Englishman, and an alchemist—who help him discover deeper truths about life, destiny, and following one's \"Personal Legend.\" The story is a spiritual exploration of self-discovery, purpose, and the idea that when you truly desire something, the universe conspires to help you achieve it.",
+        description: "„Der Alchimist“ von Paulo Coelho ist ein philosophischer Roman über Santiago, einen jungen andalusischen Hirten, der sich auf eine Reise begibt, um einen Schatz aus einem Traum zu finden. Auf dem Weg begegnet er Königen, Kaufleuten und einem Alchemisten, die ihm helfen, tiefere Wahrheiten über das Leben, die Bestimmung und das Streben nach der eigenen „Persönlichen Legende“ zu erkennen. Eine spirituelle Reise zur Selbstverwirklichung und dem Glauben, dass das Universum uns unterstützt, wenn wir etwas wirklich wollen.",
         notes: [],
         review: {
           rating: 3.9,
-          text: "A poetic journey of following your dreams and finding meaning."
+          text: "Eine poetische Reise, die uns lehrt, unseren Träumen zu folgen und den Sinn des Lebens zu erkennen."
         },
         addedAt: "2025-03-19T19:40:00Z"
       }
@@ -288,11 +316,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: SisterhoodOfDune,
-        title: "Sisterhood of Dune: Book One of the Schools of Dune",
+        title: "Die Schwesternschaft von Dune",
         author: "Brian Herbert & Kevin J. Anderson",
-        category: "Science Fiction",
-        tags: ["Sci-Fi", "Space Opera", "Adventure"],
-        status: "to-read",
+        category: { en: "Science Fiction", de: "Science-Fiction" },
+        tags: ["Sci-Fi", "Space Opera", "Abenteuer"],
+        status: { en: "to-read", de: "Leseliste" },
         lists: {
           liked: false,
           saved: true,
@@ -301,7 +329,7 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 512,
-        description: "Sisterhood of Dune by Brian Herbert and Kevin J. Anderson is the first book in the Schools of Dune series, set in the Dune universe created by Frank Herbert. Taking place about 80 years after the Butlerian Jihad—the war against thinking machines—the novel explores the early formation of powerful groups like the Bene Gesserit Sisterhood, the Mentats, and the Swordmasters of Ginaz. With the rise of anti-technology zealotry and political tension across the galaxy, these emerging schools must navigate dangerous intrigue and shifting alliances. The book delves into the origins of the institutions that will shape the universe centuries later in the original Dune saga.",
+        description: "Rund 80 Jahre nach dem Butlerianischen Dschihad bildet sich die Schwesternschaft der Bene Gesserit heraus. Intrigen, Machtspiele und der Aufstieg der Mentaten und Schwertmeister bestimmen diese frühe Phase der Dune-Zeitlinie.",
         notes: [],
         review: {
           rating: 2,
@@ -312,11 +340,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: TheAtlasParadox,
-        title: "The Atlas Paradox",
+        title: "Das Atlas-Paradoxon",
         author: "Olivie Blake",
-        category: "Fantasy",
-        tags: ["Dark Academia", "Fantasy", "Mystery"],
-        status: "reading",
+        category: { en: "Fantasy", de: "Fantasie" },
+        tags: ["Düstere Akademie", "Fantasie", "Geheimnis"],
+        status: { en: "reading", de: "am Lesen" },
         lists: {
           liked: false,
           saved: false,
@@ -325,10 +353,10 @@ const initialStateBooks = {
         },
         progress: 120,
         totalPages: 400,
-        description: "The Atlas Paradox by Olivie Blake is the sequel to The Atlas Six, continuing the story of six powerful young magicians chosen to join the secretive and elite Alexandrian Society. In this installment, the characters face deeper philosophical and moral dilemmas as they grapple with dangerous knowledge, shifting alliances, and the true cost of power. With one of their own gone and the Society’s secrets unraveling, tensions rise and loyalties are tested. The novel explores themes of ambition, identity, sacrifice, and the blurred lines between right and wrong—all wrapped in a darkly academic, magical setting.",
+        description: "In der Fortsetzung von „The Atlas Six” werden moralische Konflikte, geheime Allianzen und die dunklen Konsequenzen magischen Wissens innerhalb einer geheimen Gesellschaft vertieft.",
         notes: [
-          { id: uuidv4(), text: "Intriguing philosophical discussions about knowledge and power.", page: 75 },
-          { id: uuidv4(), text: "Character dynamics are getting more intense and layered.", page: 110 }
+          { id: uuidv4(), text: "Interessante philosophische Diskussionen über Wissen und Macht.", page: 75 },
+          { id: uuidv4(), text: "Die Charakterdynamik wird immer komplexer.", page: 110 }
         ],
         review: {
           rating: 0,
@@ -339,11 +367,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: TheHouseinCeruleanSea,
-        title: "The House in the Cerulean Sea",
+        title: "Das Haus am Cerulean-Meer",
         author: "TJ Klune",
-        category: "Fantasy",
-        tags: ["Feel-Good", "Fantasy", "LGBTQ+"],
-        status: "to-read",
+        category: { en: "Fantasy", de: "Fantasie" },
+        tags: ["Wohlfühlbuch", "Fantasie", "LGBTQ+"],
+        status: { en: "to-read", de: "Leseliste" },
         lists: {
           liked: false,
           saved: false,
@@ -352,7 +380,7 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 398,
-        description: "The House in the Cerulean Sea by TJ Klune is a heartwarming and whimsical fantasy novel about Linus Baker, a quiet, rule-following caseworker for the Department in Charge of Magical Youth. He's sent on a special assignment to a mysterious orphanage housing six magical children considered dangerous—including a gnome, a wyvern, and the Antichrist. As Linus gets to know the children and their kind, protective caretaker Arthur Parnassus, he begins to question the rules he’s always followed. The story is a charming and tender exploration of love, acceptance, found family, and the courage to stand up for what’s right.",
+        description: "Ein Beamter untersucht ein magisches Waisenhaus und entdeckt durch die außergewöhnlichen Kinder und ihre Betreuer die wahre Bedeutung von Familie, Akzeptanz und Mut.",
         notes: [],
         review: {
           rating: 0,
@@ -363,11 +391,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: Babel,
-        title: "Babel: An Arcane History",
+        title: "Babel: Eine arkane Geschichte",
         author: "R.F. Kuang",
-        category: "Historical Fantasy",
-        tags: ["Dark Academia", "Linguistics", "Historical"],
-        status: "No status",
+        category: { en: "Historical Fantasy", de: "Historische Fantasie" },
+        tags: ["Düstere Akademie", "Linguistik", "Geschichte"],
+        status: { en: "No status", de: "Kein Status" },
         lists: {
           liked: false,
           saved: true,
@@ -376,7 +404,7 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 560,
-        description: "Babel: Or the Necessity of Violence – An Arcane History of the Oxford Translators' Revolution by R.F. Kuang is a dark academia fantasy novel set in an alternate 19th-century England. The story follows Robin Swift, a Chinese orphan raised in Britain to attend the prestigious Royal Institute of Translation at Oxford—also known as Babel. The institute uses magical silver-working powered by translation to fuel the British Empire’s dominance. As Robin becomes more entrenched in Babel’s world, he’s forced to confront the violent realities of colonialism, language, and resistance. The novel blends scholarship, magic, and revolution in a powerful critique of empire and the cost of knowledge.",
+        description: "In einer alternativen Version des 19. Jahrhunderts wird ein chinesischer Waisenjunge an das Institut Babel in Oxford gebracht. Dort ist Sprache Magie – und Kolonialismus wird bekämpft.",
         notes: [],
         review: {
           rating: 4,
@@ -387,11 +415,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: TheMidnightLibrary,
-        title: "The Midnight Library",
+        title: "Die Mitternachtsbibliothek",
         author: "Matt Haig",
-        category: "Fiction",
-        tags: ["Philosophical", "Life Choices", "Fantasy"],
-        status: "finished",
+        category: { en: "Fiction", de: "Belletristik" },
+        tags: ["Philosophisch", "Lebensentscheidungen", "Fantasie"],
+        status: { en: "finished", de: "gelesen" },
         lists: {
           liked: false,
           saved: false,
@@ -400,24 +428,24 @@ const initialStateBooks = {
         },
         progress: 288,
         totalPages: 288,
-        description: "The Midnight Library by Matt Haig is a thought-provoking and emotional novel about Nora Seed, a woman who finds herself in a magical library between life and death. Each book on its shelves represents a different version of her life—one she could have lived if she had made different choices. As Nora explores these alternate realities, she confronts her regrets and wonders what truly makes a life worth living. The novel is a heartfelt exploration of mental health, purpose, and the beauty of second chances, reminding readers that even the smallest decisions can shape a meaningful life.",
+        description: "Nora Seed entdeckt zwischen Leben und Tod eine Bibliothek, in der sie all ihre möglichen Leben durchlebt und erkennt, was wirklich zählt.",
         notes: [
-          { id: uuidv4(), text: "Thought-provoking meditation on regrets and alternate lives.", page: 100 }
+          { id: uuidv4(), text: "Nachdenklich stimmende Reflexion über Reue und alternative Lebenswege.", page: 100 }
         ],
         review: {
           rating: 1.4,
-          text: "A deep and moving reflection on the choices we make and how they shape our lives. A must-read for those who enjoy introspective fiction."
+          text: "Eine bewegende Erzählung über Entscheidungen und deren Bedeutung. Ideal für Leser:innen, die introspektive Literatur mögen."
         },
         addedAt: "2025-03-14T08:45:00Z"
       },
       {
         id: uuidv4(),
         image: BookThief,
-        title: "The Book Thief",
+        title: "Die Bücherdiebin",
         author: "Markus Zusak",
-        category: "Historical Fiction",
-        tags: ["War", "Coming-of-Age", "Literature"],
-        status: "to-read",
+        category: { en: "Historical Fiction", de: "Historische Belletristik" },
+        tags: ["Krieg", "Erwachsenwerden", "Literatur"],
+        status: { en: "to-read", de: "Leseliste" },
         lists: {
           liked: false,
           saved: false,
@@ -426,7 +454,7 @@ const initialStateBooks = {
         },
         progress: 0,
         totalPages: 552,
-        description: "The Book Thief by Markus Zusak is a haunting and beautifully written novel set in Nazi Germany during World War II. The story is narrated by Death and follows Liesel Meminger, a young girl living with a foster family in a small town. Liesel finds solace in stealing books, and as she reads them to her foster family and neighbors, these books become a form of resistance and a way to cope with the horrors of war. Through Liesel's journey, the novel explores themes of love, loss, friendship, and the power of words in a time of darkness. It's a poignant and unforgettable story about the human spirit and the impact of storytelling.",
+        description: "In Nazi-Deutschland findet ein Mädchen Trost durch Bücher. Der Tod erzählt die Geschichte von Verlust, Freundschaft und der Kraft des Wortes.",
         notes: [],
         review: {
           rating: 4,
@@ -437,11 +465,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: NormalPeople,
-        title: "Normal People",
+        title: "Normale Menschen",
         author: "Sally Rooney",
-        category: "Fiction",
-        tags: ["Contemporary", "Romance", "Emotional"],
-        status: "reading",
+        category: { en: "Fiction", de: "Belletristik" },
+        tags: ["Zeitgenössisch", "Romantik", "Emotional"],
+        status: { en: "reading", de: "am Lesen" },
         lists: {
           liked: false,
           saved: false,
@@ -450,7 +478,7 @@ const initialStateBooks = {
         },
         progress: 75,
         totalPages: 273,
-        description: "Normal People by Sally Rooney is a compelling and intimate novel that follows the complex relationship between Connell and Marianne, two young people from a small Irish town. The story spans several years, exploring their deep emotional and intellectual connection as they navigate the ups and downs of their lives, from high school to university. The novel delves into themes of love, friendship, class, identity, and the challenges of personal growth. Through its sharp and realistic portrayal of relationships, Normal People captures the nuances of intimacy and the way people shape and are shaped by each other.",
+        description: "Die Beziehung zwischen Connell und Marianne durchlebt Höhen und Tiefen. Es ist eine feinfühlige Erzählung über Nähe, Klasse und Identität.",
         notes: [],
         review: {
           rating: 2.5,
@@ -461,11 +489,11 @@ const initialStateBooks = {
       {
         id: uuidv4(),
         image: Mistborn,
-        title: "Mistborn: The Final Empire",
+        title: "Mistborn: Der letzte Kaiser",
         author: "Brandon Sanderson",
-        category: "Fantasy",
-        tags: ["Epic Fantasy", "Magic", "Heist"],
-        status: "reading",
+        category: { en: "Fantasy", de: "Fantasie" },
+        tags: ["Epische Fantasie", "Magie", "Raubzug"],
+        status: { en: "reading", de: "am Lesen" },
         lists: {
           liked: false,
           saved: true,
@@ -474,11 +502,11 @@ const initialStateBooks = {
         },
         progress: 320,
         totalPages: 541,
-        description: "Mistborn: The Final Empire by Brandon Sanderson is the first book in the Mistborn series, set in a world where ash falls from the sky and mist dominates the night. The story follows Vin, a street urchin with latent magical abilities, who is recruited by a group of rebels led by Kelsier to overthrow the oppressive Lord Ruler who has ruled the Final Empire for over a thousand years. The unique magic system in the novel revolves around \"Allomancy,\" where users ingest and \"burn\" metals to gain powerful abilities. Mistborn is a gripping tale of rebellion, power, and betrayal, with intricate world-building, complex characters, and a focus on hope and redemption.",
+        description: "Eine junge Straßendiebin entdeckt ihre magischen Fähigkeiten in einer Welt, in der die Metallmagie herrscht. Gemeinsam mit Rebellen plant sie, das Reich des Lord Rulers zu stürzen.",
         notes: [],
         review: {
           rating: 4.7,
-          text: "Unique magic system, deep characters, and a thrilling plot make this a fantasy must-read."
+          text: "Ein einzigartiges Magiesystem, tiefgründige Figuren und eine spannende Handlung – dieses Buch ist ein Muss für Fantasy-Fans."
         },
         addedAt: "2025-03-18T14:30:00Z"
       }
@@ -492,7 +520,7 @@ const initialStateBooks = {
         image: NoCover,
         title: "",
         author: "",
-        category: "",
+        category: { en: "", de: "" },
         notes: [],
         review: {
           rating: 0,

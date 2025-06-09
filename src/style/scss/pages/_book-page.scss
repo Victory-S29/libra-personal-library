@@ -127,4 +127,36 @@
     p {
         width: 100%;
     }
+    .splide__arrow svg {
+        fill: var(--active-text-color);
+    }
+    .splide__arrow {
+        border: none;
+        background-color: var(--background-color);
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+        height: 2em;
+        opacity: 0.7;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2em;
+
+        &:hover {
+            background-color: var(--button-focus-color);
+        }
+
+        &--prev {
+            left: -30px;
+        }
+
+        &--next {
+            right: -30px;
+        }
+    }
 }

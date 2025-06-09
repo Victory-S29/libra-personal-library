@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import {
     faBookmark as faBookmarkRegular,
     faHeart as faHeartRegular,
@@ -11,8 +11,7 @@ import {
 import { faPlus as faPlusSolid } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const BreadcrumbComponent = () => {
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const links = [
         { to: '/create-new-book', icon: faPlusSolid, labelKey: 'createNewBook' },
         { to: '/liked-books', icon: faHeartRegular, labelKey: 'likedBooks' },

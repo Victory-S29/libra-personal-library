@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BreadcrumbComponent from '../components/BreadcrumbComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { getAllDataSelector, getFiltersSelector } from '../../store/reducers/catalogue.reducer';
 import CustomSelect from '../components/CustomSelect';
 import ConfirmPopup from '../components/ConfirmPopup';
@@ -14,8 +14,7 @@ const CreateNewBook = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const allData = useSelector(getAllDataSelector);
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const filters = useSelector(getFiltersSelector);
     const genres = filters.Genres.data;
     const status = filters.Status.data.slice(0, -1);
@@ -24,13 +23,14 @@ const CreateNewBook = () => {
     const [progressError, setProgressError] = useState("");
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
 
+
     const [formData, setFormData] = useState({
         image: NoCover,
         title: '',
         author: '',
-        category: 'Other',
+        category: { en: "Other", de: "Andere" },
         tags: '',
-        status: "No Status",
+        status: { en: "No Status", de: "Kein Status" },
         progress: 0,
         totalPages: 0,
         description: '',
@@ -75,7 +75,6 @@ const CreateNewBook = () => {
 
         if (formData.title.trim() === "" || formData.author.trim() === "") {
             setIdErrorMessage(bannersData.bookEdit.messages.emptyFields);
-            console.log(bannersData.bookEdit.messages.emptyFields)
             isValid = false;
         } else {
             setIdErrorMessage("");
@@ -118,6 +117,7 @@ const CreateNewBook = () => {
             },
             addedAt: new Date().toISOString()
         }
+        console.log("newBook", newBook)
         dispatch(addNewBookAction(newBook));
         setShowConfirmPopupChange(false);
         navigate('/');

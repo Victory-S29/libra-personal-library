@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { changeLoginAction, changeUserAction, deleteUserAction } from '../../store/actions/user.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector, getCurrentLanguageSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
-import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
+import { faEyeSlash, faSun, faMoon } from '@fortawesome/free-regular-svg-icons'
 import { getCurrentUserSelector, getIsLoginSelector, getUsersSelector } from '../../store/reducers/user.reducer';
 import ConfirmPopup from '../components/ConfirmPopup';
+import { useTheme } from '../../context/ThemeContext';
+import { setLanguageAction } from '../../store/actions/languages.action';
 
 const SettingsPage = () => {
     const dispatch = useDispatch();
@@ -15,8 +17,8 @@ const SettingsPage = () => {
     const currentUser = useSelector(getCurrentUserSelector);
     const usersData = useSelector(getUsersSelector);
     const isLogin = useSelector(getIsLoginSelector);
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN
+    const currentLanguage = useSelector(getCurrentLanguageSelector);
+    const bannersData = useSelector(getBannersSelector);
 
     useEffect(() => {
         if (!isLogin) {
@@ -25,6 +27,7 @@ const SettingsPage = () => {
     }, [isLogin, navigate]);
 
     const [passwordError, setPasswordError] = useState("");
+    const [usernameError, setUsernameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordType, setPasswordType] = useState("password");
     const [loginData, setLoginData] = useState({
@@ -42,6 +45,11 @@ const SettingsPage = () => {
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
     const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
 
+    const { theme, changeTheme } = useTheme();
+    const handleThemeChange = (selectedTheme) => {
+        changeTheme(selectedTheme);
+    };
+
     const togglePasswordVisibility = () => {
         setPasswordType(passwordType === "password" ? "text" : "password");
     };
@@ -57,17 +65,30 @@ const SettingsPage = () => {
     const validateSignup = () => {
         let isValid = true;
         const sameEmailUser = usersData.find(user => user.email === loginData.email.trim());
-        const sameUser = sameEmailUser && sameEmailUser.id !== currentUser.id
+        const sameUser = sameEmailUser && sameEmailUser.id !== currentUser.id;
+
         setPasswordError("");
         setEmailError("");
-        if (sameUser) {
+        setUsernameError("");
+
+        if (!loginData.username.trim()) {
+            setUsernameError(bannersData.user.messages.userNameRequired);
+            isValid = false;
+        }
+
+        if (!loginData.email.trim()) {
+            setEmailError(bannersData.user.messages.emailRequired);
+            isValid = false;
+        } else if (sameUser) {
             setEmailError(bannersData.user.messages.emailError);
             isValid = false;
         }
+
         if (loginData.password.length < 8) {
             setPasswordError(bannersData.user.messages.shortPassword);
             isValid = false;
         }
+
         return isValid;
     };
 
@@ -119,6 +140,10 @@ const SettingsPage = () => {
     const handleCancelDelete = () => {
         setShowConfirmPopupDelete(false);
     };
+
+    const handleLanguageChange = (lang) => {
+        dispatch(setLanguageAction(lang));
+    };
     return (
         <div className='settings-page'>
             <section className='main-settings--section'>
@@ -139,6 +164,7 @@ const SettingsPage = () => {
                                     value={loginData.username}
                                     required
                                 />
+                                {usernameError && <p className='error-message'>{usernameError}</p>}
                             </div>
                             <div className="input-group">
                                 <label htmlFor="email">{bannersData.user.labels.email}</label>
@@ -195,20 +221,43 @@ const SettingsPage = () => {
                     <div className='main-section--form'>
                         <button
                             type="button"
-                            className="lang-button"
-                        // className={selectedLanguage === "en" ? "lang-button active" : "lang-button"}
+                            className={currentLanguage === "en" ? "lang-button active" : "lang-button"}
+                            onClick={() => handleLanguageChange("en")}
                         >
                             {bannersData.user.settingsPage.language.languages.en}
                         </button>
                         <button
                             type="button"
-                            className="lang-button"
-                        // className={selectedLanguage === "de" ? "lang-button active" : "lang-button"}
+                            className={currentLanguage === "de" ? "lang-button active" : "lang-button"}
+                            onClick={() => handleLanguageChange("de")}
                         >
                             {bannersData.user.settingsPage.language.languages.de}
                         </button>
                     </div>
                 </section>
+                <section className='main-section'>
+                    <div className='main-section--title'>
+                        <h2>{bannersData.user.settingsPage.theme.title}</h2>
+                        <p>{bannersData.user.settingsPage.theme.description}</p>
+                    </div>
+                    <div className='main-section--form'>
+                        <button
+                            type="button"
+                            className={theme === "light" ? "theme-button active" : "theme-button"}
+                            onClick={() => handleThemeChange('light')}
+                        >
+                            <FontAwesomeIcon icon={faSun} className='icon' />
+                        </button>
+                        <button
+                            type="button"
+                            className={theme === "dark" ? "theme-button active" : "theme-button"}
+                            onClick={() => handleThemeChange('dark')}
+                        >
+                            <FontAwesomeIcon icon={faMoon} className='icon' />
+                        </button>
+                    </div>
+                </section>
+
                 <div className='exit-section'>
                     <div className='main-section'>
                         <div className='main-section--title'>

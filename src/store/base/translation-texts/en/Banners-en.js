@@ -1,4 +1,5 @@
-import LibraLogo from '../../../style/images/LibraLogo.png'
+import LibraLogo from '../../../../style/images/LibraLogo.png'
+import LibraLogoLight from '../../../../style/images/LibraLogoLight.png'
 
 const explore = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/style/images/featuresImgs/explore.png";
 const progress = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/style/images/featuresImgs/progress.png";
@@ -11,7 +12,8 @@ const initialStateBannersEn = {
     logo: {
         title: "Libra",
         description: "Dive into a World of Stories Together",
-        LibraLogo
+        LibraLogo,
+        LibraLogoLight
     },
     notifications: {
         welcome: "Welcome!",
@@ -68,6 +70,8 @@ const initialStateBannersEn = {
             loginHere: "Login here",
             signUpHere: "Sign up here",
             newAcc: "Create a new account?",
+            userNameRequired: "User name is required.",
+            emailRequired: "Email is required."
         },
         settingsPage: {
             labels: {
@@ -90,6 +94,10 @@ const initialStateBannersEn = {
                     en: "En",
                     de: "De"
                 }
+            },
+            theme: {
+                title: "Theme",
+                description: "Set your theme",
             },
         }
     },
@@ -173,7 +181,8 @@ const initialStateBannersEn = {
             savedBooks: "Saved",
         },
         placeholders: {
-            sortBooksInput: "Sort by title or author"
+            sortBooksInput: "Sort by title or author",
+            searchBooksInput: "Search book, author, edition..."
         },
         messages: {
             noBooksFound: "You haven't added any books yet."

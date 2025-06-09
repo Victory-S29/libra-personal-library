@@ -1,4 +1,3 @@
-const cv = "https://github.com/Victory-S29/personal-certificates/blob/main/imgs/CV-Viktoriia-Sanina-en.jpg?raw=true";
 const cursorBasic = "https://github.com/Victory-S29/personal-certificates/blob/main/imgs/Viktoriia-Sanina-cursor-basic.jpg?raw=true";
 const cursorAdv = "https://github.com/Victory-S29/personal-certificates/blob/main/imgs/Viktoriia-Sanina-cursor-adv.jpg?raw=true";
 const qrCode = "https://github.com/Victory-S29/personal-certificates/blob/main/imgs/drive-qr-code.png?raw=true";
@@ -27,7 +26,7 @@ const initialStateDeveloperEn = {
         institution: "Taras Shevchenko National University of Kyiv",
         faculty: "Faculty of Information Technologies",
         department: "Software Systems and Technologies",
-        period: "2021 – 2025",
+        period: "2021 - 2025",
     },
     skills: {
         title: "Skills",

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons'
 import AddNewNoteForm from './AddNewNoteForm';
@@ -10,8 +10,7 @@ import ChangeNotePopup from './ChangeNotePopup';
 
 const NotesSection = ({ currentBook }) => {
     const dispatch = useDispatch();
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const [showAddNoteForm, setShowAddNoteForm] = useState(false);
     const [showConfirmPopupDelete, setShowConfirmPopupDelete] = useState(false);
     const [noteIdToDelete, setNoteIdToDelete] = useState(null);

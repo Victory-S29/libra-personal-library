@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { getUsersSelector } from '../../store/reducers/user.reducer';
 import { addCurrentUserAction, addNewUserAction, changeLoginAction } from "../../store/actions/user.action";
 import { v4 as uuidv4 } from 'uuid';
@@ -12,8 +12,7 @@ const LoginPopup = ({ SetShowLogin, toggleLoginPopup, currentLoginState, SetCurr
     const popupRef = useRef(null);
     const dispatch = useDispatch();
 
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const usersData = useSelector(getUsersSelector);
 
     const [passwordType, setPasswordType] = useState("password");

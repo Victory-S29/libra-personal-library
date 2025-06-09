@@ -70,7 +70,7 @@
         input#tags {
             width: 90%;
         }
-        input#rating{
+        input#rating {
             width: 10%;
         }
         textarea {
@@ -90,7 +90,7 @@
                 background-color: var(--button-focus-color);
             }
             &::placeholder {
-                color: var(--button-color);
+                color: var(--secondary-text-color);
                 opacity: 1;
             }
         }

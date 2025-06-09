@@ -3,11 +3,10 @@ import BreadcrumbComponent from '../../components/BreadcrumbComponent';
 import { getAllDataSelector } from '../../../store/reducers/catalogue.reducer';
 import { useSelector } from 'react-redux';
 import { Book } from '../../';
-import { getBannersEnSelector } from '../../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../../store/reducers/languages.reducer';
 
 const FinishedBooksPage = () => {
-    const bannersDataEn = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEn;
+    const bannersData = useSelector(getBannersSelector);
     const allData = useSelector(getAllDataSelector);
     const [sortQuery, setSortQuery] = useState('');
     const finishedBooks = allData

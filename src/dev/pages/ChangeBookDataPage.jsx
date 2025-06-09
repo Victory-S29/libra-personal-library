@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { useParams } from 'react-router-dom';
 import { getAllDataSelector, getFiltersSelector } from '../../store/reducers/catalogue.reducer';
 import CustomSelect from '../components/CustomSelect';
@@ -13,8 +13,7 @@ const ChangeBookDataPage = () => {
     const allData = useSelector(getAllDataSelector);
     const currentBook = allData.find(book => String(book.id) === String(bookId));
 
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const filters = useSelector(getFiltersSelector);
     const genres = filters.Genres.data;
     const status = filters.Status.data.slice(0, -1);
@@ -23,7 +22,7 @@ const ChangeBookDataPage = () => {
         ...currentBook,
         title: currentBook.title || '',
         author: currentBook.author || '',
-        category: currentBook.category || '',
+        category: currentBook.category || { en: "", de: "" },
         tags: currentBook.tags.join(', '),
         progress: currentBook.progress || 0,
         totalPages: currentBook.totalPages || 0,
@@ -38,6 +37,25 @@ const ChangeBookDataPage = () => {
     const [progressError, setProgressError] = useState("");
     const [changeImageWarning, setChangeImageWarning] = useState("");
     const [showConfirmPopupChange, setShowConfirmPopupChange] = useState(false);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            // Create a new FileReader to read the file contents
+            const reader = new FileReader();
+
+            // When the reader finishes reading the file (as base64)
+            reader.onloadend = () => {
+                // Update the bookInfo state with the new image (base64 string)
+                setBookInfo(prev => ({
+                    ...prev,
+                    image: reader.result
+                }));
+            };
+            reader.readAsDataURL(file);
+            setChangeImageWarning(bannersData.bookEdit.messages.changeImage)
+        }
+    };
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -105,25 +123,7 @@ const ChangeBookDataPage = () => {
         setBookInfo(initialData);
         setShowConfirmPopupChange(false);
     };
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
 
-        if (file) {
-            // Create a new FileReader to read the file contents
-            const reader = new FileReader();
-
-            // When the reader finishes reading the file (as base64)
-            reader.onloadend = () => {
-                // Update the bookInfo state with the new image (base64 string)
-                setBookInfo(prev => ({
-                    ...prev,
-                    image: reader.result
-                }));
-            };
-            reader.readAsDataURL(file);
-            setChangeImageWarning(bannersData.bookEdit.messages.changeImage)
-        }
-    };
     return (
         <form>
             <section className="main-info-change--section">

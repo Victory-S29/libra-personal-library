@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { getTechnologiesEnSelector } from '../../store/reducers/languages.reducer';
+import { getTechSelector } from '../../store/reducers/languages.reducer';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 const TechnologiesPage = () => {
-    const tech = useSelector(getTechnologiesEnSelector);
+    const tech = useSelector(getTechSelector);
 
     const { pathname } = useLocation();
 

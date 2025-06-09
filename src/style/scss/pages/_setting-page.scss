@@ -55,20 +55,26 @@
         text-align: center;
     }
     .main-section--form {
-        .lang-button{
+        .lang-button {
             width: 50px;
+        }
+        .theme-button {
+            width: 50px;
+        }
+        .active {
+            background-color: var(--button-focus-color);
         }
         button {
             @include btn-base($width: 150px);
         }
-        #delete{
+        #delete {
             border-color: var(--error-color);
             color: var(--text-color);
         }
     }
 }
 
-.exit-section{
+.exit-section {
     border-top: 1px solid var(--separators-color);
     margin-top: 20%;
 }

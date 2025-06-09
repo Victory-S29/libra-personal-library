@@ -20,8 +20,8 @@ const initialStateFeaturesEn = {
   sorting: {
     description: "These features make it easy to find the right book at the right time:",
     options: [
-      "Sorting by title (A–Z or Z–A)",
-      "Sorting by author (A–Z or Z–A)",
+      "Sorting by title (A-Z or Z-A)",
+      "Sorting by author (A-Z or Z-A)",
       "Sorting by rating (1 to 5 stars)",
       "Sorting by date",
       "Sorting by reading status: To-read, Reading, Finished, or No Status",

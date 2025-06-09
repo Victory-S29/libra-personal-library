@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getBannersEnSelector } from '../../store/reducers/languages.reducer';
+import { getBannersSelector } from '../../store/reducers/languages.reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBookNoteAction } from '../../store/actions/catalogue.action';
 import { v4 as uuidv4 } from 'uuid';
 
 const AddNewNoteForm = ({ setShowAddNoteForm, currentBook }) => {
     const dispatch = useDispatch();
-    const bannersDataEN = useSelector(getBannersEnSelector);
-    const bannersData = bannersDataEN;
+    const bannersData = useSelector(getBannersSelector);
     const [newNote, setNewNote] = useState(
         {
             id: "",
