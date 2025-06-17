@@ -1,8 +1,17 @@
 .custom-select {
     position: relative;
     width: 30%;
-    margin: 10px 0;
+    margin: 0;
+    margin-bottom: $basic-margin-y;
     text-transform: capitalize;
+    //phones
+    @media (max-width: $bp-tablet) {
+        margin-bottom: calc($basic-margin-y - 5px);
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        margin-bottom: calc($basic-margin-y + 5px);
+    }
     ::-webkit-scrollbar {
         width: 2px;
     }
@@ -23,17 +32,8 @@
         padding: 12px 10px;
         width: 100%;
         margin-bottom: 20px;
-        @include text-base(var(--text-color), $text-font, 200, $size-15);
-        &::after {
-            content: "\25BD";
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.8rem;
-            pointer-events: none;
-            color: var(--active-text-color);
-        }
+        @include text-base(var(--text-color), $text-font, 200, null);
+        @include responsive-font($size-10, $size-15, $size-25);
     }
 
     .options-list {
@@ -49,7 +49,8 @@
         overflow-y: auto;
         z-index: 1000;
 
-        @include text-base(var(--text-color), $text-font, 200, $size-15);
+        @include text-base(var(--text-color), $text-font, 200, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         li {
             padding: 10px;
             cursor: pointer;
@@ -66,4 +67,15 @@
             }
         }
     }
+}
+
+.selected-option::after {
+    content: "\25BD";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    pointer-events: none;
+    color: var(--active-text-color);
 }

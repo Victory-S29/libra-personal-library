@@ -143,32 +143,34 @@ const ChangeBookDataPage = () => {
                 </div>
                 <section className='data--section'>
                     <div className='name--section'>
-                        <div className="input-group">
-                            <label htmlFor="title">{bannersData.bookEdit.labels.title}</label>
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                placeholder={bannersData.bookEdit.placeholders.title}
-                                value={bookInfo.title}
-                                onChange={handleChange}
-                                required
-                            />
+                        <div>
+                            <div className="input-group">
+                                <label htmlFor="title">{bannersData.bookEdit.labels.title}</label>
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    placeholder={bannersData.bookEdit.placeholders.title}
+                                    value={bookInfo.title}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <label htmlFor="author">{bannersData.bookEdit.labels.author}</label>
+                                <input
+                                    type="text"
+                                    id="author"
+                                    name="author"
+                                    placeholder={bannersData.bookEdit.placeholders.author}
+                                    value={bookInfo.author}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
                         </div>
-                        <div className="input-group">
-                            <label htmlFor="author">{bannersData.bookEdit.labels.author}</label>
-                            <input
-                                type="text"
-                                id="author"
-                                name="author"
-                                placeholder={bannersData.bookEdit.placeholders.author}
-                                value={bookInfo.author}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
+                        {idErrorMessage && <p className='error-message'>{idErrorMessage}</p>}
                     </div>
-                    {idErrorMessage && <p className='error-message'>{idErrorMessage}</p>}
                     <section className='additional-data--section'>
                         <p>{bannersData.bookEdit.labels.genre}</p>
                         <CustomSelect

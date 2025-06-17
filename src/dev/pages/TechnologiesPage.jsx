@@ -19,37 +19,37 @@ const TechnologiesPage = () => {
                 <p>{tech.intro.description}</p>
             </section>
             <section className='technologies-framework-section'>
-                <h4>{tech.framework.title}</h4>
+                <h5>{tech.framework.title}</h5>
                 <ul>
                     {tech.framework.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-routing-section'>
-                <h4>{tech.routing.title}</h4>
+                <h5>{tech.routing.title}</h5>
                 <ul>
                     {tech.routing.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-stateManagement-section'>
-                <h4>{tech.stateManagement.title}</h4>
+                <h5>{tech.stateManagement.title}</h5>
                 <ul>
                     {tech.stateManagement.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-persistence-section'>
-                <h4>{tech.persistence.title}</h4>
+                <h5>{tech.persistence.title}</h5>
                 <ul>
                     {tech.persistence.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-dataManagement-section'>
-                <h4>{tech.dataManagement.title}</h4>
+                <h5>{tech.dataManagement.title}</h5>
                 <ul>
                     {tech.dataManagement.points.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='technologies-ui-section'>
-                <h4>{tech.dataManagement.title}</h4>
+                <h5>{tech.dataManagement.title}</h5>
                 <ul>
                     {Object.entries(tech.ui.subSections).map(([key, item]) => (
                         <li className='technologies-ui-section--main-ul' key={key}>

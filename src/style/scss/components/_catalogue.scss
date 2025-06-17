@@ -5,47 +5,51 @@
 }
 
 .catalogue-search {
-    border-bottom: 1px solid var(--secondary-color);
-    margin: 10px $basic-margin-x 0 $basic-margin-x;
-    padding: 5px 10px;
+    @include flex-container(row, 0px, center, space-between);
     position: sticky;
     top: $nav-height;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
     background-color: var(--background-color);
-    .catalogue-search--input {
-        @include flex-container(row, 10px, center, center);
-        width: 60%;
+    border-bottom: 1px solid var(--secondary-color);
+    margin: 10px auto 0 auto;
+    padding: 5px 10px;
+    //phones
+    @media (max-width: $bp-tablet) {
+        top: $nav-height-sm;
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        top: $nav-max-height;
+    }
+}
+
+.catalogue-search--input {
+    @include flex-container(row, 10px, center, center);
+    width: 60%;
+    padding: 5px;
+    border-bottom: 1px solid var(--accent-color);
+    //phones
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+    }
+    .icon {
+        @include icon-base(15px, 15px, var(--accent-color));
+    }
+    input {
+        background-color: var(--background-color);
+        border: none;
+        color: var(--accent-color);
+        @include text-base(var(--text-color), $text-font, 200, null);
+        @include responsive-font($size-10, $size-15, $size-25);
+        outline: none;
         padding: 5px;
-        border-bottom: 2px solid var(--accent-color);
-        .icon {
-            width: 15px;
+        width: 100%;
+        &::placeholder {
+            color: var(--secondary-text-color);
+            transition: color 0.2s ease;
         }
-        input {
-            background-color: var(--section-bc-color);
-            border: none;
-            color: var(--accent-color);
-            font-size: $size-15;
-            outline: none;
-            padding: 5px;
-            width: 100%;
-            &::placeholder {
-                color: var(--secondary-text-color);
-                transition: color 0.2s ease;
-            }
-            &:focus::placeholder {
-                color: var(--active-text-color);
-            }
-            @media (max-width: $md) {
-                font-size: $size-10;
-            }
-            @media (min-width: $xxl) and (max-width: $xxxl) {
-                font-size: $size-20;
-            }
-            @media (min-width: $xxxl) {
-                font-size: $size-25;
-            }
+        &:focus::placeholder {
+            color: var(--active-text-color);
         }
     }
 }
@@ -53,7 +57,7 @@
 .filter-menu {
     position: relative;
     ::-webkit-scrollbar {
-        width: 3px;
+        width: 2px;
     }
     ::-webkit-scrollbar-track {
         border-radius: 2rem;
@@ -66,10 +70,10 @@
         }
     }
     .filter-menu__dropdown {
-        @include flex-container(column, $basic-gap, center, space-evenly);
-        background-color: var(--section-bc-color);
-        border: 2px solid var(--accent-color);
-        border-radius: 0;
+        @include flex-container(column, $basic-gap, start, space-evenly);
+        background-color: var(--background-color);
+        border: 1px solid var(--accent-color);
+        border-radius: 0.5rem;
         box-shadow: $box-shadow;
         max-height: 80vh;
         min-height: 40vh;
@@ -79,64 +83,50 @@
         position: absolute;
         right: 0;
         top: 35px;
-        @media (max-width: $md) {
+        //phones
+        @media (max-width: $bp-tablet) {
             gap: $small-gap;
-            width: 80vw;
+            max-height: 50vh;
+            padding: 15px;
         }
-        @media (min-width: $md) and (max-width: $xl) {
-            width: 60vw;
+        //tablets
+        @media (min-width: $bp-tablet) and (max-width: $bp-laptop) {
+            max-height: 50vh;
         }
-        button {
-            @include text-base(var(--button-color), $text-font, 200, $size-20);
-            background-color: var(--section-bc-color);
-            border: none;
-            cursor: pointer;
-            text-decoration: underline;
-            @media (max-width: $md) {
-                font-size: $size-15;
-            }
-            @media (min-width: $xxl) and (max-width: $xxxl) {
-                font-size: $size-25;
-            }
-            @media (min-width: $xxxl) {
-                font-size: $size-30;
+        .change-btn {
+            min-width: 120px;
+            @media (max-width: $bp-tablet) {
+                min-width: 100px;
             }
         }
     }
     .filter-menu__section {
-        @include text-base(var(--text-color), $text-font, 200, $size-20);
+        @include text-base(var(--text-color), $text-font, 200, null);
+        @include responsive-font($size-10, $size-15, $size-20);
         min-width: 40vw;
-        @media (max-width: $md) {
-            font-size: $size-15;
+        //phones
+        @media (max-width: $bp-tablet) {
+            min-width: 60vw;
         }
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-25;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-30;
+        //tablets
+        @media (min-width: $bp-tablet) and (max-width: $bp-laptop) {
+            min-width: 60vw;
         }
         .filter-menu__checkbox {
-            accent-color: var(--accent-color);
+            accent-color: var(--button-color);
             height: 15px;
             margin-right: 5px;
             width: 15px;
-            @media (min-width: $xxxl) {
+            //large laptops >1920
+            @media (min-width: $bp-desktop-xl) {
                 width: 25px;
                 height: 25px;
             }
         }
         .filter-menu__label {
-            @include text-base(var(--text-color), $text-font, $font-size: $size-15);
+            @include text-base(var(--text-color), $text-font, 300, null);
+            @include responsive-font($size-10, $size-15, $size-20);
             text-transform: capitalize;
-            @media (max-width: $md) {
-                font-size: $size-15;
-            }
-            @media (min-width: $xxl) and (max-width: $xxxl) {
-                font-size: $size-20;
-            }
-            @media (min-width: $xxxl) {
-                font-size: $size-25;
-            }
         }
         .filter-menu__options {
             border-bottom: 1px solid var(--accent-color);
@@ -146,9 +136,17 @@
             max-height: 150px;
             overflow-y: scroll;
             padding: 5px;
+            //phones
+            @media (max-width: $bp-tablet) {
+                max-height: 120px;
+            }
+            //tablets
+            @media (min-width: $bp-tablet) and (max-width: $bp-laptop) {
+                max-height: 120px;
+            }
         }
         ::-webkit-scrollbar {
-            width: 4px;
+            width: 2px;
         }
         ::-webkit-scrollbar-track {
             background: var(--section-bc-color);
@@ -165,190 +163,41 @@
 }
 
 .filter-menu__section-title {
-    @include text-base(var(--title-color), $title-font, $font-size: $size-25);
+    @include text-base(var(--title-color), $title-font, $font-size: null);
+    @include responsive-font($size-15, $size-20, $size-30);
     border-bottom: 1px solid var(--accent-color);
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: left;
-    @media (max-width: $md) {
-        font-size: $size-20;
-    }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        font-size: $size-30;
-    }
-    @media (min-width: $xxxl) {
-        font-size: $size-35;
-        margin-bottom: 15px;
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        margin-bottom: 10px;
     }
 }
 
 .catalogue-book__section {
     display: grid;
     gap: $basic-gap;
-    grid-template-columns: repeat(auto-fit, $book-section-width-md);
+    grid-template-columns: repeat(auto-fit, $book-section-width-desktop);
     justify-content: center;
-    margin: 0 $basic-margin-x;
+    margin: 0 auto;
     width: 100%;
-    @media (max-width: $md) {
+
+    //phones
+    @media (max-width: $bp-tablet) {
         gap: $small-gap;
         grid-template-columns: repeat(auto-fit, $book-section-width-sm);
     }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        gap: $small-gap;
-        grid-template-columns: repeat(auto-fit, $book-section-width-xxl);
+    //tablets
+    @media (min-width: $bp-tablet) and (max-width: $bp-laptop) {
+        grid-template-columns: repeat(auto-fit, $book-section-width-md);
     }
-    @media (min-width: $xxxl) {
-        grid-template-columns: repeat(auto-fit, $book-section-width-xxxl);
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        grid-template-columns: repeat(auto-fit, $book-section-width-desktop-xl);
     }
-}
-
-.single-book-section {
-    @include flex-container(column, 2px, flex-start, center);
-    border: 1px solid var(--secondary-color);
-    cursor: pointer;
-    width: $single-book-width-md;
-    padding-bottom: 10px;
-
-    .single-book-link-section {
-        width: $single-book-width-md;
-        padding: 15px;
-        padding-bottom: 5px;
-        @media (min-width: 1920px) {
-            width: 245px;
-        }
-    }
-    .single-book-img {
-        margin: 5px $basic-margin-x;
-        object-fit: contain;
-        width: 100%;
-        max-height: 220px;
-        @media (max-width: $md) {
-            height: 130px;
-        }
-    }
-    .single-book-text {
-        @include text-base(var(--text-color), $text-font, 200, $size-15);
-        overflow: hidden;
-        text-align: start;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 100%;
-        @media (max-width: $md) {
-            text-align: center;
-        }
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
-        }
-    }
-    .single-book-title {
-        @include text-base(var(--title-color), $title-font, 400, $size-20);
-        overflow: hidden;
-        text-align: start;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 100%;
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-25;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-30;
-        }
-    }
-    &:hover {
-        box-shadow: $box-shadow;
-        transition: all 0.1s ease 0s;
-    }
-    @media (max-width: $md) {
-        align-items: center;
-        height: $single-book-height-sm;
-        padding: 5px;
-        width: $single-book-width-sm;
-    }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        width: $single-book-width-xxl;
-    }
-    @media (min-width: $xxxl) {
-        width: $single-book-width-xxxl;
-    }
-    .actions-bar {
-        @include flex-container(row, 15px, center, center);
-        margin-top: 0px;
-        width: 100%;
-        @media (min-width: $xxxl) {
-            margin-top: 10px;
-        }
-    }
-    .book-rating {
-        margin-top: 5px;
-    }
-    .icon {
-        width: 19px;
-        height: 19px;
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            @include icon-base(23px, 23px, var(--accent-color));
-        }
-        @media (min-width: $xxxl) {
-            @include icon-base(27px, 27px, var(--accent-color));
-        }
-    }
-}
-
-.not-clickable {
-    cursor: auto;
-    .book-rating {
-        margin-top: 5px;
-    }
-    .actions-bar {
-        margin-top: 5px;
-    }
-    &:hover {
-        box-shadow: none;
-    }
-    .icon {
-        &:hover {
-            cursor: auto;
-        }
-    }
-}
-.rs-pagination {
-    @include flex-container(row, 5px, center, center);
-    margin-bottom: $basic-margin-y;
-}
-
-.rs-pagination-btn {
-    @include btn-base(30px, 30px, 5px, 1px solid var(--button-color), 0);
-    @include text-base(var(--button-color), $font-weight: 400, $font-size: $size-15);
-    background-color: var(--background-color);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        @include btn-base(40px, 40px, 10px, 1px solid var(--button-color), 0);
-        font-size: $size-20;
-    }
-    @media (min-width: $xxxl) {
-        @include btn-base(45px, 45px, 10px, none, 0);
-        font-size: $size-25;
-    }
-}
-
-.rs-pagination-btn-active {
-    @include btn-base(30px, 30px, 5px, none, 0);
-    background-color: var(--button-color);
-    @include text-base(var(--button-text-color), $font-weight: 400, $font-size: $size-15);
-    &:focus {
-        border: none;
-    }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        @include btn-base(40px, 40px, 10px, none, 0);
-        font-size: $size-20;
-    }
-    @media (min-width: $xxxl) {
-        @include btn-base(45px, 45px, 10px, none, 0);
-        font-size: $size-25;
+    //2k laptops >2560
+    @media (min-width: $bp-desktop-2k) {
+        grid-template-columns: repeat(auto-fit, $single-book-width-desktop-2k);
     }
 }

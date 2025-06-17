@@ -1,37 +1,91 @@
 .developer-page {
-    width: 90%;
-    margin-left: 60px;
-    padding: 20px;
+    margin-left: $basic-padding;
+    padding: 20px 0px;
     line-height: 2rem;
+    //phones
+    @media (max-width: $bp-tablet) {
+        margin-left: $basic-padding--small-screens;
+        padding: 10px;
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        margin-left: $basic-padding--large-screens;
+        padding: 25px;
+    }
     h1 {
         margin-bottom: 10px;
     }
     h4 {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+    }
+    h1,
+    h4 {
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-bottom: 5px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            margin-bottom: 15px;
+        }
     }
     section {
         margin-bottom: 20px;
     }
     li {
-        list-style-type: circle;
+        list-style-type: none;
         margin-left: 20px;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-left: 10px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            margin-left: 25px;
+        }
     }
     hr {
-        width: 50%;
+        width: calc(100vw - $basic-padding * 2);
+        margin: 0 auto;
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: calc(100vw - $basic-padding--small-screens * 2);
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            width: calc(100vw - $basic-padding--large-screens * 2);
+        }
     }
     ul {
         margin-left: 20px;
     }
     img {
-        object-fit: contain;
+        width: 45%;
     }
 }
 .developer-page--main-info {
     @include flex-container(row, 10px, center, center);
+    //phones
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+        text-align: center;
+        > :last-child {
+            order: -1;
+        }
+    }
     img {
-        width: 100%;
         max-height: 60vh;
         margin: auto;
+        object-fit: contain;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin: 10px auto;
+            max-height: 40vh;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            max-height: 30vh;
+        }
     }
 }
 
@@ -41,9 +95,25 @@
         border-left: 2px solid var(--accent-color);
         margin-left: 10px;
         padding-left: 10px;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-left: 5px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            margin-left: 15px;
+        }
     }
     p {
         margin-left: 20px;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-left: 15px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            margin-left: 25px;
+        }
     }
 }
 
@@ -55,16 +125,52 @@
 
 .developer-page--education {
     margin-top: 20px;
+    text-align: center;
+    //phones
+    @media (max-width: $bp-tablet) {
+        margin: 10px auto;
+    }
     p {
         margin-left: 20px;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-left: 15px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            margin-left: 25px;
+        }
     }
 }
+
+.developer-page--skills {
+    margin: 20px auto;
+    text-align: center;
+    margin-top: 20px;
+    //phones
+    @media (max-width: $bp-tablet) {
+        margin: 10px auto;
+    }
+}
+
 .developer-page--courses {
+    margin: 20px auto;
+    text-align: center;
+    //phones
+    @media (max-width: $bp-tablet) {
+        margin: 10px auto;
+    }
     section {
         display: grid;
         grid-template-columns: repeat(2, 45%);
         justify-content: space-between;
-        margin-top: 20px auto 0 auto;
+        margin: 20px auto 0 auto;
+        //phones
+        @media (max-width: $bp-tablet) {
+            grid-template-columns: repeat(1, 100%);
+            margin: 0 auto;
+            gap: 10px;
+        }
     }
 
     .course-card {
@@ -74,22 +180,34 @@
 
     .course-img {
         max-height: 40vh;
+        object-fit: contain;
     }
 }
 
-.developer-page--skills {
-    margin-top: 20px;
-   
-}
-
 .developer-page--refs {
-    margin-top: 20px;
-    p{
+    margin: 20px auto;
+    text-align: center;
+    //phones
+    @media (max-width: $bp-tablet) {
+        margin: 10px auto;
+        @include flex-container(column, 10px, center, center);
+    }
+    p {
         font-size: 17px;
         margin-bottom: 10px;
     }
     img {
+        object-fit: contain;
         margin-left: 20px;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin: 0 auto;
+            max-height: 30vh;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            margin-left: 25px;
+        }
         max-height: 20vh;
     }
 }

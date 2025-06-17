@@ -1,12 +1,27 @@
 .books-list--section {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, 175px);
+    grid-template-columns: repeat(auto-fit, $book-section-width-desktop);
     justify-content: center;
     width: 80%;
     margin: 10px auto 20px auto;
-    @media (min-width: 1920px) {
-        grid-template-columns: repeat(auto-fit, 245px);
+
+    //phones
+    @media (max-width: $bp-tablet) {
+        gap: $small-gap;
+        grid-template-columns: repeat(auto-fit, $book-section-width-sm);
+    }
+    //tablets
+    @media (min-width: $bp-tablet) and (max-width: $bp-laptop) {
+        grid-template-columns: repeat(auto-fit, $book-section-width-md);
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        grid-template-columns: repeat(auto-fit, $book-section-width-desktop-xl);
+    }
+    //2k laptops >2560
+    @media (min-width: $bp-desktop-2k) {
+        grid-template-columns: repeat(auto-fit, $single-book-width-desktop-2k);
     }
 }
 .books-list--sort-input {
@@ -17,5 +32,6 @@
 
 .no-books-found--message {
     text-align: center;
-    @include text-base(var(--error-color), $text-font, 400, $size-15);
+    @include text-base(var(--error-color), $text-font, 400, null);
+    @include responsive-font($size-10, $size-15, $size-20);
 }

@@ -185,7 +185,8 @@ const initialStateBannersDe = {
             searchBooksInput: "Buch, Autor, Ausgabe suchen..."
         },
         messages: {
-            noBooksFound: "Sie haben noch keine Bücher hinzugefügt."
+            noBooksFound: "Sie haben noch keine Bücher hinzugefügt.",
+            youMayLike: "Das könnte Ihnen auch gefallen..."
         },
     }
 };

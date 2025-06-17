@@ -2,10 +2,12 @@
     --background-color: #ffffff;
     --section-bc-color: #f8f8f8;
     --footer-color: #f4f4f4;
+
     --secondary-color: #c7c9cf;
     --accent-color: #05031b;
 
     --separators-color: #191c4f21;
+    --filled-icon-color: #05031b;
     --shadow-color: #00000099;
 
     --title-color: #000000;
@@ -14,6 +16,7 @@
     --span-text-color: #0b007f;
     --secondary-text-color: #19194f;
     --subtext-color: #222222;
+
     --error-color: #bd0d0d;
     --confirm-color: #0dbd10;
 
@@ -24,25 +27,27 @@
     --scrollbar-track: #8da5ec;
     --scrollbar-bc: #4e619b;
     --scrollbar-bc--active: #172242;
-    --filled-icon-color: #05031b;
 }
 
 .dark {
-    --background-color: #121214; 
-    --section-bc-color: #1A1A1E;
-    --footer-color: #1A1A1E;
+    --background-color: #121214;
+    --section-bc-color: #1a1a1e;
+    --footer-color: #1a1a1e;
+
     --secondary-color: #4e4e4e;
-    --accent-color: #7ea1e3;
+    --accent-color: #6c8bc6;
 
     --separators-color: #1e1e1e;
+    --filled-icon-color: #6c8bc6;
     --shadow-color: #000000ec;
 
     --title-color: #ececec;
     --text-color: #ececec;
-    --active-text-color: #7ea1e3;
-    --span-text-color: #7ea1e3;
+    --active-text-color: #6c8bc6;
+    --span-text-color: #6c8bc6;
     --secondary-text-color: #9ba9b5;
     --subtext-color: #bbbbbb;
+
     --error-color: #ec6969;
     --confirm-color: #0dbd10;
 
@@ -53,5 +58,4 @@
     --scrollbar-track: #4747ad;
     --scrollbar-bc: #222256;
     --scrollbar-bc--active: #310f98;
-    --filled-icon-color: #7ea1e3;
 }

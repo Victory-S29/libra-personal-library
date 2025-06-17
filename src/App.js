@@ -25,26 +25,30 @@ function App() {
     <div className={`App ${theme}`}>
       {showLogin ? <LoginPopup SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup}
         currentLoginState={currentLoginState} SetCurrentLoginState={SetCurrentLoginState} /> : <></>}
-      <NavBar SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup} />
-      <Routes>
-        <Route index element={<MainPage />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/technologies" element={<TechnologiesPage />} />
-        <Route path="/about-developer" element={<DevelopersPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
+      <div className="layout">
+        <NavBar SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup} />
+        <main className="content">
+          <Routes>
+            <Route index element={<MainPage />} />
+            <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/technologies" element={<TechnologiesPage />} />
+            <Route path="/about-developer" element={<DevelopersPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
 
-        <Route path="/book/:bookId" element={<BookPage />} />
-        <Route path="/change-bookinfo/:bookId" element={<ChangeBookDataPage />} />
-        <Route path="/create-new-book" element={<CreateNewBook />} />
+            <Route path="/book/:bookId" element={<BookPage />} />
+            <Route path="/change-bookinfo/:bookId" element={<ChangeBookDataPage />} />
+            <Route path="/create-new-book" element={<CreateNewBook />} />
 
-        <Route path="/finished-books" element={<FinishedBooksPage />} />
-        <Route path="/inprogress-books" element={<InProgressBooksPage />} />
-        <Route path="/liked-books" element={<LikedBooksPage />} />
-        <Route path="/saved-books" element={<SavedBooksPage />} />
-        {/* <Route path='*' element={<Error />} />  */}
-      </Routes>
-      <Footer SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup}
-        currentLoginState={currentLoginState} SetCurrentLoginState={SetCurrentLoginState} />
+            <Route path="/finished-books" element={<FinishedBooksPage />} />
+            <Route path="/inprogress-books" element={<InProgressBooksPage />} />
+            <Route path="/liked-books" element={<LikedBooksPage />} />
+            <Route path="/saved-books" element={<SavedBooksPage />} />
+            {/* <Route path='*' element={<Error />} />  */}
+          </Routes>
+        </main>
+        <Footer SetShowLogin={SetShowLogin} toggleLoginPopup={toggleLoginPopup}
+          currentLoginState={currentLoginState} SetCurrentLoginState={SetCurrentLoginState} />
+      </div>
     </div>
   );
 }

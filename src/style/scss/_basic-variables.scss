@@ -1,30 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel&family=Kings&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel&family=Kings&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans+Egyptian+Hieroglyphs&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rouge+Script&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap");
 
 $title-font: "Raleway", sans-serif;
 $text-font: "Raleway", sans-serif;
 
-$size-50: 50px;
-$size-45: 45px;
-$size-40: 40px;
-$size-35: 35px;
-$size-30: 30px;
-$size-25: 25px;
-$size-20: 20px;
-$size-15: 15px;
-$size-13: 13px;
-$size-10: 10px;
+$size-50: 3.125rem; // 50px
+$size-45: 2.8125rem; // 45px
+$size-40: 2.5rem; // 40px
+$size-35: 2.1875rem; // 35px
+$size-30: 1.875rem; // 30px
+$size-25: 1.5625rem; // 25px
+$size-20: 1.25rem; // 20px
+$size-17: 1.0625rem; // 17px
+$size-15: 0.9375rem; // 15px
+$size-13: 0.8125rem; // 13px
+$size-10: 0.625rem; // 10px
 
 $nav-height: 60px;
+$nav-height-sm: 40px;
 $nav-max-height: 80px;
 
-$basic-padding: 60px;
 $small-padding: 30px;
+
+$basic-padding--small-screens: 30px;
+$basic-padding: 60px;
+$basic-padding--large-screens: 5%;
 
 // screens
 $md: 768px;
-$xl: 1024px;
-$xxl: 1400px;
-$xxxl: 1920px;
+$xl: 1024px; //pl - 768px - 1024px
+$xxl: 1400px; //lapt> 1024 - 1400
+$xxxl: 1920px; //z
+//n 2560
+
+$bp-tablet: 768px; //media
+$bp-laptop: 1024px; //media
+$bp-desktop: 1400px;
+$bp-desktop-xl: 1920px; //media
+$bp-desktop-2k: 2560px; //media
 
 // basic
 $basic-margin-x: auto;
@@ -42,15 +54,21 @@ $large-padding-container-md: 40px 10px;
 // small screen
 $large-padding-container-sm: 20px 10px;
 
-$book-section-width-sm: 45%;
-$single-book-height-sm: 250px;
-$single-book-width-sm: 100%;
+$single-book-cover-height-sm: 130px;
+$single-book-cover-height-desktop: 230px;
+$single-book-cover-height-desktop-2k: 300px;
 
-$book-section-width-md: 15vw;
-$single-book-width-md: 15vw;
+$book-section-width-sm: 35vw;
+$single-book-width-sm: 35vw;
 
-$book-section-width-xxl: 195px;
-$single-book-width-xxl: 195px;
+$book-section-width-md: 35vw;
+$single-book-width-md: 35vw;
 
-$book-section-width-xxxl: 245px;
-$single-book-width-xxxl: 245px;
+$book-section-width-desktop: 15vw;
+$single-book-width-desktop: 15vw;
+
+$book-section-width-desktop-xl: 15vw;
+$single-book-width-desktop-xl: 15vw;
+
+$single-book-width-desktop-2k: 10vw;
+$single-book-width-desktop-2k: 10vw;

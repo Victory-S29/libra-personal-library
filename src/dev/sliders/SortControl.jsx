@@ -199,7 +199,7 @@ const SortControl = () => {
                                     </div>
                                 </div>
                             ))}
-                            <button className="filter-menu__button" onClick={() => {
+                            <button className="change-btn" onClick={() => {
                                 generateNewCatalogue();
                                 setDropdownOpen(false);
                                 clearForm()

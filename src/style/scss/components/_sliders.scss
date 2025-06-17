@@ -1,10 +1,28 @@
 .slider-section {
     position: relative;
     overflow: visible;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--accent-color);
     margin: 5px auto;
     margin-bottom: $basic-margin-y;
-    max-width: 80%;
+    max-width: 80vw;
+    //phones
+    @media (max-width: $bp-tablet) {
+        max-width: 80vw;
+    }
+    //tablets
+    @media (max-width: $bp-laptop) {
+        max-width: 80vw;
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        max-width: 70vw;
+        padding-bottom: 15px;
+    }
+    //2k laptops >2560
+    @media (min-width: $bp-desktop-2k) {
+        max-width: 80vw;
+    }
     .splide__arrow svg {
         fill: var(--active-text-color);
     }
@@ -23,10 +41,18 @@
 
         &--prev {
             left: -30px;
+            //phones
+            @media (max-width: $bp-tablet) {
+                left: -25px;
+            }
         }
 
         &--next {
             right: -30px;
+            //phones
+            @media (max-width: $bp-tablet) {
+                right: -15px;
+            }
         }
     }
 }
@@ -34,24 +60,19 @@
 .splide__slide img {
     height: 200px;
     object-fit: contain;
-    @media (max-width: $md) {
+    //phones
+    @media (max-width: $bp-tablet) {
         height: 180px;
     }
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        height: 220px;
-    }
-    @media (min-width: $xxxl) {
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
         height: 250px;
     }
 }
 
 .slider-title {
-    @include text-base(var(--title-color), $title-font, 400, $size-20);
+    @include text-base(var(--title-color), $title-font, 400, null);
     text-transform: capitalize;
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        font-size: $size-30;
-    }
-    @media (min-width: $xxxl) {
-        font-size: $size-35;
-    }
+    @include responsive-font($size-15, $size-20, $size-35);
+    margin-bottom: 10px;
 }

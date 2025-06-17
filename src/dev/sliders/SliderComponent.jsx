@@ -7,19 +7,54 @@ const SliderComponent = ({ title, data }) => {
     const [slidesPerPage, setSlidesPerPage] = useState(1);
     const sliderRef = useRef(null);
 
+    const vwConfig = {
+        breakpoints: {
+            tablet: 768,
+            laptop: 1024,
+            desktop: 1400,
+            desktopXL: 1920,
+            desktop2K: 2560
+        },
+        slideWidths: {
+            desktop2K: 11, // >= 2560px
+            desktopXL: 13, // >= 1920px 
+            desktop: 15,   // >= 1400px 
+            laptop: 15,    // >= 1024px 
+            tablet: 35,    // < 1024px 
+            mobile: 35,    // < 768px 
+        },
+        sliderAreaWidths: {
+            desktop2K: 80, // >= 2560px
+            desktopXL: 60, // >= 1920px 
+            desktop: 80,   // >= 1400px 
+            laptop: 80,    // >= 1024px 
+            tablet: 80,    // < 1024px 
+            mobile: 80,    // < 768px 
+        }
+    };
+
+
     useEffect(() => {
         const updateSlides = () => {
-            if (!sliderRef.current) return;
+            const width = window.innerWidth;
+            const { breakpoints, slideWidths } = vwConfig;
+            let slideVW;
 
-            const containerWidth = sliderRef.current.offsetWidth;
-            let slideWidth = 195;
-            if (containerWidth >= 1920) slideWidth = 245;
-            else if (containerWidth >= 1400) slideWidth = 195;
-            else if (containerWidth >= 1024) slideWidth = 175;
-            else slideWidth = 170;
+            if (width >= breakpoints.desktop2K) slideVW = slideWidths.desktop2K;
+            else if (width >= breakpoints.desktopXL) slideVW = slideWidths.desktopXL;
+            else if (width >= breakpoints.desktop) slideVW = slideWidths.desktop;
+            else if (width >= breakpoints.laptop) slideVW = slideWidths.laptop;
+            else if (width >= breakpoints.tablet) slideVW = slideWidths.tablet;
+            else slideVW = slideWidths.mobile;
 
-            const gap = 20;
-            const perPage = Math.floor((containerWidth + gap) / (slideWidth + gap));
+            let perPage;
+            if (width >= breakpoints.desktop2K) perPage = Math.floor(vwConfig.sliderAreaWidths.desktop2K / slideVW);
+            else if (width >= breakpoints.desktopXL) perPage = Math.floor(vwConfig.sliderAreaWidths.desktopXL / slideVW);
+            else if (width >= breakpoints.desktop) perPage = Math.floor(vwConfig.sliderAreaWidths.desktop / slideVW);
+            else if (width >= breakpoints.laptop) perPage = Math.floor(vwConfig.sliderAreaWidths.laptop / slideVW);
+            else if (width >= breakpoints.tablet) perPage = Math.floor(vwConfig.sliderAreaWidths.tablet / slideVW);
+            else perPage = Math.floor(vwConfig.sliderAreaWidths.mobile / slideVW);
+
             setSlidesPerPage(perPage);
         };
 
@@ -30,6 +65,7 @@ const SliderComponent = ({ title, data }) => {
     return (
         <div className='slider-section' ref={sliderRef}>
             <h5 className='slider-title'>{title}</h5>
+            {console.log("slidesPerPage", slidesPerPage)}
             <Splide
                 className='slider'
                 options={{

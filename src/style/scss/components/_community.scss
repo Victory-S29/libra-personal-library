@@ -4,56 +4,54 @@
     grid-template-columns: repeat(3, 1fr);
     margin: $basic-margin-y $basic-margin-x;
     width: $smaller-container-width;
-
-    @media (max-width: $md) {
+    //phones
+    @media (max-width: $bp-tablet) {
         gap: $small-gap;
         grid-template-columns: repeat(2, 1fr);
         margin: 5px $basic-margin-x;
     }
-
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        width: 50%;
+    }
     .community-grid--element {
         @include flex-container(column, $basic-gap, center, center);
         background-color: var(--section-bc-color);
-        border-radius: 10px;
+        border-radius: 0.5rem;
         box-shadow: $box-shadow;
         padding: $large-padding-container-md;
 
         &:hover {
             transform: scale(1.1);
             transition: all 0.3s ease 0s;
-
-            @media (max-width: $md) {
+            //phones
+            @media (max-width: $bp-tablet) {
                 transform: scale(1);
             }
         }
-
-        @media (max-width: $md) {
+        //phones
+        @media (max-width: $bp-tablet) {
             gap: $small-gap;
             padding: $large-padding-container-sm;
         }
-        @media (min-width: $xxxl) {
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             @include flex-container(column, $big-gap, center, center);
         }
         img {
-            cursor: auto !important;
             height: 50px;
             object-fit: contain;
-            @media (min-width: $xxxl) {
+            //large laptops >1920
+            @media (min-width: $bp-desktop-xl) {
                 height: 80px;
             }
         }
 
         p {
-            @include text-base(var(--text-color), $text-font, $font-size: $size-20);
+            @include text-base(var(--text-color), $text-font, 400, null);
+            @include responsive-font($size-15, $size-20, $size-25);
             line-height: 200%;
             text-align: center;
-
-            @media (max-width: $md) {
-                font-size: $size-15;
-            }
-            @media (min-width: $xxxl) {
-                font-size: $size-25;
-            }
         }
     }
 }

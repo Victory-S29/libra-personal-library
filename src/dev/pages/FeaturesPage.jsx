@@ -19,32 +19,32 @@ const FeaturesPage = () => {
                 <p>{features.intro.description}</p>
             </section>
             <section className='features-catalogue-section'>
-                <h4>{features.catalogue.overview}</h4>
+                <h5>{features.catalogue.overview}</h5>
                 <ul>
                     {features.catalogue.mainDetails.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-sorting-section'>
-                <h4>{features.sorting.description}</h4>
+                <h5>{features.sorting.description}</h5>
                 <ul>
                     {features.sorting.options.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-user-section'>
-                <h4>{features.userFeatures.login}</h4>
+                <h5>{features.userFeatures.login}</h5>
                 <ul>
                     {features.userFeatures.preferences.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
             </section>
             <section className='features-notes-section'>
-                <h4>{features.notes.description}</h4>
+                <h5>{features.notes.description}</h5>
                 <ul>
                     {features.notes.features.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>
                 <p>{features.notes.summary}</p>
             </section>
             <section className='features-control-section'>
-                <h4>{features.control.description}</h4>
+                <h5>{features.control.description}</h5>
                 <ul>
                     {features.control.features.map((item, index) => <li key={index}><p>{item}</p></li>)}
                 </ul>

@@ -146,32 +146,34 @@ const CreateNewBook = () => {
                     </div>
                     <section className='data--section'>
                         <div className='name--section'>
-                            <div className="input-group">
-                                <label htmlFor="title">{bannersData.bookAdd.labels.title}</label>
-                                <input
-                                    type="text"
-                                    id="title"
-                                    name="title"
-                                    placeholder={bannersData.bookAdd.placeholders.title}
-                                    value={formData.title}
-                                    onChange={handleChange}
-                                    required
-                                />
+                            <div>
+                                <div className="input-group">
+                                    <label htmlFor="title">{bannersData.bookAdd.labels.title}</label>
+                                    <input
+                                        type="text"
+                                        id="title"
+                                        name="title"
+                                        placeholder={bannersData.bookAdd.placeholders.title}
+                                        value={formData.title}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="input-group">
+                                    <label htmlFor="author">{bannersData.bookAdd.labels.author}</label>
+                                    <input
+                                        type="text"
+                                        id="author"
+                                        name="author"
+                                        placeholder={bannersData.bookAdd.placeholders.author}
+                                        value={formData.author}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div className="input-group">
-                                <label htmlFor="author">{bannersData.bookAdd.labels.author}</label>
-                                <input
-                                    type="text"
-                                    id="author"
-                                    name="author"
-                                    placeholder={bannersData.bookAdd.placeholders.author}
-                                    value={formData.author}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
+                            {idErrorMessage && <p className='error-message'>{idErrorMessage}</p>}
                         </div>
-                        {idErrorMessage && <p className='error-message'>{idErrorMessage}</p>}
                         <section className='additional-data--section'>
                             <p>{bannersData.bookAdd.labels.genre}</p>
                             <CustomSelect

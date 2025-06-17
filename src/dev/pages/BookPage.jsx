@@ -31,6 +31,7 @@ const BookPage = () => {
     const currentBook = allData.find(book => String(book.id) === String(bookId));
     const bannersData = useSelector(getBannersSelector);
     const language = useSelector(getCurrentLanguageSelector);
+
     const similarBooksSorting = () => {
         if (!currentBook) return { ...noBooks };
 
@@ -60,7 +61,7 @@ const BookPage = () => {
         const booksWithoutCurrent = uniqueBooks.filter(book => book.id !== bookId);
 
         return booksWithoutCurrent.length > 4
-            ? { title: "You may also like...", data: booksWithoutCurrent.slice(0, 10) }
+            ? { title: bannersData.catalogueInfo.messages.youMayLike, data: booksWithoutCurrent.slice(0, 10) }
             : { ...noBooks };
     };
 
@@ -105,7 +106,7 @@ const BookPage = () => {
                                 <h3>{currentBook.author}</h3>
                                 <p>{currentBook.category ? currentBook.category[language] : ''}</p>
                                 <p><span>{currentBook.tags?.join(', ') || ''}</span></p>
-                                <p className='description-paragraf'>{currentBook.description}</p>
+                                <p className='description-paragraph'>{currentBook.description}</p>
                                 <div className='users-progress'>
                                     <p className='reading-progress'><span>{currentBook.progress}</span>/{currentBook.totalPages}</p>
                                     <StarRating rating={currentBook.review.rating} />
@@ -125,14 +126,14 @@ const BookPage = () => {
                         </section>
                         <div className="additional-info">
                             <section className='book-review'>
-                                <p className='description-paragraf'>{currentBook.review.text ? currentBook.review.text : bannersData.bookEdit.messages.noReview}</p>
+                                <p className='description-paragraph'>{currentBook.review.text ? currentBook.review.text : bannersData.bookEdit.messages.noReview}</p>
                                 <button onClick={() => setShowChangeReviewPopup(true)}>{bannersData.bookEdit.labels.changeReview}</button>
                             </section>
-                            <SliderComponent {...similarBooks} />
+                            <NotesSection currentBook={currentBook} />
                         </div>
-                        <NotesSection currentBook={currentBook} />
                         <button id="delete" onClick={deleteBook}>{bannersData.bookEdit.labels.deleteBook}</button>
                     </section>
+                    <SliderComponent {...similarBooks} />
                     <SliderComponent {...popularBooks} />
                     {showChangeReviewPopup && <ChangeReviewPopup
                         setShowChangeReviewPopup={setShowChangeReviewPopup}

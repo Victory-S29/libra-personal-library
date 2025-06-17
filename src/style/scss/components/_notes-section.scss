@@ -1,24 +1,38 @@
 .notes-section {
-    width: 60%;
+    width: 80%;
     margin: 10px auto;
     padding: 10px;
     background-color: var(--section-bc-color);
+    border-radius: 0.5rem;
     @include flex-container(column, 0px, center, center);
+    //tablets and phones
+    @media (max-width: $bp-laptop) {
+        width: 90%;
+    }
     section {
-        max-height: 60vh;
+        max-height: 40vh;
         overflow-y: scroll;
         margin: 10px;
         min-width: 80%;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            max-height: 30vh;
+        }
     }
     .note {
         margin-bottom: 30px;
         padding-right: 10px;
         display: grid;
-        grid-template-columns: 10% 80% 10%;
+        grid-template-columns: 5% 80% 5%;
+        gap: 2%;
         align-items: center;
         justify-content: center;
-        .icon {
-            @include icon-base(22px, 22px, var(--accent-color));
+        min-width: 100%;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            padding-right: 0px;
+            margin-bottom: 10px;
+            grid-template-columns: 5% 72% 13%;
         }
         .icons-section {
             @include flex-container($direction: row, $justify-content: space-between);
@@ -31,19 +45,20 @@
         max-height: 20vh;
         overflow-y: scroll;
         min-width: 90%;
+        text-align: start;
     }
     button {
         @include btn-base();
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
         background-color: var(--background-color);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (max-width: $md) {
+        @include text-base(var(--active-text-color), $text-font, 400, $size-15);
+        @include responsive-font($size-10, $size-15, $size-25);
+
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
             width: 100px;
         }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             padding: 15px 20px;
         }
     }
@@ -66,7 +81,7 @@
         width: 100%;
     }
     input {
-        width: 40%;
+        width: 100%;
     }
 }
 
@@ -76,16 +91,29 @@
     border: 2px solid var(--secondary-color);
     padding: 20px;
     width: 30vw;
+    //tablets and phones
+    @media (max-width: $bp-laptop) {
+        width: 80vw;
+        padding: 10px;
+    }
+    //2k laptops >2560
+    @media (min-width: $bp-desktop-2k) {
+        width: 20vw;
+        gap: 10px;
+    }
     h2 {
-        font-size: 30px;
+        font-size: $size-30;
         margin-bottom: 10px;
+        @include responsive-font($size-20, $size-30, $size-45);
     }
     label {
-        @include text-base(var(--text-color), $text-font, 400, $size-15);
+        @include text-base(var(--text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         margin-bottom: 10px;
     }
     .error-message {
-        @include text-base(var(--error-color), $text-font, 400, $size-10);
+        @include text-base(var(--error-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-10, $size-15);
         margin: 0px 0px 10px 10px;
         width: auto;
     }
@@ -97,7 +125,8 @@
         background-color: var(--input-bc-color);
         border: 1px solid var(--button-color);
         border-radius: 4px;
-        @include text-base(var(--text-color), $text-font, 300, $size-15);
+        @include text-base(var(--text-color), $text-font, 300, null);
+        @include responsive-font($size-10, $size-15, $size-20);
         resize: none;
         &:focus {
             border-color: var(--accent-color);
@@ -109,6 +138,10 @@
             color: var(--secondary-text-color);
             opacity: 1;
             font-size: 15px;
+        }
+        //2k laptops >2560
+        @media (min-width: $bp-desktop-2k) {
+            min-width: 15vw;
         }
     }
     .btn-section {
@@ -123,6 +156,10 @@
         border-color: var(--error-color) !important;
         color: var(--text-color) !important;
         margin-right: 20px;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            margin-right: 10px;
+        }
     }
     button {
         margin: 0%;
