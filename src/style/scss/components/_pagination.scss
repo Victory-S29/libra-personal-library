@@ -1,0 +1,36 @@
+.rs-pagination {
+    @include flex-container(row, 5px, center, center);
+    margin-bottom: $basic-margin-y;
+}
+
+.rs-pagination-btn, .rs-pagination-btn-active {
+    @include flex-container(row, 0, center, center);
+    @include btn-base(30px, 30px, 5px, 1px solid var(--button-color), 0);
+    @include text-base(var(--text-color), $text-font, 400, null);
+    @include responsive-font($size-10, $size-15, $size-25);
+    min-width: 30px;
+    background-color: var(--background-color);
+    text-align: center;
+
+    //phones
+    @media (max-width: $bp-tablet) {
+        @include btn-base(20px, 20px, 5px, 1px solid var(--button-color), 0);
+        min-width: 20px;
+    }
+    
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+      @include btn-base(35px, 35px, 5px, 1px solid var(--button-color), 0);
+        min-width: 35px;
+    }
+   
+}
+
+.rs-pagination-btn-active {
+    border: none;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    &:focus {
+        border: none;
+    }
+}

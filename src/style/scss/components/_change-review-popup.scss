@@ -6,6 +6,12 @@
     top: 0;
     width: 100%;
     z-index: 100;
+    .input-group {
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .review-popup {
@@ -14,11 +20,25 @@
     border: 2px solid var(--secondary-color);
     padding: 20px 40px;
     width: 35vw;
-    label {
-        @include text-base(var(--text-color), $text-font, 200, $size-20);
-        text-align: center;
-        margin-bottom: 20px;
+
+    //phones
+    @media (max-width: $bp-tablet) {
+        width: 80vw;
+        padding: 10px;
     }
+
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        min-height: 20vh;
+    }
+
+    label {
+        @include text-base(var(--text-color), $text-font, 200, null);
+        @include responsive-font($size-15, $size-20, $size-30);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
     textarea {
         width: 100%;
         min-width: 30vw;
@@ -26,20 +46,27 @@
         padding: 10px;
         background-color: var(--input-bc-color);
         border: 1px solid var(--button-color);
-        @include text-base(var(--text-color), $text-font, 300, $size-15);
+        @include text-base(var(--text-color), $text-font, 300, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         resize: none;
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: 70vw;
+        }
         &:focus {
             border-color: var(--accent-color);
             outline: none;
             box-shadow: 0 0 0 2px rgba(100, 150, 255, 0.2);
             background-color: var(--button-focus-color);
         }
+
         &::placeholder {
+            @include responsive-font($size-10, $size-15, $size-20);
             color: var(--secondary-text-color);
             opacity: 1;
-            font-size: 15px;
         }
     }
+
     button {
         margin: 0%;
     }

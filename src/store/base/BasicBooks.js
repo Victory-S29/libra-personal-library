@@ -533,6 +533,63 @@ const initialStateBooks = {
           finished: false,
         },
         addedAt: "2025-03-20T15:30:00Z"
+      },
+      {
+        id: generateUniqueId("NoCover", "1"),
+        image: NoCover,
+        title: "",
+        author: "",
+        category: { en: "", de: "" },
+        notes: [],
+        review: {
+          rating: 0,
+          text: ""
+        },
+        lists: {
+          liked: false,
+          saved: false,
+          inProgress: false,
+          finished: false,
+        },
+        addedAt: "2025-03-20T15:30:00Z"
+      },
+      {
+        id: generateUniqueId("NoCover", "2"),
+        image: NoCover,
+        title: "",
+        author: "",
+        category: { en: "", de: "" },
+        notes: [],
+        review: {
+          rating: 0,
+          text: ""
+        },
+        lists: {
+          liked: false,
+          saved: false,
+          inProgress: false,
+          finished: false,
+        },
+        addedAt: "2025-03-20T15:30:00Z"
+      },
+      {
+        id: generateUniqueId("NoCover", "3"),
+        image: NoCover,
+        title: "",
+        author: "",
+        category: { en: "", de: "" },
+        notes: [],
+        review: {
+          rating: 0,
+          text: ""
+        },
+        lists: {
+          liked: false,
+          saved: false,
+          inProgress: false,
+          finished: false,
+        },
+        addedAt: "2025-03-20T15:30:00Z"
       }
     ]
   }

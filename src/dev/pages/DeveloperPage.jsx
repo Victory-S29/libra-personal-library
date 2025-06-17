@@ -61,7 +61,7 @@ const DeveloperPage = () => {
                     {dev.courses.data.map((course, index) => (
                         <div className="course-card" key={index}>
                             <div>
-                                <h3>{course.title}</h3>
+                                <h5>{course.title}</h5>
                                 <p>{course.provider}</p>
                                 <p>{course.years}</p>
                             </div>

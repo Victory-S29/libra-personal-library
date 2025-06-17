@@ -2,31 +2,58 @@
     display: grid;
     grid-template-columns: 60% 40%;
     margin-top: 20px;
+    //phones
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 100%;
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        grid-template-columns: 50% 50%;
+    }
     .main-section {
         @include flex-container(flex, $size-10, space-between, start);
         margin-bottom: 15px;
+        //phones
+        @media (max-width: $bp-tablet) {
+            justify-content: center;
+            margin-bottom: 10px;
+        }
         #username {
             width: 50%;
+            //phones
+            @media (max-width: $bp-tablet) {
+                width: 100%;
+            }
         }
     }
     .main-section--title {
         width: 40%;
         text-align: center;
         margin: auto;
-        h2 {
-            @include text-base(var(--title-color), $font-weight: 400, $font-size: 17px);
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: 30%;
         }
-        p {
-            @include text-base(var(--text-color), $font-weight: 400, $font-size: 13px);
+        h2 {
+            @include text-base(var(--title-color), $title-font, 400, null);
+            @include responsive-font($size-15, $size-17, $size-30);
+            //phones
+            @media (max-width: $bp-tablet) {
+                text-align: start;
+            }
         }
     }
-
     .main-section--form {
         width: 60%;
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: 70%;
+        }
         button {
             display: inline;
             @include btn-base($width: 50px);
-            @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+            @include text-base(var(--active-text-color), $text-font, 400, null);
+            @include responsive-font($size-10, $size-15, $size-25);
             background-color: var(--background-color);
             margin: 10px 10px 10px 0;
         }
@@ -36,36 +63,80 @@
 .main-settings--section {
     border-right: 1px solid var(--separators-color);
     padding: 10px;
-
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        padding: 30px;
+    }
     button {
         display: block;
         margin: 30px auto;
         @include btn-base();
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        min-width: 150px;
+        @include text-base(var(--active-text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         background-color: var(--background-color);
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin: 20px auto;
+            width: auto;
+        }
     }
 }
 .additional-settings {
+    .main-section {
+        //phones
+        @media (max-width: $bp-tablet) {
+            @include flex-container(row, 10px, center, space-between);
+            width: 80%;
+            margin: auto;
+        }
+    }
+    .main-section--title {
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: auto;
+            text-align: start;
+            margin: 0px;
+        }
+    }
     .signoutLink {
-        display: block;
-        @include btn-base($width: 150px);
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        display: inline-block;
+        min-width: 120px;
+        @include btn-base();
+        @include text-base(var(--active-text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         background-color: var(--background-color);
         margin: 10px 10px 10px 0;
         text-align: center;
     }
     .main-section--form {
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: auto;
+        }
         .lang-button {
-            width: 50px;
+            @include btn-base(50px, 50px);
+            min-width: 50px;
+            //large laptops >1920
+            @media (min-width: $bp-desktop-xl) {
+                @include btn-base(70px, 70px);
+                min-width: 70px;
+            }
         }
         .theme-button {
-            width: 50px;
+            @include btn-base(50px, 50px);
+            min-width: 50px;
+            //large laptops >1920
+            @media (min-width: $bp-desktop-xl) {
+                @include btn-base(70px, 70px);
+                min-width: 70px;
+            }
         }
         .active {
             background-color: var(--button-focus-color);
         }
         button {
-            @include btn-base($width: 150px);
+            @include btn-base();
         }
         #delete {
             border-color: var(--error-color);
@@ -76,5 +147,5 @@
 
 .exit-section {
     border-top: 1px solid var(--separators-color);
-    margin-top: 20%;
+    margin-top: 20vh;
 }

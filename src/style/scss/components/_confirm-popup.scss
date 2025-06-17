@@ -7,32 +7,65 @@
     left: 0;
     width: 100%;
     z-index: 100;
+    .input-group {
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .confirm-popup {
+    @include flex-container(column, 0px, center, center);
     background-color: var(--background-color);
     border: 2px solid var(--secondary-color);
     padding: 20px 40px;
-    width: 35%;
+    width: 35vw;
     padding: 20px;
-    div{
+    //phones
+    @media (max-width: $bp-tablet) {
+        width: 80vw;
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        padding: 40px;
+        width: 25vw;
+    }
+    div {
         margin-top: 20px;
         @include flex-container(row);
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin-top: 10px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            width: 50%;
+        }
     }
-    h3{
-        @include text-base(var(--title-color), $font-weight: 400, $font-size: 15px);
-        text-align: center
+    h3 {
+        @include text-base(var(--text-color), $text-font, 200, null);
+        @include responsive-font($size-15, $size-20, $size-30);
+        text-align: center;
+        margin-bottom: 10px;
     }
-    .confirm-btn{
+    .confirm-btn,
+    .cansel-btn {
         @include btn-base();
-        border-color: var(--confirm-color);
-        @include text-base(var(--text-color), $font-weight: 400, $font-size: $size-15);
+        @include text-base(var(--text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         background-color: var(--background-color);
-    }
-    .cansel-btn{
-        @include btn-base();
-        border-color: var(--error-color);
-        @include text-base(var(--text-color), $font-weight: 400, $font-size: $size-15);
-        background-color: var(--background-color);
+
+        &:last-of-type {
+            border-color: var(--confirm-color);
+        }
+        &:first-of-type {
+            border-color: var(--error-color);
+        }
+
+        //phones
+        @media (max-width: $bp-tablet) {
+            min-width: 30vw;
+        }
     }
 }

@@ -2,19 +2,49 @@
     @include flex-container($direction: row, $justify-content: start);
     width: 80%;
     margin: 10px auto 20px auto;
+
+    //phones
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        padding: 10px 5px;
+    }
+
     .icon {
         width: 18px;
         height: 18px;
         margin-right: 5px;
+
+        //phones
+        @media (max-width: $bp-tablet) {
+            width: 15px;
+            height: 15px;
+        }
+
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            width: 25px;
+            height: 25px;
+        }
     }
+
     .active {
         border-bottom: 2px solid var(--secondary-color);
     }
+
     #createNewBook {
-        @include text-base(var(--active-text-color), $text-font, 400, 15px);
+        @include text-base(var(--active-text-color), $text-font, 400, null);
+        @include responsive-font(10px, 15px, 20px);
     }
 }
+
 .breadcrumb-component--link {
-    @include text-base(var(--text-color), $text-font, 400, 15px);
+    @include text-base(var(--text-color), $text-font, 400, null);
+    @include responsive-font(10px, 15px, 20px);
     padding: 10px 15px;
+
+    //phones
+    @media (max-width: $bp-tablet) {
+        @include flex-container(row, 0px, center, center);
+        padding: 5px;
+    }
 }

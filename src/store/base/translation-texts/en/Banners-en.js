@@ -23,7 +23,7 @@ const initialStateBannersEn = {
             change: "Change",
             saveChanges: "Save changes",
             delete: "Delete",
-            add:"Add"
+            add: "Add"
         },
     },
     featuresComponent: {
@@ -185,7 +185,8 @@ const initialStateBannersEn = {
             searchBooksInput: "Search book, author, edition..."
         },
         messages: {
-            noBooksFound: "You haven't added any books yet."
+            noBooksFound: "You haven't added any books yet.",
+            youMayLike: "You may also like..."
         },
     }
 };

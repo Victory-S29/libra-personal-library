@@ -4,31 +4,24 @@
     gap: 3%;
     margin-top: 20px;
     padding: 10px;
+    //phones
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 100%;
+        margin-top: 10px;
+        gap: 10px;
+    }
     input,
-    textarea {
-        &::placeholder {
-            font-size: 15px;
-        }
+    textarea,
+    input::placeholder,
+    textarea::placeholder {
+        @include responsive-font($size-10, $size-15, $size-20);
     }
     .error-message {
-        margin: 0px 0px 20px 10px;
-        @include text-base(var(--error-color), $text-font, 400, $size-10);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-15;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-20;
-        }
+        margin: 0px 0px 10px 10px;
+        @include text-base(var(--error-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-10, $size-20);
     }
-    p {
-        @include text-base(var(--text-color), $text-font, 400, $size-15);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
-        }
-    }
+
     .image--section {
         @include flex-container();
         img {
@@ -36,8 +29,17 @@
             object-fit: contain;
             width: 100%;
             max-height: 60vh;
+            //phones
+            @media (max-width: $bp-tablet) {
+                max-height: 30vh;
+            }
+            //large laptops >1920
+            @media (min-width: $bp-desktop-xl) {
+                max-height: 30vh;
+            }
         }
     }
+
     .data--section {
         ::-webkit-scrollbar {
             width: 2px;
@@ -53,11 +55,32 @@
             }
         }
         .name--section {
-            @include flex-container(row, $size-10, space-between, start);
+            @include flex-container(column, 0px, space-between, start);
+            div{
+                @include flex-container(row, 10px, space-between, start);
+            }
+            .input-group{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .custom-select {
+            //phones
+            @media (max-width: $bp-tablet) {
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+        .selected-option {
+            margin: 10px auto;
         }
         .users-progress {
             @include flex-container(column, 5px, space-between, start);
             margin: 0px;
+            //phones
+            @media (max-width: $bp-tablet) {
+                width: 100%;
+            }
             .users-progress-inputs {
                 @include flex-container(row, 5px, space-between, start);
             }
@@ -67,32 +90,52 @@
                 margin: 0 0.5rem;
             }
         }
-        input#tags {
-            width: 90%;
+        .input-group {
+            //phones
+            @media (max-width: $bp-tablet) {
+                margin: 5px auto;
+                width: 100%;
+            }
         }
+        input#tags {
+            width: 80%;
+        }
+
         input#rating {
             width: 10%;
         }
-        textarea {
-            width: 70%;
-            min-height: 150px;
-            padding: 10px;
-            background-color: var(--input-bc-color);
-            border: 1px solid var(--button-color);
-            border-radius: 4px;
-            @include text-base(var(--text-color), $text-font, 300, $size-15);
-            resize: none;
+        input#tags,
+        input#rating {
+            @media (max-width: $bp-tablet) {
+                width: 100%;
+            }
+        }
+    }
 
-            &:focus {
-                border-color: var(--accent-color);
-                outline: none;
-                box-shadow: 0 0 0 2px rgba(100, 150, 255, 0.2);
-                background-color: var(--button-focus-color);
-            }
-            &::placeholder {
-                color: var(--secondary-text-color);
-                opacity: 1;
-            }
+    textarea {
+        width: 80%;
+        min-height: 150px;
+        padding: 10px;
+        background-color: var(--input-bc-color);
+        border: 1px solid var(--button-color);
+        border-radius: 4px;
+        @include text-base(var(--text-color), $text-font, 200, null);
+
+        resize: none;
+        //phones
+        @media (max-width: $bp-tablet) {
+            margin: 0 auto;
+            width: 100%;
+        }
+        &:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(100, 150, 255, 0.2);
+            background-color: var(--button-focus-color);
+        }
+        &::placeholder {
+            color: var(--secondary-text-color);
+            opacity: 1;
         }
     }
 }

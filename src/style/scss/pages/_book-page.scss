@@ -2,11 +2,7 @@
     @include flex-container(column, 10px, space-between, center);
     padding: 10px;
 
-    .slider-section {
-        width: 90%;
-    }
-
-    .description-paragraf {
+    .description-paragraph {
         white-space: normal;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -14,50 +10,69 @@
         overflow-y: scroll;
         padding-right: 5px;
         margin-bottom: 10px;
+
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            max-height: 25vh;
+            width: 100%;
+            margin-bottom: 0px;
+        }
     }
 
     button {
         @include btn-base();
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+        @include text-base(var(--active-text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         background-color: var(--background-color);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            min-width: 120px;
         }
-        @media (max-width: $md) {
-            width: 100px;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             padding: 15px 20px;
         }
     }
-    .change-btn {
-        @include btn-base();
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
-        background-color: var(--background-color);
-        text-align: center;
-        margin: 10px 0;
-    }
+
     button#delete {
         border-color: var(--error-color);
         align-self: center;
         margin-top: 40px;
         color: var(--text-color);
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            margin-top: 20px;
+        }
     }
+
     h1 {
-        @include text-base(var(--title-color), $title-font, 400, 24px);
+        @include text-base(var(--title-color), $title-font, 400, null);
+        @include responsive-font($size-15, $size-25, $size-30);
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            width: 80%;
+            text-align: center;
+        }
     }
     h3 {
-        @include text-base(var(--text-color), $text-font, 400, 14px);
+        @include text-base(var(--text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-20);
         margin-bottom: 10px;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            margin-bottom: 0px;
+        }
     }
     p {
-        @include text-base(var(--text-color), $text-font, 400, 15px);
         text-align: center;
         margin: 0 auto;
         width: 70%;
         span {
             color: var(--active-text-color);
+        }
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            width: 100%;
         }
     }
 
@@ -82,11 +97,24 @@
     display: grid;
     grid-template-columns: 30% 70%;
     align-items: center;
+    //tablets and phones
+    @media (max-width: $bp-laptop) {
+        grid-template-columns: 1fr;
+    }
     img {
         margin: 0 auto;
         object-fit: contain;
         max-height: 60vh;
         max-width: 100%;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            max-height: 30vh;
+            margin-bottom: 10px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            max-height: 40vh;
+        }
     }
     div {
         @include flex-container(column, 10px, center, center);
@@ -98,18 +126,29 @@
 }
 
 .users-progress {
+    //tablets and phones
+    @media (max-width: $bp-laptop) {
+        width: 80%;
+        border-bottom: 1px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
     .book-rating {
         @include flex-container(row, 3px, center, center);
         width: 100%;
-        @media (min-width: $xxxl) {
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             margin-top: 5px;
         }
     }
     .actions-bar {
-        @include flex-container(row, 20px, center, start);
+        @include flex-container(row, 20px, center, center);
         margin-top: 5px;
         width: 100%;
-        @media (min-width: $xxxl) {
+
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             margin-top: 10px;
         }
     }
@@ -119,44 +158,22 @@
     width: 100%;
     display: grid;
     grid-template-columns: 30% 70%;
+    //tablets and phones
+    @media (max-width: $bp-laptop) {
+        grid-template-columns: 1fr;
+    }
     section {
         text-align: center;
         @include flex-container(column, 10px, center, center);
     }
-
+    .description-paragraph {
+        padding-right: 15px;
+        //tablets and phones
+        @media (max-width: $bp-laptop) {
+            padding-right: 5px;
+        }
+    }
     p {
         width: 100%;
-    }
-    .splide__arrow svg {
-        fill: var(--active-text-color);
-    }
-    .splide__arrow {
-        border: none;
-        background-color: var(--background-color);
-        border-radius: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s ease;
-        z-index: 2;
-        height: 2em;
-        opacity: 0.7;
-        padding: 0;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 2em;
-
-        &:hover {
-            background-color: var(--button-focus-color);
-        }
-
-        &--prev {
-            left: -30px;
-        }
-
-        &--next {
-            right: -30px;
-        }
     }
 }

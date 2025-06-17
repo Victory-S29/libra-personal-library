@@ -11,32 +11,33 @@
 }
 
 h1 {
-    @include text-base(var(--title-color), $title-font, $font-weight: 400, $font-size: $size-40);
+    @include text-base(var(--title-color), $title-font, 400, null);
+    @include responsive-font($size-35, $size-40, $size-50);
 }
 
 h2 {
-    @include text-base(var(--title-color), $text-font, $font-weight: 400, $font-size: $size-40);
+    @include text-base(var(--title-color), $title-font, 400, null);
+    @include responsive-font($size-35, $size-40, $size-50);
     line-height: 200%;
     text-align: center;
-
-    @media (max-width: $md) {
-        font-size: $size-30;
-    }
-    @media (min-width: $xxxl) {
-        font-size: $size-50;
+    @media (max-width: $bp-tablet) {
+        margin: 0px 10px;
     }
 }
 
 h4 {
-    @include text-base(var(--title-color), $title-font, $font-weight: 500, $font-size: 1.5rem);
+    @include text-base(var(--title-color), $title-font, 500, null);
+    @include responsive-font($size-20, $size-25, $size-35);
 }
 
 h5 {
-    @include text-base(var(--title-color), $title-font, $font-weight: 400, $font-size: $size-20);
+    @include text-base(var(--title-color), $title-font, 400, null);
+    @include responsive-font($size-15, $size-20, $size-30);
 }
 
 p {
-    @include text-base(var(--text-color), $text-font, $font-weight: 400, $font-size: $size-15);
+    @include text-base(var(--text-color), $text-font, 400, null);
+    @include responsive-font($size-10, $size-15, $size-20);
 }
 
 p::first-letter {
@@ -50,23 +51,36 @@ a {
 .book-rating {
     @include flex-container(row, 3px, center, center);
     width: 100%;
-    @media (min-width: $xxxl) {
-        margin-top: 5px;
+}
+
+.input-group {
+    margin-bottom: $basic-margin-y;
+    //phones
+    @media (max-width: $bp-tablet) {
+          margin-bottom: calc($basic-margin-y - 5px);
+    }
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
+        margin-bottom: calc($basic-margin-y + 5px);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        @include text-base(var(--text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
     }
 }
+
 input {
     background-color: var(--input-bc-color);
     border: 1px solid var(--button-color);
     border-radius: 4px;
     padding: 12px 10px;
     width: 100%;
-    @include text-base(var(--text-color), $text-font, 200, $size-15);
-    @media (min-width: $xxl) and (max-width: $xxxl) {
-        font-size: $size-20;
-    }
-    @media (min-width: $xxxl) {
-        font-size: $size-25;
-    }
+    @include text-base(var(--text-color), $text-font, 200, null);
+    @include responsive-font($size-10, $size-15, $size-25);
+
     &::placeholder {
         color: var(--secondary-text-color);
         opacity: 1;
@@ -81,8 +95,12 @@ input {
 .change-btn {
     display: block;
     @include btn-base();
-    @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
+    @include text-base(var(--active-text-color), $text-font, 400, null);
+    @include responsive-font($size-10, $size-15, $size-25);
     background-color: var(--background-color);
     text-align: center;
     margin: 10px auto;
+    @media (max-width: $bp-tablet) {
+        min-width: 120px;
+    }
 }

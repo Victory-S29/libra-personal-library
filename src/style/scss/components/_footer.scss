@@ -3,8 +3,8 @@ footer {
     background-color: var(--footer-color);
     margin-top: 40px;
     padding: 40px 90px;
-
-    @media (max-width: $md) {
+    //phones
+    @media (max-width: $bp-tablet) {
         align-items: flex-start;
         flex-direction: column;
         gap: $basic-gap;
@@ -15,36 +15,29 @@ footer {
     ul {
         @include flex-container(row, 50px, center, space-between);
         list-style: none;
-
-        @media (max-width: $md) {
+        //phones
+        @media (max-width: $bp-tablet) {
             align-items: flex-start;
             flex-direction: column;
             gap: $basic-gap;
             margin-left: 30px;
         }
-        @media (min-width: $md) and (max-width: $xl) {
+        @media (min-width: $bp-tablet) and (max-width: $bp-laptop) {
             flex-direction: column;
             gap: $basic-gap;
         }
     }
 
     li a {
-        @include text-base(var(--text-color), $font-weight: 300, $font-size: $size-15);
+        @include text-base(var(--text-color), $text-font, 300, $size-15);
         text-decoration: none;
-        &:hover {
-            color: var(--text-color);
-        }
-        &:visited {
-            color: var(--text-color);
-        }
+        &:hover,
+        &:visited,
         &:active {
             color: var(--text-color);
         }
-
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (min-width: $xxxl) {
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             font-size: $size-25;
             font-weight: 400;
         }
@@ -59,31 +52,21 @@ footer {
     }
 
     h1 {
-        @include text-base(var(--title-color), $font-weight: 200, $font-size: $size-45);
-
-        @media (max-width: $md) {
-            font-size: $size-35;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-50;
-        }
+        @include text-base(var(--title-color), $title-font, 200, null);
+        @include responsive-font($size-35, $size-45, $size-50);
     }
 
     img {
         @include img-base(55px, 40px);
-        @media (min-width: $xxxl) {
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
             @include img-base(55px);
         }
     }
 
     p {
-        @include text-base(var(--text-color), $font-weight: 300, $font-size: $size-15);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
-        }
+        @include text-base(var(--text-color), $text-font, 300, null);
+        @include responsive-font($size-10, $size-15, $size-25);
         padding-left: $small-padding;
     }
 }
@@ -91,40 +74,32 @@ footer {
 .auth-buttons {
     @include flex-container(column, $small-gap, center, center);
 
-    @media (max-width: $md) {
+    @media (max-width: $bp-tablet) {
         flex-direction: row;
         margin-left: 30px;
     }
 
-    .login {
+    .login,
+    .register {
         @include btn-base();
-        @include text-base(var(--active-text-color), $font-weight: 400, $font-size: $size-15);
-        background-color: var(--background-color);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (max-width: $md) {
+        @include text-base(var(--button-text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
+
+        @media (max-width: $bp-tablet) {
             width: 100px;
         }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
+
+        @media (min-width: $bp-desktop-xl) {
             padding: 15px 20px;
         }
     }
 
+    .login {
+        color: var(--active-text-color);
+        background-color: var(--background-color);
+    }
+
     .register {
-        @include btn-base();
-        @include text-base(var(--button-text-color), $font-weight: 400, $font-size: $size-15);
         background-color: var(--button-color);
-        @media (min-width: $xxl) and (max-width: $xxxl) {
-            font-size: $size-20;
-        }
-        @media (max-width: $md) {
-            width: 100px;
-        }
-        @media (min-width: $xxxl) {
-            font-size: $size-25;
-            padding: 15px 20px;
-        }
     }
 }

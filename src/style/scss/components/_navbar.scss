@@ -6,33 +6,32 @@
     z-index: 40;
     @include flex-container(row, 0px, center, space-between);
     padding: 10px $basic-padding;
-
-    @media (max-width: $md) {
-        padding: 10px $small-padding;
+    //phones
+    @media (max-width: $bp-tablet) {
+        height: $nav-height-sm;
+        padding: 10px $basic-padding--small-screens;
     }
-    @media (min-width: $xxxl) {
+    //large laptops >1920
+    @media (min-width: $bp-desktop-xl) {
         height: $nav-max-height;
-        padding: 20px $basic-padding;
+        padding: 20px $basic-padding--large-screens;
     }
     a {
         @include flex-container(row, 5px, center);
         img {
             @include img-base();
-            @media (min-width: $xxl) and (max-width: $xxxl) {
-                @include img-base(35px);
+            //phones
+            @media (max-width: $bp-tablet) {
+                @include img-base(30px);
             }
-            @media (min-width: $xxxl) {
+            //large laptops >1920
+            @media (min-width: $bp-desktop-xl) {
                 @include img-base(55px);
             }
         }
         h1 {
-            @include text-base(var(--title-color), $font-weight: 200, $font-size: $size-30);
-            @media (min-width: $xxl) and (max-width: $xxxl) {
-                font-size: $size-35;
-            }
-            @media (min-width: $xxxl) {
-                font-size: $size-40;
-            }
+            @include text-base(var(--title-color), $title-font, 200, null);
+            @include responsive-font($size-25, $size-30, $size-40);
         }
     }
 }

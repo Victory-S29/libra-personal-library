@@ -6,11 +6,13 @@
     justify-content: $justify-content;
 }
 
-@mixin text-base($color: var(--text-color), $font-family: $title-font, $font-weight: 400, $font-size: 30px) {
+@mixin text-base($color: var(--text-color), $font-family: $text-font, $font-weight: 400, $font-size: null) {
     color: $color;
     font-family: $font-family;
     font-weight: $font-weight;
-    font-size: $font-size;
+    @if $font-size != null {
+        font-size: $font-size;
+    }
 }
 
 @mixin img-base($height: 35px, $width: 100%) {
@@ -32,7 +34,7 @@
 }
 
 @mixin btn-base(
-    $width: 150px,
+    $width: auto,
     $height: auto,
     $padding: 10px 15px,
     $border: 2px solid var(--button-color),
@@ -44,4 +46,15 @@
     border: $border;
     border-radius: $border-radius;
     cursor: pointer;
+    min-width: 150px;
+}
+
+@mixin responsive-font($mobile, $desktop, $xl) {
+    font-size: $desktop;
+    @media (max-width: $bp-tablet) {
+        font-size: $mobile;
+    }
+    @media (min-width: $bp-desktop-xl) {
+        font-size: $xl;
+    }
 }
