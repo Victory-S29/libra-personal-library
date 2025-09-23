@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BreadcrumbComponent from '../components/BreadcrumbComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +7,7 @@ import { getAllDataSelector, getFiltersSelector } from '../../store/reducers/cat
 import CustomSelect from '../components/CustomSelect';
 import ConfirmPopup from '../components/ConfirmPopup';
 import { addNewBookAction } from '../../store/actions/catalogue.action';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 const NoCover = "https://raw.githubusercontent.com/Victory-S29/libra-personal-library/main/src/store/base/images/NoCover.jpg";
 
 const CreateNewBook = () => {
@@ -126,6 +126,12 @@ const CreateNewBook = () => {
     const handleCancelChanges = () => {
         setShowConfirmPopupChange(false);
     };
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <div>
             <BreadcrumbComponent />

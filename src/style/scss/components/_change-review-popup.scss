@@ -66,8 +66,26 @@
             opacity: 1;
         }
     }
+    .button-group {
+        @include flex-container(row);
+    }
+    .change-btn,
+    .cansel-btn {
+        @include btn-base();
+        @include text-base(var(--text-color), $text-font, 400, null);
+        @include responsive-font($size-10, $size-15, $size-25);
+        background-color: var(--background-color);
 
-    button {
-        margin: 0%;
+        &:last-of-type {
+            border-color: var(--confirm-color);
+        }
+        &:first-of-type {
+            border-color: var(--error-color);
+        }
+
+        //phones and tablets
+        @media (max-width: $bp-laptop) {
+            min-width: 100px;
+        }
     }
 }

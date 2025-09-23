@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BreadcrumbComponent from '../../components/BreadcrumbComponent';
 import { getAllDataSelector } from '../../../store/reducers/catalogue.reducer';
 import { useSelector } from 'react-redux';
 import { Book } from '../../';
 import { getBannersSelector } from '../../../store/reducers/languages.reducer';
+import { useLocation } from 'react-router-dom';
 
 const FinishedBooksPage = () => {
     const bannersData = useSelector(getBannersSelector);
     const allData = useSelector(getAllDataSelector);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     const [sortQuery, setSortQuery] = useState('');
     const finishedBooks = allData
         .filter((book) => book.lists.finished === true)

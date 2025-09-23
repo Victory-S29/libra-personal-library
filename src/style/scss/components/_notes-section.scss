@@ -150,6 +150,10 @@
         button {
             @include btn-base($width: 100%);
             margin: 0;
+            //phones
+            @media (max-width: $bp-tablet) {
+                min-width: auto;
+            }
         }
     }
     .cancel-btn {
