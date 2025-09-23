@@ -125,10 +125,11 @@
 
 .developer-page--education {
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
     //phones
     @media (max-width: $bp-tablet) {
         margin: 10px auto;
+        text-align: center;
     }
     p {
         margin-left: 20px;
@@ -145,20 +146,22 @@
 
 .developer-page--skills {
     margin: 20px auto;
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
     //phones
     @media (max-width: $bp-tablet) {
+        text-align: center;
         margin: 10px auto;
     }
 }
 
 .developer-page--courses {
     margin: 20px auto;
-    text-align: center;
+    text-align: left;
     //phones
     @media (max-width: $bp-tablet) {
         margin: 10px auto;
+        text-align: center;
     }
     section {
         display: grid;

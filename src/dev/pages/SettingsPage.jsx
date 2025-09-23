@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { changeLoginAction, changeUserAction, deleteUserAction } from '../../store/actions/user.action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getBannersSelector, getCurrentLanguageSelector } from '../../store/reducers/languages.reducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons'
@@ -144,6 +144,12 @@ const SettingsPage = () => {
     const handleLanguageChange = (lang) => {
         dispatch(setLanguageAction(lang));
     };
+
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <div className='settings-page'>
             <section className='main-settings--section'>

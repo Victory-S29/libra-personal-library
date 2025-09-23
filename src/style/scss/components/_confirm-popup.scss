@@ -63,9 +63,13 @@
             border-color: var(--error-color);
         }
 
-        //phones
+        //phones and tablets
         @media (max-width: $bp-tablet) {
-            min-width: 30vw;
+            min-width: 100px;
+        }
+        //large laptops >1920
+        @media (min-width: $bp-desktop-xl) {
+            min-width: calc(auto + 10px);
         }
     }
 }

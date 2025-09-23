@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getAllDataSelector } from '../../store/reducers/catalogue.reducer';
 import StarRating from '../sliders/StarRating';
 import {
@@ -93,7 +93,11 @@ const BookPage = () => {
     const handleCancelDelete = () => {
         setShowConfirmPopupDelete(false);
     };
+    const { pathname } = useLocation();
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <Fragment>
             {currentBook ? (

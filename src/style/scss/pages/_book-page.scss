@@ -14,7 +14,7 @@
         //tablets and phones
         @media (max-width: $bp-laptop) {
             max-height: 25vh;
-            width: 100%;
+            width: 80%;
             margin-bottom: 0px;
         }
     }
@@ -168,9 +168,10 @@
     }
     .description-paragraph {
         padding-right: 15px;
+        width: 90%;
         //tablets and phones
         @media (max-width: $bp-laptop) {
-            padding-right: 5px;
+            padding-right: 0px;
         }
     }
     p {

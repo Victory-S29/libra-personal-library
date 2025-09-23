@@ -18,7 +18,7 @@ const initialStateDeveloperDe = {
         data: [
             { language: "Ukrainisch", level: "Muttersprache" },
             { language: "Englisch", level: "B2" },
-            { language: "Deutsch", level: "A2" },
+            { language: "Deutsch", level: "B1" },
         ]
     },
     education: {

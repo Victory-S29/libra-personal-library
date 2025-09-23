@@ -76,7 +76,7 @@
         }
         .users-progress {
             @include flex-container(column, 5px, space-between, start);
-            margin: 0px;
+            margin: 0 0 5px 0;
             //phones
             @media (max-width: $bp-tablet) {
                 width: 100%;

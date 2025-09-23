@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BreadcrumbComponent from '../../components/BreadcrumbComponent';
 import { useSelector } from 'react-redux';
 import { getBannersSelector } from '../../../store/reducers/languages.reducer';
 import { getAllDataSelector } from '../../../store/reducers/catalogue.reducer';
 import Book from '../../sliders/Book';
+import { useLocation } from 'react-router-dom';
 
 const LikedBooksPage = () => {
     const bannersData = useSelector(getBannersSelector);
@@ -18,6 +19,11 @@ const LikedBooksPage = () => {
         .sort((a, b) => {
             return a.title.localeCompare(b.title);
         });
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <div>
             <BreadcrumbComponent />

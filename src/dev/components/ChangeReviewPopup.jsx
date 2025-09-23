@@ -22,6 +22,9 @@ const ChangeReviewPopup = ({ setShowChangeReviewPopup, review, bookId }) => {
         dispatch(changeBookReviewAction(bookId, reviewData));
         setShowChangeReviewPopup(false);
     }
+    const onCancel = () => {
+        setShowChangeReviewPopup(false);
+    }
 
     return (
         <div className='change-review-container'>
@@ -36,7 +39,10 @@ const ChangeReviewPopup = ({ setShowChangeReviewPopup, review, bookId }) => {
                         onChange={(e) => setReviewData(e.target.value)}
                     />
                 </div>
-                <button className='change-btn' onClick={onClick}>{bannersData.notifications.basic.change}</button>
+                <div className="button-group">
+                    <button onClick={onCancel} className="cansel-btn">{bannersData.notifications.basic.cancel}</button>
+                    <button className='change-btn' onClick={onClick}>{bannersData.notifications.basic.change}</button>
+                </div>
             </section>
         </div>
     );

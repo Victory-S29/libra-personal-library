@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBannersSelector } from '../../store/reducers/languages.reducer';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { getAllDataSelector, getFiltersSelector } from '../../store/reducers/catalogue.reducer';
 import CustomSelect from '../components/CustomSelect';
 import ConfirmPopup from '../components/ConfirmPopup';
@@ -123,7 +123,11 @@ const ChangeBookDataPage = () => {
         setBookInfo(initialData);
         setShowConfirmPopupChange(false);
     };
+    const { pathname } = useLocation();
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <form>
             <section className="main-info-change--section">

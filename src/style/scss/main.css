@@ -1747,6 +1747,11 @@ footer li a:hover, footer li a:visited, footer li a:active {
   min-width: 150px;
   margin: 0;
 }
+@media (max-width: 768px) {
+  .note-popup .btn-section button {
+    min-width: auto;
+  }
+}
 .note-popup .cancel-btn {
   border-color: var(--error-color) !important;
   color: var(--text-color) !important;
@@ -1878,7 +1883,13 @@ footer li a:hover, footer li a:visited, footer li a:active {
 @media (max-width: 768px) {
   .confirm-popup .confirm-btn,
   .confirm-popup .cansel-btn {
-    min-width: 30vw;
+    min-width: 100px;
+  }
+}
+@media (min-width: 1920px) {
+  .confirm-popup .confirm-btn,
+  .confirm-popup .cansel-btn {
+    min-width: calc(auto + 10px);
   }
 }
 
@@ -1890,11 +1901,13 @@ footer li a:hover, footer li a:visited, footer li a:active {
   justify-content: start;
   width: 80%;
   margin: 10px auto 20px auto;
+  flex-wrap: wrap;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .breadcrumb-component--section {
     width: 100%;
     padding: 10px 5px;
+    justify-content: center;
   }
 }
 .breadcrumb-component--section .icon {
@@ -2185,8 +2198,53 @@ footer li a:hover, footer li a:visited, footer li a:active {
     font-size: 1.25rem;
   }
 }
-.review-popup button {
-  margin: 0%;
+.review-popup .button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.review-popup .change-btn,
+.review-popup .cansel-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 15px;
+  border: 2px solid var(--button-color);
+  border-radius: 0;
+  cursor: pointer;
+  min-width: 150px;
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  background-color: var(--background-color);
+}
+@media (max-width: 768px) {
+  .review-popup .change-btn,
+  .review-popup .cansel-btn {
+    font-size: 0.625rem;
+  }
+}
+@media (min-width: 1920px) {
+  .review-popup .change-btn,
+  .review-popup .cansel-btn {
+    font-size: 1.5625rem;
+  }
+}
+.review-popup .change-btn:last-of-type,
+.review-popup .cansel-btn:last-of-type {
+  border-color: var(--confirm-color);
+}
+.review-popup .change-btn:first-of-type,
+.review-popup .cansel-btn:first-of-type {
+  border-color: var(--error-color);
+}
+@media (max-width: 1024px) {
+  .review-popup .change-btn,
+  .review-popup .cansel-btn {
+    min-width: 100px;
+  }
 }
 
 .main-info-change--section {
@@ -2321,7 +2379,7 @@ footer li a:hover, footer li a:visited, footer li a:active {
   gap: 5px;
   align-items: space-between;
   justify-content: start;
-  margin: 0px;
+  margin: 0 0 5px 0;
 }
 @media (max-width: 768px) {
   .main-info-change--section .data--section .users-progress {
@@ -2411,7 +2469,7 @@ footer li a:hover, footer li a:visited, footer li a:active {
 @media (max-width: 1024px) {
   .single-book--section .description-paragraph {
     max-height: 25vh;
-    width: 100%;
+    width: 80%;
     margin-bottom: 0px;
   }
 }
@@ -2629,10 +2687,11 @@ footer li a:hover, footer li a:visited, footer li a:active {
 }
 .additional-info .description-paragraph {
   padding-right: 15px;
+  width: 90%;
 }
 @media (max-width: 1024px) {
   .additional-info .description-paragraph {
-    padding-right: 5px;
+    padding-right: 0px;
   }
 }
 .additional-info p {
@@ -2902,11 +2961,12 @@ footer li a:hover, footer li a:visited, footer li a:active {
 
 .developer-page--education {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
 }
 @media (max-width: 768px) {
   .developer-page--education {
     margin: 10px auto;
+    text-align: center;
   }
 }
 .developer-page--education p {
@@ -2925,22 +2985,24 @@ footer li a:hover, footer li a:visited, footer li a:active {
 
 .developer-page--skills {
   margin: 20px auto;
-  text-align: center;
+  text-align: left;
   margin-top: 20px;
 }
 @media (max-width: 768px) {
   .developer-page--skills {
+    text-align: center;
     margin: 10px auto;
   }
 }
 
 .developer-page--courses {
   margin: 20px auto;
-  text-align: center;
+  text-align: left;
 }
 @media (max-width: 768px) {
   .developer-page--courses {
     margin: 10px auto;
+    text-align: center;
   }
 }
 .developer-page--courses section {
